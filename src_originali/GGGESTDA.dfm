@@ -58,6 +58,8 @@ inherited GESTDA: TGESTDA
       Top = 50
       Width = 861
       Height = 551
+      ActivePage = tab_pagina2
+      TabIndex = 1
       TabOrder = 2
       ExplicitTop = 50
       ExplicitWidth = 861
@@ -1604,10 +1606,6 @@ inherited GESTDA: TGESTDA
         Color = clWindow
         ImageIndex = 1
         Caption = 'dati extra'
-        ExplicitLeft = 0
-        ExplicitTop = 0
-        ExplicitWidth = 0
-        ExplicitHeight = 0
         object Label13: TRzLabel
           Left = 5
           Top = 325

@@ -1,14 +1,18 @@
+//
+//Aggiunta nuova tab tab_pagina_ah6_personalizzazioni + contenuto
+//Aggiunta nuova tmyquery ah6_tin + ah6_tin_ds
+
 unit GGGESDIT05;
 
 interface
 
-uses
-  winapi.windows, winapi.messages, system.sysutils, system.variants, system.classes, vcl.graphics, vcl.controls, vcl.forms,
-  vcl.dialogs, GGFORMBASE, data.db, query_go, MyAccess, vcl.menus,
-  vcl.comctrls, RzTabs, vcl.toolwin, GGGESDIT, vcl.stdctrls, vcl.mask,
-  vcl.buttons, vcl.extctrls, vcl.dbctrls, rzLabel, RzPanel, RzDBEdit, RzListVw, RzTreeVw, RzDBChk,
-  RzRadChk, RzButton, RzSplit, RzCmboBx, RzPrgres,
-  RzSpnEdt, RzShellDialogs, RzDBCmbo, raizeedit_go, RzEdit, DBAccess, MemDS,
+uses 
+  winapi.windows, winapi.messages, system.sysutils, system.variants, system.classes, vcl.graphics, vcl.controls, vcl.forms, 
+  vcl.dialogs, GGFORMBASE, data.db, query_go, MyAccess, vcl.menus, 
+  vcl.comctrls, RzTabs, vcl.toolwin, GGGESDIT, vcl.stdctrls, vcl.mask, 
+  vcl.buttons, vcl.extctrls, vcl.dbctrls, rzLabel, RzPanel, RzDBEdit, RzListVw, RzTreeVw, RzDBChk, 
+  RzRadChk, RzButton, RzSplit, RzCmboBx, RzPrgres, 
+  RzSpnEdt, RzShellDialogs, RzDBCmbo, raizeedit_go, RzEdit, DBAccess, MemDS, 
   GGGESARC, Vcl.WinXCtrls, RzGroupBar;
 
 type
@@ -202,11 +206,11 @@ type
     v_aggiorna_costo_da_acquisti: TRzDBCheckBox;
     //modifica
     tab_pagina_ah6_personalizzazioni: TRzTabSheet;
-    RzLabel11: TRzLabel;
+    ah6_tin: TMyQuery_go;
+    ah6_tin_ds: TMyDataSource;
+    ah6_lb_tin_codice: TRzLabel;
     v_ah6_tin_codice: trzdbedit_go;
-    rzdbeditdescrizione_go18: trzdbeditdescrizione_go;
-    tin: TMyQuery_go;
-    tin_ds: TMyDataSource;
+    ah6_v_descrizione_tin: trzdbeditdescrizione_go;
     //modifica fine
     procedure v_tmo_codice_chiusuraExit(Sender: TObject);
     procedure v_tmo_codice_aperturaExit(Sender: TObject);
@@ -237,8 +241,9 @@ type
     procedure v_tma_codice_manutenzioniExit(Sender: TObject);
     procedure v_tmo_codice_manutenzioniExit(Sender: TObject);
     procedure FormShow(Sender: TObject);
+    //modifica
     procedure v_ah6_tin_codiceExit(Sender: TObject);
-
+    //modifica fine
   protected
     procedure tmo_codice_rettifica_inventario_controllo(blocco: boolean);
     procedure tmo_codice_chiusura_controllo(blocco: boolean);
@@ -278,20 +283,13 @@ var
 
 implementation
 
-{$r *.dfm}
-
+{$R *.dfm}
 
 uses DMARC;
 
 procedure TGESDIT05.assegna_codice;
 begin
   inherited;
-end;
-
-procedure TGESDIT05.v_ah6_tin_codiceExit(Sender: TObject);
-begin
-  inherited;
-  ah6_tin_codice_controllo(true);
 end;
 
 procedure TGESDIT05.v_codiceEnter(Sender: TObject);
@@ -355,11 +353,9 @@ begin
   top_codice_controllo(false);
   tma_codice_manutenzioni_controllo(false);
   tmo_codice_manutenzioni_controllo(false);
-
   //modifica
   ah6_tin_codice_controllo(false);
   //modifica fine
-
 end;
 
 procedure TGESDIT05.controllo_campi;
@@ -387,7 +383,6 @@ begin
   top_codice_controllo(true);
   tma_codice_manutenzioni_controllo(true);
   tmo_codice_manutenzioni_controllo(true);
-
   //modifica
   ah6_tin_codice_controllo(true);
   //modifica fine
@@ -687,13 +682,6 @@ begin
   tabella_controllo(true, tmo_commesse, v_tmo_codice_commesse, blocco, tab_control, tab_pagina2, tabella);
 end;
 
-//modifica
-procedure TGESDIT05.ah6_tin_codice_controllo(blocco: boolean);
-begin
-  tabella_controllo(true, tin, v_ah6_tin_codice, blocco, tab_control, tab_pagina_ah6_personalizzazioni, tabella);
-end;
-//modifica fine
-
 procedure TGESDIT05.before_post;
 begin
   inherited;
@@ -714,8 +702,8 @@ begin
 
   if v_codice.text = ditta then
   begin
-    inventario_fiscale := tabella.fieldbyname('tipo_inventario').asstring;
-    inventario_gestionale := tabella.fieldbyname('valorizzazione_gestionale').asstring;
+  inventario_fiscale := tabella.fieldbyname('tipo_inventario').asstring;
+  inventario_gestionale := tabella.fieldbyname('valorizzazione_gestionale').asstring;
 
     arc.arcdit.execsql('set @tma_codice_principale = ' + quotedstr(tabella.fieldbyname('tma_codice_principale').asstring));
   end;
@@ -723,8 +711,21 @@ begin
   close;
 end;
 
-initialization
+//modifica
+procedure TGESDIT05.v_ah6_tin_codiceExit(Sender: TObject);
+begin
+  inherited;
+   ah6_tin_codice_controllo(true);
+end;
 
-registerclass(tgesdit05);
+procedure TGESDIT05.ah6_tin_codice_controllo(blocco: boolean);
+begin
+  tabella_controllo(true, ah6_tin, v_ah6_tin_codice, blocco, tab_control, tab_pagina_ah6_personalizzazioni, tabella);
+end;
+//modifica fine
+
+initialization
+  registerclass(tgesdit05);
 
 end.
+

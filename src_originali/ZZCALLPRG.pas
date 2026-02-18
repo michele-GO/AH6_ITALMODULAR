@@ -2,7 +2,7 @@ unit ZZCALLPRG;
 
 interface
 
-uses sysutils;
+uses system.sysutils;
 
 procedure assegna_programma_personalizzato(programma_da_eseguire: string; var codice_archivio: variant;
   var programma_personalizzato: boolean);
@@ -13,7 +13,7 @@ const
 
 implementation
 
-uses variants;
+uses system.variants;
 
 procedure assegna_programma_personalizzato(programma_da_eseguire: string; var codice_archivio: variant;
 var

@@ -10,7 +10,7 @@ uses
   Xml.xmldom, Xml.XMLIntf, Xml.XMLDoc, TlHelp32,
   DB, query_go, MyAccess,
   DMARC, ZZPROVV, ZZSPESCO, ZZTOTVEN, ZZTOTACQ, ZZCERCA_PREZZO, zzprzinv,
-  ZZDICINT, ZZLIBRERIE;
+  ZZDICINT, ZZUTILS.MAGAZZINO;
 
 type
   tdocprev_italmodular_righe = record

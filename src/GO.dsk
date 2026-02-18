@@ -1,31 +1,27 @@
 ﻿[Closed Files]
-File_0=TSourceModule,'C:\GestionaleOpen\go_utenti\AH6_ITALMODULAR\src\GGGESORDP.pas',0,1,6528,20,6546,0,0,,
-File_1=TSourceModule,'C:\GestionaleOpen\go_1301\src\GGGESDIT04.pas',0,1,1,1,1,0,0,,
-File_2=TSourceModule,'C:\GestionaleOpen\go_1301\src\GGGESART.pas',0,1,1,1,1,0,0,,
-File_3=TSourceModule,'C:\GestionaleOpen\go_utenti\AH6_ITALMODULAR\src\GGGESTDO.pas',0,1,603,9,621,0,0,,
-File_4=TSourceModule,'C:\GestionaleOpen\go_utenti\AH6_ITALMODULAR\src\GGGESTDA.pas',0,1,497,9,515,0,0,,
-File_5=TSourceModule,'C:\GestionaleOpen\go_utenti\AH6_ITALMODULAR\src\GGGESACQ.pas',0,1,18381,24,18381,0,0,,
-File_6=TSourceModule,'C:\GestionaleOpen\go_utenti\AH6_ITALMODULAR\src\GGGESTOP.pas',0,1,131,56,149,0,0,,
-File_7=TSourceModule,'C:\GestionaleOpen\go_utenti_condivisi\AH6_ITALMODULAR\src\GGCREORDP.pas',0,1,2494,52,2444,0,0,,
-File_8=TSourceModule,'C:\GestionaleOpen\go_1301\src\GGLOGIN.pas',0,1,1,1,1,0,0,,
-File_9=TSourceModule,'c:\program files (x86)\embarcadero\studio\22.0\SOURCE\RTL\SYS\System.SysUtils.pas',0,1,3421,27,3436,0,0,,
-File_10=TSourceModule,'C:\GestionaleOpen\go_1301\src\ZZTOTVEN.pas',0,1,1658,76,1684,0,0,,
-File_11=TSourceModule,'C:\GestionaleOpen\go_1301\src\GGELABORA.pas',0,1,79,6,89,0,0,,
-File_12=TSourceModule,'C:\GestionaleOpen\go_1301\src\GGGESTMO.pas',0,1,615,1,629,0,0,,
-File_13=TSourceModule,'C:\GestionaleOpen\go_1301\src\Vcl.Consts.pas',0,1,493,38,504,0,0,,
+File_0=TSourceModule,'C:\GestionaleOpen\go_utenti_condivisi\AH6_ITALMODULAR\src\GGAH6IMPPREV.pas',0,1,1,1,1,0,0,,
+File_1=TSourceModule,'C:\GestionaleOpen\go_utenti_condivisi\AH6_ITALMODULAR\src\GGAH6GESCMS.pas',0,1,1,1,1,0,0,,
+File_2=TSourceModule,'C:\GestionaleOpen\go_utenti_condivisi\AH6_ITALMODULAR\src\GGAH6ELAORDV.pas',0,1,1,1,1,0,0,,
+File_3=TSourceModule,'C:\GestionaleOpen\go_1301\src_130107\ZZUTILS.MAGAZZINO.pas',0,1,1,23,1,0,0,,
+File_4=TSourceModule,'C:\GestionaleOpen\go_1301\src_130107\ZZEVAODP.pas',0,1,1250,22,1276,0,0,,
+File_5=TSourceModule,'C:\GestionaleOpen\go_utenti_condivisi\AH6_ITALMODULAR\src\ZZLIBRERIE_ITALMODULAR.pas',0,1,1,30,13,0,0,,
+File_6=TSourceModule,'C:\GestionaleOpen\go_utenti_condivisi\AH6_ITALMODULAR\src\ZZCALLPRG.pas',0,1,1,1,1,0,0,,
+File_7=TSourceModule,'C:\GestionaleOpen\go_utenti_condivisi\AH6_ITALMODULAR\src - Copia\GGVISCMSOV.pas',0,1,1,1,1,0,0,,
+File_8=TSourceModule,'C:\GestionaleOpen\go_utenti_condivisi\AH6_ITALMODULAR\src\GGVISCMSOV.pas',0,1,486,5,549,0,0,,
+File_9=TSourceModule,'C:\GestionaleOpen\go_utenti_condivisi\AH6_ITALMODULAR\src\GGGESVEN.pas',0,1,24411,39,24438,0,0,,
+File_10=TSourceModule,'C:\GestionaleOpen\go_utenti_condivisi\AH6_ITALMODULAR\src\GGGESTOP.pas',0,1,61,20,84,0,0,,
+File_11=TSourceModule,'C:\GestionaleOpen\go_utenti_condivisi\AH6_ITALMODULAR\src - Copia\GGGESTOP.pas',0,1,1,1,1,0,0,,
+File_12=TSourceModule,'C:\GestionaleOpen\go_utenti_condivisi\AH6_ITALMODULAR\src - Copia\GGGESTDO.pas',0,1,1,1,1,0,0,,
+File_13=TSourceModule,'C:\GestionaleOpen\go_utenti_condivisi\AH6_ITALMODULAR\src\GGGESTDO.pas',0,1,1,20,1279,0,0,,
+File_14=TSourceModule,'C:\GestionaleOpen\go_utenti_condivisi\AH6_ITALMODULAR\src\GGGESORDP.pas',0,1,3715,18,3752,0,0,,
 
 [Modules]
-Module0=C:\GestionaleOpen\go_1301\src\DMARC.pas
-Count=1
+Count=0
 EditWindowCount=1
 
-[C:\GestionaleOpen\go_1301\src\DMARC.pas]
-ModuleType=TSourceModule
-
 [EditWindow0]
-ViewCount=1
-CurrentEditView=C:\GestionaleOpen\go_1301\src\DMARC.pas
-View0=0
+ViewCount=0
+CurrentView=-1
 PercentageSizes=1
 Create=1
 Visible=1
@@ -54,17 +50,6 @@ BottomPanelData=0000080001020100000009000000446F636B5369746531DE4400000000000002
 BottomMiddlePanelSize=0
 BottomMiddlePanelClients=DockSite0,GraphDrawingModel
 BottomMiddelPanelData=0000080001020200000009000000446F636B536974653010000000477261706844726177696E67566965779F1D00000000000002F206000000000000FFFFFFFF
-
-[View0]
-CustomEditViewType=TEditView
-Module=C:\GestionaleOpen\go_1301\src\DMARC.pas
-CursorX=32
-CursorY=4012
-TopLine=4002
-LeftCol=1
-Elisions=
-Bookmarks=
-EditViewName=C:\GestionaleOpen\go_1301\src\DMARC.pas
 
 [Watches]
 Count=0

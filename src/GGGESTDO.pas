@@ -427,10 +427,12 @@ type
     v_gestione_punti_negozio: TRzDBCheckBox;
     v_tipo_gestione_punti_negozio: trzdbcombobox_go;
     v_documento_collegato: TRzRapidFireButton;
+    v_obsoleto: TRzDBCheckBox;
     //modifica
     ah6_tab_personalizzati: TRzTabSheet;
     v_ah6_commessa_obbligatoria: TRzDBCheckBox;
     //modifica fine
+
     procedure v_codiceExit(Sender: TObject);
     procedure v_descrizioneExit(Sender: TObject);
     procedure v_tipo_documentoExit(Sender: TObject);
@@ -629,7 +631,7 @@ begin
     prosegui := true;
 
     if (tabella.fieldbyname('tipo_documento_fa').asstring >= 'TD16') and
-      (tabella.fieldbyname('tipo_documento_fa').asstring <= 'TD21') then
+      (tabella.fieldbyname('tipo_documento_fa').asstring <= 'TD23') then
     begin
       if tabella.fieldbyname('tco_codice').asstring <> '' then
       begin
@@ -915,6 +917,8 @@ begin
     v_marchio_immagine.width := trunc(arc.dit.fieldbyname('marchio_larghezza').asfloat / divisore);
     v_marchio_immagine.height := trunc(arc.dit.fieldbyname('marchio_altezza').asfloat / divisore);
   end;
+
+  v_obsoleto.enabled := supervisore_utente or (arc.utn.fieldbyname('manutentore').asstring = 'si');
 end;
 
 procedure TGESTDO.FormDestroy(Sender: TObject);
@@ -3019,8 +3023,8 @@ begin
     begin
       if not fileexists(trim(v_documento_allegato.text)) then
       begin
-        messaggio(000, 'il documento non esiste');
-        v_documento_allegato.setfocus;
+        messaggio(000, 'il documento allegato non esiste');
+        fuoco(v_documento_allegato);
         abort;
       end;
     end;

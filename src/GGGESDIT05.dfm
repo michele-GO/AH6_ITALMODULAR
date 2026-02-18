@@ -27,6 +27,8 @@ inherited GESDIT05: TGESDIT05
       Top = 33
       Width = 786
       Height = 555
+      ActivePage = tab_pagina_ah6_personalizzazioni
+      TabIndex = 3
       ExplicitTop = 33
       ExplicitWidth = 786
       ExplicitHeight = 555
@@ -1338,7 +1340,7 @@ inherited GESDIT05: TGESDIT05
           CalendarElements = [ceYear, ceMonth, ceArrows, ceDaysOfWeek, ceFillDays, ceTodayButton]
           CaptionTodayBtn = 'oggi'
           CaptionClearBtn = 'annulla'
-          Date = 46070.000000000000000000
+          Date = 46071.000000000000000000
           EditType = etDate
           DropButtonVisible = False
         end
@@ -2558,10 +2560,6 @@ inherited GESDIT05: TGESDIT05
       object tab_pagina3: TRzTabSheet
         Color = clWindow
         Caption = 'manutenzioni'
-        ExplicitLeft = 0
-        ExplicitTop = 0
-        ExplicitWidth = 0
-        ExplicitHeight = 0
         object RzLabel5: TRzLabel
           Left = 5
           Top = 5
@@ -2741,7 +2739,11 @@ inherited GESDIT05: TGESDIT05
       object tab_pagina_ah6_personalizzazioni: TRzTabSheet
         Color = clWindow
         Caption = 'personalizzazioni'
-        object RzLabel11: TRzLabel
+        ExplicitLeft = 0
+        ExplicitTop = 0
+        ExplicitWidth = 0
+        ExplicitHeight = 0
+        object ah6_lb_tin_codice: TRzLabel
           Left = 10
           Top = 10
           Width = 203
@@ -2782,8 +2784,8 @@ inherited GESDIT05: TGESDIT05
           lookcolltable = 'TIN'
           lookcollvisname = 'TIN'
         end
-        object rzdbeditdescrizione_go18: trzdbeditdescrizione_go
-          Left = 71
+        object ah6_v_descrizione_tin: trzdbeditdescrizione_go
+          Left = 66
           Top = 25
           Width = 361
           Height = 21
@@ -2791,7 +2793,7 @@ inherited GESDIT05: TGESDIT05
           Margins.Left = 1
           Margins.Top = 1
           TabStop = False
-          DataSource = tin_ds
+          DataSource = ah6_tin_ds
           DataField = 'DESCRIZIONE'
           ReadOnly = True
           AutoSize = False
@@ -3458,7 +3460,7 @@ inherited GESDIT05: TGESDIT05
     Left = 675
     Top = 20
   end
-  object tin: TMyQuery_go
+  object ah6_tin: TMyQuery_go
     Connection = ARC.arcdit
     SQL.Strings = (
       'select descrizione'
@@ -3481,8 +3483,8 @@ inherited GESDIT05: TGESDIT05
         Value = nil
       end>
   end
-  object tin_ds: TMyDataSource
-    DataSet = tin
+  object ah6_tin_ds: TMyDataSource
+    DataSet = ah6_tin
     Left = 540
     Top = 110
   end

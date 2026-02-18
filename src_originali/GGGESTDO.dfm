@@ -46,6 +46,8 @@ inherited GESTDO: TGESTDO
       Top = 47
       Width = 821
       Height = 571
+      ActivePage = tab_marchio_documenti
+      TabIndex = 4
       TabOrder = 3
       ExplicitTop = 47
       ExplicitWidth = 821
@@ -1416,10 +1418,6 @@ inherited GESTDO: TGESTDO
         Color = clWindow
         ImageIndex = 1
         Caption = 'dati extra'
-        ExplicitLeft = 0
-        ExplicitTop = 0
-        ExplicitWidth = 0
-        ExplicitHeight = 0
         object Label46: TRzLabel
           Left = 420
           Top = 445
@@ -3963,10 +3961,6 @@ inherited GESTDO: TGESTDO
         Color = clWindow
         ImageIndex = 3
         Caption = 'mail'
-        ExplicitLeft = 0
-        ExplicitTop = 0
-        ExplicitWidth = 0
-        ExplicitHeight = 0
         object v_traduzione_testo_mail: TRzRapidFireButton
           Left = 725
           Top = 370
@@ -4017,10 +4011,6 @@ inherited GESTDO: TGESTDO
           object tab_pagina1_note: TRzTabSheet
             Color = clWindow
             Caption = 'italiano'
-            ExplicitLeft = 0
-            ExplicitTop = 0
-            ExplicitWidth = 0
-            ExplicitHeight = 0
             object v_testo_mail: trzdbmemo_go
               Left = 0
               Top = 0
@@ -4589,10 +4579,6 @@ inherited GESTDO: TGESTDO
           object tab_pagina1_excel: TRzTabSheet
             Color = clWindow
             Caption = 'italiano'
-            ExplicitLeft = 0
-            ExplicitTop = 0
-            ExplicitWidth = 0
-            ExplicitHeight = 0
             object v_testo_mail_excel: trzdbmemo_go
               Left = 0
               Top = 0
@@ -4806,10 +4792,6 @@ inherited GESTDO: TGESTDO
             Color = clWindow
             ImageIndex = 1
             Caption = 'tab_pagina2_note'
-            ExplicitLeft = 0
-            ExplicitTop = 0
-            ExplicitWidth = 0
-            ExplicitHeight = 0
             object v_oggetto_mail_lingua_01: trzdbedit_go
               Left = 0
               Top = 3
@@ -4955,10 +4937,6 @@ inherited GESTDO: TGESTDO
       object tab_marchio_documenti: TRzTabSheet
         Color = clWindow
         Caption = 'marchio documenti e allegati'
-        ExplicitLeft = 0
-        ExplicitTop = 0
-        ExplicitWidth = 0
-        ExplicitHeight = 0
         object RzLabel2: TRzLabel
           Left = 5
           Top = 156
@@ -5579,10 +5557,6 @@ inherited GESTDO: TGESTDO
       object tab_collegamenti: TRzTabSheet
         Color = clWindow
         Caption = 'collegamenti'
-        ExplicitLeft = 0
-        ExplicitTop = 0
-        ExplicitWidth = 0
-        ExplicitHeight = 0
         object RzLabel15: TRzLabel
           Left = 5
           Top = 5

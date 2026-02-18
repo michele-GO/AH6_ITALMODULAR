@@ -573,7 +573,7 @@ inherited GESVEN: TGESVEN
           CalendarElements = [ceYear, ceMonth, ceArrows, ceDaysOfWeek, ceFillDays, ceTodayButton]
           CaptionTodayBtn = 'oggi'
           CaptionClearBtn = 'annulla'
-          Date = 45987.000000000000000000
+          Date = 46022.000000000000000000
           EditType = etDate
           DropButtonVisible = False
         end
@@ -603,7 +603,7 @@ inherited GESVEN: TGESVEN
           CalendarElements = [ceYear, ceMonth, ceArrows, ceDaysOfWeek, ceFillDays, ceTodayButton]
           CaptionTodayBtn = 'oggi'
           CaptionClearBtn = 'annulla'
-          Date = 45987.000000000000000000
+          Date = 46022.000000000000000000
           EditType = etDate
           DropButtonVisible = False
         end
@@ -991,7 +991,7 @@ inherited GESVEN: TGESVEN
           CalendarElements = [ceYear, ceMonth, ceArrows, ceDaysOfWeek, ceFillDays, ceTodayButton]
           CaptionTodayBtn = 'oggi'
           CaptionClearBtn = 'annulla'
-          Date = 45987.000000000000000000
+          Date = 46022.000000000000000000
           EditType = etDate
           DropButtonVisible = False
         end
@@ -1252,7 +1252,7 @@ inherited GESVEN: TGESVEN
           CalendarElements = [ceYear, ceMonth, ceArrows, ceDaysOfWeek, ceFillDays, ceTodayButton]
           CaptionTodayBtn = 'oggi'
           CaptionClearBtn = 'annulla'
-          Date = 45987.000000000000000000
+          Date = 46022.000000000000000000
           EditType = etDate
           DropButtonVisible = False
         end
@@ -2118,7 +2118,7 @@ inherited GESVEN: TGESVEN
           CalendarElements = [ceYear, ceMonth, ceArrows, ceDaysOfWeek, ceFillDays, ceTodayButton]
           CaptionTodayBtn = 'oggi'
           CaptionClearBtn = 'annulla'
-          Date = 45987.000000000000000000
+          Date = 46022.000000000000000000
           EditType = etDate
           DropButtonVisible = False
         end
@@ -2148,7 +2148,7 @@ inherited GESVEN: TGESVEN
           CalendarElements = [ceYear, ceMonth, ceArrows, ceDaysOfWeek, ceFillDays, ceTodayButton]
           CaptionTodayBtn = 'oggi'
           CaptionClearBtn = 'annulla'
-          Date = 45987.000000000000000000
+          Date = 46022.000000000000000000
           EditType = etDate
           DropButtonVisible = False
         end
@@ -2178,7 +2178,7 @@ inherited GESVEN: TGESVEN
           CalendarElements = [ceYear, ceMonth, ceArrows, ceDaysOfWeek, ceFillDays, ceTodayButton]
           CaptionTodayBtn = 'oggi'
           CaptionClearBtn = 'annulla'
-          Date = 45987.000000000000000000
+          Date = 46022.000000000000000000
           EditType = etDate
           DropButtonVisible = False
         end
@@ -3259,10 +3259,6 @@ inherited GESVEN: TGESVEN
         Color = clWindow
         ImageIndex = 3
         Caption = 'spedizione'
-        ExplicitLeft = 0
-        ExplicitTop = 0
-        ExplicitWidth = 0
-        ExplicitHeight = 0
         object Label23: TRzLabel
           Left = 5
           Top = 37
@@ -3693,7 +3689,7 @@ inherited GESVEN: TGESVEN
           CalendarElements = [ceYear, ceMonth, ceArrows, ceDaysOfWeek, ceFillDays, ceTodayButton]
           CaptionTodayBtn = 'oggi'
           CaptionClearBtn = 'annulla'
-          Date = 45987.000000000000000000
+          Date = 46022.000000000000000000
           EditType = etDate
           DropButtonVisible = False
         end
@@ -4671,7 +4667,7 @@ inherited GESVEN: TGESVEN
             CalendarElements = [ceYear, ceMonth, ceArrows, ceDaysOfWeek, ceFillDays, ceTodayButton]
             CaptionTodayBtn = 'oggi'
             CaptionClearBtn = 'annulla'
-            Date = 45987.000000000000000000
+            Date = 46022.000000000000000000
             EditType = etDate
             DropButtonVisible = False
           end
@@ -4985,10 +4981,6 @@ inherited GESVEN: TGESVEN
         Color = clWindow
         ImageIndex = 7
         Caption = 'note/mail/cup cig/conai'
-        ExplicitLeft = 0
-        ExplicitTop = 0
-        ExplicitWidth = 0
-        ExplicitHeight = 0
         object Label56: TRzLabel
           Left = 450
           Top = 2
@@ -5730,7 +5722,7 @@ inherited GESVEN: TGESVEN
       CalendarElements = [ceYear, ceMonth, ceArrows, ceDaysOfWeek, ceFillDays, ceTodayButton]
       CaptionTodayBtn = 'oggi'
       CaptionClearBtn = 'annulla'
-      Date = 45987.000000000000000000
+      Date = 46022.000000000000000000
       EditType = etDate
       DropButtonVisible = False
     end
@@ -5964,7 +5956,7 @@ inherited GESVEN: TGESVEN
       CalendarElements = [ceYear, ceMonth, ceArrows, ceDaysOfWeek, ceFillDays, ceTodayButton]
       CaptionTodayBtn = 'oggi'
       CaptionClearBtn = 'annulla'
-      Date = 45962.000000000000000000
+      Date = 45992.000000000000000000
       EditType = etDate
       DropButtonVisible = False
     end
@@ -6904,7 +6896,7 @@ inherited GESVEN: TGESVEN
           CalendarElements = [ceYear, ceMonth, ceArrows, ceDaysOfWeek, ceFillDays, ceTodayButton]
           CaptionTodayBtn = 'oggi'
           CaptionClearBtn = 'annulla'
-          Date = 45987.000000000000000000
+          Date = 46022.000000000000000000
           EditType = etDate
           DropButtonVisible = False
         end
@@ -9207,7 +9199,14 @@ inherited GESVEN: TGESVEN
     ParamData = <>
   end
   inherited query_righe_ds: TMyDataSource
-    Left = 395
+    Left = 340
+  end
+  inherited utnprg: TMyQuery_go
+    Left = 767
+    Top = 25
+  end
+  inherited menu_inserimento_righe: TPopupMenu
+    Left = 970
   end
   object esistenza_deposito: TMyQuery_go
     Connection = ARC.arcdit
@@ -9235,7 +9234,7 @@ inherited GESVEN: TGESVEN
       'where art_codice = :art_codice and tma_codice = :tma_codice')
     Options.DefaultValues = True
     Options.TrimVarChar = True
-    Left = 625
+    Left = 920
     Top = 65526
     ParamData = <
       item
@@ -9271,7 +9270,7 @@ inherited GESVEN: TGESVEN
   end
   object esistenza_deposito_ds: TMyDataSource
     DataSet = esistenza_deposito
-    Left = 640
+    Left = 935
     Top = 65526
   end
   object esistenza_totale: TMyQuery_go
@@ -9304,7 +9303,7 @@ inherited GESVEN: TGESVEN
       'group by art_codice')
     Options.DefaultValues = True
     Options.TrimVarChar = True
-    Left = 660
+    Left = 880
     Top = 65526
     ParamData = <
       item
@@ -9335,15 +9334,15 @@ inherited GESVEN: TGESVEN
   end
   object esistenza_totale_ds: TMyDataSource
     DataSet = esistenza_totale
-    Left = 680
+    Left = 900
     Top = 65526
   end
   object cmm: TMyQuery_go
     Connection = ARC.arcdit
     Options.DefaultValues = True
     Options.TrimVarChar = True
-    Left = 595
-    Top = 25
+    Left = 680
+    Top = 102
   end
   object tdo: TMyQuery_go
     Connection = ARC.arcdit
@@ -9403,7 +9402,7 @@ inherited GESVEN: TGESVEN
       'where cli.codice = :codice')
     Options.DefaultValues = True
     Options.TrimVarChar = True
-    Left = 20
+    Left = 40
     Top = 25
     ParamData = <
       item
@@ -9421,8 +9420,8 @@ inherited GESVEN: TGESVEN
     Options.DefaultValues = True
     Options.TrimVarChar = True
     MasterSource = abi_ds
-    Left = 495
-    Top = 65526
+    Left = 796
+    Top = 25
     ParamData = <
       item
         DataType = ftUnknown
@@ -9439,74 +9438,8 @@ inherited GESVEN: TGESVEN
     Connection = ARC.arcdit
     Options.DefaultValues = True
     Options.TrimVarChar = True
-    Left = 510
-    Top = 65526
-  end
-  object cfg: TMyQuery_go
-    Connection = ARC.arcdit
-    SQL.Strings = (
-      
-        'select cfg.*, F_FIDO_FATTURARE(cfg.cfg_codice) importo_fatturare' +
-        '_fido'
-      'from cfg'
-      'where cfg.cfg_tipo = '#39'C'#39' and cfg.cfg_codice = :cfg_codice'
-      '')
-    Options.DefaultValues = True
-    Options.TrimVarChar = True
-    Left = 530
-    Top = 65526
-    ParamData = <
-      item
-        DataType = ftUnknown
-        Name = 'cfg_codice'
-        Value = nil
-      end>
-  end
-  object pat: TMyQuery_go
-    Connection = ARC.arcdit
-    SQL.Strings = (
-      'select *'
-      'from pat'
-      'inner join tts tts on (tts.codice = pat.tts_codice)'
-      
-        'where pat.cfg_tipo = '#39'C'#39' and pat.cfg_codice = :cfg_codice and (p' +
-        'at.importo_dovuto = pat.importo_pagato)'
-      'and'
-      'case'
-      
-        'when (select pnt.movimento_provvisorio from pnt where pnt.progre' +
-        'ssivo ='
-      
-        '(select pas.pnr_progressivo from pas where pas.progressivo = pat' +
-        '.progressivo'
-      
-        'and pas.riga = (select max(riga) from pas p where p.progressivo ' +
-        '= pat.progressivo))) = '#39'si'#39' then '#39'si'#39
-      'else tts.rischio'
-      'end = '#39'si'#39
-      'and pat.data_scadenza > :data_scadenza'
-      ''
-      ''
-      ''
-      ''
-      ''
-      ''
-      '')
-    Options.DefaultValues = True
-    Options.TrimVarChar = True
-    Left = 555
-    Top = 65526
-    ParamData = <
-      item
-        DataType = ftUnknown
-        Name = 'cfg_codice'
-        Value = nil
-      end
-      item
-        DataType = ftUnknown
-        Name = 'data_scadenza'
-        Value = nil
-      end>
+    Left = 825
+    Top = 25
   end
   object art: TMyQuery_go
     Connection = ARC.arcdit
@@ -9520,8 +9453,8 @@ inherited GESVEN: TGESVEN
       'where art.codice = :codice')
     Options.DefaultValues = True
     Options.TrimVarChar = True
-    Left = 485
-    Top = 25
+    Left = 375
+    Top = 65526
     ParamData = <
       item
         DataType = ftUnknown
@@ -9533,15 +9466,8 @@ inherited GESVEN: TGESVEN
     Connection = ARC.arcdit
     Options.DefaultValues = True
     Options.TrimVarChar = True
-    Left = 595
-    Top = 65526
-  end
-  object riga_documento_evaso: TMyQuery_go
-    Connection = ARC.arcdit
-    Options.DefaultValues = True
-    Options.TrimVarChar = True
-    Left = 610
-    Top = 65526
+    Left = 854
+    Top = 25
   end
   object saldo_acconto: TMyQuery_go
     Connection = ARC.arcdit
@@ -9550,8 +9476,8 @@ inherited GESVEN: TGESVEN
       'where progressivo = :progressivo and riga = :riga')
     Options.DefaultValues = True
     Options.TrimVarChar = True
-    Left = 700
-    Top = 65526
+    Left = 883
+    Top = 25
     ParamData = <
       item
         DataType = ftUnknown
@@ -9585,8 +9511,8 @@ inherited GESVEN: TGESVEN
       '')
     Options.DefaultValues = True
     Options.TrimVarChar = True
-    Left = 720
-    Top = 65526
+    Left = 912
+    Top = 25
     ParamData = <
       item
         DataType = ftUnknown
@@ -9610,8 +9536,8 @@ inherited GESVEN: TGESVEN
       '')
     Options.DefaultValues = True
     Options.TrimVarChar = True
-    Left = 735
-    Top = 65526
+    Left = 941
+    Top = 25
   end
   object frn: TMyQuery_go
     Connection = ARC.arcdit
@@ -9628,7 +9554,7 @@ inherited GESVEN: TGESVEN
       'where frn.codice = :codice')
     Options.DefaultValues = True
     Options.TrimVarChar = True
-    Left = 35
+    Left = 60
     Top = 25
     ParamData = <
       item
@@ -9641,43 +9567,22 @@ inherited GESVEN: TGESVEN
     Connection = ARC.arcdit
     Options.DefaultValues = True
     Options.TrimVarChar = True
-    Left = 910
-    Top = 25
+    Left = 854
+    Top = 102
   end
   object mmr: TMyQuery_go
     Connection = ARC.arcdit
     Options.DefaultValues = True
     Options.TrimVarChar = True
-    Left = 920
-    Top = 25
+    Left = 883
+    Top = 102
   end
   object lcr: TMyQuery_go
     Connection = ARC.arcdit
     Options.DefaultValues = True
     Options.TrimVarChar = True
-    Left = 930
-    Top = 25
-  end
-  object totale_colli: TMyQuery_go
-    Connection = ARC.arcdit
-    Options.DefaultValues = True
-    Options.TrimVarChar = True
-    Left = 785
-    Top = 65526
-  end
-  object totalizza_quantita: TMyQuery_go
-    Connection = ARC.arcdit
-    Options.DefaultValues = True
-    Options.TrimVarChar = True
-    Left = 660
-    Top = 25
-  end
-  object art_preventivi_ordini: TMyQuery_go
-    Connection = ARC.arcdit
-    Options.DefaultValues = True
-    Options.TrimVarChar = True
-    Left = 860
-    Top = 25
+    Left = 912
+    Top = 102
   end
   object cnt: TMyQuery_go
     Connection = ARC.arcdit
@@ -9688,8 +9593,8 @@ inherited GESVEN: TGESVEN
       '')
     Options.DefaultValues = True
     Options.TrimVarChar = True
-    Left = 870
-    Top = 65526
+    Left = 651
+    Top = 78
   end
   object cnf: TMyQuery_go
     Connection = ARC.arcdit
@@ -9703,243 +9608,12 @@ inherited GESVEN: TGESVEN
       '')
     Options.DefaultValues = True
     Options.TrimVarChar = True
-    Left = 905
-    Top = 65526
+    Left = 970
+    Top = 25
     ParamData = <
       item
         DataType = ftUnknown
         Name = 'configurazione'
-        Value = nil
-      end>
-  end
-  object opt_configurazione: TMyQuery_go
-    Connection = ARC.arcdit
-    SQL.Strings = (
-      'select * from opt'
-      'where ovr_progressivo = :progressivo and ovr_riga = :riga')
-    Options.DefaultValues = True
-    Options.TrimVarChar = True
-    Left = 945
-    Top = 65526
-    ParamData = <
-      item
-        DataType = ftUnknown
-        Name = 'progressivo'
-        Value = nil
-      end
-      item
-        DataType = ftUnknown
-        Name = 'riga'
-        Value = nil
-      end>
-  end
-  object controllo_documenti_evasi: TMyQuery_go
-    Connection = ARC.arcdit
-    SQL.Strings = (
-      '')
-    Options.DefaultValues = True
-    Options.TrimVarChar = True
-    Left = 805
-    Top = 25
-  end
-  object totalizza_margine: TMyQuery_go
-    Connection = ARC.arcdit
-    Options.DefaultValues = True
-    Options.TrimVarChar = True
-    Left = 670
-    Top = 25
-  end
-  object query_referenze_attive: TMyQuery_go
-    Connection = ARC.arcdit
-    SQL.Strings = (
-      'select art_codice'
-      'from ovr'
-      'inner join ovt on ovt.progressivo = ovr.progressivo'
-      
-        'where ovt.cli_codice = :cli_codice and ovr.art_codice = :art_cod' +
-        'ice'
-      ''
-      '')
-    Options.DefaultValues = True
-    Options.TrimVarChar = True
-    Left = 805
-    Top = 65526
-    ParamData = <
-      item
-        DataType = ftUnknown
-        Name = 'cli_codice'
-        Value = nil
-      end
-      item
-        DataType = ftUnknown
-        Name = 'art_codice'
-        Value = nil
-      end>
-  end
-  object query_sct: TMyQuery_go
-    Connection = ARC.arcdit
-    SQL.Strings = (
-      
-        'select sct.*, coalesce(tsm_colli.percentuale_totale, 100) percen' +
-        'tuale_totale_colli,  '
-      
-        'coalesce(tsm_quantita.percentuale_totale, 100) percentuale_total' +
-        'e_quantita'
-      'from sct'
-      
-        'left join tsm tsm_colli on tsm_colli.codice = sct.tsm_codice_col' +
-        'li'
-      
-        'left join tsm tsm_quantita on tsm_quantita.codice = sct.tsm_codi' +
-        'ce_quantita'
-      'where cli_codice = :cli_codice'
-      'and data_inizio < :data_inizio and data_fine > :data_fine')
-    Options.DefaultValues = True
-    Options.TrimVarChar = True
-    Left = 815
-    Top = 25
-    ParamData = <
-      item
-        DataType = ftUnknown
-        Name = 'cli_codice'
-        Value = nil
-      end
-      item
-        DataType = ftUnknown
-        Name = 'data_inizio'
-        Value = nil
-      end
-      item
-        DataType = ftUnknown
-        Name = 'data_fine'
-        Value = nil
-      end>
-  end
-  object query_totalizza: TMyQuery_go
-    Connection = ARC.arcdit
-    SQL.Strings = (
-      '')
-    Options.DefaultValues = True
-    Options.TrimVarChar = True
-    Left = 825
-    Top = 25
-  end
-  object query_abilita_rda: TMyQuery_go
-    Connection = ARC.arcdit
-    SQL.Strings = (
-      'select art_codice'
-      'from rda'
-      
-        'where tipo_richiesta = '#39'ordini clienti'#39' and ovr_progressivo = :o' +
-        'vr_progressivo and ovr_riga = :ovr_riga'
-      '')
-    Options.DefaultValues = True
-    Options.TrimVarChar = True
-    Left = 835
-    Top = 25
-    ParamData = <
-      item
-        DataType = ftUnknown
-        Name = 'ovr_progressivo'
-        Value = nil
-      end
-      item
-        DataType = ftUnknown
-        Name = 'ovr_riga'
-        Value = nil
-      end>
-  end
-  object prv: TMyQuery_go
-    Connection = ARC.arcdit
-    SQL.Strings = (
-      'select * from prv'
-      'where tag_codice = :tag_codice'
-      'and tp1_codice = :tp1_codice'
-      'and tp2_codice = :tp2_codice'
-      'and percentuale = :percentuale'
-      '')
-    Options.DefaultValues = True
-    Options.TrimVarChar = True
-    Left = 770
-    Top = 65526
-    ParamData = <
-      item
-        DataType = ftUnknown
-        Name = 'tag_codice'
-        Value = nil
-      end
-      item
-        DataType = ftUnknown
-        Name = 'tp1_codice'
-        Value = nil
-      end
-      item
-        DataType = ftUnknown
-        Name = 'tp2_codice'
-        Value = nil
-      end
-      item
-        DataType = ftUnknown
-        Name = 'percentuale'
-        Value = nil
-      end>
-  end
-  object importo_ordinato: TMyQuery_go
-    Connection = ARC.arcdit
-    SQL.Strings = (
-      'select ovt.listino_con_iva,'
-      'case'
-      
-        'when ovt.listino_con_iva = '#39'si'#39' then round(sum((ovr.importo - ov' +
-        'r.importo_evaso) * cast(ovt.cambio as binary)), 2)'
-      
-        'when ovt.listino_con_iva = '#39'no'#39' then round(sum((ovr.importo - ov' +
-        'r.importo_evaso) * cast(ovt.cambio as binary) * (1 + tiv.percent' +
-        'uale / 100)), 2)'
-      'end importo'
-      'from ovr'
-      'inner join ovt on (ovt.progressivo = ovr.progressivo)'
-      'inner join tiv on (tiv.codice = ovr.tiv_codice)'
-      'where cli_codice = :cli_codice'
-      
-        'and (ovr.situazione = '#39'inserito'#39' or ovr.situazione = '#39'evaso parz' +
-        'iale'#39')'
-      'group by ovt.listino_con_iva'
-      '')
-    Options.DefaultValues = True
-    Options.TrimVarChar = True
-    Left = 820
-    Top = 65526
-    ParamData = <
-      item
-        DataType = ftUnknown
-        Name = 'cli_codice'
-        Value = nil
-      end>
-  end
-  object equ: TMyQuery_go
-    Connection = ARC.arcdit
-    SQL.Strings = (
-      'select art_codice'
-      'from equ'
-      
-        'where art_codice = :art_codice or art_codice_equivalente = :art_' +
-        'codice'
-      ''
-      '')
-    Options.DefaultValues = True
-    Options.TrimVarChar = True
-    Left = 855
-    Top = 65526
-    ParamData = <
-      item
-        DataType = ftUnknown
-        Name = 'art_codice'
-        Value = nil
-      end
-      item
-        DataType = ftUnknown
-        Name = 'art_codice'
         Value = nil
       end>
   end
@@ -9957,8 +9631,8 @@ inherited GESVEN: TGESVEN
       ' ')
     Options.DefaultValues = True
     Options.TrimVarChar = True
-    Left = 925
-    Top = 65526
+    Left = 651
+    Top = 103
     ParamData = <
       item
         DataType = ftUnknown
@@ -9990,116 +9664,12 @@ inherited GESVEN: TGESVEN
       ' ')
     Options.DefaultValues = True
     Options.TrimVarChar = True
-    Left = 700
-    Top = 25
+    Left = 767
+    Top = 102
     ParamData = <
       item
         DataType = ftUnknown
         Name = 'progressivo'
-        Value = nil
-      end>
-  end
-  object query_opt: TMyQuery_go
-    Connection = ARC.arcdit
-    SQL.Strings = (
-      
-        'select '#39'opt'#39' archivio, art_codice, opt.progressivo, opt.situazio' +
-        'ne'
-      'from opt'
-      
-        'where documento_origine = '#39'ordine ven'#39' and doc_progressivo_origi' +
-        'ne = :ovr_progressivo_03 and'
-      'doc_riga_origine = :riga_03'
-      '')
-    Options.DefaultValues = True
-    Options.TrimVarChar = True
-    Left = 710
-    Top = 25
-    ParamData = <
-      item
-        DataType = ftUnknown
-        Name = 'ovr_progressivo_03'
-        Value = nil
-      end
-      item
-        DataType = ftUnknown
-        Name = 'riga_03'
-        Value = nil
-      end>
-  end
-  object msg: TMyQuery_go
-    Connection = ARC.arc
-    SQL.Strings = (
-      'select * from msg'
-      'where progressivo = :progressivo'
-      '')
-    Options.DefaultValues = True
-    Options.TrimVarChar = True
-    Left = 720
-    Top = 25
-    ParamData = <
-      item
-        DataType = ftUnknown
-        Name = 'progressivo'
-        Value = nil
-      end>
-  end
-  object spd: TMyQuery_go
-    Connection = ARC.arcdit
-    SQL.Strings = (
-      '')
-    Options.DefaultValues = True
-    Options.TrimVarChar = True
-    Left = 730
-    Top = 25
-  end
-  object cas: TMyQuery_go
-    Connection = ARC.arcdit
-    Options.DefaultValues = True
-    Options.TrimVarChar = True
-    Left = 740
-    Top = 25
-  end
-  object lct: TMyQuery_go
-    Connection = ARC.arcdit
-    SQL.Strings = (
-      'select * from lct'
-      'where progressivo = :progressivo'
-      ' ')
-    Options.DefaultValues = True
-    Options.TrimVarChar = True
-    Left = 750
-    Top = 25
-    ParamData = <
-      item
-        DataType = ftUnknown
-        Name = 'progressivo'
-        Value = nil
-      end>
-  end
-  object query_addebito: TMyQuery_go
-    Connection = ARC.arcdit
-    SQL.Strings = (
-      'select sum(importo) importo'
-      'from ovr'
-      'where progressivo = :progressivo and riga < :riga'
-      ''
-      ''
-      ''
-      ' ')
-    Options.DefaultValues = True
-    Options.TrimVarChar = True
-    Left = 760
-    Top = 25
-    ParamData = <
-      item
-        DataType = ftUnknown
-        Name = 'progressivo'
-        Value = nil
-      end
-      item
-        DataType = ftUnknown
-        Name = 'riga'
         Value = nil
       end>
   end
@@ -10115,8 +9685,8 @@ inherited GESVEN: TGESVEN
       ' ')
     Options.DefaultValues = True
     Options.TrimVarChar = True
-    Left = 625
-    Top = 25
+    Left = 709
+    Top = 102
     ParamData = <
       item
         DataType = ftUnknown
@@ -10130,17 +9700,8 @@ inherited GESVEN: TGESVEN
       '')
     Options.DefaultValues = True
     Options.TrimVarChar = True
-    Left = 635
-    Top = 25
-  end
-  object dav: TMyQuery_go
-    Connection = ARC.arcdit
-    SQL.Strings = (
-      '')
-    Options.DefaultValues = True
-    Options.TrimVarChar = True
-    Left = 940
-    Top = 25
+    Left = 738
+    Top = 102
   end
   object oar: TMyQuery_go
     Connection = ARC.arcdit
@@ -10152,8 +9713,8 @@ inherited GESVEN: TGESVEN
       ' ')
     Options.DefaultValues = True
     Options.TrimVarChar = True
-    Left = 870
-    Top = 25
+    Left = 825
+    Top = 102
     ParamData = <
       item
         DataType = ftUnknown
@@ -10166,27 +9727,6 @@ inherited GESVEN: TGESVEN
         Value = nil
       end>
   end
-  object testata: TMyQuery_go
-    Connection = ARC.arcdit
-    SQL.Strings = (
-      ''
-      ''
-      ' '
-      ' ')
-    Options.DefaultValues = True
-    Options.TrimVarChar = True
-    Left = 755
-    Top = 65526
-  end
-  object righe: TMyQuery_go
-    Connection = ARC.arcdit
-    SQL.Strings = (
-      '')
-    Options.DefaultValues = True
-    Options.TrimVarChar = True
-    Left = 950
-    Top = 25
-  end
   object tr0: TMyQuery_go
     Connection = ARC.arcdit
     SQL.Strings = (
@@ -10195,8 +9735,8 @@ inherited GESVEN: TGESVEN
       'where codice = :codice')
     Options.DefaultValues = True
     Options.TrimVarChar = True
-    Left = 960
-    Top = 65526
+    Left = 970
+    Top = 101
     ParamData = <
       item
         DataType = ftUnknown
@@ -10206,12 +9746,12 @@ inherited GESVEN: TGESVEN
   end
   object cli_ds: TMyDataSource
     DataSet = cli
-    Left = 74
+    Left = 89
     Top = 25
   end
   object tdo_ds: TMyDataSource
     DataSet = tdo
-    Left = 129
+    Left = 134
     Top = 25
   end
   object tlv: TMyQuery_go
@@ -10231,7 +9771,7 @@ inherited GESVEN: TGESVEN
       ' ')
     Options.DefaultValues = True
     Options.TrimVarChar = True
-    Left = 135
+    Left = 147
     Top = 25
     ParamData = <
       item
@@ -10242,7 +9782,7 @@ inherited GESVEN: TGESVEN
   end
   object tlv_ds: TMyDataSource
     DataSet = tlv
-    Left = 144
+    Left = 161
     Top = 25
   end
   object tpa: TMyQuery_go
@@ -10259,7 +9799,7 @@ inherited GESVEN: TGESVEN
       ' ')
     Options.DefaultValues = True
     Options.TrimVarChar = True
-    Left = 150
+    Left = 174
     Top = 25
     ParamData = <
       item
@@ -10270,7 +9810,7 @@ inherited GESVEN: TGESVEN
   end
   object tpa_ds: TMyDataSource
     DataSet = tpa
-    Left = 159
+    Left = 188
     Top = 25
   end
   object tva: TMyQuery_go
@@ -10288,7 +9828,7 @@ inherited GESVEN: TGESVEN
       ' ')
     Options.DefaultValues = True
     Options.TrimVarChar = True
-    Left = 165
+    Left = 201
     Top = 25
     ParamData = <
       item
@@ -10299,7 +9839,7 @@ inherited GESVEN: TGESVEN
   end
   object tva_ds: TMyDataSource
     DataSet = tva
-    Left = 174
+    Left = 215
     Top = 25
   end
   object tsm: TMyQuery_go
@@ -10318,7 +9858,7 @@ inherited GESVEN: TGESVEN
       ' ')
     Options.DefaultValues = True
     Options.TrimVarChar = True
-    Left = 180
+    Left = 228
     Top = 25
     ParamData = <
       item
@@ -10329,15 +9869,15 @@ inherited GESVEN: TGESVEN
   end
   object tsm_ds: TMyDataSource
     DataSet = tsm
-    Left = 189
+    Left = 242
     Top = 25
   end
   object cancella_iva: TMyQuery_go
     Connection = ARC.arcdit
     Options.DefaultValues = True
     Options.TrimVarChar = True
-    Left = 960
-    Top = 25
+    Left = 941
+    Top = 102
   end
   object tba: TMyQuery_go
     Connection = ARC.arcdit
@@ -10355,7 +9895,7 @@ inherited GESVEN: TGESVEN
       ' ')
     Options.DefaultValues = True
     Options.TrimVarChar = True
-    Left = 195
+    Left = 255
     Top = 25
     ParamData = <
       item
@@ -10366,7 +9906,7 @@ inherited GESVEN: TGESVEN
   end
   object tba_ds: TMyDataSource
     DataSet = tba
-    Left = 204
+    Left = 269
     Top = 25
   end
   object tna: TMyQuery_go
@@ -10381,7 +9921,7 @@ inherited GESVEN: TGESVEN
       ' ')
     Options.DefaultValues = True
     Options.TrimVarChar = True
-    Left = 210
+    Left = 282
     Top = 25
     ParamData = <
       item
@@ -10392,7 +9932,7 @@ inherited GESVEN: TGESVEN
   end
   object tna_ds: TMyDataSource
     DataSet = tna
-    Left = 219
+    Left = 296
     Top = 25
   end
   object tmo: TMyQuery_go
@@ -10403,7 +9943,7 @@ inherited GESVEN: TGESVEN
       'where codice = :codice')
     Options.DefaultValues = True
     Options.TrimVarChar = True
-    Left = 225
+    Left = 309
     Top = 25
     ParamData = <
       item
@@ -10414,7 +9954,7 @@ inherited GESVEN: TGESVEN
   end
   object tmo_ds: TMyDataSource
     DataSet = tmo
-    Left = 234
+    Left = 323
     Top = 25
   end
   object tma: TMyQuery_go
@@ -10426,7 +9966,7 @@ inherited GESVEN: TGESVEN
       ' ')
     Options.DefaultValues = True
     Options.TrimVarChar = True
-    Left = 240
+    Left = 336
     Top = 25
     ParamData = <
       item
@@ -10437,7 +9977,7 @@ inherited GESVEN: TGESVEN
   end
   object tma_ds: TMyDataSource
     DataSet = tma
-    Left = 249
+    Left = 350
     Top = 25
   end
   object tmo_collegato: TMyQuery_go
@@ -10448,7 +9988,7 @@ inherited GESVEN: TGESVEN
       'where codice = :codice')
     Options.DefaultValues = True
     Options.TrimVarChar = True
-    Left = 255
+    Left = 363
     Top = 25
     ParamData = <
       item
@@ -10459,7 +9999,7 @@ inherited GESVEN: TGESVEN
   end
   object tmo_collegato_ds: TMyDataSource
     DataSet = tmo_collegato
-    Left = 264
+    Left = 377
     Top = 25
   end
   object tma_collegato: TMyQuery_go
@@ -10471,7 +10011,7 @@ inherited GESVEN: TGESVEN
       ' ')
     Options.DefaultValues = True
     Options.TrimVarChar = True
-    Left = 270
+    Left = 390
     Top = 25
     ParamData = <
       item
@@ -10482,13 +10022,13 @@ inherited GESVEN: TGESVEN
   end
   object tma_collegato_ds: TMyDataSource
     DataSet = tma_collegato
-    Left = 279
+    Left = 404
     Top = 25
   end
   object art_ds: TMyDataSource
     DataSet = art
-    Left = 494
-    Top = 25
+    Left = 389
+    Top = 65526
   end
   object tag: TMyQuery_go
     Connection = ARC.arcdit
@@ -10501,7 +10041,7 @@ inherited GESVEN: TGESVEN
       'where tag.codice = :codice')
     Options.DefaultValues = True
     Options.TrimVarChar = True
-    Left = 285
+    Left = 417
     Top = 25
     ParamData = <
       item
@@ -10512,7 +10052,7 @@ inherited GESVEN: TGESVEN
   end
   object tag_ds: TMyDataSource
     DataSet = tag
-    Left = 294
+    Left = 431
     Top = 25
   end
   object tiv: TMyQuery_go
@@ -10525,7 +10065,7 @@ inherited GESVEN: TGESVEN
       ' ')
     Options.DefaultValues = True
     Options.TrimVarChar = True
-    Left = 300
+    Left = 444
     Top = 25
     ParamData = <
       item
@@ -10536,7 +10076,7 @@ inherited GESVEN: TGESVEN
   end
   object tiv_ds: TMyDataSource
     DataSet = tiv
-    Left = 309
+    Left = 458
     Top = 25
   end
   object tcc: TMyQuery_go
@@ -10550,7 +10090,7 @@ inherited GESVEN: TGESVEN
       ' ')
     Options.DefaultValues = True
     Options.TrimVarChar = True
-    Left = 315
+    Left = 471
     Top = 25
     ParamData = <
       item
@@ -10561,7 +10101,7 @@ inherited GESVEN: TGESVEN
   end
   object tcc_ds: TMyDataSource
     DataSet = tcc
-    Left = 324
+    Left = 485
     Top = 25
   end
   object tcd_apertura: TMyQuery_go
@@ -10576,7 +10116,7 @@ inherited GESVEN: TGESVEN
       ' ')
     Options.DefaultValues = True
     Options.TrimVarChar = True
-    Left = 330
+    Left = 498
     Top = 25
     ParamData = <
       item
@@ -10587,7 +10127,7 @@ inherited GESVEN: TGESVEN
   end
   object tcd_apertura_ds: TMyDataSource
     DataSet = tcd_apertura
-    Left = 339
+    Left = 512
     Top = 25
   end
   object tcd_chiusura: TMyQuery_go
@@ -10603,7 +10143,7 @@ inherited GESVEN: TGESVEN
       ' ')
     Options.DefaultValues = True
     Options.TrimVarChar = True
-    Left = 345
+    Left = 525
     Top = 25
     ParamData = <
       item
@@ -10614,7 +10154,7 @@ inherited GESVEN: TGESVEN
   end
   object tcd_chiusura_ds: TMyDataSource
     DataSet = tcd_chiusura
-    Left = 354
+    Left = 539
     Top = 25
   end
   object tna_intra: TMyQuery_go
@@ -10631,7 +10171,7 @@ inherited GESVEN: TGESVEN
       ' ')
     Options.DefaultValues = True
     Options.TrimVarChar = True
-    Left = 360
+    Left = 552
     Top = 25
     ParamData = <
       item
@@ -10642,7 +10182,7 @@ inherited GESVEN: TGESVEN
   end
   object tna_intra_ds: TMyDataSource
     DataSet = tna_intra
-    Left = 369
+    Left = 566
     Top = 25
   end
   object tsp: TMyQuery_go
@@ -10653,7 +10193,7 @@ inherited GESVEN: TGESVEN
       'where codice = :codice')
     Options.DefaultValues = True
     Options.TrimVarChar = True
-    Left = 375
+    Left = 579
     Top = 25
     ParamData = <
       item
@@ -10664,7 +10204,7 @@ inherited GESVEN: TGESVEN
   end
   object tsp_ds: TMyDataSource
     DataSet = tsp
-    Left = 384
+    Left = 593
     Top = 25
   end
   object tst: TMyQuery_go
@@ -10682,7 +10222,7 @@ inherited GESVEN: TGESVEN
       ' ')
     Options.DefaultValues = True
     Options.TrimVarChar = True
-    Left = 390
+    Left = 606
     Top = 25
     ParamData = <
       item
@@ -10693,7 +10233,7 @@ inherited GESVEN: TGESVEN
   end
   object tst_ds: TMyDataSource
     DataSet = tst
-    Left = 399
+    Left = 620
     Top = 25
   end
   object tpo: TMyQuery_go
@@ -10711,7 +10251,7 @@ inherited GESVEN: TGESVEN
       ' ')
     Options.DefaultValues = True
     Options.TrimVarChar = True
-    Left = 405
+    Left = 633
     Top = 25
     ParamData = <
       item
@@ -10722,7 +10262,7 @@ inherited GESVEN: TGESVEN
   end
   object tpo_ds: TMyDataSource
     DataSet = tpo
-    Left = 414
+    Left = 647
     Top = 25
   end
   object tab: TMyQuery_go
@@ -10740,7 +10280,7 @@ inherited GESVEN: TGESVEN
       ' ')
     Options.DefaultValues = True
     Options.TrimVarChar = True
-    Left = 420
+    Left = 660
     Top = 25
     ParamData = <
       item
@@ -10751,7 +10291,7 @@ inherited GESVEN: TGESVEN
   end
   object tab_ds: TMyDataSource
     DataSet = tab
-    Left = 429
+    Left = 674
     Top = 25
   end
   object tsm_sconto: TMyQuery_go
@@ -10764,7 +10304,7 @@ inherited GESVEN: TGESVEN
       'where codice = :codice')
     Options.DefaultValues = True
     Options.TrimVarChar = True
-    Left = 435
+    Left = 687
     Top = 25
     ParamData = <
       item
@@ -10775,7 +10315,7 @@ inherited GESVEN: TGESVEN
   end
   object tsm_sconto_ds: TMyDataSource
     DataSet = tsm_sconto
-    Left = 444
+    Left = 701
     Top = 25
   end
   object tpe: TMyQuery_go
@@ -10794,7 +10334,7 @@ inherited GESVEN: TGESVEN
       ' ')
     Options.DefaultValues = True
     Options.TrimVarChar = True
-    Left = 450
+    Left = 714
     Top = 25
     ParamData = <
       item
@@ -10805,7 +10345,7 @@ inherited GESVEN: TGESVEN
   end
   object tpe_ds: TMyDataSource
     DataSet = tpe
-    Left = 459
+    Left = 728
     Top = 25
   end
   object tsm_righe: TMyQuery_go
@@ -10817,8 +10357,8 @@ inherited GESVEN: TGESVEN
       ' ')
     Options.DefaultValues = True
     Options.TrimVarChar = True
-    Left = 500
-    Top = 25
+    Left = 405
+    Top = 65526
     ParamData = <
       item
         DataType = ftUnknown
@@ -10828,8 +10368,8 @@ inherited GESVEN: TGESVEN
   end
   object tsm_righe_ds: TMyDataSource
     DataSet = tsm_righe
-    Left = 509
-    Top = 25
+    Left = 419
+    Top = 65526
   end
   object tsm_art: TMyQuery_go
     Connection = ARC.arcdit
@@ -10841,8 +10381,8 @@ inherited GESVEN: TGESVEN
       ' ')
     Options.DefaultValues = True
     Options.TrimVarChar = True
-    Left = 515
-    Top = 25
+    Left = 435
+    Top = 65526
     ParamData = <
       item
         DataType = ftUnknown
@@ -10852,8 +10392,8 @@ inherited GESVEN: TGESVEN
   end
   object tsm_art_ds: TMyDataSource
     DataSet = tsm_art
-    Left = 524
-    Top = 25
+    Left = 454
+    Top = 65526
   end
   object abi: TMyQuery_go
     Connection = ARC.arc
@@ -10866,8 +10406,8 @@ inherited GESVEN: TGESVEN
       ' ')
     Options.DefaultValues = True
     Options.TrimVarChar = True
-    Left = 535
-    Top = 25
+    Left = 470
+    Top = 65526
     ParamData = <
       item
         DataType = ftUnknown
@@ -10877,8 +10417,8 @@ inherited GESVEN: TGESVEN
   end
   object abi_ds: TMyDataSource
     DataSet = abi
-    Left = 544
-    Top = 25
+    Left = 489
+    Top = 65526
   end
   object cab: TMyQuery_go
     Connection = ARC.arc
@@ -10890,8 +10430,8 @@ inherited GESVEN: TGESVEN
       '')
     Options.DefaultValues = True
     Options.TrimVarChar = True
-    Left = 550
-    Top = 25
+    Left = 505
+    Top = 65526
     ParamData = <
       item
         DataType = ftUnknown
@@ -10906,69 +10446,8 @@ inherited GESVEN: TGESVEN
   end
   object cab_ds: TMyDataSource
     DataSet = cab
-    Left = 559
-    Top = 25
-  end
-  object tmo_01: TMyQuery_go
-    Connection = ARC.arcdit
-    SQL.Strings = (
-      'select esistenza'
-      'from tmo'
-      'where codice = :codice'
-      ' ')
-    Options.DefaultValues = True
-    Options.TrimVarChar = True
-    Left = 755
-    Top = 60
-    ParamData = <
-      item
-        DataType = ftUnknown
-        Name = 'codice'
-        Value = nil
-      end>
-  end
-  object art_01: TMyQuery_go
-    Connection = ARC.arcdit
-    SQL.Strings = (
-      'select tiv_codice_vendite, tca_codice'
-      'from art'
-      'where codice = :codice'
-      ' '
-      ' ')
-    Options.DefaultValues = True
-    Options.TrimVarChar = True
-    Left = 770
-    Top = 60
-    ParamData = <
-      item
-        DataType = ftUnknown
-        Name = 'codice'
-        Value = nil
-      end>
-  end
-  object utn: TMyQuery_go
-    Connection = ARC.arc
-    SQL.Strings = (
-      
-        'select tdo_codice_ordini, tdo_codice_bolle, tdo_codice_corrispet' +
-        'tivi, tdo_codice_ddt,'
-      
-        'tdo_codice_fatture_accompagna, tdo_codice_fatture_immediate, tdo' +
-        '_codice_note_credito,'
-      'tdo_codice_preventivi'
-      'from utn'
-      'where codice = :codice'
-      ' ')
-    Options.DefaultValues = True
-    Options.TrimVarChar = True
-    Left = 785
-    Top = 60
-    ParamData = <
-      item
-        DataType = ftUnknown
-        Name = 'codice'
-        Value = nil
-      end>
+    Left = 524
+    Top = 65526
   end
   object query_esiste_opt: TMyQuery_go
     Connection = ARC.arcdit
@@ -10981,60 +10460,8 @@ inherited GESVEN: TGESVEN
       'doc_riga_origine = :riga_03')
     Options.DefaultValues = True
     Options.TrimVarChar = True
-    Left = 815
-    Top = 60
-    ParamData = <
-      item
-        DataType = ftUnknown
-        Name = 'ovr_progressivo_03'
-        Value = nil
-      end
-      item
-        DataType = ftUnknown
-        Name = 'riga_03'
-        Value = nil
-      end>
-  end
-  object art_barcode: TMyQuery_go
-    Connection = ARC.arcdit
-    SQL.Strings = (
-      'select sum(quantita) quantita, count(id) numero'
-      'from opt'
-      
-        'where ovr_progressivo = :ovr_progressivo_03 and ovr_riga = :riga' +
-        '_03'
-      ''
-      ' ')
-    Options.DefaultValues = True
-    Options.TrimVarChar = True
-    Left = 830
-    Top = 60
-    ParamData = <
-      item
-        DataType = ftUnknown
-        Name = 'ovr_progressivo_03'
-        Value = nil
-      end
-      item
-        DataType = ftUnknown
-        Name = 'riga_03'
-        Value = nil
-      end>
-  end
-  object lot: TMyQuery_go
-    Connection = ARC.arcdit
-    SQL.Strings = (
-      'select sum(quantita) quantita, count(id) numero'
-      'from opt'
-      
-        'where ovr_progressivo = :ovr_progressivo_03 and ovr_riga = :riga' +
-        '_03'
-      ''
-      ' ')
-    Options.DefaultValues = True
-    Options.TrimVarChar = True
-    Left = 845
-    Top = 60
+    Left = 883
+    Top = 76
     ParamData = <
       item
         DataType = ftUnknown
@@ -11069,8 +10496,8 @@ inherited GESVEN: TGESVEN
       ' ')
     Options.DefaultValues = True
     Options.TrimVarChar = True
-    Left = 650
-    Top = 60
+    Left = 540
+    Top = 65526
     ParamData = <
       item
         DataType = ftUnknown
@@ -11080,8 +10507,8 @@ inherited GESVEN: TGESVEN
   end
   object cms_ds: TMyDataSource
     DataSet = cms
-    Left = 669
-    Top = 60
+    Left = 559
+    Top = 65526
   end
   object cmt: TMyQuery_go
     Connection = ARC.arcdit
@@ -11092,8 +10519,8 @@ inherited GESVEN: TGESVEN
       '')
     Options.DefaultValues = True
     Options.TrimVarChar = True
-    Left = 685
-    Top = 60
+    Left = 575
+    Top = 65526
     ParamData = <
       item
         DataType = ftUnknown
@@ -11108,28 +10535,8 @@ inherited GESVEN: TGESVEN
   end
   object cmt_ds: TMyDataSource
     DataSet = cmt
-    Left = 699
-    Top = 60
-  end
-  object neg: TMyQuery_go
-    Connection = ARC.arcdit
-    SQL.Strings = (
-      'select doc_progressivo_origine'
-      'from fvr'
-      
-        'where progressivo = :progressivo and documento_origine = '#39'vendit' +
-        'a negozio'#39
-      'limit 1')
-    Options.DefaultValues = True
-    Options.TrimVarChar = True
-    Left = 860
-    Top = 60
-    ParamData = <
-      item
-        DataType = ftUnknown
-        Name = 'progressivo'
-        Value = nil
-      end>
+    Left = 589
+    Top = 65526
   end
   object cem: TMyQuery_go
     Connection = ARC.arcdit
@@ -11141,8 +10548,8 @@ inherited GESVEN: TGESVEN
       '  doc_progressivo = :codice2 and doc_riga = :codice3')
     Options.DefaultValues = True
     Options.TrimVarChar = True
-    Left = 730
-    Top = 60
+    Left = 854
+    Top = 76
     ParamData = <
       item
         DataType = ftUnknown
@@ -11162,289 +10569,6 @@ inherited GESVEN: TGESVEN
       item
         DataType = ftUnknown
         Name = 'codice3'
-        Value = nil
-      end>
-  end
-  object query_cem: TMyQuery_go
-    Connection = ARC.arcdit
-    SQL.Strings = (
-      '')
-    Options.DefaultValues = True
-    Options.TrimVarChar = True
-    Left = 710
-    Top = 60
-  end
-  object cor: TMyQuery_go
-    Connection = ARC.arcdit
-    SQL.Strings = (
-      'select id'
-      'from fvr'
-      
-        'where documento_origine = '#39'corrispettivo ven'#39' and doc_progressiv' +
-        'o_origine = :doc_progressivo_origine'
-      'limit 1'
-      ' '
-      ' ')
-    Options.DefaultValues = True
-    Options.TrimVarChar = True
-    Left = 805
-    Top = 100
-    ParamData = <
-      item
-        DataType = ftUnknown
-        Name = 'doc_progressivo_origine'
-        Value = nil
-      end>
-  end
-  object fatcor: TMyQuery_go
-    Connection = ARC.arcdit
-    SQL.Strings = (
-      'select id'
-      'from fvr'
-      
-        'where progressivo = :progressivo and documento_origine = '#39'corris' +
-        'pettivo ven'#39
-      'limit 1'
-      '')
-    Options.DefaultValues = True
-    Options.TrimVarChar = True
-    Left = 825
-    Top = 100
-    ParamData = <
-      item
-        DataType = ftUnknown
-        Name = 'progressivo'
-        Value = nil
-      end>
-  end
-  object cot: TMyQuery_go
-    Connection = ARC.arcdit
-    SQL.Strings = (
-      
-        'select cot.tipo_contratto, cot.data_inizio, fvt.numero_documento' +
-        ', fvt.serie_documento, fvt.data_documento,'
-      
-        'tcr.tiv_codice, cot.contratto_elenco_cli_for, cot.pagamento_elen' +
-        'co_cli_for'
-      'from cot'
-      'left join cor on cor.progressivo = cot.progressivo and'
-      'cor.data_inizio <= :data and cor.data_fine >= :data'
-      'left join fvt on fvt.progressivo = cor.progressivo_fvt'
-      'left join tcr on tcr.codice = :tcr_codice  /*ditta*/'
-      
-        'where cot.cli_codice = :cli_codice and cot.codice_contratto = :c' +
-        'odice_contratto'
-      '')
-    Options.DefaultValues = True
-    Options.TrimVarChar = True
-    Left = 695
-    Top = 75
-    ParamData = <
-      item
-        DataType = ftUnknown
-        Name = 'data'
-        Value = nil
-      end
-      item
-        DataType = ftUnknown
-        Name = 'data'
-        Value = nil
-      end
-      item
-        DataType = ftUnknown
-        Name = 'tcr_codice'
-        Value = nil
-      end
-      item
-        DataType = ftUnknown
-        Name = 'cli_codice'
-        Value = nil
-      end
-      item
-        DataType = ftUnknown
-        Name = 'codice_contratto'
-        Value = nil
-      end>
-  end
-  object cod: TMyQuery_go
-    Connection = ARC.arcdit
-    SQL.Strings = (
-      'select cod.tsm_codice, cod.quantita_base, cod.quantita_omaggio,'
-      'cod.corso_formazione, cod.numero_corsi, cod.anno'
-      'from cot'
-      'inner join cod on cod.progressivo = cot.progressivo'
-      
-        'where cot.cli_codice = :cli_codice and cot.codice_contratto = :c' +
-        'odice_contratto and'
-      
-        'cod.art_codice = :art_codice and cod.tcm_codice = :tcm_codice an' +
-        'd cod.tgm_codice = :tgm_codice and'
-      'cod.tsa_codice = :tsa_codice and cod.ts3_codice = :ts3_codice'
-      '')
-    Options.DefaultValues = True
-    Options.TrimVarChar = True
-    Left = 745
-    Top = 75
-    ParamData = <
-      item
-        DataType = ftUnknown
-        Name = 'cli_codice'
-        Value = nil
-      end
-      item
-        DataType = ftUnknown
-        Name = 'codice_contratto'
-        Value = nil
-      end
-      item
-        DataType = ftUnknown
-        Name = 'art_codice'
-        Value = nil
-      end
-      item
-        DataType = ftUnknown
-        Name = 'tcm_codice'
-        Value = nil
-      end
-      item
-        DataType = ftUnknown
-        Name = 'tgm_codice'
-        Value = nil
-      end
-      item
-        DataType = ftUnknown
-        Name = 'tsa_codice'
-        Value = nil
-      end
-      item
-        DataType = ftUnknown
-        Name = 'ts3_codice'
-        Value = nil
-      end>
-  end
-  object corsi: TMyQuery_go
-    Connection = ARC.arcdit
-    SQL.Strings = (
-      'select sum(quantita) numero_corsi'
-      'from ovr'
-      'inner join ovt on ovt.progressivo = ovr.progressivo'
-      'inner join art on art.codice = ovr.art_codice'
-      
-        'where (ovr.art_codice = :art_codice or art.tcm_codice = :tcm_cod' +
-        'ice or'
-      
-        'art.tgm_codice = :tgm_codice or art.tsa_codice = :tsa_codice or ' +
-        'art.ts3_codice = :ts3_codice) and'
-      
-        'ovt.nostro_riferimento <> '#39#39' and year(ovt.data_documento) = :ann' +
-        'o'
-      '')
-    Options.DefaultValues = True
-    Options.TrimVarChar = True
-    Left = 770
-    Top = 75
-    ParamData = <
-      item
-        DataType = ftUnknown
-        Name = 'art_codice'
-        Value = nil
-      end
-      item
-        DataType = ftUnknown
-        Name = 'tcm_codice'
-        Value = nil
-      end
-      item
-        DataType = ftUnknown
-        Name = 'tgm_codice'
-        Value = nil
-      end
-      item
-        DataType = ftUnknown
-        Name = 'tsa_codice'
-        Value = nil
-      end
-      item
-        DataType = ftUnknown
-        Name = 'ts3_codice'
-        Value = nil
-      end
-      item
-        DataType = ftUnknown
-        Name = 'anno'
-        Value = nil
-      end>
-  end
-  object supero: TMyQuery_go
-    Connection = ARC.arcdit
-    SQL.Strings = (
-      
-        'select cot.cli_codice, cot.codice_contratto, cor.importo importo' +
-        '_contratto,'
-      
-        'coalesce((select sum(ovt.importo_totale_imponibile - ovt.importo' +
-        '_spese_extra - ovt.importo_spese_trasporto -'
-      'ovt.importo_spese_incasso - ovt.importo_bollo) from ovt'
-      
-        'where ovt.cli_codice = cot.cli_codice and ovt.codice_contratto =' +
-        ' cot.codice_contratto and'
-      
-        'ovt.data_documento between cor.data_inizio and cor.data_fine), 0' +
-        ') importo_venduto'
-      'from cor'
-      'inner join cot on cot.progressivo = cor.progressivo'
-      
-        'where cot.cli_codice = :cli_codice and cot.codice_contratto = :c' +
-        'odice_contratto and'
-      'cor.data_inizio <= :data and cor.data_fine >= :data'
-      '')
-    Options.DefaultValues = True
-    Options.TrimVarChar = True
-    Left = 790
-    Top = 75
-    ParamData = <
-      item
-        DataType = ftUnknown
-        Name = 'cli_codice'
-        Value = nil
-      end
-      item
-        DataType = ftUnknown
-        Name = 'codice_contratto'
-        Value = nil
-      end
-      item
-        DataType = ftUnknown
-        Name = 'data'
-        Value = nil
-      end
-      item
-        DataType = ftUnknown
-        Name = 'data'
-        Value = nil
-      end>
-  end
-  object kit: TMyQuery_go
-    Connection = ARC.arcdit
-    SQL.Strings = (
-      
-        'select kit.*, art.descrizione1 art_descrizione1, art.descrizione' +
-        '2 art_descrizione2, art.tum_codice,'
-      'art.tiv_codice_vendite tiv_codice'
-      'from kit'
-      'inner join art on art.codice = kit.art_codice_componente'
-      'where kit.art_codice = :art_codice'
-      'order by sequenza'
-      ''
-      '')
-    Options.DefaultValues = True
-    Options.TrimVarChar = True
-    Left = 695
-    Top = 100
-    ParamData = <
-      item
-        DataType = ftUnknown
-        Name = 'art_codice'
         Value = nil
       end>
   end
@@ -11475,8 +10599,8 @@ inherited GESVEN: TGESVEN
       '')
     Options.DefaultValues = True
     Options.TrimVarChar = True
-    Left = 810
-    Top = 75
+    Left = 645
+    Top = 65526
     ParamData = <
       item
         DataType = ftUnknown
@@ -11511,24 +10635,8 @@ inherited GESVEN: TGESVEN
   end
   object esistenza_principale_ds: TMyDataSource
     DataSet = esistenza_principale
-    Left = 830
-    Top = 75
-  end
-  object sal: TMyQuery_go
-    Connection = ARC.arcdit
-    SQL.Strings = (
-      'select * from sal'
-      'where progressivo = :progressivo')
-    Options.DefaultValues = True
-    Options.TrimVarChar = True
-    Left = 715
-    Top = 100
-    ParamData = <
-      item
-        DataType = ftUnknown
-        Name = 'progressivo'
-        Value = nil
-      end>
+    Left = 660
+    Top = 65526
   end
   object tag_ca: TMyQuery_go
     Connection = ARC.arcdit
@@ -11556,34 +10664,8 @@ inherited GESVEN: TGESVEN
     Connection = ARC.arcdit
     Options.DefaultValues = True
     Options.TrimVarChar = True
-    Left = 655
-    Top = 75
-  end
-  object bvr_dvr: TMyQuery_go
-    Connection = ARC.arcdit
-    SQL.Strings = (
-      '')
-    Options.DefaultValues = True
-    Options.TrimVarChar = True
-    Left = 740
-    Top = 100
-  end
-  object tum: TMyQuery_go
-    Connection = ARC.arcdit
-    SQL.Strings = (
-      'select descrizione, quantita_peso'
-      'from tum'
-      'where codice = :codice')
-    Options.DefaultValues = True
-    Options.TrimVarChar = True
-    Left = 760
-    Top = 100
-    ParamData = <
-      item
-        DataType = ftUnknown
-        Name = 'codice'
-        Value = nil
-      end>
+    Left = 680
+    Top = 76
   end
   object gen: TMyQuery_go
     Connection = ARC.arcdit
@@ -11598,8 +10680,8 @@ inherited GESVEN: TGESVEN
       '')
     Options.DefaultValues = True
     Options.TrimVarChar = True
-    Left = 780
-    Top = 100
+    Left = 767
+    Top = 50
     ParamData = <
       item
         DataType = ftUnknown
@@ -11615,64 +10697,12 @@ inherited GESVEN: TGESVEN
       'where codice = :codice')
     Options.DefaultValues = True
     Options.TrimVarChar = True
-    Left = 635
-    Top = 75
+    Left = 680
+    Top = 50
     ParamData = <
       item
         DataType = ftUnknown
         Name = 'codice'
-        Value = nil
-      end>
-  end
-  object cnf_totale: TMyQuery_go
-    Connection = ARC.arcdit
-    SQL.Strings = (
-      'select'
-      
-        'coalesce((select sum(importo) from cnf where configurazione = :c' +
-        'onfigurazione), 0) +'
-      
-        'coalesce((select sum(importo) from cnl where configurazione = :c' +
-        'onfigurazione), 0)'
-      'importo')
-    Options.DefaultValues = True
-    Options.TrimVarChar = True
-    Left = 635
-    Top = 100
-    ParamData = <
-      item
-        DataType = ftUnknown
-        Name = 'configurazione'
-        Value = nil
-      end
-      item
-        DataType = ftUnknown
-        Name = 'configurazione'
-        Value = nil
-      end>
-  end
-  object accessori_equivalenti: TMyQuery_go
-    Connection = ARC.arcdit
-    SQL.Strings = (
-      'select'
-      
-        'case when exists(select id from acc where art_codice = art.codic' +
-        'e) then '#39'si'#39' else '#39'no'#39' end accessori,'
-      
-        'case when exists(select id from equ where art_codice = art.codic' +
-        'e or art_codice_equivalente = art.codice) then '#39'si'#39' else '#39'no'#39' en' +
-        'd equivalenti'
-      'from art'
-      'where codice = :art_codice'
-      '')
-    Options.DefaultValues = True
-    Options.TrimVarChar = True
-    Left = 665
-    Top = 100
-    ParamData = <
-      item
-        DataType = ftUnknown
-        Name = 'art_codice'
         Value = nil
       end>
   end
@@ -11688,7 +10718,7 @@ inherited GESVEN: TGESVEN
       'where nom.codice = :codice')
     Options.DefaultValues = True
     Options.TrimVarChar = True
-    Left = 55
+    Left = 75
     Top = 25
     ParamData = <
       item
@@ -11708,8 +10738,8 @@ inherited GESVEN: TGESVEN
       '')
     Options.DefaultValues = True
     Options.TrimVarChar = True
-    Left = 610
-    Top = 80
+    Left = 941
+    Top = 50
     ParamData = <
       item
         DataType = ftUnknown
@@ -11724,49 +10754,6 @@ inherited GESVEN: TGESVEN
       item
         DataType = ftUnknown
         Name = 'art_codice'
-        Value = nil
-      end>
-  end
-  object ccf: TMyQuery_go
-    Connection = ARC.arcdit
-    SQL.Strings = (
-      'select id'
-      'from ccf'
-      
-        'where oggetto_contatto = :oggetto_contatto and cfg_codice = :cfg' +
-        '_codice and ttc_codice = :ttc_codice'
-      
-        'and documento_collegato = :documento_collegato and doc_progressi' +
-        'vo_collegato = :doc_progressivo_collegato'
-      '')
-    Options.DefaultValues = True
-    Options.TrimVarChar = True
-    Left = 900
-    Top = 60
-    ParamData = <
-      item
-        DataType = ftUnknown
-        Name = 'oggetto_contatto'
-        Value = nil
-      end
-      item
-        DataType = ftUnknown
-        Name = 'cfg_codice'
-        Value = nil
-      end
-      item
-        DataType = ftUnknown
-        Name = 'ttc_codice'
-        Value = nil
-      end
-      item
-        DataType = ftUnknown
-        Name = 'documento_collegato'
-        Value = nil
-      end
-      item
-        DataType = ftUnknown
-        Name = 'doc_progressivo_collegato'
         Value = nil
       end>
   end
@@ -11824,8 +10811,8 @@ inherited GESVEN: TGESVEN
       'where utn_codice = :utn_codice')
     Options.DefaultValues = True
     Options.TrimVarChar = True
-    Left = 845
-    Top = 100
+    Left = 796
+    Top = 50
     ParamData = <
       item
         DataType = ftUnknown
@@ -11877,82 +10864,14 @@ inherited GESVEN: TGESVEN
     Left = 64
     Top = 330
   end
-  object spese_trasporto_giornaliere: TMyQuery_go
-    Connection = ARC.arcdit
-    SQL.Strings = (
-      
-        'select id from bvt where cli_codice = :cli_codice and data_docum' +
-        'ento = :data_documento'
-      'and progressivo <> :progressivo and importo_spese_trasporto <> 0'
-      'union all'
-      
-        'select id from dvt where cli_codice = :cli_codice and data_docum' +
-        'ento = :data_documento'
-      'and progressivo <> :progressivo and importo_spese_trasporto <> 0'
-      'union all'
-      
-        'select id from fvt where cli_codice = :cli_codice and data_docum' +
-        'ento = :data_documento'
-      'and progressivo <> :progressivo and importo_spese_trasporto <> 0')
-    Options.DefaultValues = True
-    Options.TrimVarChar = True
-    Left = 610
-    Top = 100
-    ParamData = <
-      item
-        DataType = ftUnknown
-        Name = 'cli_codice'
-        Value = nil
-      end
-      item
-        DataType = ftUnknown
-        Name = 'data_documento'
-        Value = nil
-      end
-      item
-        DataType = ftUnknown
-        Name = 'progressivo'
-        Value = nil
-      end
-      item
-        DataType = ftUnknown
-        Name = 'cli_codice'
-        Value = nil
-      end
-      item
-        DataType = ftUnknown
-        Name = 'data_documento'
-        Value = nil
-      end
-      item
-        DataType = ftUnknown
-        Name = 'progressivo'
-        Value = nil
-      end
-      item
-        DataType = ftUnknown
-        Name = 'cli_codice'
-        Value = nil
-      end
-      item
-        DataType = ftUnknown
-        Name = 'data_documento'
-        Value = nil
-      end
-      item
-        DataType = ftUnknown
-        Name = 'progressivo'
-        Value = nil
-      end>
-  end
   object iva_diversa: TMyQuery_go
     Connection = ARC.arcdit
     SQL.Strings = (
       '')
     Options.DefaultValues = True
     Options.TrimVarChar = True
-    Left = 970
-    Top = 115
+    Left = 912
+    Top = 50
   end
   object iva_diversa_evadi: TMyQuery_go
     Connection = ARC.arcdit
@@ -11960,26 +10879,8 @@ inherited GESVEN: TGESVEN
       '')
     Options.DefaultValues = True
     Options.TrimVarChar = True
-    Left = 930
-    Top = 115
-  end
-  object ngt: TMyQuery_go
-    Connection = ARC.arcdit
-    SQL.Strings = (
-      'update ngt'
-      'set fattura = '#39'no'#39', numero_documento = 0'
-      'where progressivo = :progressivo'
-      '')
-    Options.DefaultValues = True
-    Options.TrimVarChar = True
-    Left = 880
-    Top = 60
-    ParamData = <
-      item
-        DataType = ftUnknown
-        Name = 'progressivo'
-        Value = nil
-      end>
+    Left = 854
+    Top = 50
   end
   object artp: TMyQuery_go
     Connection = ARC.arcdit
@@ -11990,8 +10891,8 @@ inherited GESVEN: TGESVEN
       '')
     Options.DefaultValues = True
     Options.TrimVarChar = True
-    Left = 950
-    Top = 115
+    Left = 883
+    Top = 50
     ParamData = <
       item
         DataType = ftUnknown
@@ -12003,60 +10904,8 @@ inherited GESVEN: TGESVEN
     Connection = ARC.arcdit
     Options.DefaultValues = True
     Options.TrimVarChar = True
-    Left = 635
-    Top = 125
-  end
-  object rmr: TMyQuery_go
-    Connection = ARC.arcdit
-    SQL.Strings = (
-      'update rmr'
-      'set numero_documento = :numero_documento'
-      'where documento_origine = :documento_origine'
-      'and doc_progressivo_origine = :doc_progressivo_origine'
-      'and doc_riga_origine = :doc_riga_origine'
-      '')
-    Options.DefaultValues = True
-    Options.TrimVarChar = True
-    Left = 610
-    Top = 125
-    ParamData = <
-      item
-        DataType = ftUnknown
-        Name = 'numero_documento'
-        Value = nil
-      end
-      item
-        DataType = ftUnknown
-        Name = 'documento_origine'
-        Value = nil
-      end
-      item
-        DataType = ftUnknown
-        Name = 'doc_progressivo_origine'
-        Value = nil
-      end
-      item
-        DataType = ftUnknown
-        Name = 'doc_riga_origine'
-        Value = nil
-      end>
-  end
-  object tve: TMyQuery_go
-    Connection = ARC.arcdit
-    SQL.Strings = (
-      'select *'
-      'from tve'
-      'where codice = :codice')
-    Options.DefaultValues = True
-    Options.TrimVarChar = True
-    Left = 665
-    Top = 125
-    ParamData = <
-      item
-        DataType = ftUnknown
-        Name = 'codice'
-        Value = nil
-      end>
+    Left = 709
+    Top = 50
   end
   object pvvr: TMyQuery_go
     Connection = ARC.arcdit
@@ -12067,31 +10916,12 @@ inherited GESVEN: TGESVEN
       'where pvvr.punto_vendita = :punto_vendita')
     Options.DefaultValues = True
     Options.TrimVarChar = True
-    Left = 700
-    Top = 125
+    Left = 738
+    Top = 50
     ParamData = <
       item
         DataType = ftUnknown
         Name = 'punto_vendita'
-        Value = nil
-      end>
-  end
-  object revisione_conai: TMyQuery_go
-    Connection = ARC.arcdit
-    SQL.Strings = (
-      'select count(riga) numero_righe'
-      'from pvr'
-      
-        'where progressivo = :progressivo and riga_origine_conai = 0 and ' +
-        'situazione <> '#39'inserito'#39)
-    Options.DefaultValues = True
-    Options.TrimVarChar = True
-    Left = 730
-    Top = 125
-    ParamData = <
-      item
-        DataType = ftUnknown
-        Name = 'progressivo'
         Value = nil
       end>
   end
@@ -12103,8 +10933,8 @@ inherited GESVEN: TGESVEN
       'where codice = :codice')
     Options.DefaultValues = True
     Options.TrimVarChar = True
-    Left = 760
-    Top = 125
+    Left = 680
+    Top = 65526
     ParamData = <
       item
         DataType = ftUnknown
@@ -12114,73 +10944,8 @@ inherited GESVEN: TGESVEN
   end
   object tconai_01_ds: TMyDataSource
     DataSet = tconai_01
-    Left = 779
-    Top = 125
-  end
-  object esistenza_cls: TMyQuery_go
-    Connection = ARC.arcdit
-    SQL.Strings = (
-      'select id'
-      'from cls'
-      'where cli_codice = :cli_codice and art_codice = :art_codice')
-    Options.DefaultValues = True
-    Options.TrimVarChar = True
-    Left = 805
-    Top = 125
-    ParamData = <
-      item
-        DataType = ftUnknown
-        Name = 'cli_codice'
-        Value = nil
-      end
-      item
-        DataType = ftUnknown
-        Name = 'art_codice'
-        Value = nil
-      end>
-  end
-  object tdocli: TMyQuery_go
-    Connection = ARC.arcdit
-    SQL.Strings = (
-      'select tdo_codice'
-      'from tdocli'
-      
-        'where cli_codice = :cli_codice and tipo_documento = :tipo_docume' +
-        'nto')
-    Options.DefaultValues = True
-    Options.TrimVarChar = True
-    Left = 830
-    Top = 125
-    ParamData = <
-      item
-        DataType = ftUnknown
-        Name = 'cli_codice'
-        Value = nil
-      end
-      item
-        DataType = ftUnknown
-        Name = 'tipo_documento'
-        Value = nil
-      end>
-  end
-  object ind_01: TMyQuery_go
-    Connection = ARC.arcdit
-    SQL.Strings = (
-      'select * from ind'
-      'where cli_codice = :cli_codice and obsoleto = '#39'no'#39
-      'and deposito_assistenza_tecnica = '#39'no'#39
-      '')
-    Options.DefaultValues = True
-    Options.TrimVarChar = True
-    MasterSource = abi_ds
-    Left = 475
+    Left = 699
     Top = 65526
-    ParamData = <
-      item
-        DataType = ftUnknown
-        Name = 'cli_codice'
-        Value = nil
-      end>
   end
   object prvm: TMyQuery_go
     Connection = ARC.arcdit
@@ -12190,8 +10955,8 @@ inherited GESVEN: TGESVEN
       'where progressivo = :progressivo and tag_codice = :tag_codice')
     Options.DefaultValues = True
     Options.TrimVarChar = True
-    Left = 855
-    Top = 125
+    Left = 825
+    Top = 50
     ParamData = <
       item
         DataType = ftUnknown
@@ -12212,8 +10977,8 @@ inherited GESVEN: TGESVEN
       'where codice = :codice')
     Options.DefaultValues = True
     Options.TrimVarChar = True
-    Left = 885
-    Top = 125
+    Left = 720
+    Top = 65526
     ParamData = <
       item
         DataType = ftUnknown
@@ -12223,8 +10988,8 @@ inherited GESVEN: TGESVEN
   end
   object cli_fatturazione_ds: TMyDataSource
     DataSet = cli_fatturazione
-    Left = 904
-    Top = 125
+    Left = 734
+    Top = 65526
   end
   object ind_fatturazione: TMyQuery_go
     Connection = ARC.arcdit
@@ -12263,8 +11028,8 @@ inherited GESVEN: TGESVEN
       'where configurazione = :configurazione')
     Options.DefaultValues = True
     Options.TrimVarChar = True
-    Left = 635
-    Top = 160
+    Left = 709
+    Top = 76
     ParamData = <
       item
         DataType = ftUnknown
@@ -12276,15 +11041,15 @@ inherited GESVEN: TGESVEN
     Connection = ARC.arcdit
     Options.DefaultValues = True
     Options.TrimVarChar = True
-    Left = 815
-    Top = 160
+    Left = 825
+    Top = 76
   end
   object query_sct_qc: TMyQuery_go
     Connection = ARC.arcdit
     Options.DefaultValues = True
     Options.TrimVarChar = True
-    Left = 785
-    Top = 160
+    Left = 796
+    Top = 76
   end
   object tdo_conto_vendita: TMyQuery_go
     Connection = ARC.arcdit
@@ -12296,42 +11061,12 @@ inherited GESVEN: TGESVEN
       '')
     Options.DefaultValues = True
     Options.TrimVarChar = True
-    Left = 755
-    Top = 160
+    Left = 767
+    Top = 76
     ParamData = <
       item
         DataType = ftUnknown
         Name = 'tdo_codice_conto_vendita'
-        Value = nil
-      end>
-  end
-  object fido_scadenziario: TMyQuery_go
-    Connection = ARC.arcdit
-    SQL.Strings = (
-      'select sum(pat.importo_saldo / pat.cambio) importo'
-      'from pat'
-      'where pat.cfg_tipo = '#39'C'#39' and pat.cfg_codice = :cli_codice '
-      
-        'and pat.importo_saldo <> 0 and (pat.data_scadenza + interval :gi' +
-        'orni day) <= :data')
-    Options.DefaultValues = True
-    Options.TrimVarChar = True
-    Left = 725
-    Top = 160
-    ParamData = <
-      item
-        DataType = ftUnknown
-        Name = 'cli_codice'
-        Value = nil
-      end
-      item
-        DataType = ftUnknown
-        Name = 'giorni'
-        Value = nil
-      end
-      item
-        DataType = ftUnknown
-        Name = 'data'
         Value = nil
       end>
   end
@@ -12346,8 +11081,8 @@ inherited GESVEN: TGESVEN
       '')
     Options.DefaultValues = True
     Options.TrimVarChar = True
-    Left = 695
-    Top = 160
+    Left = 738
+    Top = 76
     ParamData = <
       item
         DataType = ftUnknown
@@ -12365,44 +11100,6 @@ inherited GESVEN: TGESVEN
         Value = nil
       end>
   end
-  object camdoc: TMyQuery_go
-    Connection = ARC.arcdit
-    SQL.Strings = (
-      'select *'
-      'from camdoc'
-      
-        'where modulo_origine = :modulo_origine and tipo_documento_origin' +
-        'e = :tipo_documento_origine'
-      
-        'and modulo_derivato = :modulo_derivato and tipo_documento_deriva' +
-        'to = :tipo_documento_derivato'
-      '')
-    Options.DefaultValues = True
-    Options.TrimVarChar = True
-    Left = 665
-    Top = 160
-    ParamData = <
-      item
-        DataType = ftUnknown
-        Name = 'modulo_origine'
-        Value = nil
-      end
-      item
-        DataType = ftUnknown
-        Name = 'tipo_documento_origine'
-        Value = nil
-      end
-      item
-        DataType = ftUnknown
-        Name = 'modulo_derivato'
-        Value = nil
-      end
-      item
-        DataType = ftUnknown
-        Name = 'tipo_documento_derivato'
-        Value = nil
-      end>
-  end
   object tma_righe: TMyQuery_go
     Connection = ARC.arcdit
     SQL.Strings = (
@@ -12411,8 +11108,8 @@ inherited GESVEN: TGESVEN
       'where codice = :codice')
     Options.DefaultValues = True
     Options.TrimVarChar = True
-    Left = 840
-    Top = 160
+    Left = 750
+    Top = 65526
     ParamData = <
       item
         DataType = ftUnknown
@@ -12422,8 +11119,8 @@ inherited GESVEN: TGESVEN
   end
   object tma_righe_ds: TMyDataSource
     DataSet = tma_righe
-    Left = 860
-    Top = 160
+    Left = 765
+    Top = 65526
   end
   object tiv_righe: TMyQuery_go
     Connection = ARC.arcdit
@@ -12433,8 +11130,8 @@ inherited GESVEN: TGESVEN
       'where codice = :codice')
     Options.DefaultValues = True
     Options.TrimVarChar = True
-    Left = 885
-    Top = 160
+    Left = 780
+    Top = 65526
     ParamData = <
       item
         DataType = ftUnknown
@@ -12444,8 +11141,8 @@ inherited GESVEN: TGESVEN
   end
   object tiv_righe_ds: TMyDataSource
     DataSet = tiv_righe
-    Left = 905
-    Top = 160
+    Left = 795
+    Top = 65526
   end
   object gen_righe: TMyQuery_go
     Connection = ARC.arcdit
@@ -12455,8 +11152,8 @@ inherited GESVEN: TGESVEN
       'where codice = :codice')
     Options.DefaultValues = True
     Options.TrimVarChar = True
-    Left = 930
-    Top = 160
+    Left = 810
+    Top = 65526
     ParamData = <
       item
         DataType = ftUnknown
@@ -12466,26 +11163,8 @@ inherited GESVEN: TGESVEN
   end
   object gen_righe_ds: TMyDataSource
     DataSet = gen_righe
-    Left = 955
-    Top = 160
-  end
-  object iat: TMyQuery_go
-    Connection = ARC.arcdit
-    SQL.Strings = (
-      'update iat'
-      'set situazione = '#39'inserito'#39
-      'where progressivo = :progressivo'
-      '')
-    Options.DefaultValues = True
-    Options.TrimVarChar = True
-    Left = 925
-    Top = 60
-    ParamData = <
-      item
-        DataType = ftUnknown
-        Name = 'progressivo'
-        Value = nil
-      end>
+    Left = 825
+    Top = 65526
   end
   object query_dit: TMyQuery_go
     Encryption.Fields = 'password_sdi'
@@ -12497,8 +11176,8 @@ inherited GESVEN: TGESVEN
       '')
     Options.DefaultValues = True
     Options.TrimVarChar = True
-    Left = 695
-    Top = 185
+    Left = 970
+    Top = 50
     ParamData = <
       item
         DataType = ftUnknown
@@ -12517,8 +11196,8 @@ inherited GESVEN: TGESVEN
       '')
     Options.DefaultValues = True
     Options.TrimVarChar = True
-    Left = 785
-    Top = 185
+    Left = 912
+    Top = 76
     ParamData = <
       item
         DataType = ftUnknown
@@ -12528,8 +11207,8 @@ inherited GESVEN: TGESVEN
   end
   object popupmenu_etichette: TPopupMenu
     Images = ARC.immagine_16
-    Left = 980
-    Top = 25
+    Left = 995
+    Top = 65526
     object etichettearticoli1: TMenuItem
       Caption = 'etichette articoli'
       ImageIndex = 3
@@ -12545,8 +11224,8 @@ inherited GESVEN: TGESVEN
     Connection = ARC.arcdit
     Options.DefaultValues = True
     Options.TrimVarChar = True
-    Left = 845
-    Top = 185
+    Left = 941
+    Top = 76
   end
   object teco: TMyQuery_go
     Connection = ARC.arcdit
@@ -12556,8 +11235,8 @@ inherited GESVEN: TGESVEN
       'where codice = :codice')
     Options.DefaultValues = True
     Options.TrimVarChar = True
-    Left = 980
-    Top = 160
+    Left = 840
+    Top = 65526
     ParamData = <
       item
         DataType = ftUnknown
@@ -12567,74 +11246,8 @@ inherited GESVEN: TGESVEN
   end
   object teco_ds: TMyDataSource
     DataSet = teco
-    Left = 1005
-    Top = 160
-  end
-  object duplica_testata: TMyQuery_go
-    Connection = ARC.arcdit
-    SQL.Strings = (
-      '')
-    Options.DefaultValues = True
-    Options.TrimVarChar = True
-    Left = 875
-    Top = 185
-  end
-  object inf_01: TMyQuery_go
-    Connection = ARC.arcdit
-    SQL.Strings = (
-      'select * from inf'
-      'where frn_codice = :cli_codice')
-    Options.DefaultValues = True
-    Options.TrimVarChar = True
-    MasterSource = abi_ds
-    Left = 215
-    Top = 330
-    ParamData = <
-      item
-        DataType = ftUnknown
-        Name = 'cli_codice'
-        Value = nil
-      end>
-  end
-  object pvd: TMyQuery_go
-    Encryption.Fields = 'password_sdi'
-    Connection = ARC.arcdit
-    SQL.Strings = (
-      'select *'
-      'from pvd'
-      'where progressivo = :progressivo'
-      ''
-      '')
-    Options.DefaultValues = True
-    Options.TrimVarChar = True
-    Left = 635
-    Top = 185
-    ParamData = <
-      item
-        DataType = ftUnknown
-        Name = 'progressivo'
-        Value = nil
-      end>
-  end
-  object pvd_revisione: TMyQuery_go
-    Encryption.Fields = 'password_sdi'
-    Connection = ARC.arcdit
-    SQL.Strings = (
-      'select *'
-      'from pvd'
-      'where progressivo = :progressivo'
-      ''
-      '')
-    Options.DefaultValues = True
-    Options.TrimVarChar = True
-    Left = 665
-    Top = 185
-    ParamData = <
-      item
-        DataType = ftUnknown
-        Name = 'progressivo'
-        Value = nil
-      end>
+    Left = 860
+    Top = 65526
   end
   object artvardet: TMyQuery_go
     Connection = ARC.arcdit
@@ -12644,8 +11257,8 @@ inherited GESVEN: TGESVEN
       'where art_codice = :art_codice and dettaglio = :dettagio')
     Options.DefaultValues = True
     Options.TrimVarChar = True
-    Left = 725
-    Top = 185
+    Left = 610
+    Top = 65526
     ParamData = <
       item
         DataType = ftUnknown
@@ -12660,25 +11273,8 @@ inherited GESVEN: TGESVEN
   end
   object artvardet_ds: TMyDataSource
     DataSet = artvardet
-    Left = 750
-    Top = 185
-  end
-  object aggiorna_iat: TMyQuery_go
-    Connection = ARC.arcdit
-    SQL.Strings = (
-      'update iat'
-      'set progressivo_ddtv = 0'
-      'where progressivo = :progressivo')
-    Options.DefaultValues = True
-    Options.TrimVarChar = True
-    Left = 900
-    Top = 185
-    ParamData = <
-      item
-        DataType = ftUnknown
-        Name = 'progressivo'
-        Value = nil
-      end>
+    Left = 625
+    Top = 65526
   end
   object duplica_righe_tgl: TMyQuery_go
     Connection = ARC.arcdit
@@ -12692,8 +11288,8 @@ inherited GESVEN: TGESVEN
       '')
     Options.DefaultValues = True
     Options.TrimVarChar = True
-    Left = 925
-    Top = 185
+    Left = 970
+    Top = 76
     ParamData = <
       item
         DataType = ftUnknown
@@ -12728,8 +11324,8 @@ inherited GESVEN: TGESVEN
       '')
     Options.DefaultValues = True
     Options.TrimVarChar = True
-    Left = 950
-    Top = 185
+    Left = 796
+    Top = 102
     ParamData = <
       item
         DataType = ftUnknown

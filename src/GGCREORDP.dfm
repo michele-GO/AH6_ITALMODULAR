@@ -66,6 +66,7 @@ inherited CREORDP: TCREORDP
       TabStop = False
       OnChange = v_grigliaChange
       OnEnter = v_grigliaEnter
+      OnExit = v_grigliaExit
       OnGetImageIndex = v_grigliaGetImageIndex
       OnGetSelectedIndex = v_grigliaGetImageIndex
     end
@@ -1761,6 +1762,11 @@ inherited CREORDP: TCREORDP
       item
         DataType = ftUnknown
         Name = 'frn_codice'
+        Value = nil
+      end
+      item
+        DataType = ftUnknown
+        Name = 'quantita_attrezzaggio'
         Value = nil
       end
       item

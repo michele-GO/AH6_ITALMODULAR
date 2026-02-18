@@ -3013,8 +3013,8 @@ begin
     begin
       if not fileexists(trim(v_documento_allegato.text)) then
       begin
-        messaggio(000, 'il documento non esiste');
-        v_documento_allegato.setfocus;
+        messaggio(000, 'il documento allegato non esiste');
+        fuoco(v_documento_allegato);
         abort;
       end;
     end;

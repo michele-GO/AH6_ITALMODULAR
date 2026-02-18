@@ -587,7 +587,7 @@ inherited GESORDP: TGESORDP
           CalendarElements = [ceYear, ceMonth, ceArrows, ceDaysOfWeek, ceFillDays, ceTodayButton]
           CaptionTodayBtn = 'oggi'
           CaptionClearBtn = 'annulla'
-          Date = 45792.000000000000000000
+          Date = 46071.000000000000000000
           EditType = etDate
           DropButtonVisible = False
         end
@@ -1389,7 +1389,7 @@ inherited GESORDP: TGESORDP
           CalendarElements = [ceYear, ceMonth, ceArrows, ceDaysOfWeek, ceFillDays, ceTodayButton]
           CaptionTodayBtn = 'oggi'
           CaptionClearBtn = 'annulla'
-          Date = 45792.000000000000000000
+          Date = 46071.000000000000000000
           EditType = etDate
           DropButtonVisible = False
         end
@@ -1445,7 +1445,7 @@ inherited GESORDP: TGESORDP
       CalendarElements = [ceYear, ceMonth, ceArrows, ceDaysOfWeek, ceFillDays, ceTodayButton]
       CaptionTodayBtn = 'oggi'
       CaptionClearBtn = 'annulla'
-      Date = 45792.000000000000000000
+      Date = 46071.000000000000000000
       EditType = etDate
       DropButtonVisible = False
     end

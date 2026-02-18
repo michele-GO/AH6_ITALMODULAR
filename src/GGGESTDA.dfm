@@ -58,6 +58,8 @@ inherited GESTDA: TGESTDA
       Top = 50
       Width = 861
       Height = 551
+      ActivePage = ah6_tab_personalizzati
+      TabIndex = 6
       TabOrder = 2
       ExplicitTop = 50
       ExplicitWidth = 861
@@ -1604,10 +1606,6 @@ inherited GESTDA: TGESTDA
         Color = clWindow
         ImageIndex = 1
         Caption = 'dati extra'
-        ExplicitLeft = 0
-        ExplicitTop = 0
-        ExplicitWidth = 0
-        ExplicitHeight = 0
         object Label13: TRzLabel
           Left = 5
           Top = 325
@@ -2824,10 +2822,6 @@ inherited GESTDA: TGESTDA
         Color = clWindow
         ImageIndex = 2
         Caption = 'mail'
-        ExplicitLeft = 0
-        ExplicitTop = 0
-        ExplicitWidth = 0
-        ExplicitHeight = 0
         object v_traduzione_testo_mail: TRzRapidFireButton
           Left = 665
           Top = 335
@@ -3781,10 +3775,6 @@ inherited GESTDA: TGESTDA
         Color = clWindow
         ImageIndex = 3
         Caption = 'collegamenti'
-        ExplicitLeft = 0
-        ExplicitTop = 0
-        ExplicitWidth = 0
-        ExplicitHeight = 0
         object RzLabel9: TRzLabel
           Left = 5
           Top = 70
@@ -4011,10 +4001,6 @@ inherited GESTDA: TGESTDA
       object TabSheet1: TRzTabSheet
         Color = clWindow
         Caption = 'marchio documenti'
-        ExplicitLeft = 0
-        ExplicitTop = 0
-        ExplicitWidth = 0
-        ExplicitHeight = 0
         object RzLabel2: TRzLabel
           Left = 5
           Top = 156
@@ -4333,10 +4319,6 @@ inherited GESTDA: TGESTDA
       object tab_collegamenti: TRzTabSheet
         Color = clWindow
         Caption = 'collegamenti moduli'
-        ExplicitLeft = 0
-        ExplicitTop = 0
-        ExplicitWidth = 0
-        ExplicitHeight = 0
         object RzLabel15: TRzLabel
           Left = 5
           Top = 5
@@ -4433,6 +4415,21 @@ inherited GESTDA: TGESTDA
       ReadOnlyColorOnFocus = True
       TabOrder = 1
       OnExit = v_descrizioneExit
+    end
+    object v_obsoleto: TRzDBCheckBox
+      Left = 800
+      Top = 23
+      Width = 59
+      Height = 15
+      Hint = 
+        'spunta se la causale non pu'#242' essere utilizzato nella gestione co' +
+        'rrente'
+      DataField = 'obsoleto'
+      DataSource = tabella_ds
+      ValueChecked = 'si'
+      ValueUnchecked = 'no'
+      Caption = 'obsoleto'
+      TabOrder = 3
     end
   end
   inherited pannello_codice: TRzPanel

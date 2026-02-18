@@ -2,13 +2,13 @@ unit GGCREORDP;
 
 interface
 
-uses 
-  winapi.windows, winapi.messages, system.sysutils, system.variants, system.classes, vcl.graphics, vcl.controls, vcl.forms, 
-  vcl.dialogs, ggformbase, data.db, query_go, myaccess, vcl.menus, vcl.comctrls, rztabs, 
-  vcl.toolwin, vcl.buttons, vcl.grids, vcl.dbgrids, rzdbgrid, vcl.stdctrls, vcl.mask, vcl.extctrls, vcl.dbctrls, 
-  rzbutton, zzcerca_prezzo, zzspesco, zztipinv, zzprzinv, rzlabel, rzpanel, 
-  rzdbedit, rzlistvw, rztreevw, rzdbchk, rzradchk, rzsplit, rzcmbobx, rzprgres, 
-  rzspnedt, rzshelldialogs, rzdbcmbo, raizeedit_go, rzedit, dbaccess, memds, 
+uses
+  winapi.windows, winapi.messages, system.sysutils, system.variants, system.classes, vcl.graphics, vcl.controls, vcl.forms,
+  vcl.dialogs, ggformbase, data.db, query_go, myaccess, vcl.menus, vcl.comctrls, rztabs,
+  vcl.toolwin, vcl.buttons, vcl.grids, vcl.dbgrids, rzdbgrid, vcl.stdctrls, vcl.mask, vcl.extctrls, vcl.dbctrls,
+  rzbutton, zzcerca_prezzo, zzspesco, zztipinv, zzprzinv, rzlabel, rzpanel,
+  rzdbedit, rzlistvw, rztreevw, rzdbchk, rzradchk, rzsplit, rzcmbobx, rzprgres,
+  rzspnedt, rzshelldialogs, rzdbcmbo, raizeedit_go, rzedit, dbaccess, memds,
   ZZCALFAS;
 
 type
@@ -174,6 +174,7 @@ type
     procedure v_equivalenti_filtro_Click(Sender: TObject);
     procedure v_data_inizio_lavorazione_Click(Sender: TObject);
     procedure v_tvr_codiceEnter(Sender: TObject);
+    procedure v_grigliaExit(Sender: TObject);
   protected
     cerca_prezzi: tcerca_prezzo;
     tipinv: ttipinv;
@@ -214,6 +215,8 @@ type
     function costo_unitario(art_codice: string): double;
     function controllo_livello: boolean;
     procedure data_inizio_lavorazione;
+    function esiste_configurazione_ovr: boolean;
+    procedure crea_ciclo_da_configurazione(opt_progressivo: integer; nodo: ttreenode);
     //modifica
     function ah6_esiste_configurazione_ovr: boolean;
     //fine
@@ -226,7 +229,8 @@ implementation
 {$r *.dfm}
 
 
-uses DMARC, GGVISEQU, GGCREORDP01, GGCREORDP02, GGIMPALF, GGSCEDSBEQU, ZZVARIANTI_DSB, ZZLIBRERIE, GGANAEQU;
+uses DMARC, GGVISEQU, GGCREORDP01, GGCREORDP02, GGIMPALF, GGSCEDSBEQU, ZZVARIANTI_DSB,
+  ZZSELEZIONE, GGANAEQU, ZZUTILS.PRODUZIONE;
 
 procedure tcreordp.v_art_codiceexit(sender: tobject);
 begin
@@ -416,7 +420,7 @@ end;
 
 procedure TCREORDP.v_tvr_codice_controllo(blocco: boolean);
 begin
-//  tabella_controllo(true, tvr, v_art_codice, v_tvr_codice, blocco, nil, nil, nil);
+  //  tabella_controllo(true, tvr, v_art_codice, v_tvr_codice, blocco, nil, nil, nil);
   tabella_controllo(true, tvr, v_tvr_codice, blocco, nil, nil, nil);
 end;
 
@@ -977,68 +981,74 @@ begin
     opt.execsql;
 
     // ciclo
-    cla.close;
-    cla.parambyname('art_codice').asstring := nodoptr.codice;
-    cla.open;
-
-    if not cla.isempty then
+    if (nodoptr.codice = v_art_codice.text) and (esiste_configurazione_ovr) then
     begin
-      while not cla.eof do
+      crea_ciclo_da_configurazione(progressivo, nodo);
+    end
+    else
+    begin
+      cla.close;
+      cla.parambyname('art_codice').asstring := nodoptr.codice;
+      cla.open;
+
+      if not cla.isempty then
       begin
-        costo := 0;
+        while not cla.eof do
+        begin
+          costo := 0;
 
-        opc.parambyname('progressivo').asinteger := progressivo;
-        opc.parambyname('sequenza').asstring := cla.fieldbyname('sequenza').asstring;
-        opc.parambyname('fas_codice').asstring := cla.fieldbyname('fas_codice').asstring;
-        opc.parambyname('mac_codice').asstring := cla.fieldbyname('mac_codice').asstring;
-        if opt.parambyname('avanzamento_fasi').asstring = 'si' then
-        begin
-          opc.parambyname('frn_codice').asstring := cla.fieldbyname('frn_codice').asstring;
-        end
-        else
-        begin
-          opc.parambyname('frn_codice').asstring := '';
-        end;
-        opc.parambyname('note').asstring := cla.fieldbyname('note').asstring;
-
-        if cla.fieldbyname('fas_tipo_operazione').asstring = 'globale' then
-        begin
-          quantita_lavorazione := cla.fieldbyname('quantita').asfloat;
-        end
-        else if cla.fieldbyname('fas_tipo_operazione').asstring = 'singola' then
-        begin
-          if cla.fieldbyname('operatore').asstring = '*' then
+          opc.parambyname('progressivo').asinteger := progressivo;
+          opc.parambyname('sequenza').asstring := cla.fieldbyname('sequenza').asstring;
+          opc.parambyname('fas_codice').asstring := cla.fieldbyname('fas_codice').asstring;
+          opc.parambyname('mac_codice').asstring := cla.fieldbyname('mac_codice').asstring;
+          if opt.parambyname('avanzamento_fasi').asstring = 'si' then
           begin
-            quantita_lavorazione := nodoptr.quantita * cla.fieldbyname('quantita').asfloat;
+            opc.parambyname('frn_codice').asstring := cla.fieldbyname('frn_codice').asstring;
           end
           else
           begin
-            quantita_lavorazione := nodoptr.quantita / cla.fieldbyname('quantita').asfloat;
+            opc.parambyname('frn_codice').asstring := '';
           end;
-        end
-        else if cla.fieldbyname('fas_tipo_operazione').asstring = 'ignora' then
-        begin
-          quantita_lavorazione := 0;
+          opc.parambyname('note').asstring := cla.fieldbyname('note').asstring;
+
+          if cla.fieldbyname('fas_tipo_operazione').asstring = 'globale' then
+          begin
+            quantita_lavorazione := cla.fieldbyname('quantita').asfloat;
+          end
+          else if cla.fieldbyname('fas_tipo_operazione').asstring = 'singola' then
+          begin
+            if cla.fieldbyname('operatore').asstring = '*' then
+            begin
+              quantita_lavorazione := nodoptr.quantita * cla.fieldbyname('quantita').asfloat;
+            end
+            else
+            begin
+              quantita_lavorazione := nodoptr.quantita / cla.fieldbyname('quantita').asfloat;
+            end;
+          end
+          else if cla.fieldbyname('fas_tipo_operazione').asstring = 'ignora' then
+          begin
+            quantita_lavorazione := 0;
+          end;
+
+          opc.parambyname('quantita_attrezzaggio').asfloat := cla.fieldbyname('quantita_attrezzaggio').asfloat;
+          opc.parambyname('quantita').asfloat := quantita_lavorazione;
+          opc.parambyname('quantita_fine_attrezzaggio').asfloat := cla.fieldbyname('quantita_fine_attrezzaggio').asfloat;
+          opc.parambyname('tipo_operazione').asstring := cla.fieldbyname('fas_tipo_operazione').asstring;
+
+          opc.parambyname('costo_totale').asfloat :=
+            calfas.calcola_costo(cla.fieldbyname('frn_codice').asstring,
+            opt.parambyname('art_codice').asstring, opt.parambyname('art_codice_finito').asstring,
+            cla.fieldbyname('fas_codice').asstring, cla.fieldbyname('mac_codice').asstring,
+            opt.parambyname('data_documento').asdatetime, quantita_lavorazione,
+            cla.fieldbyname('quantita_attrezzaggio').asfloat, cla.fieldbyname('quantita_fine_attrezzaggio').asfloat);
+
+          opc.execsql;
+
+          cla.next;
         end;
-
-        opc.parambyname('quantita_attrezzaggio').asfloat := cla.fieldbyname('quantita_attrezzaggio').asfloat;
-        opc.parambyname('quantita').asfloat := quantita_lavorazione;
-        opc.parambyname('quantita_fine_attrezzaggio').asfloat := cla.fieldbyname('quantita_fine_attrezzaggio').asfloat;
-        opc.parambyname('tipo_operazione').asstring := cla.fieldbyname('fas_tipo_operazione').asstring;
-
-        opc.parambyname('costo_totale').asfloat :=
-          calfas.calcola_costo(cla.fieldbyname('frn_codice').asstring,
-          opt.parambyname('art_codice').asstring, opt.parambyname('art_codice_finito').asstring,
-          cla.fieldbyname('fas_codice').asstring, cla.fieldbyname('mac_codice').asstring,
-          opt.parambyname('data_documento').asdatetime, quantita_lavorazione,
-          cla.fieldbyname('quantita_attrezzaggio').asfloat, cla.fieldbyname('quantita_fine_attrezzaggio').asfloat);
-
-        opc.execsql;
-
-        cla.next;
       end;
     end;
-
     riga := 0;
   end
   else
@@ -1287,15 +1297,6 @@ begin
     v_tma_codice_materia_prima.text := tma_codice_materie_prime;
   end;
 
-  if node.haschildren then
-  begin
-    abilita_campo(tool_inserimento_excel);
-  end
-  else
-  begin
-    disabilita_campo(tool_inserimento_excel);
-  end;
-
   if nodoptr.codice = v_art_codice.text then
   begin
     abilita_campo(v_data_inizio_lavorazione);
@@ -1320,20 +1321,20 @@ begin
   v_espandi.enabled := true;
   v_comprimi.enabled := true;
   v_cancella_sottoelementi.enabled := true;
+  abilita_campo(tool_inserimento_excel);
 
-  (*
-    if tipo_esplosione = 'solo primo livello' then
-    begin
-    v_esplodi_tutto.enabled := false;
-    end
-    else
-  *)
   begin
     v_esplodi_tutto.enabled := true;
   end;
   v_modifica_quantita.enabled := true;
   v_cruscotto.enabled := true;
   v_varia_quantita.enabled := true;
+end;
+
+procedure TCREORDP.v_grigliaExit(Sender: TObject);
+begin
+  inherited;
+  disabilita_campo(tool_inserimento_excel);
 end;
 
 procedure tcreordp.v_grigliagetimageindex(sender: tobject; node: ttreenode);
@@ -1898,6 +1899,12 @@ var
 begin
   inherited;
 
+  if not assigned(v_griglia.selected) then
+  begin
+    messaggio(m_info, 'selezionare un elemento padre per cui caricare la distinta');
+    exit;
+  end;
+
   nodoptr := v_griglia.selected.data;
 
   opendialog.defaultext := 'xls';
@@ -2131,6 +2138,9 @@ var
   art_codice, art_descrizione: string;
   i: word;
   lista_art_codice, lista_art_descrizione, lista_quantita: tstringlist;
+  art_codice_principale: string;
+  scedsbequ: tscedsbequ;
+  query_cnf: tmyquery_go;
   //modifica
   ah6_nodoptr: ^tnodo;
   ah6_query_cnf: tmyquery_go;
@@ -2153,12 +2163,34 @@ begin
     if controllo_livello then
     begin
       prosegui := true;
-      read_tabella(arc.arcdit, 'art', 'codice', nodoptr.codice, 'materia_prima');
+
+      art_codice_principale := nodoptr.codice;
+      if read_tabella(dsb_equ, art_codice_principale) then
+      begin
+        if messaggio(300, 'l''articolo da produrre [' + art_codice_principale +
+          '] ha articoli equivalenti con distinta base' + slinebreak +
+          'confermare per selezionare la distinta base di uno degli equivalenti') = 1 then
+        begin
+          scedsbequ := tscedsbequ.create(nil);
+          try
+            scedsbequ.dsb := dsb_equ;
+            scedsbequ.showmodal;
+            if scedsbequ.art_codice <> '' then
+            begin
+              art_codice_principale := scedsbequ.art_codice;
+            end;
+          finally
+            freeandnil(scedsbequ);
+          end;
+        end;
+      end;
+
+      read_tabella(arc.arcdit, 'art', 'codice', art_codice_principale, 'materia_prima');
       if archivio.fieldbyname('materia_prima').asstring = 'si' then
       begin
         if tipo_esplosione <> 'solo primo livello' then
         begin
-          if messaggio(300, 'l''articolo [' + nodoptr.codice + '] ' +
+          if messaggio(300, 'l''articolo [' + art_codice_principale + '] ' +
             'è stato definito come materia prima' + #13 +
             'conferma per NON effettuare l''esplosione dei componenti') = 1 then
           begin
@@ -2242,8 +2274,74 @@ begin
         else
         begin
         //modifica fine
+        if (nodoptr.codice = v_art_codice.text) and esiste_configurazione_ovr then
+        begin
+          query_cnf := tmyquery_go.create(nil);
+          query_cnf.connection := arc.arcdit;
+          query_cnf.sql.add('select cnf.*,');
+          query_cnf.sql.add('  concat(trim(art.descrizione1), '' '', art.descrizione2) art_descrizione');
+          query_cnf.sql.add('from cnf');
+          query_cnf.sql.add('inner join ovr on ovr.configurazione = cnf.configurazione');
+          query_cnf.sql.add('inner join art on art.codice = cnf.art_codice');
+          query_cnf.sql.add('where ovr.progressivo = :progressivo');
+          query_cnf.sql.add('  and ovr.riga = :riga');
+          query_cnf.sql.add('order by cnf.sequenza');
+          query_cnf.parambyname('progressivo').asinteger := v_ovr_progressivo.intvalue;
+          query_cnf.parambyname('riga').asinteger := v_ovr_riga.intvalue;
+          query_cnf.open;
+          while not query_cnf.eof do
+          begin
+            art_codice := query_cnf.fieldbyname('art_codice').asstring;
+            art_descrizione := query_cnf.fieldbyname('art_descrizione').asstring;
+
+            mag.close;
+            mag.parambyname('art_codice').asstring := art_codice;
+            mag.parambyname('tma_codice').asstring := tma_codice_materie_prime;
+            mag.parambyname('tma_codice_principale').asstring := arc.dit.fieldbyname('tma_codice_principale').asstring;
+            mag.open;
+
+            lista_art_codice.clear;
+            lista_art_descrizione.clear;
+            lista_quantita.clear;
+
+            lista_art_codice.add(art_codice);
+            lista_art_descrizione.add(art_descrizione);
+            lista_quantita.add(query_cnf.fieldbyname('quantita').asstring);
+
+            for i := 0 to lista_art_codice.count - 1 do
+            begin
+              if strtofloat(lista_quantita[i]) <> 0 then
+              begin
+                inserisci_treeview(query_cnf.fieldbyname('sequenza').asinteger,
+                  lista_art_codice[i], lista_art_descrizione[i], '',
+                  tma_codice_materie_prime, arrotonda(nodoptr.quantita * strtofloat(lista_quantita[i]), 4),
+                  query_cnf.fieldbyname('prezzo').asfloat, mag.fieldbyname('esistenza_tma').asfloat,
+                  mag.fieldbyname('approntato_tma').asfloat,
+                  mag.fieldbyname('esistenza').asfloat, mag.fieldbyname('esistenza_principale').asfloat,
+                  v_griglia.selected);
+              end;
+            end;
+
+            query_cnf.next;
+          end;
+
+          v_griglia.selected.expand(false);
+
+          if query_cnf.isempty then
+          begin
+            v_griglia.selected.haschildren := false;
+          end
+          else
+          begin
+            v_griglia.selected.haschildren := true;
+          end;
+
+          query_cnf.free;
+        end
+        else
+        begin
           dsb.close;
-          dsb.parambyname('art_codice_padre').asstring := nodoptr.codice;
+          dsb.parambyname('art_codice_padre').asstring := art_codice_principale;
           dsb.open;
           while not dsb.eof do
           begin
@@ -2325,6 +2423,7 @@ begin
           begin
             v_griglia.selected.haschildren := true;
           end;
+        end;
         //modifica
         end;
         //modifica fine
@@ -2346,7 +2445,7 @@ var
   nodoptr: ^tnodo;
 
   art_codice: string;
-  pr: tscedsbequ;
+  scedsbequ: tscedsbequ;
 begin
   inherited;
 
@@ -2360,14 +2459,14 @@ begin
     if messaggio(300, 'l''articolo da produrre [' + art_codice + '] ha articoli equivalenti con distinta base' + slinebreak +
       'confermare per selezionare la distinta base di uno degli equivalenti') = 1 then
     begin
-      pr := tscedsbequ.create(nil);
-      pr.dsb := dsb_equ;
-      pr.showmodal;
-      if pr.art_codice <> '' then
+      scedsbequ := tscedsbequ.create(nil);
+      scedsbequ.dsb := dsb_equ;
+      scedsbequ.showmodal;
+      if scedsbequ.art_codice <> '' then
       begin
-        art_codice := pr.art_codice;
+        art_codice := scedsbequ.art_codice;
       end;
-      freeandnil(pr);
+      freeandnil(scedsbequ);
     end;
   end;
 
@@ -2405,14 +2504,14 @@ begin
     else
     begin
     //modifica fine
-      if not ha_figli(art_codice) then
-      begin
-        messaggio(200, 'articolo senza distinta base');
-      end
-      else
-      begin
-        messaggio(200, 'distinta base già esplosa per l''articolo: ' + art_codice);
-      end;
+    if not ha_figli(art_codice) then
+    begin
+      messaggio(200, 'articolo senza distinta base');
+    end
+    else
+    begin
+      messaggio(200, 'distinta base già esplosa per l''articolo: ' + art_codice);
+    end;
     //modifica
     end;
     //modifica fine
@@ -2430,6 +2529,7 @@ var
 
   i: word;
   lista_art_codice, lista_art_descrizione, lista_quantita: tstringlist;
+  query_cnf: tmyquery_go;
   //modifica
   ah6_nodoptr: ^tnodo;
   ah6_query_cnf: tmyquery_go;
@@ -2439,6 +2539,7 @@ begin
   lista_art_descrizione := tstringlist.create;
   lista_quantita := tstringlist.create;
 
+  nodoptr := elemento_selezionato.data;
   //modifica
   ah6_nodoptr := elemento_selezionato.data;
   if (ah6_nodoptr.codice = v_art_codice.text) and (ah6_esiste_configurazione_ovr) then
@@ -2531,6 +2632,95 @@ begin
   else
   begin
   //modifica fine
+  if (nodoptr.codice = v_art_codice.text) and esiste_configurazione_ovr then
+  begin
+    query_cnf := tmyquery_go.create(nil);
+    query_cnf.connection := arc.arcdit;
+    query_cnf.sql.add('select cnf.*,');
+    query_cnf.sql.add('  concat(trim(art.descrizione1), '' '', art.descrizione2) art_descrizione');
+    query_cnf.sql.add('from cnf');
+    query_cnf.sql.add('inner join ovr on ovr.configurazione = cnf.configurazione');
+    query_cnf.sql.add('inner join art on art.codice = cnf.art_codice');
+    query_cnf.sql.add('where ovr.progressivo = :progressivo');
+    query_cnf.sql.add('  and ovr.riga = :riga');
+    query_cnf.sql.add('order by cnf.sequenza');
+    query_cnf.parambyname('progressivo').asinteger := v_ovr_progressivo.intvalue;
+    query_cnf.parambyname('riga').asinteger := v_ovr_riga.intvalue;
+    query_cnf.open;
+    while not query_cnf.eof do
+    begin
+      art_codice := query_cnf.fieldbyname('art_codice').asstring;
+      art_descrizione := query_cnf.fieldbyname('art_descrizione').asstring;
+
+      mag.close;
+      mag.parambyname('art_codice').asstring := art_codice;
+      mag.parambyname('tma_codice').asstring := tma_codice_materie_prime;
+      mag.parambyname('tma_codice_principale').asstring := arc.dit.fieldbyname('tma_codice_principale').asstring;
+      mag.open;
+
+      lista_art_codice.clear;
+      lista_art_descrizione.clear;
+      lista_quantita.clear;
+
+      lista_art_codice.add(art_codice);
+      lista_art_descrizione.add(art_descrizione);
+      lista_quantita.add(query_cnf.fieldbyname('quantita').asstring);
+
+      for i := 0 to lista_art_codice.count - 1 do
+      begin
+        if strtofloat(lista_quantita[i]) <> 0 then
+        begin
+          nodo_creato := inserisci_treeview(query_cnf.fieldbyname('sequenza').asinteger,
+            lista_art_codice[i], lista_art_descrizione[i], '',
+            tma_codice_materie_prime, arrotonda(quantita * strtofloat(lista_quantita[i]), 4),
+            query_cnf.fieldbyname('prezzo').asfloat, mag.fieldbyname('esistenza_tma').asfloat,
+            mag.fieldbyname('approntato_tma').asfloat,
+            mag.fieldbyname('esistenza').asfloat, mag.fieldbyname('esistenza_principale').asfloat,
+            elemento_selezionato);
+
+          if ha_figli(lista_art_codice[i]) then
+          begin
+            prosegui := true;
+            read_tabella(arc.arcdit, 'art', 'codice', lista_art_codice[i], 'materia_prima');
+            if archivio.fieldbyname('materia_prima').asstring = 'si' then
+            begin
+              if tipo_esplosione <> 'solo primo livello' then
+              begin
+                if messaggio(300, 'l''articolo [' + art_codice + '] ' +
+                  'è stato definito come materia prima' + #13 +
+                  'conferma per NON effettuare l''esplosione dei componenti') = 1 then
+                begin
+                  prosegui := false;
+                end;
+              end
+              else
+              begin
+                prosegui := false;
+              end;
+            end;
+
+            if prosegui then
+            begin
+              nodo_creato.haschildren := true;
+            end
+            else
+            begin
+              nodo_creato.haschildren := false;
+            end;
+          end
+          else
+          begin
+            nodo_creato.haschildren := false;
+          end;
+
+        end;
+      end;
+      query_cnf.next;
+    end;
+    query_cnf.free;
+  end
+  else
+  begin
     dsb.close;
     dsb.parambyname('art_codice_padre').asstring := art_codice_dsb;
     dsb.open;
@@ -2640,6 +2830,7 @@ begin
 
       dsb.next;
     end;
+  end;
   //modifica
   end;
   //fine
@@ -2776,10 +2967,18 @@ end;
 
 function tcreordp.ha_figli(art_codice: string): boolean;
 begin
-  figli.close;
-  figli.params[0].asstring := art_codice;
-  figli.open;
-  result := not figli.isempty;
+  if (art_codice = v_art_codice.text) then
+  begin
+    result := esiste_configurazione_ovr;
+  end;
+
+  if not result then
+  begin
+    figli.close;
+    figli.params[0].asstring := art_codice;
+    figli.open;
+    result := not figli.isempty;
+  end;
 end;
 
 procedure tcreordp.errore_commit_transazione;
@@ -2832,7 +3031,6 @@ begin
     result := arrotonda(prezzo * sconto(tsm_codice) * sconto(tsm_codice_art) / 10000, decimali_max_prezzo_acq);
   end;
 
-
   if prezzo = 0 then
   begin
     valorizzazione := tipinv.tipo_inventario('produzione', art_codice);
@@ -2873,6 +3071,90 @@ begin
   begin
     result := true;
   end;
+end;
+
+function TCREORDP.esiste_configurazione_ovr: boolean;
+begin
+  result := false;
+
+  if (v_ovr_progressivo.value > 0) and (v_ovr_riga.value > 0) then
+  begin
+    if read_tabella(arc.arcdit, 'ovr', 'progressivo;riga',
+      vararrayof([v_ovr_progressivo.value, v_ovr_riga.value])) then
+    begin
+      if (archivio.fieldbyname('configurazione').asinteger > 0) then
+      begin
+        if read_tabella(arc.arcdit, 'cnf', 'configurazione', archivio.fieldbyname('configurazione').asinteger) then
+        begin
+          result := true;
+        end;
+      end;
+    end;
+  end;
+end;
+
+procedure TCREORDP.crea_ciclo_da_configurazione(opt_progressivo: integer; nodo: ttreenode);
+var
+  sequenza: integer;
+  query_cnl :tmyquery_go;
+  nodoptr: ^tnodo;
+begin
+  sequenza := 0;
+  nodoptr := nodo.data;
+
+  query_cnl := tmyquery_go.create(nil);
+  query_cnl.connection := arc.arcdit;
+  query_cnl.sql.add('select cnl.*, fas.tipo_operazione, fas.mac_codice');
+  query_cnl.sql.add('from ovr');
+  query_cnl.sql.add('inner join cnl on cnl.configurazione = ovr.configurazione');
+  query_cnl.sql.add('inner join fas on fas.codice = cnl.fas_codice');
+  query_cnl.sql.add('where ovr.progressivo = :progressivo');
+  query_cnl.sql.add('  and ovr.riga = :riga');
+  query_cnl.sql.add('order by cnl.sequenza');
+  query_cnl.parambyname('progressivo').asfloat := v_ovr_progressivo.value;
+  query_cnl.parambyname('riga').asfloat := v_ovr_riga.intvalue;
+  query_cnl.open;
+
+  while not query_cnl.eof do
+  begin
+    opc.close;
+    opc.parambyname('progressivo').asinteger := opt_progressivo;
+    sequenza := sequenza + 10;
+    opc.parambyname('sequenza').asinteger := sequenza;
+    opc.parambyname('fas_codice').asstring := query_cnl.fieldbyname('fas_codice').asstring;
+    opc.parambyname('mac_codice').asstring := query_cnl.fieldbyname('mac_codice').asstring;
+
+    if query_cnl.fieldbyname('tipo_operazione').asstring = 'globale' then
+    begin
+      opc.parambyname('quantita').asfloat := query_cnl.fieldbyname('quantita').asfloat;
+    end
+    else if query_cnl.fieldbyname('tipo_operazione').asstring = 'singola' then
+    begin
+      opc.parambyname('quantita').asfloat := query_cnl.fieldbyname('quantita').asfloat *
+        nodoptr.quantita;
+    end
+    else if query_cnl.fieldbyname('tipo_operazione').asstring = 'ignora' then
+    begin
+      opc.parambyname('quantita').asfloat := 0;
+    end;
+
+    if query_cnl.fieldbyname('costo_unitario').asfloat <> 0 then
+    begin
+      opc.parambyname('costo_totale').asfloat := nodoptr.quantita * query_cnl.fieldbyname('costo_unitario').asfloat;
+    end
+    else
+    begin
+      opc.parambyname('costo_totale').asfloat := nodoptr.quantita * query_cnl.fieldbyname('prezzo').asfloat;
+    end;
+    opc.parambyname('tipo_operazione').asstring := query_cnl.fieldbyname('tipo_operazione').asstring;
+    opc.parambyname('quantita_attrezzaggio').asfloat := 0;
+    opc.parambyname('frn_codice').asstring := query_cnl.fieldbyname('frn_codice').asstring;
+    opc.parambyname('note').asstring := query_cnl.fieldbyname('note').asstring;
+    opc.execsql;
+
+    query_cnl.next;
+  end;
+  query_cnl.free;
 end;
 
 //modifica

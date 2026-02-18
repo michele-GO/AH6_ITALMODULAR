@@ -24,10 +24,7 @@ uses
   DMARC, GGGESDOC, ZZCREA_DOCUMENTO_DERIVATO, ZZCALSCA, ZZRMA, GGFORMBASE,
   ZZCERCA_PREZZO, ZZSPESCO, ZZNCA, ZZPRODCONF, ZZRAEE, ZZQTAMIN, ZZTOTVEN,
   ZZDICINT, ZZPROVV, ZZTIPINV, ZZVALDSB, ZZPRZINV, ZZMOVMAG, ZZCONAI, ZZCLASMS,
-  ZZFABBISOGNO_DINAMICO, ZZCOLLI_CONFEZIONI, ZZLIBRERIE, ZZHELPER;
-
-type
-  thackdbgrid = class(trzdbgrid_go);
+  ZZFABBISOGNO_DINAMICO, ZZCOLLI_CONFEZIONI, ZZSELEZIONE, ZZHELPER, ZZIBAN;
 
 type
   TGESVEN = class(TGESDOC)
@@ -133,14 +130,11 @@ type
     cli: tmyquery_go;
     ind: tmyquery_go;
     ltm: tmyquery_go;
-    cfg: tmyquery_go;
-    pat: tmyquery_go;
     art: tmyquery_go;
     testata_documento_evaso: tmyquery_go;
     label71: trzlabel;
     v_tna_codice_intra: trzdbedit_go;
     tool_evasione: ttoolbutton;
-    riga_documento_evaso: tmyquery_go;
     saldo_acconto: tmyquery_go;
     cpv: tmyquery_go;
     duplica_righe: tmyquery_go;
@@ -194,16 +188,12 @@ type
     label46: trzlabel;
     v_nostro_riferimento: trzdbedit_go;
     v_tsm_codice_art: trzdbedit_go;
-    totale_colli: tmyquery_go;
-    totalizza_quantita: tmyquery_go;
     label13: trzlabel;
     v_data_documento: trzdbdatetimeedit_go;
     label10: trzlabel;
     label74: trzlabel;
     v_tcc_codice: trzdbedit_go;
-    query_opt: tmyquery_go;
     label76: trzlabel;
-    art_preventivi_ordini: tmyquery_go;
     label75: trzlabel;
     v_data_inizio_conteggio: trzdbdatetimeedit_go;
     label35: trzlabel;
@@ -214,38 +204,20 @@ type
     v_causale_trasporto: trzdbedit_go;
     cnt: tmyquery_go;
     cnf: tmyquery_go;
-    opt_configurazione: tmyquery_go;
     tool_documenti_allegati: ttoolbutton;
     v_data_fine_competenza: trzdbdatetimeedit_go;
     label79: trzlabel;
     v_data_inizio_competenza: trzdbdatetimeedit_go;
-    msg: tmyquery_go;
-    spd: tmyquery_go;
-    controllo_documenti_evasi: tmyquery_go;
     v_esistenza: trzrapidfirebutton;
     v_scadenziario_manuale: trzdbcheckbox;
-    totalizza_margine: tmyquery_go;
-    cas: tmyquery_go;
-    lct: tmyquery_go;
     label78: trzlabel;
     v_numero_confezioni_totali: trzdbnumericedit_go;
-    query_referenze_attive: tmyquery_go;
-    query_sct: tmyquery_go;
-    query_totalizza: tmyquery_go;
-    query_abilita_rda: tmyquery_go;
-    prv: tmyquery_go;
     label14: trzlabel;
     v_importo_incassato: trzdbnumericedit_go;
-    importo_ordinato: tmyquery_go;
-    equ: tmyquery_go;
-    query_addebito: tmyquery_go;
     ors: tmyquery_go;
     rda: tmyquery_go;
-    dav: tmyquery_go;
     oar: tmyquery_go;
     opt: tmyquery_go;
-    testata: tmyquery_go;
-    righe: tmyquery_go;
     tr0: tmyquery_go;
     v_l_cli_codice: trzlabel;
     v_cli_codice: trzdbedit_go;
@@ -362,9 +334,6 @@ type
     abi_ds: tmydatasource;
     cab: tmyquery_go;
     cab_ds: tmydatasource;
-    tmo_01: tmyquery_go;
-    art_01: tmyquery_go;
-    utn: tmyquery_go;
     v_no_fattura: trzdbcheckbox;
     tool_sequenza: ttoolbutton;
     v_giorno: trzedit_go;
@@ -372,8 +341,6 @@ type
     v_contatto_commerciale: trzdbedit_go;
     v_stampa_solo_destinazione: trzdbcheckbox;
     query_esiste_opt: tmyquery_go;
-    art_barcode: tmyquery_go;
-    lot: tmyquery_go;
     label82: trzlabel;
     v_cms_codice: trzdbedit_go;
     rzdbeditdescrizione_go23: trzdbeditdescrizione_go;
@@ -384,21 +351,11 @@ type
     cms_ds: tmydatasource;
     cmt: tmyquery_go;
     cmt_ds: tmydatasource;
-    neg: tmyquery_go;
     cem: tmyquery_go;
-    query_cem: tmyquery_go;
-    cor: tmyquery_go;
-    fatcor: tmyquery_go;
     label84: trzlabel;
     v_codice_contratto: trzdbedit_go;
-    cot: tmyquery_go;
-    cod: tmyquery_go;
-    corsi: tmyquery_go;
-    supero: tmyquery_go;
-    kit: tmyquery_go;
     esistenza_principale: tmyquery_go;
     esistenza_principale_ds: tmydatasource;
-    sal: tmyquery_go;
     label87: trzlabel;
     v_tag_codice_ca: trzdbedit_go;
     rzdbeditdescrizione_go25: trzdbeditdescrizione_go;
@@ -411,17 +368,13 @@ type
     label89: trzlabel;
     v_importo_sconto_righe: trzdbnumericedit_go;
     v_tum_codice: trzdbedit_go;
-    bvr_dvr: tmyquery_go;
-    tum: tmyquery_go;
     gen: tmyquery_go;
     v_l_descrizione_primanota: trzlabel;
     v_descrizione_primanota: trzdbedit_go;
     frn_rda: tmyquery_go;
     v_totale_progressivo: trzdbcheckbox;
-    cnf_totale: tmyquery_go;
     tab_testata_note: trztabsheet;
     v_note: trzdbmemo_go;
-    accessori_equivalenti: tmyquery_go;
     v_varia_tsm_codice: trzbitbtn;
     v_varia_tsm_codice_art: trzbitbtn;
     v_revisione: trzdbnumericedit_go;
@@ -434,7 +387,6 @@ type
     nom: tmyquery_go;
     art_doppi: tmyquery_go;
     tool_gesccf: ttoolbutton;
-    ccf: tmyquery_go;
     tool_invia_excel: ttoolbutton;
     tabella_virtuale: tvirtualtable;
     tabella_virtualedata_documento: tdatefield;
@@ -467,10 +419,8 @@ type
     cen_ds: tmydatasource;
     tvc: tmyquery_go;
     tvc_ds: tmydatasource;
-    spese_trasporto_giornaliere: tmyquery_go;
     iva_diversa: tmyquery_go;
     iva_diversa_evadi: tmyquery_go;
-    ngt: tmyquery_go;
     box_esistenza_disponibilita: TGroupBox;
     v_esistenza_deposito: trzdbnumericedit_go;
     v_esistenza_totale: trzdbnumericedit_go;
@@ -495,20 +445,17 @@ type
     v_analitica_spese_bollo: trzrapidfirebutton;
     v_analitica_spese_extra: trzrapidfirebutton;
     v_analitica_spese_incasso: trzrapidfirebutton;
-    rmr: tmyquery_go;
     v_gestione_alimentari: trzdbcheckbox;
     v_stampa_prezzo: TRzDBCheckBox;
     v_art_codice_barcode: TRzEdit_go;
     v_soggetto_addebito_enasarco: TRzDBCheckBox;
     RzLabel1: TRzLabel;
     v_iva_bloccata: TRzDBCheckBox;
-    tve: TMyQuery_go;
     RzLabel2: TRzLabel;
     v_punto_vendita: TRzDBEdit_go;
     pvvr: TMyQuery_go;
     RzLabel3: TRzLabel;
     v_importo_enasarco: TRzDBNumericEdit_go;
-    revisione_conai: TMyQuery_go;
     RzLabel10: TRzLabel;
     v_tconai_codice: TRzDBEdit_go;
     RzDBEditDescrizione_go39: TRzDBEditDescrizione_go;
@@ -517,10 +464,6 @@ type
     v_no_conai: TRzDBCheckBox;
     RzLabel4: TRzLabel;
     v_tipo_imballaggio: TRzDBCombobox_go;
-    esistenza_cls: TMyQuery_go;
-    tdocli: TMyQuery_go;
-    ind_01: TMyQuery_go;
-    inf_01: TMyQuery_go;
     prvm: TMyQuery_go;
     RzLabel8: TRzLabel;
     v_dati_bancari: trzdbmemo_go;
@@ -562,7 +505,6 @@ type
     query_sct_qc: TMyQuery_go;
     tdo_conto_vendita: TMyQuery_go;
     v_contratto: TRzDBCheckBox;
-    fido_scadenziario: TMyQuery_go;
     tool_eticlive: TToolButton;
 
     RzLabel15: TRzLabel;
@@ -570,7 +512,6 @@ type
     v_cfg_tipo: trzedit_go;
     lti: TMyQuery_go;
     v_stampa_immagine: TRzDBCheckBox;
-    camdoc: TMyQuery_go;
     v_l_quantita_residua: TRzLabel;
     v_quantita_residua: trzdbnumericedit_go;
     RzLabel16: TRzLabel;
@@ -588,7 +529,6 @@ type
     tiv_righe_ds: TMyDataSource;
     gen_righe: TMyQuery_go;
     gen_righe_ds: TMyDataSource;
-    iat: TMyQuery_go;
     v_revisione_precedente: TRzRapidFireButton;
     v_tse_colore_priorita: trzedit_go;
     v_no_sdi: TRzDBCheckBox;
@@ -616,11 +556,8 @@ type
     rzdbeditdescrizione_go28: trzdbeditdescrizione_go;
     teco: TMyQuery_go;
     teco_ds: TMyDataSource;
-    duplica_testata: TMyQuery_go;
     v_cms_cli: TRzCheckBox;
     v_etichette_colli: TRzRapidFireButton;
-    pvd: TMyQuery_go;
-    pvd_revisione: TMyQuery_go;
     trzdbdatetimeedit_go1: trzdbdatetimeedit_go;
     v_l_saldo_cliente: TRzLabel;
     v_saldo_cliente: trznumericedit_go;
@@ -707,7 +644,6 @@ type
     v_var_descrizione: trzdbeditdescrizione_go;
     v_dettaglio: trzdbedit_go;
     v_dettaglio_descrizione: trzdbeditdescrizione_go;
-    aggiorna_iat: TMyQuery_go;
     duplica_righe_tgl: TMyQuery_go;
     qtatgl: TMyQuery_go;
     v_visartven: TRzRapidFireButton;
@@ -978,7 +914,6 @@ type
     procedure v_tag_fe_testataClick(Sender: TObject);
     procedure v_tag_fe_righeClick(Sender: TObject);
     procedure v_setta_situazione_feClick(Sender: TObject);
-    procedure FormClose(Sender: TObject; var Action: TCloseAction);
     procedure v_reso_scontrinoClick(Sender: TObject);
     procedure etichettedocumento1Click(Sender: TObject);
     procedure etichettearticoli1Click(Sender: TObject);
@@ -1356,7 +1291,6 @@ type
     procedure aggiorna_archivi_collegati;
     procedure aggiorna_archivi_collegati_righe;
     procedure gestisci_collegato;
-    procedure controllo_quantita_evasa;
     procedure controllo_numero_colli_evasi;
     procedure controllo_numero_confezioni_evase;
     procedure evasione_documento(tipo_documento_evasione: string; call_off_stock: boolean = false);
@@ -1461,6 +1395,7 @@ type
     procedure cancella_qtatgl;
     procedure assegnazione_acconto_clienti;
     procedure controllo_quantita_taglie;
+    procedure duplica_allegati_revisione(avecchio_progressivo: Integer);
   public
     tipo_documento: string;
 
@@ -1515,7 +1450,7 @@ uses GGGESVEN02, GGGESVEN01, GGULTPRZ, GGGESVEN03, GGSCELTM, GGVISDOCAV, GGVISCO
   GGGESDOCGRI, ZZASSEGNA_PREZZO_NETTO, ZZCREA_DOCUMENTI_VENDITA, ZZASSEGNA_GIORNO_VENDITE, GGCREORDPV, 
   GGGESDOCRDNC, GGGESTAGTDT, GGGESTAGTDR, GGRIFRESO, GGVISARTFRN, GGLAVVET, GGARFACQ, GGCREAORDA, 
   GGSTAPREVINT, GGSTAPREVCLI, GGSTAORDVINT, GGSTAORDVCLI, GGFVTDDT, ZZCALL_MODULA, GGPUNTIFAT, GGQTATGL, 
-  GGASSACCCLI;
+  GGASSACCCLI, ZZUTILS.VENDITE, ZZUTILS.COMMESSE, ZZUTILS.CONTABILITA, ZZUTILS.MAGAZZINO;
 
 procedure tgesven.controllo_campi;
 begin
@@ -1669,8 +1604,7 @@ end;
 procedure tgesven.before_delete;
 var
   prosegui: boolean;
-
-  vuodoc, fvtddt, fidoc, ngt: tmyquery_go;
+  vuodoc, fvtddt, fidoc, ngt, qccf: tmyquery_go;
 begin
   prosegui := true;
 
@@ -1750,24 +1684,34 @@ begin
 
     if tdo.fieldbyname('ttc_codice').asstring <> '' then
     begin
-      ccf.close;
-      if tipo_documento = 'ddt fornitori' then
-      begin
-        ccf.parambyname('oggetto_contatto').asstring := 'fornitore';
-      end
-      else
-      begin
-        ccf.parambyname('oggetto_contatto').asstring := 'cliente';
-      end;
-      ccf.parambyname('cfg_codice').asstring := tabella.fieldbyname('cli_codice').asstring;
-      ccf.parambyname('ttc_codice').asstring := tdo.fieldbyname('ttc_codice').asstring;
-      ccf.parambyname('documento_collegato').asstring := tipo_documento;
-      ccf.parambyname('doc_progressivo_collegato').asinteger := tabella.fieldbyname('progressivo').asinteger;
-      ccf.open;
-      if not ccf.isempty then
-      begin
-        messaggio(200, 'il documento è collegato ad un contatto di cui verrà eseguita la gestione');
-        esegui_programma('GESCCF', vararrayof([tabella.fieldbyname('cli_codice').asstring, '']), true);
+      qccf := tmyquery_go.create(nil);
+      qccf.connection := arc.arcdit;
+      qccf.sql.add('select id from ccf');
+      qccf.sql.add('where oggetto_contatto = :oggetto_contatto and cfg_codice = :cfg_codice');
+      qccf.sql.add('and ttc_codice = :ttc_codice and documento_collegato = :documento_collegato');
+      qccf.sql.add('and doc_progressivo_collegato = :doc_progressivo_collegato');
+
+      try
+        if tipo_documento = 'ddt fornitori' then
+        begin
+          qccf.parambyname('oggetto_contatto').asstring := 'fornitore';
+        end
+        else
+        begin
+          qccf.parambyname('oggetto_contatto').asstring := 'cliente';
+        end;
+        qccf.parambyname('cfg_codice').asstring := tabella.fieldbyname('cli_codice').asstring;
+        qccf.parambyname('ttc_codice').asstring := tdo.fieldbyname('ttc_codice').asstring;
+        qccf.parambyname('documento_collegato').asstring := tipo_documento;
+        qccf.parambyname('doc_progressivo_collegato').asinteger := tabella.fieldbyname('progressivo').asinteger;
+        qccf.open;
+        if not qccf.isempty then
+        begin
+          messaggio(200, 'il documento è collegato ad un contatto di cui verrà eseguita la gestione');
+          esegui_programma('GESCCF', vararrayof([tabella.fieldbyname('cli_codice').asstring, '']), true);
+        end;
+      finally
+        qccf.free;
       end;
     end;
 
@@ -1783,35 +1727,21 @@ begin
       ngt.sql.add('and fattura = ''si''');
       ngt.sql.add('and situazione = ''consolidato''');
       ngt.sql.add('and documento_iva = ''si''');
-      ngt.parambyname('data_documento').asdate := v_data_documento.date;
-      ngt.parambyname('serie_documento').asstring := v_serie_documento.text;
-      ngt.parambyname('numero_documento').asfloat := v_numero_documento.value;
-      ngt.parambyname('cli_codice').asstring := v_cli_codice.text;
-      ngt.execsql;
-      freeandnil(ngt);
+      try
+        ngt.parambyname('data_documento').asdate := v_data_documento.date;
+        ngt.parambyname('serie_documento').asstring := v_serie_documento.text;
+        ngt.parambyname('numero_documento').asfloat := v_numero_documento.value;
+        ngt.parambyname('cli_codice').asstring := v_cli_codice.text;
+        ngt.execsql;
+      finally
+        freeandnil(ngt);
+      end;
     end;
 
     inherited;
   end;
 end;
 
-(*
-  function tgesven.controllo_situazione_iniziale: boolean;
-  begin
-  read_tabella(query_situazione_iniziale, tabella.fieldbyname('progressivo').asinteger);
-  if query_situazione_iniziale.fieldbyname('situazione').asstring <> situazione_iniziale then
-  begin
-  situazione_iniziale := query_situazione_iniziale.fieldbyname('situazione').asstring;
-  messaggio(000, 'la situazione del documento è stata modificata da un altro utente' + #13 +
-  'non è possibile confermare l''operazione effettuata');
-  result := false;
-  end
-  else
-  begin
-  result := true;
-  end;
-  end;
-*)
 
 procedure tgesven.before_post;
 var
@@ -1995,12 +1925,6 @@ begin
         if archivio.fieldbyname('codice_iso').asstring <> 'IT' then
         begin
           tabella.fieldbyname('tiv_codice_spese_extra').asstring := tabella.fieldbyname('tiv_codice').asstring;
-          (*
-            if tabella.fieldbyname('spese_manuali_bollo').asstring = 'no' then
-            begin
-            tabella.fieldbyname('tiv_codice_spese_bollo').asstring := tabella.fieldbyname('tiv_codice').asstring;
-            end;
-          *)
           tabella.fieldbyname('tiv_codice_spese_incasso').asstring := tabella.fieldbyname('tiv_codice').asstring;
         end;
       end;
@@ -2051,12 +1975,6 @@ begin
         if archivio.fieldbyname('codice_iso').asstring <> 'IT' then
         begin
           tabella.fieldbyname('tiv_codice_spese_extra').asstring := tabella.fieldbyname('tiv_codice').asstring;
-          (*
-            if tabella.fieldbyname('spese_manuali_bollo').asstring = 'no' then
-            begin
-            tabella.fieldbyname('tiv_codice_spese_bollo').asstring := tabella.fieldbyname('tiv_codice').asstring;
-            end;
-          *)
           tabella.fieldbyname('tiv_codice_spese_incasso').asstring := tabella.fieldbyname('tiv_codice').asstring;
         end;
       end
@@ -3223,7 +3141,7 @@ end;
 procedure tgesven.after_post_righe;
 var
   riga_mmr: integer;
-  tabelle_collegate, bvt_dvt: tmyquery_go;
+  tabelle_collegate, bvt_dvt, bvr_dvr: tmyquery_go;
   quantita_rda: double;
 
   //  lavorazione vetrerie
@@ -3662,8 +3580,10 @@ begin
       ltm.fieldbyname('doc_progressivo_origine').asinteger := tabella_righe.fieldbyname('progressivo').asinteger;
       ltm.fieldbyname('data_registrazione').asdatetime := tabella.fieldbyname('data_documento').asdatetime;
       ltm.fieldbyname('quantita').asfloat := tabella_righe.fieldbyname('tum_quantita_base').asfloat;
-      read_tabella(tmo_01, v_tmo_codice.text);
-      ltm.fieldbyname('esistenza').asstring := tmo_01.fieldbyname('esistenza').asstring;
+
+      read_tabella(arc.arcdit, 'tmo', 'codice', mmt.fieldbyname('tmo_codice').asstring, 'esistenza');
+      ltm.fieldbyname('esistenza').asstring := archivio.fieldbyname('esistenza').asstring;
+
       ltm.fieldbyname('documento_origine').asstring := tipo_documento + ' ven';
       ltm.fieldbyname('doc_riga_origine').asinteger := tabella_righe.fieldbyname('riga').asinteger;
       if tipo_documento = 'ddt fornitori' then
@@ -3746,161 +3666,167 @@ begin
       'per allinearlo alle modifiche apportate alla fattura' + #13 +
       'la variazione potrebbe causare modifiche sul documento di origine non riscontrabili sulla fattura') = 1 then
     begin
-      bvr_dvr.close;
-      if tabella_righe.fieldbyname('documento_origine').asstring = 'bolla ven' then
-      begin
-        bvr_dvr.sql.text := 'select * from bvr where progressivo = :progressivo and riga = :riga';
-      end
-      else
-      begin
-        bvr_dvr.sql.text := 'select * from dvr where progressivo = :progressivo and riga = :riga';
-      end;
-      bvr_dvr.parambyname('progressivo').asinteger := tabella_righe.fieldbyname('doc_progressivo_origine').asinteger;
-      bvr_dvr.parambyname('riga').asinteger := tabella_righe.fieldbyname('doc_riga_origine').asinteger;
-      bvr_dvr.open;
-      if bvr_dvr.isempty then
-      begin
-        messaggio(200, 'la riga del documento di origine non esiste');
-      end
-      else
-      begin
-        bvr_dvr.edit;
+      tabelle_collegate := tmyquery_go.create(nil);
+      tabelle_collegate.connection := arc.arcdit;
 
-        bvr_dvr.fieldbyname('art_codice').asstring := tabella_righe.fieldbyname('art_codice').asstring;
-        bvr_dvr.fieldbyname('numero_colli').asinteger := tabella_righe.fieldbyname('numero_colli').asinteger;
-        bvr_dvr.fieldbyname('numero_confezioni').asinteger := tabella_righe.fieldbyname('numero_confezioni').asinteger;
-        bvr_dvr.fieldbyname('tum_codice').asstring := tabella_righe.fieldbyname('tum_codice').asstring;
-        bvr_dvr.fieldbyname('quantita').asfloat := tabella_righe.fieldbyname('quantita').asfloat;
-        bvr_dvr.fieldbyname('tum_quantita_base').asfloat := tabella_righe.fieldbyname('tum_quantita_base').asfloat;
-        bvr_dvr.fieldbyname('prezzo').asfloat := tabella_righe.fieldbyname('prezzo').asfloat;
-        bvr_dvr.fieldbyname('tsm_codice').asstring := tabella_righe.fieldbyname('tsm_codice').asstring;
-        bvr_dvr.fieldbyname('tsm_codice_art').asstring := tabella_righe.fieldbyname('tsm_codice_art').asstring;
-        bvr_dvr.fieldbyname('importo_sconto').asfloat := tabella_righe.fieldbyname('importo_sconto').asfloat;
-        bvr_dvr.fieldbyname('importo').asfloat := tabella_righe.fieldbyname('importo').asfloat;
-        bvr_dvr.fieldbyname('importo_euro').asfloat := tabella_righe.fieldbyname('importo_euro').asfloat;
-        bvr_dvr.fieldbyname('tipo_movimento').asstring := tabella_righe.fieldbyname('tipo_movimento').asstring;
-        bvr_dvr.fieldbyname('importo_iva').asfloat := tabella_righe.fieldbyname('importo_iva').asfloat;
-        bvr_dvr.fieldbyname('importo_iva_euro').asfloat := tabella_righe.fieldbyname('importo_iva_euro').asfloat;
-        bvr_dvr.fieldbyname('tiv_codice').asstring := tabella_righe.fieldbyname('tiv_codice').asstring;
-        bvr_dvr.fieldbyname('gen_codice').asstring := tabella_righe.fieldbyname('gen_codice').asstring;
-        bvr_dvr.fieldbyname('gen_codice_storno').asstring := tabella_righe.fieldbyname('gen_codice_storno').asstring;
-        bvr_dvr.fieldbyname('percentuale_provvigioni').asfloat := tabella_righe.fieldbyname('percentuale_provvigioni').asfloat;
-        bvr_dvr.fieldbyname('percentuale_provvigioni_ca').asfloat := tabella_righe.fieldbyname('percentuale_provvigioni_ca').asfloat;
-        bvr_dvr.fieldbyname('importo_statistico_intra').asfloat := tabella_righe.fieldbyname('importo_statistico_intra').asfloat;
-        bvr_dvr.fieldbyname('prezzo_netto').asfloat := tabella_righe.fieldbyname('prezzo_netto').asfloat;
-        bvr_dvr.fieldbyname('prezzo_netto_listino').asfloat := tabella_righe.fieldbyname('prezzo_netto_listino').asfloat;
-        bvr_dvr.fieldbyname('descrizione1').asstring := tabella_righe.fieldbyname('descrizione1').asstring;
-        bvr_dvr.fieldbyname('descrizione2').asstring := tabella_righe.fieldbyname('descrizione2').asstring;
+      bvt_dvt := tmyquery_go.create(nil);
+      bvt_dvt.connection := arc.arcdit;
 
-        bvr_dvr.post;
+      bvr_dvr := tmyquery_go.create(nil);
+      bvr_dvr.connection := arc.arcdit;
 
+      try
         if tabella_righe.fieldbyname('documento_origine').asstring = 'bolla ven' then
         begin
-          totven.movven_testata(tmyconnection_go(tabella.connection), 'bolla', bvr_dvr.fieldbyname('progressivo').asinteger);
+          bvr_dvr.sql.text := 'select * from bvr where progressivo = :progressivo and riga = :riga';
         end
         else
         begin
-          totven.movven_testata(tmyconnection_go(tabella.connection), 'ddt', bvr_dvr.fieldbyname('progressivo').asinteger);
+          bvr_dvr.sql.text := 'select * from dvr where progressivo = :progressivo and riga = :riga';
         end;
-
-        // aggiornamento manuale archivi collegati
-        tabelle_collegate := tmyquery_go.create(nil);
-        tabelle_collegate.connection := arc.arcdit;
-
-        bvt_dvt := tmyquery_go.create(nil);
-        bvt_dvt.connection := arc.arcdit;
-        if tabella_righe.fieldbyname('documento_origine').asstring = 'bolla ven' then
+        bvr_dvr.parambyname('progressivo').asinteger := tabella_righe.fieldbyname('doc_progressivo_origine').asinteger;
+        bvr_dvr.parambyname('riga').asinteger := tabella_righe.fieldbyname('doc_riga_origine').asinteger;
+        bvr_dvr.open;
+        if bvr_dvr.isempty then
         begin
-          bvt_dvt.sql.text := 'select * from bvt where progressivo = :progressivo';
+          messaggio(200, 'la riga del documento di origine non esiste');
         end
         else
         begin
-          bvt_dvt.sql.text := 'select * from dvt where progressivo = :progressivo';
-        end;
-        bvt_dvt.parambyname('progressivo').asinteger := tabella_righe.fieldbyname('doc_progressivo_origine').asinteger;
-        bvt_dvt.open;
+          bvr_dvr.edit;
 
-        // analitica
-        tabelle_collegate.close;
-        tabelle_collegate.sql.text := 'select progressivo from cem ' +
-          'where documento_origine = :documento_origine ' +
-          'and doc_progressivo_origine = :doc_progressivo_origine ' +
-          'and doc_riga_origine = :doc_riga_origine';
-        tabelle_collegate.parambyname('documento_origine').asstring := tabella_righe.fieldbyname('documento_origine').asstring;
-        tabelle_collegate.parambyname('doc_progressivo_origine').asinteger := bvr_dvr.fieldbyname('progressivo').asinteger;
-        tabelle_collegate.parambyname('doc_riga_origine').asinteger := bvr_dvr.fieldbyname('riga').asinteger;
-        tabelle_collegate.open;
-        if not tabelle_collegate.isempty then
-        begin
-          messaggio(100, 'il documento di origine ha un movimento analitica collegato' + #13 +
-            'la sua modifica va eseguita manualmente');
-          esegui_carcem(vararrayof([tabella_righe.fieldbyname('documento_origine').asstring,
-            bvr_dvr.fieldbyname('progressivo').asinteger, bvr_dvr.fieldbyname('riga').asinteger]),
-            bvt_dvt.fieldbyname('data_documento').asdatetime, bvr_dvr.fieldbyname('gen_codice').asstring,
-            bvr_dvr.fieldbyname('art_codice').asstring, 'C', bvt_dvt.fieldbyname('cli_codice').asstring, '', esercizio,
-            bvt_dvt.fieldbyname('numero_documento').asfloat, bvr_dvr.fieldbyname('cms_codice').asstring,
-            bvt_dvt.fieldbyname('data_documento').asdatetime, 0, bvr_dvr.fieldbyname('importo_euro').asfloat, true, false,
-            0, bvr_dvr.fieldbyname('importo').asfloat, bvt_dvt.fieldbyname('cambio').asfloat);
-        end;
+          bvr_dvr.fieldbyname('art_codice').asstring := tabella_righe.fieldbyname('art_codice').asstring;
+          bvr_dvr.fieldbyname('numero_colli').asinteger := tabella_righe.fieldbyname('numero_colli').asinteger;
+          bvr_dvr.fieldbyname('numero_confezioni').asinteger := tabella_righe.fieldbyname('numero_confezioni').asinteger;
+          bvr_dvr.fieldbyname('tum_codice').asstring := tabella_righe.fieldbyname('tum_codice').asstring;
+          bvr_dvr.fieldbyname('quantita').asfloat := tabella_righe.fieldbyname('quantita').asfloat;
+          bvr_dvr.fieldbyname('tum_quantita_base').asfloat := tabella_righe.fieldbyname('tum_quantita_base').asfloat;
+          bvr_dvr.fieldbyname('prezzo').asfloat := tabella_righe.fieldbyname('prezzo').asfloat;
+          bvr_dvr.fieldbyname('tsm_codice').asstring := tabella_righe.fieldbyname('tsm_codice').asstring;
+          bvr_dvr.fieldbyname('tsm_codice_art').asstring := tabella_righe.fieldbyname('tsm_codice_art').asstring;
+          bvr_dvr.fieldbyname('importo_sconto').asfloat := tabella_righe.fieldbyname('importo_sconto').asfloat;
+          bvr_dvr.fieldbyname('importo').asfloat := tabella_righe.fieldbyname('importo').asfloat;
+          bvr_dvr.fieldbyname('importo_euro').asfloat := tabella_righe.fieldbyname('importo_euro').asfloat;
+          bvr_dvr.fieldbyname('tipo_movimento').asstring := tabella_righe.fieldbyname('tipo_movimento').asstring;
+          bvr_dvr.fieldbyname('importo_iva').asfloat := tabella_righe.fieldbyname('importo_iva').asfloat;
+          bvr_dvr.fieldbyname('importo_iva_euro').asfloat := tabella_righe.fieldbyname('importo_iva_euro').asfloat;
+          bvr_dvr.fieldbyname('tiv_codice').asstring := tabella_righe.fieldbyname('tiv_codice').asstring;
+          bvr_dvr.fieldbyname('gen_codice').asstring := tabella_righe.fieldbyname('gen_codice').asstring;
+          bvr_dvr.fieldbyname('gen_codice_storno').asstring := tabella_righe.fieldbyname('gen_codice_storno').asstring;
+          bvr_dvr.fieldbyname('percentuale_provvigioni').asfloat := tabella_righe.fieldbyname('percentuale_provvigioni').asfloat;
+          bvr_dvr.fieldbyname('percentuale_provvigioni_ca').asfloat := tabella_righe.fieldbyname('percentuale_provvigioni_ca').asfloat;
+          bvr_dvr.fieldbyname('importo_statistico_intra').asfloat := tabella_righe.fieldbyname('importo_statistico_intra').asfloat;
+          bvr_dvr.fieldbyname('prezzo_netto').asfloat := tabella_righe.fieldbyname('prezzo_netto').asfloat;
+          bvr_dvr.fieldbyname('prezzo_netto_listino').asfloat := tabella_righe.fieldbyname('prezzo_netto_listino').asfloat;
+          bvr_dvr.fieldbyname('descrizione1').asstring := tabella_righe.fieldbyname('descrizione1').asstring;
+          bvr_dvr.fieldbyname('descrizione2').asstring := tabella_righe.fieldbyname('descrizione2').asstring;
 
-        // commesse
-        tabelle_collegate.close;
-        tabelle_collegate.sql.text := 'select progressivo from cmm ' +
-          'where documento_origine = :documento_origine ' +
-          'and doc_progressivo_origine = :doc_progressivo_origine ' +
-          'and doc_riga_origine = :doc_riga_origine';
-        tabelle_collegate.parambyname('documento_origine').asstring := tabella_righe.fieldbyname('documento_origine').asstring;
-        tabelle_collegate.parambyname('doc_progressivo_origine').asinteger := bvr_dvr.fieldbyname('progressivo').asinteger;
-        tabelle_collegate.parambyname('doc_riga_origine').asinteger := bvr_dvr.fieldbyname('riga').asinteger;
-        tabelle_collegate.open;
-        if not tabelle_collegate.isempty then
-        begin
-          messaggio(100, 'il documento di origine ha un movimento commesse collegato' + #13 +
-            'la sua modifica va eseguita manualmente');
-          esegui_carcmm(vararrayof([tabella_righe.fieldbyname('documento_origine').asstring,
-            bvr_dvr.fieldbyname('progressivo').asinteger, bvr_dvr.fieldbyname('riga').asinteger]),
-            'C', bvt_dvt.fieldbyname('cli_codice').asstring, bvr_dvr.fieldbyname('art_codice').asstring,
-            bvt_dvt.fieldbyname('serie_documento').asstring, bvr_dvr.fieldbyname('descrizione1').asstring,
-            bvr_dvr.fieldbyname('descrizione1').asstring,
-            bvr_dvr.fieldbyname('tipo_movimento').asstring, bvt_dvt.fieldbyname('data_documento').asdatetime,
-            bvt_dvt.fieldbyname('data_documento').asdatetime, bvr_dvr.fieldbyname('importo_euro').asfloat,
-            bvt_dvt.fieldbyname('numero_documento').asfloat, bvr_dvr.fieldbyname('cms_codice').asstring,
-            bvr_dvr.fieldbyname('tipologia').asstring, bvr_dvr.fieldbyname('tum_quantita_base').asfloat, true);
-        end;
+          bvr_dvr.post;
 
-        // magazzino
-        tabelle_collegate.close;
-        tabelle_collegate.sql.text := 'select mmr.* from mmr ' +
-          'inner join mmt on mmt.progressivo = mmr.progressivo ' +
-          'where mmt.documento_origine = :documento_origine ' +
-          'and mmt.doc_progressivo_origine = :doc_progressivo_origine ' +
-          'and mmr.doc_riga_origine = :doc_riga_origine';
-        tabelle_collegate.parambyname('documento_origine').asstring := tabella_righe.fieldbyname('documento_origine').asstring;
-        tabelle_collegate.parambyname('doc_progressivo_origine').asinteger := bvr_dvr.fieldbyname('progressivo').asinteger;
-        tabelle_collegate.parambyname('doc_riga_origine').asinteger := bvr_dvr.fieldbyname('riga').asinteger;
-        tabelle_collegate.open;
-        if not tabelle_collegate.isempty then
-        begin
-          if messaggio(300, 'modifica automatica del movimento di magazzino collegato') = 1 then
+          if tabella_righe.fieldbyname('documento_origine').asstring = 'bolla ven' then
           begin
-            tabelle_collegate.edit;
+            totven.movven_testata(tmyconnection_go(tabella.connection), 'bolla', bvr_dvr.fieldbyname('progressivo').asinteger);
+          end
+          else
+          begin
+            totven.movven_testata(tmyconnection_go(tabella.connection), 'ddt', bvr_dvr.fieldbyname('progressivo').asinteger);
+          end;
 
-            tabelle_collegate.fieldbyname('art_codice').asstring := tabella_righe.fieldbyname('art_codice').asstring;
-            tabelle_collegate.fieldbyname('quantita').asfloat := tabella_righe.fieldbyname('quantita').asfloat;
-            tabelle_collegate.fieldbyname('prezzo').asfloat := tabella_righe.fieldbyname('prezzo').asfloat;
-            tabelle_collegate.fieldbyname('tsm_codice').asstring := tabella_righe.fieldbyname('tsm_codice').asstring;
-            tabelle_collegate.fieldbyname('tsm_codice_art').asstring := tabella_righe.fieldbyname('tsm_codice_art').asstring;
-            tabelle_collegate.fieldbyname('importo_sconto').asfloat := tabella_righe.fieldbyname('importo_sconto').asfloat;
-            tabelle_collegate.fieldbyname('importo').asfloat := tabella_righe.fieldbyname('importo').asfloat;
-            tabelle_collegate.fieldbyname('importo_euro').asfloat := tabella_righe.fieldbyname('importo_euro').asfloat;
-            tabelle_collegate.fieldbyname('tipo_movimento').asstring := tabella_righe.fieldbyname('tipo_movimento').asstring;
+          // aggiornamento manuale archivi collegati
+          if tabella_righe.fieldbyname('documento_origine').asstring = 'bolla ven' then
+          begin
+            bvt_dvt.sql.text := 'select * from bvt where progressivo = :progressivo';
+          end
+          else
+          begin
+            bvt_dvt.sql.text := 'select * from dvt where progressivo = :progressivo';
+          end;
+          bvt_dvt.parambyname('progressivo').asinteger := tabella_righe.fieldbyname('doc_progressivo_origine').asinteger;
+          bvt_dvt.open;
 
-            tabelle_collegate.post;
+          // analitica
+          tabelle_collegate.close;
+          tabelle_collegate.sql.text := 'select progressivo from cem ' +
+            'where documento_origine = :documento_origine ' +
+            'and doc_progressivo_origine = :doc_progressivo_origine ' +
+            'and doc_riga_origine = :doc_riga_origine';
+          tabelle_collegate.parambyname('documento_origine').asstring := tabella_righe.fieldbyname('documento_origine').asstring;
+          tabelle_collegate.parambyname('doc_progressivo_origine').asinteger := bvr_dvr.fieldbyname('progressivo').asinteger;
+          tabelle_collegate.parambyname('doc_riga_origine').asinteger := bvr_dvr.fieldbyname('riga').asinteger;
+          tabelle_collegate.open;
+          if not tabelle_collegate.isempty then
+          begin
+            messaggio(100, 'il documento di origine ha un movimento analitica collegato' + #13 +
+              'la sua modifica va eseguita manualmente');
+            esegui_carcem(vararrayof([tabella_righe.fieldbyname('documento_origine').asstring,
+              bvr_dvr.fieldbyname('progressivo').asinteger, bvr_dvr.fieldbyname('riga').asinteger]),
+              bvt_dvt.fieldbyname('data_documento').asdatetime, bvr_dvr.fieldbyname('gen_codice').asstring,
+              bvr_dvr.fieldbyname('art_codice').asstring, 'C', bvt_dvt.fieldbyname('cli_codice').asstring, '', esercizio,
+              bvt_dvt.fieldbyname('numero_documento').asfloat, bvr_dvr.fieldbyname('cms_codice').asstring,
+              bvt_dvt.fieldbyname('data_documento').asdatetime, 0, bvr_dvr.fieldbyname('importo_euro').asfloat, true, false,
+              0, bvr_dvr.fieldbyname('importo').asfloat, bvt_dvt.fieldbyname('cambio').asfloat);
+          end;
+
+          // commesse
+          tabelle_collegate.close;
+          tabelle_collegate.sql.text := 'select progressivo from cmm ' +
+            'where documento_origine = :documento_origine ' +
+            'and doc_progressivo_origine = :doc_progressivo_origine ' +
+            'and doc_riga_origine = :doc_riga_origine';
+          tabelle_collegate.parambyname('documento_origine').asstring := tabella_righe.fieldbyname('documento_origine').asstring;
+          tabelle_collegate.parambyname('doc_progressivo_origine').asinteger := bvr_dvr.fieldbyname('progressivo').asinteger;
+          tabelle_collegate.parambyname('doc_riga_origine').asinteger := bvr_dvr.fieldbyname('riga').asinteger;
+          tabelle_collegate.open;
+          if not tabelle_collegate.isempty then
+          begin
+            messaggio(100, 'il documento di origine ha un movimento commesse collegato' + #13 +
+              'la sua modifica va eseguita manualmente');
+            esegui_carcmm(vararrayof([tabella_righe.fieldbyname('documento_origine').asstring,
+              bvr_dvr.fieldbyname('progressivo').asinteger, bvr_dvr.fieldbyname('riga').asinteger]),
+              'C', bvt_dvt.fieldbyname('cli_codice').asstring, bvr_dvr.fieldbyname('art_codice').asstring,
+              bvt_dvt.fieldbyname('serie_documento').asstring, bvr_dvr.fieldbyname('descrizione1').asstring,
+              bvr_dvr.fieldbyname('descrizione1').asstring,
+              bvr_dvr.fieldbyname('tipo_movimento').asstring, bvt_dvt.fieldbyname('data_documento').asdatetime,
+              bvt_dvt.fieldbyname('data_documento').asdatetime, bvr_dvr.fieldbyname('importo_euro').asfloat,
+              bvt_dvt.fieldbyname('numero_documento').asfloat, bvr_dvr.fieldbyname('cms_codice').asstring,
+              bvr_dvr.fieldbyname('tipologia').asstring, bvr_dvr.fieldbyname('tum_quantita_base').asfloat, true);
+          end;
+
+          // magazzino
+          tabelle_collegate.close;
+          tabelle_collegate.sql.text := 'select mmr.* from mmr ' +
+            'inner join mmt on mmt.progressivo = mmr.progressivo ' +
+            'where mmt.documento_origine = :documento_origine ' +
+            'and mmt.doc_progressivo_origine = :doc_progressivo_origine ' +
+            'and mmr.doc_riga_origine = :doc_riga_origine';
+          tabelle_collegate.parambyname('documento_origine').asstring := tabella_righe.fieldbyname('documento_origine').asstring;
+          tabelle_collegate.parambyname('doc_progressivo_origine').asinteger := bvr_dvr.fieldbyname('progressivo').asinteger;
+          tabelle_collegate.parambyname('doc_riga_origine').asinteger := bvr_dvr.fieldbyname('riga').asinteger;
+          tabelle_collegate.open;
+          if not tabelle_collegate.isempty then
+          begin
+            if messaggio(300, 'modifica automatica del movimento di magazzino collegato') = 1 then
+            begin
+              tabelle_collegate.edit;
+
+              tabelle_collegate.fieldbyname('art_codice').asstring := tabella_righe.fieldbyname('art_codice').asstring;
+              tabelle_collegate.fieldbyname('quantita').asfloat := tabella_righe.fieldbyname('quantita').asfloat;
+              tabelle_collegate.fieldbyname('prezzo').asfloat := tabella_righe.fieldbyname('prezzo').asfloat;
+              tabelle_collegate.fieldbyname('tsm_codice').asstring := tabella_righe.fieldbyname('tsm_codice').asstring;
+              tabelle_collegate.fieldbyname('tsm_codice_art').asstring := tabella_righe.fieldbyname('tsm_codice_art').asstring;
+              tabelle_collegate.fieldbyname('importo_sconto').asfloat := tabella_righe.fieldbyname('importo_sconto').asfloat;
+              tabelle_collegate.fieldbyname('importo').asfloat := tabella_righe.fieldbyname('importo').asfloat;
+              tabelle_collegate.fieldbyname('importo_euro').asfloat := tabella_righe.fieldbyname('importo_euro').asfloat;
+              tabelle_collegate.fieldbyname('tipo_movimento').asstring := tabella_righe.fieldbyname('tipo_movimento').asstring;
+
+              tabelle_collegate.post;
+            end;
           end;
         end;
-
+      finally
         bvt_dvt.free;
         tabelle_collegate.free;
+        bvr_dvr.free;
       end;
     end;
   end;
@@ -4145,12 +4071,13 @@ begin
     mmr.fieldbyname('quantita').asfloat := tabella_righe.fieldbyname('tum_quantita_base').asfloat;
     mmr.fieldbyname('quantita_entrate').asfloat := 0;
     mmr.fieldbyname('quantita_uscite').asfloat := 0;
-    read_tabella(tmo_01, mmt.fieldbyname('tmo_codice').asstring);
-    if tmo_01.fieldbyname('esistenza').asstring = 'incrementa' then
+
+    read_tabella(arc.arcdit, 'tmo', 'codice', mmt.fieldbyname('tmo_codice').asstring, 'esistenza');
+    if archivio.fieldbyname('esistenza').asstring = 'incrementa' then
     begin
       mmr.fieldbyname('quantita_entrate').asfloat := mmr.fieldbyname('quantita').asfloat;
     end;
-    if tmo_01.fieldbyname('esistenza').asstring = 'decrementa' then
+    if archivio.fieldbyname('esistenza').asstring = 'decrementa' then
     begin
       mmr.fieldbyname('quantita_uscite').asfloat := mmr.fieldbyname('quantita').asfloat;
     end;
@@ -4249,7 +4176,8 @@ procedure tgesven.before_delete_righe;
 var
   progressivo, i: integer;
   prosegui, approntato: boolean;
-  tabella_consegna_diretta, ovr, ltm_ordini, cmsfr: tmyquery_go;
+  tabella_consegna_diretta, ovr, ltm_ordini: tmyquery_go;
+  cmsfr, qaggiorna_iat, qsal, qiat, qlct, qcas: tmyquery_go;
 begin
   prosegui := true;
 
@@ -4317,9 +4245,16 @@ begin
 
     if tabella_righe.fieldbyname('documento_origine').asstring = 'riparazione occasionale' then
     begin
-      aggiorna_iat.close;
-      aggiorna_iat.parambyname('progressivo').asinteger := tabella_righe.fieldbyname('doc_progressivo_origine').asinteger;
-      aggiorna_iat.execsql;
+      qaggiorna_iat := tmyquery_go.create(nil);
+      qaggiorna_iat.connection := arc.arcdit;
+      qaggiorna_iat.sql.add('update iat set progressivo_ddtv = 0');
+      qaggiorna_iat.sql.add('where progressivo = :progressivo');
+      try
+        qaggiorna_iat.parambyname('progressivo').asinteger := tabella_righe.fieldbyname('doc_progressivo_origine').asinteger;
+        qaggiorna_iat.execsql;
+      finally
+        qaggiorna_iat.free;
+      end;
     end;
 
     prosegui := true;
@@ -4593,117 +4528,149 @@ begin
 
             if tabella_righe.fieldbyname('documento_origine').asstring = 'lavorazione conto terzi' then
             begin
-              lct.params[0].asinteger := tabella_righe.fieldbyname('doc_progressivo_origine').asinteger;
-              lct.close;
-              lct.open;
-              if not lct.isempty then
-              begin
-                visualizzato_messaggio := true;
-                if ripeti_messaggio <> 'no' then
+              qlct := tmyquery_go.create(nil);
+              qlct.connection := arc.arcdit;
+              qlct.sql.add('select * from lct');
+              qlct.sql.add('where progressivo = :progressivo');
+
+              try
+                qlct.params[0].asinteger := tabella_righe.fieldbyname('doc_progressivo_origine').asinteger;
+                qlct.close;
+                qlct.open;
+                if not qlct.isempty then
                 begin
-                  messaggio(100, 'la lavorazione conto terzi collegata verrà aggiornata');
+                  visualizzato_messaggio := true;
+                  if ripeti_messaggio <> 'no' then
+                  begin
+                    messaggio(100, 'la lavorazione conto terzi collegata verrà aggiornata');
+                  end;
+                  qlct.edit;
+                  qlct.fieldbyname('fatturato').asstring := 'no';
+                  qlct.post;
                 end;
-                lct.edit;
-                lct.fieldbyname('fatturato').asstring := 'no';
-                lct.post;
+              finally
+                qlct.free;
               end;
             end;
 
             if (tipo_documento = 'preventivo') and
               (tabella_righe.fieldbyname('documento_origine').asstring = 'assistenza tecnica') then
             begin
-              iat.close;
-              iat.parambyname('progressivo').asinteger := tabella_righe.fieldbyname('doc_progressivo_origine').asinteger;
-              iat.execsql;
-            end;
-
-            if tabella_righe.fieldbyname('documento_origine').asstring = 'preventivo assistenza' then
-            begin
-              cas.close;
-              cas.sql.text := 'select * from cat where progressivo = :progressivo';
-              cas.params[0].asinteger := tabella_righe.fieldbyname('doc_progressivo_origine').asinteger;
-              cas.open;
-              if not cas.isempty then
-              begin
-                visualizzato_messaggio := true;
-                if ripeti_messaggio <> 'no' then
-                begin
-                  messaggio(100, 'il preventivo di assistenza tecnica collegato verrà aggiornato');
-                end;
-                cas.edit;
-                cas.fieldbyname('data_punti').value := null;
-                cas.fieldbyname('importo_punti_utilizzato').asfloat := 0;
-                cas.fieldbyname('situazione').asstring := 'chiusa';
-                cas.post;
+              qiat := tmyquery_go.create(nil);
+              qiat.connection := arc.arcdit;
+              qiat.sql.add('update iat set situazione = ''inserito''');
+              qiat.sql.add('where progressivo = :progressivo');
+              try
+                qiat.parambyname('progressivo').asinteger := tabella_righe.fieldbyname('doc_progressivo_origine').asinteger;
+                qiat.execsql;
+              finally
+                qiat.free;
               end;
             end;
 
-            if tabella_righe.fieldbyname('documento_origine').asstring = 'chiamata assistenza' then
-            begin
-              cas.close;
-              cas.sql.text := 'select * from cat where progressivo = :progressivo';
-              cas.params[0].asinteger := tabella_righe.fieldbyname('doc_progressivo_origine').asinteger;
-              cas.open;
-              if not cas.isempty then
-              begin
-                visualizzato_messaggio := true;
-                if ripeti_messaggio <> 'no' then
-                begin
-                  messaggio(100, 'la chiamata di assistenza tecnica collegata verrà aggiornata');
-                end;
-                cas.edit;
-                cas.fieldbyname('data_punti').value := null;
-                cas.fieldbyname('importo_punti_utilizzato').asfloat := 0;
-                cas.fieldbyname('situazione').asstring := 'chiusa';
+            qcas := tmyquery_go.create(nil);
+            qcas.connection := arc.arcdit;
 
-                cas.post;
+            try
+              if tabella_righe.fieldbyname('documento_origine').asstring = 'preventivo assistenza' then
+              begin
+                qcas.close;
+                qcas.sql.text := 'select * from cat where progressivo = :progressivo';
+                qcas.params[0].asinteger := tabella_righe.fieldbyname('doc_progressivo_origine').asinteger;
+                qcas.open;
+                if not qcas.isempty then
+                begin
+                  visualizzato_messaggio := true;
+                  if ripeti_messaggio <> 'no' then
+                  begin
+                    messaggio(100, 'il preventivo di assistenza tecnica collegato verrà aggiornato');
+                  end;
+                  qcas.edit;
+                  qcas.fieldbyname('data_punti').value := null;
+                  qcas.fieldbyname('importo_punti_utilizzato').asfloat := 0;
+                  qcas.fieldbyname('situazione').asstring := 'chiusa';
+                  qcas.post;
+                end;
               end;
 
-              cas.close;
-              cas.sql.text := 'update car set cli_codice_punti = '''', data_punti = null, importo_punti_utilizzato = 0, ' +
-                'situazione = '''' where progressivo = :progressivo';
-              cas.params[0].asinteger := tabella_righe.fieldbyname('doc_progressivo_origine').asinteger;
-              cas.execsql;
-            end;
-
-            if tabella_righe.fieldbyname('documento_origine').asstring = 'consuntivo assistenza' then
-            begin
-              cas.close;
-              cas.sql.text := 'select * from car where progressivo = :progressivo and riga = :riga';
-              cas.params[0].asinteger := tabella_righe.fieldbyname('doc_progressivo_origine').asinteger;
-              cas.params[1].asinteger := tabella_righe.fieldbyname('doc_riga_origine').asinteger;
-              cas.open;
-              if not cas.isempty then
+              if tabella_righe.fieldbyname('documento_origine').asstring = 'chiamata assistenza' then
               begin
-                visualizzato_messaggio := true;
-                if ripeti_messaggio <> 'no' then
+                qcas.close;
+                qcas.sql.text := 'select * from cat where progressivo = :progressivo';
+                qcas.params[0].asinteger := tabella_righe.fieldbyname('doc_progressivo_origine').asinteger;
+                qcas.open;
+                if not qcas.isempty then
                 begin
-                  messaggio(100, 'il consuntivo di assistenza tecnica collegato verrà aggiornato');
+                  visualizzato_messaggio := true;
+                  if ripeti_messaggio <> 'no' then
+                  begin
+                    messaggio(100, 'la chiamata di assistenza tecnica collegata verrà aggiornata');
+                  end;
+                  qcas.edit;
+                  qcas.fieldbyname('data_punti').value := null;
+                  qcas.fieldbyname('importo_punti_utilizzato').asfloat := 0;
+                  qcas.fieldbyname('situazione').asstring := 'chiusa';
+
+                  qcas.post;
                 end;
-                cas.edit;
-                cas.fieldbyname('cli_codice_punti').asstring := '';
-                cas.fieldbyname('data_punti').value := null;
-                cas.fieldbyname('importo_punti_utilizzato').asfloat := 0;
-                cas.fieldbyname('situazione').asstring := 'inserita';
-                cas.post;
+
+                qcas.close;
+                qcas.sql.text := 'update car set cli_codice_punti = '''', data_punti = null, importo_punti_utilizzato = 0, ' +
+                  'situazione = '''' where progressivo = :progressivo';
+                qcas.params[0].asinteger := tabella_righe.fieldbyname('doc_progressivo_origine').asinteger;
+                qcas.execsql;
               end;
+
+              if tabella_righe.fieldbyname('documento_origine').asstring = 'consuntivo assistenza' then
+              begin
+                qcas.close;
+                qcas.sql.text := 'select * from car where progressivo = :progressivo and riga = :riga';
+                qcas.params[0].asinteger := tabella_righe.fieldbyname('doc_progressivo_origine').asinteger;
+                qcas.params[1].asinteger := tabella_righe.fieldbyname('doc_riga_origine').asinteger;
+                qcas.open;
+                if not qcas.isempty then
+                begin
+                  visualizzato_messaggio := true;
+                  if ripeti_messaggio <> 'no' then
+                  begin
+                    messaggio(100, 'il consuntivo di assistenza tecnica collegato verrà aggiornato');
+                  end;
+                  qcas.edit;
+                  qcas.fieldbyname('cli_codice_punti').asstring := '';
+                  qcas.fieldbyname('data_punti').value := null;
+                  qcas.fieldbyname('importo_punti_utilizzato').asfloat := 0;
+                  qcas.fieldbyname('situazione').asstring := 'inserita';
+                  qcas.post;
+                end;
+              end;
+            finally
+              qcas.free;
             end;
 
             if tabella_righe.fieldbyname('documento_origine').asstring = 'stato avanzamento commesse' then
             begin
-              sal.params[0].asinteger := tabella_righe.fieldbyname('doc_progressivo_origine').asinteger;
-              sal.close;
-              sal.open;
-              if not sal.isempty then
-              begin
-                visualizzato_messaggio := true;
-                if ripeti_messaggio <> 'no' then
+              qsal := tmyquery_go.create(nil);
+              qsal.connection := arc.arcdit;
+              qsal.sql.add('select * from sal');
+              qsal.sql.add('where progressivo = :progressivo');
+
+              try
+                qsal.params[0].asinteger := tabella_righe.fieldbyname('doc_progressivo_origine').asinteger;
+                qsal.close;
+                qsal.open;
+                if not qsal.isempty then
                 begin
-                  messaggio(100, 'lo stato avanzamento commesse collegato verrà aggiornato');
+                  visualizzato_messaggio := true;
+                  if ripeti_messaggio <> 'no' then
+                  begin
+                    messaggio(100, 'lo stato avanzamento commesse collegato verrà aggiornato');
+                  end;
+                  qsal.edit;
+                  qsal.fieldbyname('situazione').asstring := 'inserito';
+                  qsal.post;
                 end;
-                sal.edit;
-                sal.fieldbyname('situazione').asstring := 'inserito';
-                sal.post;
+              finally
+                qsal.free;
               end;
             end;
 
@@ -4863,6 +4830,8 @@ end;
 // ******************************************************************************
 
 procedure tgesven.pannello_campienter(sender: tobject);
+var
+  qrevisione_conai: tmyquery_go;
 begin
   abilita_punti_negozio(true);
 
@@ -5075,14 +5044,16 @@ begin
       end
       else
       begin
-        read_tabella(revisione_conai, tabella.fieldbyname('progressivo').asinteger);
-        if revisione_conai.fieldbyname('numero_righe').asinteger > 0 then
-        begin
-          v_revisione_documento.enabled := false;
-        end
-        else
-        begin
-          v_revisione_documento.enabled := true;
+        qrevisione_conai := tmyquery_go.create(nil);
+        qrevisione_conai.connection := arc.arcdit;
+        qrevisione_conai.sql.add('select count(riga) numero_righe from pvr');
+        qrevisione_conai.sql.add('where progressivo = :progressivo and riga_origine_conai = 0 and situazione <> ''inserito''');
+
+        try
+          read_tabella(qrevisione_conai, tabella.fieldbyname('progressivo').asinteger);
+          v_revisione_documento.enabled := qrevisione_conai.fieldbyname('numero_righe').asinteger = 0;
+        finally
+          qrevisione_conai.free;
         end;
       end;
     end;
@@ -5233,6 +5204,7 @@ end;
 procedure tgesven.abilita_storni(flag: boolean);
 var
   corrispettivo: boolean;
+  qfatcor: tmyquery_go;
 begin
   if parte_attiva = 'pannello_campi' then
   begin
@@ -5272,12 +5244,18 @@ begin
       corrispettivo := false;
       if (tipo_documento = 'fattura immediata') then
       begin
-        fatcor.close;
-        fatcor.parambyname('progressivo').asinteger := tabella.fieldbyname('progressivo').asinteger;
-        fatcor.open;
-        if not fatcor.isempty then
-        begin
-          corrispettivo := true;
+        qfatcor := tmyquery_go.create(nil);
+        qfatcor.connection := arc.arcdit;
+        qfatcor.sql.add('select id from fvr');
+        qfatcor.sql.add('where progressivo = :progressivo and documento_origine = ''corrispettivo ven''');
+        qfatcor.sql.add('limit 1');
+
+        try
+          qfatcor.parambyname('progressivo').asinteger := tabella.fieldbyname('progressivo').asinteger;
+          qfatcor.open;
+          corrispettivo := not qfatcor.isempty;
+        finally
+          qfatcor.free;
         end;
       end;
 
@@ -5316,24 +5294,6 @@ begin
         v_storno_differite.enabled := false;
       end;
 
-(*
-      if ((copy(tipo_documento, 1, 7) = 'fattura') or (tipo_documento = 'nota credito')) then
-      begin
-        if (tabella.fieldbyname('codice_esito_sdi').asstring = 'scartata') or
-          (tabella.fieldbyname('codice_esito_sdi').asstring = 'rifiutata') then
-        begin
-          abilita_campo(v_storno_sdi);
-        end
-        else
-        begin
-          disabilita_campo(v_storno_sdi);
-        end;
-      end
-      else
-      begin
-        disabilita_campo(v_storno_sdi);
-      end;
-*)
       if (tabella.fieldbyname('situazione_sdi').asstring = 'in attesa invio') or
         (tabella.fieldbyname('situazione_sdi').asstring = '') then
       begin
@@ -5466,11 +5426,11 @@ end;
 procedure tgesven.pannello_codiceenter(sender: tobject);
 var
   totale_quantita, tum_totale_quantita_base: double;
-  totale_colli: integer;
+  int_tot_colli: integer;
 
   stringa, stringa_righe, lista: string;
   allegati: tstringlist;
-  righe: tmyquery_go;
+  righe, qsupero, qtotalizza, qsct: tmyquery_go;
 
   pr: tdupordv;
 begin
@@ -5533,159 +5493,178 @@ begin
     begin
       if v_situazione.text = 'inserito' then
       begin
-        query_sct.close;
-        query_sct.parambyname('cli_codice').asstring := v_cli_codice.text;
-        query_sct.parambyname('data_inizio').asdate := v_data_documento.date;
-        query_sct.parambyname('data_fine').asdate := v_data_documento.date;
-        query_sct.open;
-        if not query_sct.isempty then
-        begin
-          totale_colli := trunc(v_numero_colli.value);
-          totale_quantita := 0;
-          tum_totale_quantita_base := 0;
-          query_totalizza.close;
-          query_totalizza.sql.clear;
-          query_totalizza.sql.add('select sum(numero_colli) numero_colli, sum(quantita) quantita, sum(tum_quantita_base) tum_quantita_base');
-          if tipo_documento = 'ordine' then
+        qsct := tmyquery_go.create(nil);
+        qsct.connection := arc.arcdit;
+        qsct.sql.add('select sct.*, coalesce(tsm_colli.percentuale_totale, 100) percentuale_totale_colli,');
+        qsct.sql.add('coalesce(tsm_quantita.percentuale_totale, 100) percentuale_totale_quantita');
+        qsct.sql.add('from sct');
+        qsct.sql.add('left join tsm tsm_colli on tsm_colli.codice = sct.tsm_codice_colli');
+        qsct.sql.add('left join tsm tsm_quantita on tsm_quantita.codice = sct.tsm_codice_quantita');
+        qsct.sql.add('where cli_codice = :cli_codice');
+        qsct.sql.add('and data_inizio < :data_inizio and data_fine > :data_fine');
+
+        qtotalizza := tmyquery_go.create(nil);
+        qtotalizza.connection := arc.arcdit;
+
+        try
+          qsct.parambyname('cli_codice').asstring := v_cli_codice.text;
+          qsct.parambyname('data_inizio').asdate := v_data_documento.date;
+          qsct.parambyname('data_fine').asdate := v_data_documento.date;
+          qsct.open;
+
+          if not qsct.isempty then
           begin
-            query_totalizza.sql.add('from ovr');
-          end
-          else if tipo_documento = 'bolla' then
-          begin
-            query_totalizza.sql.add('from bvr');
-          end
-          else if tipo_documento = 'corrispettivo' then
-          begin
-            query_totalizza.sql.add('from cvr');
-          end
-          else if tipo_documento = 'ddt' then
-          begin
-            query_totalizza.sql.add('from dvr');
-          end
-          else if (tipo_documento = 'fattura accompagnatoria') or (tipo_documento = 'fattura immediata') then
-          begin
-            query_totalizza.sql.add('from fvr');
-          end;
-          query_totalizza.sql.add('where progressivo = :progressivo');
-          query_totalizza.sql.add('and tipo_movimento = ''normale''');
-          query_totalizza.sql.add('group by progressivo');
-          query_totalizza.parambyname('progressivo').asinteger := trunc(v_progressivo.value);
-          query_totalizza.open;
-          if not query_totalizza.isempty then
-          begin
-            totale_quantita := query_totalizza.fieldbyname('quantita').asfloat;
-            tum_totale_quantita_base := query_totalizza.fieldbyname('tum_quantita_base').asfloat;
-            if totale_colli = 0 then
+            int_tot_colli := trunc(v_numero_colli.value);
+            totale_quantita := 0;
+            tum_totale_quantita_base := 0;
+
+            qtotalizza.sql.add('select sum(numero_colli) numero_colli, sum(quantita) quantita,');
+            qtotalizza.sql.add('sum(tum_quantita_base) tum_quantita_base');
+            if tipo_documento = 'ordine' then
             begin
-              totale_colli := query_totalizza.fieldbyname('numero_colli').asinteger;
-            end;
-          end;
-
-          query_sct_qc.close;
-          query_sct_qc.sql.clear;
-          if query_sct.fieldbyname('colli').asinteger <> 0 then
-          begin
-            query_sct_qc.sql.add('select');
-            query_sct_qc.sql.add('case when sctscc.id is null then sct.colli else sctscc.colli end colli,');
-            query_sct_qc.sql.add('case when sctscc.id is null then sct.tsm_codice_colli else sctscc.tsm_codice end tsm_codice,');
-            query_sct_qc.sql.add('case');
-            query_sct_qc.sql.add('when sctscc.id is null then (select tsm.descrizione from tsm where tsm.codice = sct.tsm_codice_colli)');
-            query_sct_qc.sql.add('else (select tsm.descrizione from tsm where tsm.codice = sctscc.tsm_codice)');
-            query_sct_qc.sql.add('end descrizione,');
-            query_sct_qc.sql.add('case');
-            query_sct_qc.sql.add('when sctscc.id is null then coalesce((select tsm.percentuale_totale from tsm where tsm.codice = sct.tsm_codice_colli), 100)');
-            query_sct_qc.sql.add('else coalesce((select tsm.percentuale_totale from tsm where tsm.codice = sctscc.tsm_codice), 100)');
-            query_sct_qc.sql.add('end percentuale');
-            query_sct_qc.sql.add('from sct');
-            query_sct_qc.sql.add('left join sctscc on sctscc.id_sct = sct.id and :colli >= sctscc.colli');
-            query_sct_qc.sql.add('where sct.id = :id');
-            query_sct_qc.sql.add('order by sctscc.colli desc');
-            query_sct_qc.sql.add('limit 1');
-            query_sct_qc.parambyname('id').asinteger := query_sct.fieldbyname('id').asinteger;
-            query_sct_qc.parambyname('colli').asfloat := totale_colli;
-            query_sct_qc.open;
-
-            if (totale_colli >= query_sct_qc.fieldbyname('colli').asinteger) and
-              ((query_sct_qc.fieldbyname('percentuale').asfloat <= tsm_sconto.fieldbyname('percentuale_totale').asfloat) or
-              tsm_sconto.isempty) then
-            begin
-              messaggio(200, 'raggiunta la condizione di sconto colli' + #13 +
-                'numero colli del documento: ' + inttostr(query_totalizza.fieldbyname('numero_colli').asinteger) + '  -  ' +
-                'numero minimo colli previsti: ' + inttostr(query_sct_qc.fieldbyname('colli').asinteger) + #13 +
-                'sconto previsto: ' + query_sct_qc.fieldbyname('descrizione').asstring);
-
-              if tabella_edit(tabella) then
-              begin
-                tabella.fieldbyname('tsm_codice_sconto').asstring := query_sct_qc.fieldbyname('tsm_codice').asstring;
-                tsm_codice_sconto_controllo(false);
-                tabella.post;
-              end;
-              totven.movven_testata(tmyconnection_go(tabella.connection), tipo_documento, tabella.fieldbyname('progressivo').asinteger);
-              tabella.refresh;
+              qtotalizza.sql.add('from ovr');
             end
-            else
+            else if tipo_documento = 'bolla' then
             begin
-              if tsm_sconto.fieldbyname('percentuale_totale').asfloat <> 0 then
+              qtotalizza.sql.add('from bvr');
+            end
+            else if tipo_documento = 'corrispettivo' then
+            begin
+              qtotalizza.sql.add('from cvr');
+            end
+            else if tipo_documento = 'ddt' then
+            begin
+              qtotalizza.sql.add('from dvr');
+            end
+            else if (tipo_documento = 'fattura accompagnatoria') or (tipo_documento = 'fattura immediata') then
+            begin
+              qtotalizza.sql.add('from fvr');
+            end;
+            qtotalizza.sql.add('where progressivo = :progressivo');
+            qtotalizza.sql.add('and tipo_movimento = ''normale''');
+            qtotalizza.sql.add('group by progressivo');
+            qtotalizza.parambyname('progressivo').asinteger := trunc(v_progressivo.value);
+            qtotalizza.open;
+
+            if not qtotalizza.isempty then
+            begin
+              totale_quantita := qtotalizza.fieldbyname('quantita').asfloat;
+              tum_totale_quantita_base := qtotalizza.fieldbyname('tum_quantita_base').asfloat;
+              if int_tot_colli = 0 then
               begin
-                messaggio(200, 'è presente uno sconto in testata: ' +
-                  floattostr(100 - tsm_sconto.fieldbyname('percentuale_totale').asfloat) + '%' + slinebreak +
-                  'superiore a quello dello sconto quantità: ' +
-                  floattostr(100 - query_sct_qc.fieldbyname('percentuale').asfloat) + '%' + slinebreak + slinebreak +
-                  'eventualmente modificarlo manualmente');
+                int_tot_colli := qtotalizza.fieldbyname('numero_colli').asinteger;
               end;
             end;
-          end
-          else if query_sct.fieldbyname('quantita').asfloat <> 0 then
-          begin
-            query_sct_qc.sql.add('select');
-            query_sct_qc.sql.add('case when sctscq.id is null then sct.quantita else sctscq.quantita end quantita,');
-            query_sct_qc.sql.add('case when sctscq.id is null then sct.tsm_codice_quantita else sctscq.tsm_codice end tsm_codice,');
-            query_sct_qc.sql.add('case');
-            query_sct_qc.sql.add('when sctscq.id is null then (select tsm.descrizione from tsm where tsm.codice = sct.tsm_codice_quantita)');
-            query_sct_qc.sql.add('else (select tsm.descrizione from tsm where tsm.codice = sctscq.tsm_codice)');
-            query_sct_qc.sql.add('end descrizione,');
-            query_sct_qc.sql.add('case');
-            query_sct_qc.sql.add('when sctscq.id is null then coalesce((select tsm.percentuale_totale from tsm where tsm.codice = sct.tsm_codice_quantita), 100)');
-            query_sct_qc.sql.add('else coalesce((select tsm.percentuale_totale from tsm where tsm.codice = sctscq.tsm_codice), 100)');
-            query_sct_qc.sql.add('end percentuale');
-            query_sct_qc.sql.add('from sct');
-            query_sct_qc.sql.add('left join sctscq on sctscq.id_sct = sct.id and :quantita >= sctscq.quantita');
-            query_sct_qc.sql.add('where sct.id = :id');
-            query_sct_qc.sql.add('order by sctscq.quantita desc');
-            query_sct_qc.sql.add('limit 1');
-            query_sct_qc.parambyname('id').asinteger := query_sct.fieldbyname('id').asinteger;
-            query_sct_qc.parambyname('quantita').asfloat := tum_totale_quantita_base;
-            query_sct_qc.open;
 
-            if (tum_totale_quantita_base >= query_sct_qc.fieldbyname('quantita').asinteger) and
-              ((query_sct_qc.fieldbyname('percentuale').asfloat <= tsm_sconto.fieldbyname('percentuale_totale').asfloat) or
-              tsm_sconto.isempty) then
+            query_sct_qc.close;
+            query_sct_qc.sql.clear;
+            if qsct.fieldbyname('colli').asinteger <> 0 then
             begin
-              messaggio(200, 'raggiunta la condizione di sconto quantità' + #13 +
-                'quantità del documento: ' + formatfloat(formato_display_quantita, query_totalizza.fieldbyname('tum_quantita_base').asfloat) + '  -  ' +
-                'quantità minima prevista: ' + formatfloat(formato_display_quantita, query_sct_qc.fieldbyname('quantita').asfloat) + #13 +
-                'sconto previsto: ' + query_sct_qc.fieldbyname('descrizione').asstring);
-              if tabella_edit(tabella) then
+              query_sct_qc.sql.add('select');
+              query_sct_qc.sql.add('case when sctscc.id is null then sct.colli else sctscc.colli end colli,');
+              query_sct_qc.sql.add('case when sctscc.id is null then sct.tsm_codice_colli else sctscc.tsm_codice end tsm_codice,');
+              query_sct_qc.sql.add('case');
+              query_sct_qc.sql.add('when sctscc.id is null then (select tsm.descrizione from tsm where tsm.codice = sct.tsm_codice_colli)');
+              query_sct_qc.sql.add('else (select tsm.descrizione from tsm where tsm.codice = sctscc.tsm_codice)');
+              query_sct_qc.sql.add('end descrizione,');
+              query_sct_qc.sql.add('case');
+              query_sct_qc.sql.add('when sctscc.id is null then coalesce((select tsm.percentuale_totale from tsm where tsm.codice = sct.tsm_codice_colli), 100)');
+              query_sct_qc.sql.add('else coalesce((select tsm.percentuale_totale from tsm where tsm.codice = sctscc.tsm_codice), 100)');
+              query_sct_qc.sql.add('end percentuale');
+              query_sct_qc.sql.add('from sct');
+              query_sct_qc.sql.add('left join sctscc on sctscc.id_sct = sct.id and :colli >= sctscc.colli');
+              query_sct_qc.sql.add('where sct.id = :id');
+              query_sct_qc.sql.add('order by sctscc.colli desc');
+              query_sct_qc.sql.add('limit 1');
+              query_sct_qc.parambyname('id').asinteger := qsct.fieldbyname('id').asinteger;
+              query_sct_qc.parambyname('colli').asfloat := int_tot_colli;
+              query_sct_qc.open;
+
+              if (int_tot_colli >= query_sct_qc.fieldbyname('colli').asinteger) and
+                ((query_sct_qc.fieldbyname('percentuale').asfloat <= tsm_sconto.fieldbyname('percentuale_totale').asfloat) or
+                tsm_sconto.isempty) then
               begin
-                tabella.fieldbyname('tsm_codice_sconto').asstring := query_sct_qc.fieldbyname('tsm_codice').asstring;
-                tsm_codice_sconto_controllo(false);
-                tabella.post;
+                messaggio(200, 'raggiunta la condizione di sconto colli' + #13 +
+                  'numero colli del documento: ' + inttostr(qtotalizza.fieldbyname('numero_colli').asinteger) + '  -  ' +
+                  'numero minimo colli previsti: ' + inttostr(query_sct_qc.fieldbyname('colli').asinteger) + #13 +
+                  'sconto previsto: ' + query_sct_qc.fieldbyname('descrizione').asstring);
+
+                if tabella_edit(tabella) then
+                begin
+                  tabella.fieldbyname('tsm_codice_sconto').asstring := query_sct_qc.fieldbyname('tsm_codice').asstring;
+                  tsm_codice_sconto_controllo(false);
+                  tabella.post;
+                end;
+                totven.movven_testata(tmyconnection_go(tabella.connection), tipo_documento, tabella.fieldbyname('progressivo').asinteger);
+                tabella.refresh;
+              end
+              else
+              begin
+                if tsm_sconto.fieldbyname('percentuale_totale').asfloat <> 0 then
+                begin
+                  messaggio(200, 'è presente uno sconto in testata: ' +
+                    floattostr(100 - tsm_sconto.fieldbyname('percentuale_totale').asfloat) + '%' + slinebreak +
+                    'superiore a quello dello sconto quantità: ' +
+                    floattostr(100 - query_sct_qc.fieldbyname('percentuale').asfloat) + '%' + slinebreak + slinebreak +
+                    'eventualmente modificarlo manualmente');
+                end;
               end;
-              totven.movven_testata(tmyconnection_go(tabella.connection), tipo_documento, tabella.fieldbyname('progressivo').asinteger);
-              tabella.refresh;
             end
-            else
+            else if qsct.fieldbyname('quantita').asfloat <> 0 then
             begin
-              if tsm_sconto.fieldbyname('percentuale_totale').asfloat <> 0 then
+              query_sct_qc.sql.add('select');
+              query_sct_qc.sql.add('case when sctscq.id is null then sct.quantita else sctscq.quantita end quantita,');
+              query_sct_qc.sql.add('case when sctscq.id is null then sct.tsm_codice_quantita else sctscq.tsm_codice end tsm_codice,');
+              query_sct_qc.sql.add('case');
+              query_sct_qc.sql.add('when sctscq.id is null then (select tsm.descrizione from tsm where tsm.codice = sct.tsm_codice_quantita)');
+              query_sct_qc.sql.add('else (select tsm.descrizione from tsm where tsm.codice = sctscq.tsm_codice)');
+              query_sct_qc.sql.add('end descrizione,');
+              query_sct_qc.sql.add('case');
+              query_sct_qc.sql.add('when sctscq.id is null then coalesce((select tsm.percentuale_totale from tsm where tsm.codice = sct.tsm_codice_quantita), 100)');
+              query_sct_qc.sql.add('else coalesce((select tsm.percentuale_totale from tsm where tsm.codice = sctscq.tsm_codice), 100)');
+              query_sct_qc.sql.add('end percentuale');
+              query_sct_qc.sql.add('from sct');
+              query_sct_qc.sql.add('left join sctscq on sctscq.id_sct = sct.id and :quantita >= sctscq.quantita');
+              query_sct_qc.sql.add('where sct.id = :id');
+              query_sct_qc.sql.add('order by sctscq.quantita desc');
+              query_sct_qc.sql.add('limit 1');
+              query_sct_qc.parambyname('id').asinteger := qsct.fieldbyname('id').asinteger;
+              query_sct_qc.parambyname('quantita').asfloat := tum_totale_quantita_base;
+              query_sct_qc.open;
+
+              if (tum_totale_quantita_base >= query_sct_qc.fieldbyname('quantita').asinteger) and
+                ((query_sct_qc.fieldbyname('percentuale').asfloat <= tsm_sconto.fieldbyname('percentuale_totale').asfloat) or
+                tsm_sconto.isempty) then
               begin
-                messaggio(200, 'è presente uno sconto in testata: ' +
-                  floattostr(100 - tsm_sconto.fieldbyname('percentuale_totale').asfloat) + '%' + slinebreak +
-                  'superiore a quello dello sconto quantità: ' +
-                  floattostr(100 - query_sct_qc.fieldbyname('percentuale').asfloat) + '%' + slinebreak + slinebreak +
-                  'eventualmente modificarlo manualmente');
+                messaggio(200, 'raggiunta la condizione di sconto quantità' + #13 +
+                  'quantità del documento: ' + formatfloat(formato_display_quantita, qtotalizza.fieldbyname('tum_quantita_base').asfloat) + '  -  ' +
+                  'quantità minima prevista: ' + formatfloat(formato_display_quantita, query_sct_qc.fieldbyname('quantita').asfloat) + #13 +
+                  'sconto previsto: ' + query_sct_qc.fieldbyname('descrizione').asstring);
+                if tabella_edit(tabella) then
+                begin
+                  tabella.fieldbyname('tsm_codice_sconto').asstring := query_sct_qc.fieldbyname('tsm_codice').asstring;
+                  tsm_codice_sconto_controllo(false);
+                  tabella.post;
+                end;
+                totven.movven_testata(tmyconnection_go(tabella.connection), tipo_documento, tabella.fieldbyname('progressivo').asinteger);
+                tabella.refresh;
+              end
+              else
+              begin
+                if tsm_sconto.fieldbyname('percentuale_totale').asfloat <> 0 then
+                begin
+                  messaggio(200, 'è presente uno sconto in testata: ' +
+                    floattostr(100 - tsm_sconto.fieldbyname('percentuale_totale').asfloat) + '%' + slinebreak +
+                    'superiore a quello dello sconto quantità: ' +
+                    floattostr(100 - query_sct_qc.fieldbyname('percentuale').asfloat) + '%' + slinebreak + slinebreak +
+                    'eventualmente modificarlo manualmente');
+                end;
               end;
             end;
           end;
+        finally
+          qtotalizza.free;
+          qsct.free;
         end;
       end;
     end;
@@ -5740,12 +5719,13 @@ begin
           'articoli :' + stringa_righe;
 
         lista := tag.fieldbyname('user_e_mail').asstring;
-        read_tabella(tve, ditta);
-        if (tve.fieldbyname('invio_mail').asstring = 'si') and (tag.fieldbyname('user_e_mail').asstring <> '') then
+
+        read_tabella(arc.arcdit, 'tve', 'codice', ditta, 'invio_mail');
+        if (archivio.fieldbyname('invio_mail').asstring = 'si') and (tag.fieldbyname('user_e_mail').asstring <> '') then
         begin
           arc.invia_messaggio(false, 'Ordine OCS', '', stringa, lista, allegati, '', '', '', '', 0, 0);
         end;
-        if (tve.fieldbyname('invio_mail').asstring = 'si') and (tag.fieldbyname('cellulare').asstring <> '') then
+        if (archivio.fieldbyname('invio_mail').asstring = 'si') and (tag.fieldbyname('cellulare').asstring <> '') then
         begin
           clasms := tclasms.create(arc.dit.fieldbyname('utente_sms').asstring,
             arc.dit.fieldbyname('password_sms').asstring, arc.dit.fieldbyname('identificativo_sms').asstring);
@@ -5757,6 +5737,7 @@ begin
           clasms.invia_sms(tag.fieldbyname('cellulare').asstring, stringa, tag.fieldbyname('descrizione').asstring);
           clasms.free;
         end;
+
       end;
       allegati.free;
       righe.free;
@@ -5868,15 +5849,31 @@ begin
   if (v_progressivo.value <> 0) and (tabella.fieldbyname('tipo_documento').asstring = 'ordine') and
     (tabella.fieldbyname('codice_contratto').asstring <> '') then
   begin
-    supero.close;
-    supero.parambyname('cli_codice').asstring := tabella.fieldbyname('cli_codice').asstring;
-    supero.parambyname('codice_contratto').asstring := tabella.fieldbyname('codice_contratto').asstring;
-    supero.parambyname('data').asdate := tabella.fieldbyname('data_documento').asdatetime;
-    supero.open;
-    if supero.fieldbyname('importo_contratto').asfloat < supero.fieldbyname('importo_venduto').asfloat then
-    begin
-      messaggio(100, 'l''importo venduto [' + formatfloat(formato_display_importo, supero.fieldbyname('importo_venduto').asfloat) +
-        '] è superiore dell''importo contrattuale del periodo [' + formatfloat(formato_display_importo, supero.fieldbyname('importo_contratto').asfloat) + ']');
+    qsupero := tmyquery_go.create(nil);
+    qsupero.connection := arc.arcdit;
+    qsupero.sql.add('select cot.cli_codice, cot.codice_contratto, cor.importo importo_contratto,');
+    qsupero.sql.add('coalesce((select sum(ovt.importo_totale_imponibile - ovt.importo_spese_extra - ovt.importo_spese_trasporto -');
+    qsupero.sql.add('ovt.importo_spese_incasso - ovt.importo_bollo) from ovt');
+    qsupero.sql.add('where ovt.cli_codice = cot.cli_codice and ovt.codice_contratto = cot.codice_contratto and');
+    qsupero.sql.add('ovt.data_documento between cor.data_inizio and cor.data_fine), 0) importo_venduto');
+    qsupero.sql.add('from cor');
+    qsupero.sql.add('inner join cot on cot.progressivo = cor.progressivo');
+    qsupero.sql.add('where cot.cli_codice = :cli_codice and cot.codice_contratto = :codice_contratto and');
+    qsupero.sql.add('cor.data_inizio <= :data and cor.data_fine >= :data');
+
+    try
+      qsupero.parambyname('cli_codice').asstring := tabella.fieldbyname('cli_codice').asstring;
+      qsupero.parambyname('codice_contratto').asstring := tabella.fieldbyname('codice_contratto').asstring;
+      qsupero.parambyname('data').asdate := tabella.fieldbyname('data_documento').asdatetime;
+      qsupero.open;
+
+      if qsupero.fieldbyname('importo_contratto').asfloat < qsupero.fieldbyname('importo_venduto').asfloat then
+      begin
+        messaggio(100, 'l''importo venduto [' + formatfloat(formato_display_importo, qsupero.fieldbyname('importo_venduto').asfloat) +
+          '] è superiore dell''importo contrattuale del periodo [' + formatfloat(formato_display_importo, qsupero.fieldbyname('importo_contratto').asfloat) + ']');
+      end;
+    finally
+      qsupero.free;
     end;
   end;
 end;
@@ -5896,8 +5893,6 @@ begin
   begin
     v_fvtddt.visible := false;
   end;
-
-  read_tabella(tve, ditta);
 
   if not(supervisore_utente or (arc.utn.fieldbyname('manutentore').asstring = 'si')) then
   begin
@@ -6264,6 +6259,7 @@ end;
 procedure tgesven.assegnazione_globale_tipo_documento;
 var
   query_righe_sql: string;
+  qutn: tmyquery_go;
 begin
   // assegna tipo documento
   query_righe_sql := 'select xxx.*, concat(trim(xxx.descrizione1), '' '', coalesce(xxx.descrizione2, '''')) art_descrizione, ' +
@@ -6614,62 +6610,72 @@ begin
   end;
 
   // codici documento per utente
-  read_tabella(utn, utente);
-  if tipo_documento = 'ordine' then
-  begin
-    if utn.fieldbyname('tdo_codice_ordini').asstring <> '' then
+  qutn := tmyquery_go.create(nil);
+  qutn.connection := arc.arc;
+  qutn.sql.add('select tdo_codice_ordini, tdo_codice_bolle, tdo_codice_corrispettivi, tdo_codice_ddt,');
+  qutn.sql.add('tdo_codice_fatture_accompagna, tdo_codice_fatture_immediate, tdo_codice_note_credito,');
+  qutn.sql.add('tdo_codice_preventivi from utn where codice = :codice');
+
+  try
+    read_tabella(qutn, utente);
+    if tipo_documento = 'ordine' then
     begin
-      tdo_codice := utn.fieldbyname('tdo_codice_ordini').asstring;
-    end;
-  end
-  else if tipo_documento = 'bolla' then
-  begin
-    if utn.fieldbyname('tdo_codice_bolle').asstring <> '' then
+      if qutn.fieldbyname('tdo_codice_ordini').asstring <> '' then
+      begin
+        tdo_codice := qutn.fieldbyname('tdo_codice_ordini').asstring;
+      end;
+    end
+    else if tipo_documento = 'bolla' then
     begin
-      tdo_codice := utn.fieldbyname('tdo_codice_bolle').asstring;
-    end;
-  end
-  else if tipo_documento = 'ddt' then
-  begin
-    if utn.fieldbyname('tdo_codice_ddt').asstring <> '' then
+      if qutn.fieldbyname('tdo_codice_bolle').asstring <> '' then
+      begin
+        tdo_codice := qutn.fieldbyname('tdo_codice_bolle').asstring;
+      end;
+    end
+    else if tipo_documento = 'ddt' then
     begin
-      tdo_codice := utn.fieldbyname('tdo_codice_ddt').asstring;
-    end;
-  end
-  else if tipo_documento = 'fattura accompagnatoria' then
-  begin
-    if utn.fieldbyname('tdo_codice_fatture_accompagna').asstring <> '' then
+      if qutn.fieldbyname('tdo_codice_ddt').asstring <> '' then
+      begin
+        tdo_codice := qutn.fieldbyname('tdo_codice_ddt').asstring;
+      end;
+    end
+    else if tipo_documento = 'fattura accompagnatoria' then
     begin
-      tdo_codice := utn.fieldbyname('tdo_codice_fatture_accompagna').asstring;
-    end;
-  end
-  else if tipo_documento = 'fattura immediata' then
-  begin
-    if utn.fieldbyname('tdo_codice_fatture_immediate').asstring <> '' then
+      if qutn.fieldbyname('tdo_codice_fatture_accompagna').asstring <> '' then
+      begin
+        tdo_codice := qutn.fieldbyname('tdo_codice_fatture_accompagna').asstring;
+      end;
+    end
+    else if tipo_documento = 'fattura immediata' then
     begin
-      tdo_codice := utn.fieldbyname('tdo_codice_fatture_immediate').asstring;
-    end;
-  end
-  else if tipo_documento = 'nota credito' then
-  begin
-    if utn.fieldbyname('tdo_codice_note_credito').asstring <> '' then
+      if qutn.fieldbyname('tdo_codice_fatture_immediate').asstring <> '' then
+      begin
+        tdo_codice := qutn.fieldbyname('tdo_codice_fatture_immediate').asstring;
+      end;
+    end
+    else if tipo_documento = 'nota credito' then
     begin
-      tdo_codice := utn.fieldbyname('tdo_codice_note_credito').asstring;
-    end;
-  end
-  else if tipo_documento = 'corrispettivo' then
-  begin
-    if utn.fieldbyname('tdo_codice_corrispettivi').asstring <> '' then
+      if qutn.fieldbyname('tdo_codice_note_credito').asstring <> '' then
+      begin
+        tdo_codice := qutn.fieldbyname('tdo_codice_note_credito').asstring;
+      end;
+    end
+    else if tipo_documento = 'corrispettivo' then
     begin
-      tdo_codice := utn.fieldbyname('tdo_codice_corrispettivi').asstring;
-    end;
-  end
-  else if tipo_documento = 'preventivo' then
-  begin
-    if utn.fieldbyname('tdo_codice_preventivi').asstring <> '' then
+      if qutn.fieldbyname('tdo_codice_corrispettivi').asstring <> '' then
+      begin
+        tdo_codice := qutn.fieldbyname('tdo_codice_corrispettivi').asstring;
+      end;
+    end
+    else if tipo_documento = 'preventivo' then
     begin
-      tdo_codice := utn.fieldbyname('tdo_codice_preventivi').asstring;
+      if qutn.fieldbyname('tdo_codice_preventivi').asstring <> '' then
+      begin
+        tdo_codice := qutn.fieldbyname('tdo_codice_preventivi').asstring;
+      end;
     end;
+  finally
+    qutn.free;
   end;
 
   if (tipo_documento <> 'ordine') and (copy(tipo_documento, 1, 10) <> 'preventivo') then
@@ -7957,7 +7963,7 @@ var
   stringa: string;
   ordini_evasi: tmyquery_go;
   prosegui: boolean;
-  vuodoc, scaduto: tmyquery_go;
+  vuodoc, scaduto, qtdocli, qcontrollo_doc_evasi: tmyquery_go;
 begin
   inherited;
 
@@ -8011,22 +8017,32 @@ begin
         abort;
       end;
 
-      if read_tabella(tdocli, vararrayof([tabella.fieldbyname('cli_codice').asstring, tabella.fieldbyname('tipo_documento').asstring])) then
-      begin
-        if tdocli.fieldbyname('tdo_codice').asstring <> v_tdo_codice.text then
+
+      qtdocli := tmyquery_go.create(nil);
+      qtdocli.connection := arc.arcdit;
+      qtdocli.sql.add('select tdo_codice from tdocli');
+      qtdocli.sql.add('where cli_codice = :cli_codice and tipo_documento = :tipo_documento');
+
+      try
+        if read_tabella(qtdocli, vararrayof([tabella.fieldbyname('cli_codice').asstring, tabella.fieldbyname('tipo_documento').asstring])) then
         begin
-          messaggio(100, 'per il cliente si dovrebbe utilizzare il codice documento [' +
-            tdocli.fieldbyname('tdo_codice').asstring + ']');
-        end;
-      end
-      else if (copy(tipo_documento, 1, 10) <> 'preventivo') and (tipo_documento <> 'ordine') then
-      begin
-        if (cli.fieldbyname('tdo_codice').asstring <> '') and
-          (cli.fieldbyname('tdo_codice').asstring <> v_tdo_codice.text) then
+          if qtdocli.fieldbyname('tdo_codice').asstring <> v_tdo_codice.text then
+          begin
+            messaggio(100, 'per il cliente si dovrebbe utilizzare il codice documento [' +
+              qtdocli.fieldbyname('tdo_codice').asstring + ']');
+          end;
+        end
+        else if (copy(tipo_documento, 1, 10) <> 'preventivo') and (tipo_documento <> 'ordine') then
         begin
-          messaggio(100, 'per il cliente si dovrebbe utilizzare il codice documento [' +
-            cli.fieldbyname('tdo_codice').asstring + ']');
+          if (cli.fieldbyname('tdo_codice').asstring <> '') and
+            (cli.fieldbyname('tdo_codice').asstring <> v_tdo_codice.text) then
+          begin
+            messaggio(100, 'per il cliente si dovrebbe utilizzare il codice documento [' +
+              cli.fieldbyname('tdo_codice').asstring + ']');
+          end;
         end;
+      finally
+        qtdocli.free;
       end;
 
       controllo_soglia_anticipay;
@@ -8223,31 +8239,36 @@ begin
     begin
       if not((copy(tipo_documento, 1, 10) = 'preventivo') or (tipo_documento = 'ddt fornitori')) then
       begin
-        controllo_documenti_evasi.sql.clear;
-        if tipo_documento = 'ordine' then
-        begin
-          controllo_documenti_evasi.sql.add('select * from pvt where cli_codice = :cli_codice');
-          controllo_documenti_evasi.sql.add('and (situazione = ''inserito'' or situazione = ''evaso parziale'')');
-        end
-        else if (tipo_documento = 'fattura immediata') and (tdo_codice_conto_vendita <> '') then
-        begin
-          controllo_documenti_evasi.sql.add('select * from dvt where cli_codice = :cli_codice');
-          controllo_documenti_evasi.sql.add('and (situazione = ''evaso'' or situazione = ''consolidato parziale'')');
-          controllo_documenti_evasi.sql.add('and tdo_codice = ' + quotedstr(tdo_codice_conto_vendita));
-          controllo_documenti_evasi.sql.add('and data_documento > :data_documento');
-          controllo_documenti_evasi.parambyname('data_documento').asdate := v_data_documento.date - 400;
-        end
-        else
-        begin
-          controllo_documenti_evasi.sql.add('select * from ovt where cli_codice = :cli_codice');
-          controllo_documenti_evasi.sql.add('and (situazione = ''inserito'' or situazione = ''evaso parziale'')');
-        end;
-        controllo_documenti_evasi.params[0].asstring := trim(v_cli_codice.text);
-        controllo_documenti_evasi.close;
-        controllo_documenti_evasi.open;
-        if not controllo_documenti_evasi.isempty then
-        begin
-          controllare_documenti_livello_superiore;
+        qcontrollo_doc_evasi := tmyquery_go.create(nil);
+        qcontrollo_doc_evasi.connection := arc.arcdit;
+        try
+          if tipo_documento = 'ordine' then
+          begin
+            qcontrollo_doc_evasi.sql.add('select * from pvt where cli_codice = :cli_codice');
+            qcontrollo_doc_evasi.sql.add('and (situazione = ''inserito'' or situazione = ''evaso parziale'')');
+          end
+          else if (tipo_documento = 'fattura immediata') and (tdo_codice_conto_vendita <> '') then
+          begin
+            qcontrollo_doc_evasi.sql.add('select * from dvt where cli_codice = :cli_codice');
+            qcontrollo_doc_evasi.sql.add('and (situazione = ''evaso'' or situazione = ''consolidato parziale'')');
+            qcontrollo_doc_evasi.sql.add('and tdo_codice = ' + quotedstr(tdo_codice_conto_vendita));
+            qcontrollo_doc_evasi.sql.add('and data_documento > :data_documento');
+            qcontrollo_doc_evasi.parambyname('data_documento').asdate := v_data_documento.date - 400;
+          end
+          else
+          begin
+            qcontrollo_doc_evasi.sql.add('select * from ovt where cli_codice = :cli_codice');
+            qcontrollo_doc_evasi.sql.add('and (situazione = ''inserito'' or situazione = ''evaso parziale'')');
+          end;
+          qcontrollo_doc_evasi.params[0].asstring := trim(v_cli_codice.text);
+          qcontrollo_doc_evasi.close;
+          qcontrollo_doc_evasi.open;
+          if not qcontrollo_doc_evasi.isempty then
+          begin
+            controllare_documenti_livello_superiore;
+          end;
+        finally
+          qcontrollo_doc_evasi.free;
         end;
       end;
     end;
@@ -8274,6 +8295,7 @@ var
   stringa: string;
   fido, effetti, ordinato: double;
   differita: boolean;
+  qfido_scadenziario, qcfg, qpat, qordinato: tmyquery_go;
 begin
   result := false;
   differita := false;
@@ -8285,36 +8307,45 @@ begin
       //  controllo fido scadenziario
       if cli.fieldbyname('giorni_fido_scadenziario').asinteger <> 0 then
       begin
-        fido_scadenziario.close;
-        fido_scadenziario.parambyname('cli_codice').asstring := cli.fieldbyname('codice').asstring;
-        fido_scadenziario.parambyname('giorni').asstring := cli.fieldbyname('giorni_fido_scadenziario').asstring;
-        fido_scadenziario.parambyname('data').asdate := tabella.fieldbyname('data_documento').asdatetime;
-        fido_scadenziario.open;
-        if fido_scadenziario.fieldbyname('importo').asfloat > cli.fieldbyname('importo_fido_scadenziario').asfloat then
-        begin
-          avviso_fuori_fido := true;
-          stringa := 'l''importo del fido sullo scadenziario concesso al cliente per [' +
-            cli.fieldbyname('giorni_fido_scadenziario').asstring + ' giorni]  [' +
-            cli.fieldbyname('importo_fido_scadenziario').asstring + '€] è stato superato di [' +
-            floattostr(fido_scadenziario.fieldbyname('importo').asfloat - cli.fieldbyname('importo_fido_scadenziario').asfloat) + '€]';
-
-          messaggio(200, stringa);
-          if blocco_fuori_fido = 'si' then
+        qfido_scadenziario := tmyquery_go.create(nil);
+        qfido_scadenziario.connection := arc.arcdit;
+        qfido_scadenziario.sql.add('select sum(pat.importo_saldo / pat.cambio) importo');
+        qfido_scadenziario.sql.add('from pat');
+        qfido_scadenziario.sql.add('where pat.cfg_tipo = ''C'' and pat.cfg_codice = :cli_codice');
+        qfido_scadenziario.sql.add('and pat.importo_saldo <> 0 and (pat.data_scadenza + interval :giorni day) <= :data');
+        try
+          qfido_scadenziario.parambyname('cli_codice').asstring := cli.fieldbyname('codice').asstring;
+          qfido_scadenziario.parambyname('giorni').asstring := cli.fieldbyname('giorni_fido_scadenziario').asstring;
+          qfido_scadenziario.parambyname('data').asdate := tabella.fieldbyname('data_documento').asdatetime;
+          qfido_scadenziario.open;
+          if qfido_scadenziario.fieldbyname('importo').asfloat > cli.fieldbyname('importo_fido_scadenziario').asfloat then
           begin
-            //  non blocca gli ordini
-            if (tabella.fieldbyname('tco_codice').asstring <> '') or
-              ((tipo_documento = 'ordine') and (arc.dit.fieldbyname('blocco_ordini_fuori_fido').asstring = 'si')) then
+            avviso_fuori_fido := true;
+            stringa := 'l''importo del fido sullo scadenziario concesso al cliente per [' +
+              cli.fieldbyname('giorni_fido_scadenziario').asstring + ' giorni]  [' +
+              cli.fieldbyname('importo_fido_scadenziario').asstring + '€] è stato superato di [' +
+              floattostr(qfido_scadenziario.fieldbyname('importo').asfloat - cli.fieldbyname('importo_fido_scadenziario').asfloat) + '€]';
+
+            messaggio(200, stringa);
+            if blocco_fuori_fido = 'si' then
             begin
-              if solo_fuori_fido then
+              //  non blocca gli ordini
+              if (tabella.fieldbyname('tco_codice').asstring <> '') or
+                ((tipo_documento = 'ordine') and (arc.dit.fieldbyname('blocco_ordini_fuori_fido').asstring = 'si')) then
               begin
-                if not differita then
+                if solo_fuori_fido then
                 begin
-                  fuori_fido(true, v_data_documento.date);
+                  if not differita then
+                  begin
+                    fuori_fido(true, v_data_documento.date);
+                  end;
                 end;
+                result := true;
               end;
-              result := true;
             end;
           end;
+        finally
+          qfido_scadenziario.free;
         end;
       end;
 
@@ -8329,134 +8360,182 @@ begin
           fido := cli.fieldbyname('fido').asfloat;
         end;
 
-        cfg.close;
-        cfg.params[0].asstring := v_cli_codice.text;
-        cfg.open;
-        if not cfg.eof then
-        begin
-          ordinato := 0;
-          if ordinato_fido = 'si' then
+        qcfg := tmyquery_go.create(nil);
+        qcfg.connection := arc.arcdit;
+        qcfg.sql.add('select cfg.*, F_FIDO_FATTURARE(cfg.cfg_codice) importo_fatturare_fido');
+        qcfg.sql.add('from cfg');
+        qcfg.sql.add('where cfg.cfg_tipo = ''C'' and cfg.cfg_codice = :cfg_codice');
+
+        try
+          qcfg.params[0].asstring := v_cli_codice.text;
+          qcfg.open;
+
+          if not qcfg.eof then
           begin
-            importo_ordinato.parambyname('cli_codice').asstring := v_cli_codice.text;
-            importo_ordinato.close;
-            importo_ordinato.open;
-            while not importo_ordinato.eof do
+            ordinato := 0;
+            if ordinato_fido = 'si' then
             begin
-              ordinato := arrotonda(ordinato + importo_ordinato.fieldbyname('importo').asfloat);
+              qordinato := tmyquery_go.create(nil);
+              qordinato.connection := arc.arcdit;
+              qordinato.sql.add('select ovt.listino_con_iva,');
+              qordinato.sql.add('case');
+              qordinato.sql.add('when ovt.listino_con_iva = ''si'' then');
+              qordinato.sql.add('round(sum((ovr.importo - ovr.importo_evaso) * cast(ovt.cambio as binary)), 2)');
+              qordinato.sql.add('when ovt.listino_con_iva = ''no'' then');
+              qordinato.sql.add('round(sum((ovr.importo - ovr.importo_evaso) * cast(ovt.cambio as binary) *');
+              qordinato.sql.add('(1 + tiv.percentuale / 100)), 2)');
+              qordinato.sql.add('end importo');
+              qordinato.sql.add('from ovr');
+              qordinato.sql.add('inner join ovt on (ovt.progressivo = ovr.progressivo)');
+              qordinato.sql.add('inner join tiv on (tiv.codice = ovr.tiv_codice)');
+              qordinato.sql.add('where cli_codice = :cli_codice');
+              qordinato.sql.add('and (ovr.situazione = ''inserito'' or ovr.situazione = ''evaso parziale'')');
+              qordinato.sql.add('group by ovt.listino_con_iva');
 
-              importo_ordinato.next;
-            end;
-          end;
-
-          effetti := 0;
-          pat.close;
-          pat.params[0].asstring := v_cli_codice.text;
-          pat.params[1].asdate := v_data_documento.date - 90;
-          pat.open;
-          while not pat.eof do
-          begin
-            if (pat.fieldbyname('data_scadenza').asdatetime + pat.fieldbyname('giorni_rischio').asinteger) >=
-              v_data_documento.date then
-            begin
-              effetti := arrotonda(effetti + pat.fieldbyname('importo_dovuto_euro').asfloat);
-            end;
-
-            pat.next;
-          end;
-
-          if fido <
-            (cfg.fieldbyname('importo_saldo').asfloat + cfg.fieldbyname('importo_fatturare_fido').asfloat + ordinato + effetti) then
-          begin
-            avviso_fuori_fido := true;
-            stringa := 'il fido concesso al cliente [' + formatfloat(formato_display_importo, fido) +
-              '€] è stato superato di [' + formatfloat(formato_display_importo, cfg.fieldbyname('importo_saldo').asfloat + ordinato + effetti +
-              cfg.fieldbyname('importo_fatturare_fido').asfloat - fido) + '€]' + #13;
-
-            if cfg.fieldbyname('importo_saldo').asfloat <> 0 then
-            begin
-              stringa := stringa + #13 + 'saldo contabile [' + formatfloat(formato_display_importo, cfg.fieldbyname('importo_saldo').asfloat) + '€]';
-            end;
-            if cfg.fieldbyname('importo_fatturare_fido').asfloat <> 0 then
-            begin
-              stringa := stringa + #13 + 'documenti da fatturare [' + formatfloat(formato_display_importo, cfg.fieldbyname('importo_fatturare_fido').asfloat) + '€]' + #13;
-            end;
-            if ordinato <> 0 then
-            begin
-              stringa := stringa + #13 + 'ordini da evadere [' + formatfloat(formato_display_importo, ordinato) + '€]';
-            end;
-            if effetti <> 0 then
-            begin
-              stringa := stringa + #13 + 'effetti a rischio [' + formatfloat(formato_display_importo, effetti) + '€]';
-            end;
-
-            messaggio(200, stringa);
-            if blocco_fuori_fido = 'si' then
-            begin
-              if tabella.fieldbyname('situazione').asstring = 'inserito' then
-              begin
-                //  non blocca gli ordini
-                if (tabella.fieldbyname('tco_codice').asstring <> '') or
-                  ((tipo_documento = 'ordine') and (arc.dit.fieldbyname('blocco_ordini_fuori_fido').asstring = 'si')) then
+              try
+                qordinato.parambyname('cli_codice').asstring := v_cli_codice.text;
+                qordinato.open;
+                while not qordinato.eof do
                 begin
-                  if solo_fuori_fido then
-                  begin
-                    tabella_righe.refresh;
-                    if not tabella_righe.isempty then
-                    begin
-                      messaggio(100, 'cancellazione ultima riga documento');
-                      tabella_righe.last;
-                      if (tipo_documento = 'fattura differita') and (tabella_righe.fieldbyname('documento_origine').asstring <> '') then
-                      begin
-                        messaggio(200, 'non si possono cancellare righe della fattura differita' + slinebreak +
-                          'perché derivano da DDT');
-                        differita := true;
-                      end
-                      else
-                      begin
-                        tabella_righe.delete;
-                        totven.movven_testata(tmyconnection_go(tabella.connection), tipo_documento, tabella.fieldbyname('progressivo').asinteger);
-                      end;
-                      if not differita then
-                      begin
-                        fuori_fido(true, v_data_documento.date);
-                      end;
-                    end;
-                  end;
-                  result := true;
+                  ordinato := arrotonda(ordinato + qordinato.fieldbyname('importo').asfloat);
+                  qordinato.next;
                 end;
-              end
-              else
-              begin
-                messaggio(200, 'la situazione del fido non è aggiornabile automaticamente perché il documento è già stato elaborato');
+              finally
+                qordinato.free;
               end;
             end;
-          end
-          else if (visualizza_fido_cliente_ven = 'si') and not solo_fuori_fido then
-          begin
-            stringa := 'il cliente ha ancora disponibili [' +
-              formatfloat(formato_display_importo, fido - (cfg.fieldbyname('importo_saldo').asfloat + ordinato + effetti +
-              cfg.fieldbyname('importo_fatturare_fido').asfloat)) + '€]' + ' del fido concesso';
 
-            stringa := stringa + #13 + 'fido [' + formatfloat(formato_display_importo, fido) + ']';
-            if cfg.fieldbyname('importo_saldo').asfloat <> 0 then
-            begin
-              stringa := stringa + #13 + 'saldo contabile [' + formatfloat(formato_display_importo, cfg.fieldbyname('importo_saldo').asfloat) + '€]';
-            end;
-            if cfg.fieldbyname('importo_fatturare_fido').asfloat <> 0 then
-            begin
-              stringa := stringa + #13 + 'documenti da fatturare [' + formatfloat(formato_display_importo, cfg.fieldbyname('importo_fatturare_fido').asfloat) + '€]' + #13;
-            end;
-            if ordinato <> 0 then
-            begin
-              stringa := stringa + #13 + 'ordini da evadere [' + formatfloat(formato_display_importo, ordinato) + '€]';
-            end;
-            if effetti <> 0 then
-            begin
-              stringa := stringa + #13 + 'effetti a rischio [' + formatfloat(formato_display_importo, effetti) + '€]';
+            effetti := 0;
+
+            qpat := tmyquery_go.create(nil);
+            qpat.connection := arc.arcdit;
+            qpat.sql.add('select * from pat');
+            qpat.sql.add('inner join tts tts on (tts.codice = pat.tts_codice)');
+            qpat.sql.add('where pat.cfg_tipo = ''C'' and pat.cfg_codice = :cfg_codice and (pat.importo_dovuto = pat.importo_pagato)');
+            qpat.sql.add('and');
+            qpat.sql.add('case');
+            qpat.sql.add('when (select pnt.movimento_provvisorio from pnt where pnt.progressivo =');
+            qpat.sql.add('(select pas.pnr_progressivo from pas where pas.progressivo = pat.progressivo');
+            qpat.sql.add('and pas.riga = (select max(riga) from pas p where p.progressivo = pat.progressivo))) = ''si'' then ''si''');
+            qpat.sql.add('else tts.rischio');
+            qpat.sql.add('end = ''si''');
+            qpat.sql.add('and pat.data_scadenza > :data_scadenza');
+
+            try
+              qpat.params[0].asstring := v_cli_codice.text;
+              qpat.params[1].asdate := v_data_documento.date - 90;
+              qpat.open;
+
+              while not qpat.eof do
+              begin
+                if (qpat.fieldbyname('data_scadenza').asdatetime + qpat.fieldbyname('giorni_rischio').asinteger) >=
+                  v_data_documento.date then
+                begin
+                  effetti := arrotonda(effetti + qpat.fieldbyname('importo_dovuto_euro').asfloat);
+                end;
+
+                qpat.next;
+              end;
+            finally
+              qpat.free
             end;
 
-            messaggio(200, stringa);
+            if fido <
+              (qcfg.fieldbyname('importo_saldo').asfloat + qcfg.fieldbyname('importo_fatturare_fido').asfloat + ordinato + effetti) then
+            begin
+              avviso_fuori_fido := true;
+              stringa := 'il fido concesso al cliente [' + formatfloat(formato_display_importo, fido) +
+                '€] è stato superato di [' + formatfloat(formato_display_importo, qcfg.fieldbyname('importo_saldo').asfloat + ordinato + effetti +
+                qcfg.fieldbyname('importo_fatturare_fido').asfloat - fido) + '€]' + #13;
+
+              if qcfg.fieldbyname('importo_saldo').asfloat <> 0 then
+              begin
+                stringa := stringa + #13 + 'saldo contabile [' + formatfloat(formato_display_importo, qcfg.fieldbyname('importo_saldo').asfloat) + '€]';
+              end;
+              if qcfg.fieldbyname('importo_fatturare_fido').asfloat <> 0 then
+              begin
+                stringa := stringa + #13 + 'documenti da fatturare [' + formatfloat(formato_display_importo, qcfg.fieldbyname('importo_fatturare_fido').asfloat) + '€]' + #13;
+              end;
+              if ordinato <> 0 then
+              begin
+                stringa := stringa + #13 + 'ordini da evadere [' + formatfloat(formato_display_importo, ordinato) + '€]';
+              end;
+              if effetti <> 0 then
+              begin
+                stringa := stringa + #13 + 'effetti a rischio [' + formatfloat(formato_display_importo, effetti) + '€]';
+              end;
+
+              messaggio(200, stringa);
+              if blocco_fuori_fido = 'si' then
+              begin
+                if tabella.fieldbyname('situazione').asstring = 'inserito' then
+                begin
+                  //  non blocca gli ordini
+                  if (tabella.fieldbyname('tco_codice').asstring <> '') or
+                    ((tipo_documento = 'ordine') and (arc.dit.fieldbyname('blocco_ordini_fuori_fido').asstring = 'si')) then
+                  begin
+                    if solo_fuori_fido then
+                    begin
+                      tabella_righe.refresh;
+                      if not tabella_righe.isempty then
+                      begin
+                        messaggio(100, 'cancellazione ultima riga documento');
+                        tabella_righe.last;
+                        if (tipo_documento = 'fattura differita') and (tabella_righe.fieldbyname('documento_origine').asstring <> '') then
+                        begin
+                          messaggio(200, 'non si possono cancellare righe della fattura differita' + slinebreak +
+                            'perché derivano da DDT');
+                          differita := true;
+                        end
+                        else
+                        begin
+                          tabella_righe.delete;
+                          totven.movven_testata(tmyconnection_go(tabella.connection), tipo_documento, tabella.fieldbyname('progressivo').asinteger);
+                        end;
+                        if not differita then
+                        begin
+                          fuori_fido(true, v_data_documento.date);
+                        end;
+                      end;
+                    end;
+                    result := true;
+                  end;
+                end
+                else
+                begin
+                  messaggio(200, 'la situazione del fido non è aggiornabile automaticamente perché il documento è già stato elaborato');
+                end;
+              end;
+            end
+            else if (visualizza_fido_cliente_ven = 'si') and not solo_fuori_fido then
+            begin
+              stringa := 'il cliente ha ancora disponibili [' +
+                formatfloat(formato_display_importo, fido - (qcfg.fieldbyname('importo_saldo').asfloat + ordinato + effetti +
+                qcfg.fieldbyname('importo_fatturare_fido').asfloat)) + '€]' + ' del fido concesso';
+
+              stringa := stringa + #13 + 'fido [' + formatfloat(formato_display_importo, fido) + ']';
+              if qcfg.fieldbyname('importo_saldo').asfloat <> 0 then
+              begin
+                stringa := stringa + #13 + 'saldo contabile [' + formatfloat(formato_display_importo, qcfg.fieldbyname('importo_saldo').asfloat) + '€]';
+              end;
+              if qcfg.fieldbyname('importo_fatturare_fido').asfloat <> 0 then
+              begin
+                stringa := stringa + #13 + 'documenti da fatturare [' + formatfloat(formato_display_importo, qcfg.fieldbyname('importo_fatturare_fido').asfloat) + '€]' + #13;
+              end;
+              if ordinato <> 0 then
+              begin
+                stringa := stringa + #13 + 'ordini da evadere [' + formatfloat(formato_display_importo, ordinato) + '€]';
+              end;
+              if effetti <> 0 then
+              begin
+                stringa := stringa + #13 + 'effetti a rischio [' + formatfloat(formato_display_importo, effetti) + '€]';
+              end;
+
+              messaggio(200, stringa);
+            end;
           end;
+        finally
+          qcfg.free;
         end;
       end
       else
@@ -8545,16 +8624,7 @@ begin
       else
       begin
         cli_codice := tabella.fieldbyname('cli_codice').asstring;
-        (*
-          if tabella.fieldbyname('cli_codice_fatturazione').asstring <> '' then
-          begin
-          cli_codice := tabella.fieldbyname('cli_codice_fatturazione').asstring;
-          end
-          else
-          begin
-          cli_codice := tabella.fieldbyname('cli_codice').asstring;
-          end;
-        *)
+
         if read_tabella(arc.arcdit, 'cfg', 'cfg_tipo;cfg_codice', vararrayof(['C', cli_codice])) then
         begin
           v_saldo_cliente.value := archivio.fieldbyname('importo_saldo').asfloat;
@@ -8733,40 +8803,6 @@ begin
   tiv_codice_controllo(false);
 end;
 
-(*
-  procedure tgesven.assegna_tcc_codice;
-  begin
-  esiste_cli := true;
-  if tipo_documento = 'ddt fornitori' then
-  begin
-  esiste_cli := false;
-  end;
-
-  if esiste_cli then
-  begin
-  if (tabella.fieldbyname('tcc_codice').asstring <> cli.fieldbyname('tcc_codice').asstring) and
-  (tabella.fieldbyname('tcc_codice').asstring <> '') then
-  begin
-  if tabella_edit(tabella) then
-  begin
-  tabella.fieldbyname('tcc_codice').asstring := cli.fieldbyname('tcc_codice').asstring;
-  assegna_valore_tcc_codice;
-  tcc_codice_controllo(false);
-  end;
-  end;
-  if (tabella.fieldbyname('tcc_codice').asstring <> ind.fieldbyname('tcc_codice').asstring) and
-  (ind.fieldbyname('tcc_codice').asstring <> '') then
-  begin
-  if tabella_edit(tabella) then
-  begin
-  tabella.fieldbyname('tcc_codice').asstring := ind.fieldbyname('tcc_codice').asstring;
-  assegna_valore_tcc_codice;
-  tcc_codice_controllo(false);
-  end;
-  end;
-  end;
-  end;
-*)
 
 procedure tgesven.assegna_intra;
 begin
@@ -8893,6 +8929,7 @@ procedure tgesven.assegna_indirizzo;
 var
   assegnato_ind: boolean;
   cli_codice, ind_codice: variant;
+  qinf_01, qind_01: tmyquery_go;
 begin
   assegnato_ind := false;
   if tipo_documento = 'ddt fornitori' then
@@ -8933,10 +8970,19 @@ begin
     end;
     if not assegnato_ind then
     begin
-      if read_tabella(inf_01, v_cli_codice.text) then
-      begin
-        messaggio(200, 'il fornitore ha presenti filiali come luogo di destinazione merce' + slinebreak +
-          'e non ne è stata assegnata nessuna');
+      qinf_01 := tmyquery_go.create(nil);
+      qinf_01.connection := arc.arcdit;
+      qinf_01.sql.add('select * from inf');
+      qinf_01.sql.add('where frn_codice = :cli_codice');
+
+      try
+        if read_tabella(qinf_01, v_cli_codice.text) then
+        begin
+          messaggio(200, 'il fornitore ha presenti filiali come luogo di destinazione merce' + slinebreak +
+            'e non ne è stata assegnata nessuna');
+        end;
+      finally
+        qinf_01.free;
       end;
     end;
   end
@@ -9005,22 +9051,20 @@ begin
       end;
       if not assegnato_ind then
       begin
-        if read_tabella(ind_01, v_cli_codice.text) then
-        begin
-          messaggio(200, 'il cliente ha presenti filiali come luogo di destinazione merce' + slinebreak +
-            'e non ne è stata assegnata nessuna');
+        qind_01 := tmyquery_go.create(nil);
+        qind_01.connection := arc.arcdit;
+        qind_01.sql.add('select * from ind');
+        qind_01.sql.add('where cli_codice = :cli_codice and obsoleto = ''no''');
+        qind_01.sql.add('and deposito_assistenza_tecnica = ''no''');
 
-          (*
-            begin
-            tab_control.activepage := tab_testata_destinazione;
-            fuoco(v_indirizzo);
-            cli_codice := tabella.fieldbyname('cli_codice').asstring;
-            set_codice_archivio;
-            esegui_visarc(arc.arcdit, 'IND', 'INDCLI', codice_archivio, cli_codice, '', '', '', '', '');
-            get_codice_archivio;
-            end;
-          *)
-
+        try
+          if read_tabella(qind_01, v_cli_codice.text) then
+          begin
+            messaggio(200, 'il cliente ha presenti filiali come luogo di destinazione merce' + slinebreak +
+              'e non ne è stata assegnata nessuna');
+          end;
+        finally
+          qind_01.free;
         end;
       end;
     end;
@@ -9775,12 +9819,6 @@ begin
   else
   begin
     tabella_controllo(true, tsm, v_tsm_codice, blocco, tab_control, tab_pagina1, tabella);
-
-    (*
-      tsm.close;
-      tsm.params[0].value := null;
-      tsm.open;
-    *)
   end;
 end;
 
@@ -9878,45 +9916,62 @@ begin
 end;
 
 procedure tgesven.v_codice_contrattoexit(sender: tobject);
+var
+  qcot: tmyquery_go;
 begin
   inherited;
+
   if controllo and (v_codice_contratto.text <> '') then
   begin
-    cot.close;
-    cot.parambyname('cli_codice').asstring := tabella.fieldbyname('cli_codice').asstring;
-    cot.parambyname('codice_contratto').asstring := v_codice_contratto.text;
-    cot.parambyname('data').asdate := tabella.fieldbyname('data_documento').asdatetime;
-    cot.parambyname('tcr_codice').asstring := ditta;
-    cot.open;
-    if cot.isempty then
-    begin
-      messaggio(000, 'il contratto di riferimento non esiste');
-      v_codice_contratto.setfocus;
-      abort;
-    end
-    else
-    begin
-      if cot.fieldbyname('contratto_elenco_cli_for').asstring = 'si' then
+    qcot := tmyquery_go.create(nil);
+    qcot.connection := arc.arcdit;
+    qcot.sql.add('select cot.tipo_contratto, cot.data_inizio, fvt.numero_documento, fvt.serie_documento, fvt.data_documento,');
+    qcot.sql.add('tcr.tiv_codice, cot.contratto_elenco_cli_for, cot.pagamento_elenco_cli_for');
+    qcot.sql.add('from cot');
+    qcot.sql.add('left join cor on cor.progressivo = cot.progressivo and');
+    qcot.sql.add('cor.data_inizio <= :data and cor.data_fine >= :data');
+    qcot.sql.add('left join fvt on fvt.progressivo = cor.progressivo_fvt');
+    qcot.sql.add('left join tcr on tcr.codice = :tcr_codice  /*ditta*/');
+    qcot.sql.add('where cot.cli_codice = :cli_codice and cot.codice_contratto = :codice_contratto');
+
+    try
+      qcot.parambyname('cli_codice').asstring := tabella.fieldbyname('cli_codice').asstring;
+      qcot.parambyname('codice_contratto').asstring := v_codice_contratto.text;
+      qcot.parambyname('data').asdate := tabella.fieldbyname('data_documento').asdatetime;
+      qcot.parambyname('tcr_codice').asstring := ditta;
+      qcot.open;
+      if qcot.isempty then
       begin
-        if tabella_edit(tabella) then
+        messaggio(000, 'il contratto di riferimento non esiste');
+        v_codice_contratto.setfocus;
+        abort;
+      end
+      else
+      begin
+        if qcot.fieldbyname('contratto_elenco_cli_for').asstring = 'si' then
         begin
-          tabella.fieldbyname('contratto_elenco_cli_for').asstring := cot.fieldbyname('contratto_elenco_cli_for').asstring;
+          if tabella_edit(tabella) then
+          begin
+            tabella.fieldbyname('contratto_elenco_cli_for').asstring := qcot.fieldbyname('contratto_elenco_cli_for').asstring;
+          end;
+        end;
+        if qcot.fieldbyname('pagamento_elenco_cli_for').asstring <> '' then
+        begin
+          if tabella_edit(tabella) then
+          begin
+            tabella.fieldbyname('pagamento_elenco_cli_for').asstring := qcot.fieldbyname('pagamento_elenco_cli_for').asstring;
+          end;
+        end;
+        if qcot.fieldbyname('tipo_contratto').asstring = 'fattura anticipata' then
+        begin
+          if tabella_edit(tabella) then
+          begin
+            tabella.fieldbyname('tiv_codice').asstring := qcot.fieldbyname('tiv_codice').asstring;
+          end;
         end;
       end;
-      if cot.fieldbyname('pagamento_elenco_cli_for').asstring <> '' then
-      begin
-        if tabella_edit(tabella) then
-        begin
-          tabella.fieldbyname('pagamento_elenco_cli_for').asstring := cot.fieldbyname('pagamento_elenco_cli_for').asstring;
-        end;
-      end;
-      if cot.fieldbyname('tipo_contratto').asstring = 'fattura anticipata' then
-      begin
-        if tabella_edit(tabella) then
-        begin
-          tabella.fieldbyname('tiv_codice').asstring := cot.fieldbyname('tiv_codice').asstring;
-        end;
-      end;
+    finally
+      qcot.free;
     end;
   end;
 end;
@@ -10078,17 +10133,6 @@ begin
         end;
       end;
     end;
-    (*
-      if tipo_documento <> 'ddt fornitori' then
-      begin
-      assegna_tag_codice;
-      assegna_tst_codice;
-      end;
-
-      assegna_tsp_codice;
-      assegna_tpo_codice;
-      assegna_giorno_consegna;
-    *)
   end;
 end;
 
@@ -10533,14 +10577,6 @@ begin
   v_gestione_collegato.enabled := false;
   v_lettore.enabled := false;
 
-  (*
-    if (screen.activecontrol.parent is trztabsheet) then
-    begin
-    tool_f8.enabled := false;
-    tabella.cancel;
-    end;
-  *)
-
   abilita_bottoni(false);
   tool_evasione.enabled := false;
   tool_evasione.hint := '';
@@ -10983,22 +11019,6 @@ begin
       v_note_righe.visible := true;
     end;
 
-    (*
-      //  spostato il pezzo nell'exit della griglia righe dove ci sono le altre assegnazioni
-      if tabella_edit(tabella_righe) then
-      begin
-      tabella_righe.fieldbyname('iva_bloccata').asstring := tabella.fieldbyname('iva_bloccata').asstring;
-      tabella_righe.fieldbyname('soggetto_addebito_enasarco').asstring := tabella.fieldbyname('soggetto_addebito_enasarco').asstring;
-      if tabella.fieldbyname('soggetto_addebito_enasarco').asstring = 'si' then
-      begin
-      decodedate(tabella.fieldbyname('data_documento').asdatetime, anno, mese, giorno);
-      tabella_righe.fieldbyname('tea_codice').asstring := inttostr(anno);
-      end;
-      tabella_righe.fieldbyname('punto_vendita').asstring := tabella.fieldbyname('punto_vendita').asstring;
-      tabella_righe.fieldbyname('tipo_imballaggio').asstring := tabella.fieldbyname('tipo_imballaggio').asstring;
-      end;
-    *)
-
   end;
   codice_lotto_matricola_singolo := '';
 
@@ -11132,18 +11152,25 @@ begin
 end;
 
 procedure tgesven.abilita_annulla_rda;
+var
+  q_abilita_rda: tmyquery_go;
 begin
-  query_abilita_rda.parambyname('ovr_progressivo').asinteger := tabella_righe.fieldbyname('progressivo').asinteger;
-  query_abilita_rda.parambyname('ovr_riga').asinteger := tabella_righe.fieldbyname('riga').asinteger;
-  query_abilita_rda.close;
-  query_abilita_rda.open;
-  if query_abilita_rda.isempty then
-  begin
-    v_annulla_rda.enabled := false;
-  end
-  else
-  begin
-    v_annulla_rda.enabled := true;
+  q_abilita_rda := tmyquery_go.create(nil);
+  q_abilita_rda.connection := arc.arcdit;
+  q_abilita_rda.sql.add('select art_codice from rda');
+  q_abilita_rda.sql.add('where tipo_richiesta = ''ordini clienti''');
+  q_abilita_rda.sql.add('and ovr_progressivo = :ovr_progressivo and ovr_riga = :ovr_riga');
+
+
+  try
+    q_abilita_rda.parambyname('ovr_progressivo').asinteger := tabella_righe.fieldbyname('progressivo').asinteger;
+    q_abilita_rda.parambyname('ovr_riga').asinteger := tabella_righe.fieldbyname('riga').asinteger;
+    q_abilita_rda.close;
+    q_abilita_rda.open;
+
+    v_annulla_rda.enabled := not q_abilita_rda.isempty;
+  finally
+    q_abilita_rda.free;
   end;
 end;
 
@@ -11236,7 +11263,8 @@ var
   evasione: boolean;
 
   prosegui: boolean;
-  fvr: tmyquery_go;
+  fvr, qesistenza_cls, qaccessori_equivalenti, qart_prev_ordini: tmyquery_go;
+  qreferenze_attive: tmyquery_go;
 begin
   inherited;
 
@@ -11301,34 +11329,57 @@ begin
         begin
           if tdo.fieldbyname('controllo_accessori_equivalenti').asstring = 'si' then
           begin
-            accessori_equivalenti.close;
-            accessori_equivalenti.parambyname('art_codice').asstring := v_art_codice.text;
-            accessori_equivalenti.open;
-            if accessori_equivalenti.fieldbyname('accessori').asstring = 'si' then
-            begin
-              messaggio(100, 'sono presenti accessori per l''articolo');
-            end;
-            if accessori_equivalenti.fieldbyname('equivalenti').asstring = 'si' then
-            begin
-              messaggio(100, 'sono presenti articoli equivalenti per l''articolo');
+            qaccessori_equivalenti := tmyquery_go.create(nil);
+            qaccessori_equivalenti.connection := arc.arcdit;
+            qaccessori_equivalenti.sql.add('select case when exists(select id from acc');
+            qaccessori_equivalenti.sql.add('where art_codice = art.codice) then ''si'' else ''no'' end accessori,');
+            qaccessori_equivalenti.sql.add('case when exists(select id from equ where art_codice = art.codice or');
+            qaccessori_equivalenti.sql.add('art_codice_equivalente = art.codice) then ''si'' else ''no'' end equivalenti');
+            qaccessori_equivalenti.sql.add('from art where codice = :art_codice');
+
+            try
+              qaccessori_equivalenti.parambyname('art_codice').asstring := v_art_codice.text;
+              qaccessori_equivalenti.open;
+
+              if qaccessori_equivalenti.fieldbyname('accessori').asstring = 'si' then
+              begin
+                messaggio(100, 'sono presenti accessori per l''articolo');
+              end;
+              if qaccessori_equivalenti.fieldbyname('equivalenti').asstring = 'si' then
+              begin
+                messaggio(100, 'sono presenti articoli equivalenti per l''articolo');
+              end;
+            finally
+              qaccessori_equivalenti.free;
             end;
           end;
         end;
 
         if (cli.fieldbyname('presenza_articoli').asstring = 'si') then
         begin
-          query_referenze_attive.parambyname('cli_codice').asstring := v_cli_codice.text;
-          query_referenze_attive.parambyname('art_codice').asstring := v_art_codice.text;
-          query_referenze_attive.close;
-          query_referenze_attive.open;
-          if query_referenze_attive.isempty then
-          begin
-            if messaggio(300, 'l''articolo non è mai stato ordinato precedentemente dal cliente' + #13 +
-              'proseguire nell''inserimento della riga documento') <> 1 then
+          qreferenze_attive := tmyquery_go.create(nil);
+          qreferenze_attive.connection := arc.arcdit;
+          qreferenze_attive.sql.add('select art_codice from ovr');
+          qreferenze_attive.sql.add('inner join ovt on ovt.progressivo = ovr.progressivo');
+          qreferenze_attive.sql.add('where ovt.cli_codice = :cli_codice and ovr.art_codice = :art_codice');
+
+          try
+            qreferenze_attive.parambyname('cli_codice').asstring := v_cli_codice.text;
+            qreferenze_attive.parambyname('art_codice').asstring := v_art_codice.text;
+            qreferenze_attive.close;
+            qreferenze_attive.open;
+            if qreferenze_attive.isempty then
             begin
-              v_art_codice.setfocus;
-              abort;
+              if messaggio(300, 'l''articolo non è mai stato ordinato precedentemente dal cliente' + #13 +
+                'proseguire nell''inserimento della riga documento') <> 1 then
+              begin
+                v_art_codice.setfocus;
+                abort;
+              end;
             end;
+
+          finally
+            qreferenze_attive.free;
           end;
         end;
         if (tabella_righe.fieldbyname('situazione').asstring <> 'inserito') and
@@ -11405,83 +11456,89 @@ begin
 
         if (controllo_articolo_livello_superiore = 'si') and (not esiste_righe) and (trim(v_art_codice.text) <> '') then
         begin
-          art_preventivi_ordini.sql.clear;
+          qart_prev_ordini := tmyquery_go.create(nil);
+          qart_prev_ordini.connection := arc.arcdit;
 
-          if (tipo_documento = 'ordine') then
-          begin
-            art_preventivi_ordini.sql.add('select pvt.tipo_documento, pvr.art_codice, pvr.quantita, pvr.prezzo,');
-            art_preventivi_ordini.sql.add('pvr.tsm_codice, pvr.tsm_codice_art, pvr.importo_sconto, pvr.importo');
-            art_preventivi_ordini.sql.add('from pvr');
-            art_preventivi_ordini.sql.add('inner join pvt on pvt.progressivo = pvr.progressivo');
-            art_preventivi_ordini.sql.add('where pvr.art_codice = :art_codice');
-            art_preventivi_ordini.sql.add('and (pvr.situazione = ''inserito'' or pvr.situazione = ''evaso parziale'')');
-            art_preventivi_ordini.sql.add('and pvt.cli_codice = :cli_codice');
-            art_preventivi_ordini.sql.add('and (pvt.data_validita >= :data_documento or pvt.data_validita is null)');
-
-            art_preventivi_ordini.parambyname('data_documento').asdate := v_data_documento.date;
-          end
-          else
-          begin
-            art_preventivi_ordini.sql.add('select ovt.tipo_documento, ovr.art_codice, ovr.quantita, ovr.prezzo,');
-            art_preventivi_ordini.sql.add('ovr.tsm_codice, ovr.tsm_codice_art, ovr.importo_sconto, ovr.importo');
-            art_preventivi_ordini.sql.add('from ovr');
-            art_preventivi_ordini.sql.add('inner join ovt on ovt.progressivo = ovr.progressivo');
-            art_preventivi_ordini.sql.add('where ovr.art_codice = :art_codice');
-            art_preventivi_ordini.sql.add('and (ovr.situazione = ''inserito'' or ovr.situazione = ''evaso parziale'')');
-            art_preventivi_ordini.sql.add('and ovt.cli_codice = :cli_codice');
-
-            art_preventivi_ordini.sql.add('union all');
-
-            art_preventivi_ordini.sql.add('select pvt.tipo_documento, pvr.art_codice, pvr.quantita, pvr.prezzo,');
-            art_preventivi_ordini.sql.add('pvr.tsm_codice, pvr.tsm_codice_art, pvr.importo_sconto, pvr.importo');
-            art_preventivi_ordini.sql.add('from pvr');
-            art_preventivi_ordini.sql.add('inner join pvt on pvt.progressivo = pvr.progressivo');
-            art_preventivi_ordini.sql.add('where pvr.art_codice = :art_codice');
-            art_preventivi_ordini.sql.add('and (pvr.situazione = ''inserito'' or pvr.situazione = ''evaso parziale'')');
-            art_preventivi_ordini.sql.add('and pvt.cli_codice = :cli_codice');
-            art_preventivi_ordini.sql.add('and (pvt.data_validita >= :data_documento or pvt.data_validita is null)');
-
-            art_preventivi_ordini.parambyname('data_documento').asdate := v_data_documento.date;
-          end;
-
-          art_preventivi_ordini.close;
-          art_preventivi_ordini.parambyname('art_codice').asstring := v_art_codice.text;
-          art_preventivi_ordini.parambyname('cli_codice').asstring := v_cli_codice.text;
-          art_preventivi_ordini.open;
-          if not art_preventivi_ordini.eof then
-          begin
-            evasione := false;
-            stringa := 'documenti del cliente non ancora evasi per l''articolo ' + v_art_codice.text + slinebreak;
-            while not art_preventivi_ordini.eof do
+          try
+            if (tipo_documento = 'ordine') then
             begin
-              stringa := stringa + slinebreak + art_preventivi_ordini.fieldbyname('tipo_documento').asstring + '  ' +
-                'qtà: ' + art_preventivi_ordini.fieldbyname('quantita').asstring + ' ' +
-                'prz: ' + art_preventivi_ordini.fieldbyname('prezzo').asstring + ' ' +
-                'sc: ' + art_preventivi_ordini.fieldbyname('tsm_codice').asstring + ' ' +
-                art_preventivi_ordini.fieldbyname('tsm_codice_art').asstring + ' ' +
-                formatfloat('#.##', art_preventivi_ordini.fieldbyname('importo_sconto').asfloat) + ' ' +
-                'imp: ' + formatfloat('#.##', art_preventivi_ordini.fieldbyname('importo').asfloat);
+              qart_prev_ordini.sql.add('select pvt.tipo_documento, pvr.art_codice, pvr.quantita, pvr.prezzo,');
+              qart_prev_ordini.sql.add('pvr.tsm_codice, pvr.tsm_codice_art, pvr.importo_sconto, pvr.importo');
+              qart_prev_ordini.sql.add('from pvr');
+              qart_prev_ordini.sql.add('inner join pvt on pvt.progressivo = pvr.progressivo');
+              qart_prev_ordini.sql.add('where pvr.art_codice = :art_codice');
+              qart_prev_ordini.sql.add('and (pvr.situazione = ''inserito'' or pvr.situazione = ''evaso parziale'')');
+              qart_prev_ordini.sql.add('and pvt.cli_codice = :cli_codice');
+              qart_prev_ordini.sql.add('and (pvt.data_validita >= :data_documento or pvt.data_validita is null)');
 
-              art_preventivi_ordini.next;
+              qart_prev_ordini.parambyname('data_documento').asdate := v_data_documento.date;
+            end
+            else
+            begin
+              qart_prev_ordini.sql.add('select ovt.tipo_documento, ovr.art_codice, ovr.quantita, ovr.prezzo,');
+              qart_prev_ordini.sql.add('ovr.tsm_codice, ovr.tsm_codice_art, ovr.importo_sconto, ovr.importo');
+              qart_prev_ordini.sql.add('from ovr');
+              qart_prev_ordini.sql.add('inner join ovt on ovt.progressivo = ovr.progressivo');
+              qart_prev_ordini.sql.add('where ovr.art_codice = :art_codice');
+              qart_prev_ordini.sql.add('and (ovr.situazione = ''inserito'' or ovr.situazione = ''evaso parziale'')');
+              qart_prev_ordini.sql.add('and ovt.cli_codice = :cli_codice');
+
+              qart_prev_ordini.sql.add('union all');
+
+              qart_prev_ordini.sql.add('select pvt.tipo_documento, pvr.art_codice, pvr.quantita, pvr.prezzo,');
+              qart_prev_ordini.sql.add('pvr.tsm_codice, pvr.tsm_codice_art, pvr.importo_sconto, pvr.importo');
+              qart_prev_ordini.sql.add('from pvr');
+              qart_prev_ordini.sql.add('inner join pvt on pvt.progressivo = pvr.progressivo');
+              qart_prev_ordini.sql.add('where pvr.art_codice = :art_codice');
+              qart_prev_ordini.sql.add('and (pvr.situazione = ''inserito'' or pvr.situazione = ''evaso parziale'')');
+              qart_prev_ordini.sql.add('and pvt.cli_codice = :cli_codice');
+              qart_prev_ordini.sql.add('and (pvt.data_validita >= :data_documento or pvt.data_validita is null)');
+
+              qart_prev_ordini.parambyname('data_documento').asdate := v_data_documento.date;
             end;
 
-            stringa := stringa + slinebreak + slinebreak + 'conferma per eseguire l''evasione';
+            qart_prev_ordini.close;
+            qart_prev_ordini.parambyname('art_codice').asstring := v_art_codice.text;
+            qart_prev_ordini.parambyname('cli_codice').asstring := v_cli_codice.text;
+            qart_prev_ordini.open;
 
-            if messaggio(300, stringa) = 1 then
+            if not qart_prev_ordini.eof then
             begin
-              evasione := true;
-            end;
+              evasione := false;
+              stringa := 'documenti del cliente non ancora evasi per l''articolo ' + v_art_codice.text + slinebreak;
+              while not qart_prev_ordini.eof do
+              begin
+                stringa := stringa + slinebreak + qart_prev_ordini.fieldbyname('tipo_documento').asstring + '  ' +
+                  'qtà: ' + qart_prev_ordini.fieldbyname('quantita').asstring + ' ' +
+                  'prz: ' + qart_prev_ordini.fieldbyname('prezzo').asstring + ' ' +
+                  'sc: ' + qart_prev_ordini.fieldbyname('tsm_codice').asstring + ' ' +
+                  qart_prev_ordini.fieldbyname('tsm_codice_art').asstring + ' ' +
+                  formatfloat('#.##', qart_prev_ordini.fieldbyname('importo_sconto').asfloat) + ' ' +
+                  'imp: ' + formatfloat('#.##', qart_prev_ordini.fieldbyname('importo').asfloat);
 
-            if evasione then
-            begin
-              variato_stringa := v_art_codice.text;
+                qart_prev_ordini.next;
+              end;
 
-              evasione_preventivo_ordine := true;
-              art_codice_evasione_preventivo_ordine := v_art_codice.text;
-              tabella_righe.cancel;
-              tasto_esc := true;
-              esci;
+              stringa := stringa + slinebreak + slinebreak + 'conferma per eseguire l''evasione';
+
+              if messaggio(300, stringa) = 1 then
+              begin
+                evasione := true;
+              end;
+
+              if evasione then
+              begin
+                variato_stringa := v_art_codice.text;
+
+                evasione_preventivo_ordine := true;
+                art_codice_evasione_preventivo_ordine := v_art_codice.text;
+                tabella_righe.cancel;
+                tasto_esc := true;
+                esci;
+              end;
             end;
+          finally
+            qart_prev_ordini.free;
           end;
         end;
 
@@ -11522,19 +11579,27 @@ begin
           end;
 
         end;
+
         if not esiste_righe and (v_art_codice.text <> '') and (tdo.fieldbyname('esistenza_cls').asstring = 'si') then
         begin
-          esistenza_cls.close;
-          esistenza_cls.parambyname('cli_codice').asstring := tabella.fieldbyname('cli_codice').asstring;
-          esistenza_cls.parambyname('art_codice').asstring := v_art_codice.text;
-          esistenza_cls.open;
-          if esistenza_cls.isempty then
-          begin
-            if messaggio(304, 'l''articolo non esiste nei listini sconti clienti' + #13 +
-              'confermare per proseguire') <> 1 then
+          qesistenza_cls := tmyquery_go.create(nil);
+          qesistenza_cls.connection := arc.arcdit;
+          qesistenza_cls.sql.add('select id from cls');
+          qesistenza_cls.sql.add('where cli_codice = :cli_codice and art_codice = :art_codice');
+          try
+            qesistenza_cls.parambyname('cli_codice').asstring := tabella.fieldbyname('cli_codice').asstring;
+            qesistenza_cls.parambyname('art_codice').asstring := v_art_codice.text;
+            qesistenza_cls.open;
+            if qesistenza_cls.isempty then
             begin
-              fuoco(v_art_codice);
+              if messaggio(304, 'l''articolo non esiste nei listini sconti clienti' + #13 +
+                'confermare per proseguire') <> 1 then
+              begin
+                fuoco(v_art_codice);
+              end;
             end;
+          finally
+            qesistenza_cls.free;
           end;
         end;
       end;
@@ -11648,6 +11713,7 @@ procedure tgesven.cerca_prezzo;
 var
   prezzo_cot: boolean;
   cambia_prezzo: boolean;
+  qcorsi, qcod: tmyquery_go;
 begin
   cambia_prezzo := false;
   prezzo_cot := false;
@@ -11656,131 +11722,155 @@ begin
     prezzo_cot := true;
     if v_art_codice.text <> '' then
     begin
-      cerca_prezzo_documento('', tabella_righe);
-      if tabella_edit(tabella_righe) then
-      begin
-        tabella_righe.fieldbyname('prezzo').asfloat := prezzo;
-        tabella_righe.fieldbyname('tsm_codice').asstring := tsm_codice;
-        tabella_righe.fieldbyname('tsm_codice_art').asstring := tsm_codice_art;
-        tabella_righe.fieldbyname('importo_sconto').asfloat := importo_sconto;
-      end;
+      qcod := tmyquery_go.create(nil);
+      qcod.connection := arc.arcdit;
+      qcod.sql.add('select cod.tsm_codice, cod.quantita_base, cod.quantita_omaggio,');
+      qcod.sql.add('cod.corso_formazione, cod.numero_corsi, cod.anno from cot');
+      qcod.sql.add('inner join cod on cod.progressivo = cot.progressivo');
+      qcod.sql.add('where cot.cli_codice = :cli_codice and cot.codice_contratto = :codice_contratto and');
+      qcod.sql.add('cod.art_codice = :art_codice and cod.tcm_codice = :tcm_codice and cod.tgm_codice = :tgm_codice and');
+      qcod.sql.add('cod.tsa_codice = :tsa_codice and cod.ts3_codice = :ts3_codice');
 
-      tsm_codice := '';
-      quantita_base_contratti := 0;
-      quantita_omaggio_contratti := 0;
+      qcorsi := tmyquery_go.create(nil);
+      qcorsi.connection := arc.arcdit;
+      qcorsi.sql.add('select sum(quantita) numero_corsi from ovr');
+      qcorsi.sql.add('inner join ovt on ovt.progressivo = ovr.progressivo');
+      qcorsi.sql.add('inner join art on art.codice = ovr.art_codice');
+      qcorsi.sql.add('where (ovr.art_codice = :art_codice or art.tcm_codice = :tcm_codice or');
+      qcorsi.sql.add('art.tgm_codice = :tgm_codice or art.tsa_codice = :tsa_codice or art.ts3_codice = :ts3_codice) and');
+      qcorsi.sql.add('ovt.nostro_riferimento <> '''' and year(ovt.data_documento) = :anno');
 
-      cod.close;
-      cod.parambyname('cli_codice').asstring := tabella.fieldbyname('cli_codice').asstring;
-      cod.parambyname('codice_contratto').asstring := tabella.fieldbyname('codice_contratto').asstring;
-
-      // articolo
-      cod.parambyname('art_codice').asstring := tabella_righe.fieldbyname('art_codice').asstring;
-      cod.parambyname('tcm_codice').asstring := '';
-      cod.parambyname('tgm_codice').asstring := '';
-      cod.parambyname('tsa_codice').asstring := '';
-      cod.parambyname('ts3_codice').asstring := '';
-      cod.open;
-
-      if not cod.isempty then
-      begin
-        tsm_codice := cod.fieldbyname('tsm_codice').asstring;
-        quantita_base_contratti := trunc(cod.fieldbyname('quantita_base').asfloat);
-        quantita_omaggio_contratti := trunc(cod.fieldbyname('quantita_omaggio').asfloat);
-      end
-      else
-      begin
-        cod.close;
-        cod.parambyname('art_codice').asstring := '';
-        cod.parambyname('tcm_codice').asstring := art.fieldbyname('tcm_codice').asstring;
-        cod.parambyname('tgm_codice').asstring := '';
-        cod.parambyname('tsa_codice').asstring := '';
-        cod.parambyname('ts3_codice').asstring := '';
-        cod.open;
-        if not cod.isempty then
+      try
+        cerca_prezzo_documento('', tabella_righe);
+        if tabella_edit(tabella_righe) then
         begin
-          tsm_codice := cod.fieldbyname('tsm_codice').asstring;
-          quantita_base_contratti := trunc(cod.fieldbyname('quantita_base').asfloat);
-          quantita_omaggio_contratti := trunc(cod.fieldbyname('quantita_omaggio').asfloat);
+          tabella_righe.fieldbyname('prezzo').asfloat := prezzo;
+          tabella_righe.fieldbyname('tsm_codice').asstring := tsm_codice;
+          tabella_righe.fieldbyname('tsm_codice_art').asstring := tsm_codice_art;
+          tabella_righe.fieldbyname('importo_sconto').asfloat := importo_sconto;
+        end;
+
+        tsm_codice := '';
+        quantita_base_contratti := 0;
+        quantita_omaggio_contratti := 0;
+
+        qcod.close;
+        qcod.parambyname('cli_codice').asstring := tabella.fieldbyname('cli_codice').asstring;
+        qcod.parambyname('codice_contratto').asstring := tabella.fieldbyname('codice_contratto').asstring;
+
+        // articolo
+        qcod.parambyname('art_codice').asstring := tabella_righe.fieldbyname('art_codice').asstring;
+        qcod.parambyname('tcm_codice').asstring := '';
+        qcod.parambyname('tgm_codice').asstring := '';
+        qcod.parambyname('tsa_codice').asstring := '';
+        qcod.parambyname('ts3_codice').asstring := '';
+        qcod.open;
+
+        if not qcod.isempty then
+        begin
+          tsm_codice := qcod.fieldbyname('tsm_codice').asstring;
+          quantita_base_contratti := trunc(qcod.fieldbyname('quantita_base').asfloat);
+          quantita_omaggio_contratti := trunc(qcod.fieldbyname('quantita_omaggio').asfloat);
         end
         else
         begin
-          cod.close;
-          cod.parambyname('art_codice').asstring := '';
-          cod.parambyname('tcm_codice').asstring := '';
-          cod.parambyname('tgm_codice').asstring := art.fieldbyname('tgm_codice').asstring;
-          cod.parambyname('tsa_codice').asstring := '';
-          cod.parambyname('ts3_codice').asstring := '';
-          cod.open;
-          if not cod.isempty then
+          qcod.close;
+          qcod.parambyname('art_codice').asstring := '';
+          qcod.parambyname('tcm_codice').asstring := art.fieldbyname('tcm_codice').asstring;
+          qcod.parambyname('tgm_codice').asstring := '';
+          qcod.parambyname('tsa_codice').asstring := '';
+          qcod.parambyname('ts3_codice').asstring := '';
+          qcod.open;
+          if not qcod.isempty then
           begin
-            tsm_codice := cod.fieldbyname('tsm_codice').asstring;
-            quantita_base_contratti := trunc(cod.fieldbyname('quantita_base').asfloat);
-            quantita_omaggio_contratti := trunc(cod.fieldbyname('quantita_omaggio').asfloat);
+            tsm_codice := qcod.fieldbyname('tsm_codice').asstring;
+            quantita_base_contratti := trunc(qcod.fieldbyname('quantita_base').asfloat);
+            quantita_omaggio_contratti := trunc(qcod.fieldbyname('quantita_omaggio').asfloat);
           end
           else
           begin
-            cod.close;
-            cod.parambyname('art_codice').asstring := '';
-            cod.parambyname('tcm_codice').asstring := '';
-            cod.parambyname('tgm_codice').asstring := '';
-            cod.parambyname('tsa_codice').asstring := art.fieldbyname('tsa_codice').asstring;
-            cod.parambyname('ts3_codice').asstring := '';
-            cod.open;
-            if not cod.isempty then
+            qcod.close;
+            qcod.parambyname('art_codice').asstring := '';
+            qcod.parambyname('tcm_codice').asstring := '';
+            qcod.parambyname('tgm_codice').asstring := art.fieldbyname('tgm_codice').asstring;
+            qcod.parambyname('tsa_codice').asstring := '';
+            qcod.parambyname('ts3_codice').asstring := '';
+            qcod.open;
+            if not qcod.isempty then
             begin
-              tsm_codice := cod.fieldbyname('tsm_codice').asstring;
-              quantita_base_contratti := trunc(cod.fieldbyname('quantita_base').asfloat);
-              quantita_omaggio_contratti := trunc(cod.fieldbyname('quantita_omaggio').asfloat);
+              tsm_codice := qcod.fieldbyname('tsm_codice').asstring;
+              quantita_base_contratti := trunc(qcod.fieldbyname('quantita_base').asfloat);
+              quantita_omaggio_contratti := trunc(qcod.fieldbyname('quantita_omaggio').asfloat);
             end
             else
             begin
-              cod.close;
-              cod.parambyname('art_codice').asstring := '';
-              cod.parambyname('tcm_codice').asstring := '';
-              cod.parambyname('tgm_codice').asstring := '';
-              cod.parambyname('tsa_codice').asstring := '';
-              cod.parambyname('ts3_codice').asstring := art.fieldbyname('ts3_codice').asstring;
-              cod.open;
-              if not cod.isempty then
+              qcod.close;
+              qcod.parambyname('art_codice').asstring := '';
+              qcod.parambyname('tcm_codice').asstring := '';
+              qcod.parambyname('tgm_codice').asstring := '';
+              qcod.parambyname('tsa_codice').asstring := art.fieldbyname('tsa_codice').asstring;
+              qcod.parambyname('ts3_codice').asstring := '';
+              qcod.open;
+              if not qcod.isempty then
               begin
-                tsm_codice := cod.fieldbyname('tsm_codice').asstring;
-                quantita_base_contratti := trunc(cod.fieldbyname('quantita_base').asfloat);
-                quantita_omaggio_contratti := trunc(cod.fieldbyname('quantita_omaggio').asfloat);
+                tsm_codice := qcod.fieldbyname('tsm_codice').asstring;
+                quantita_base_contratti := trunc(qcod.fieldbyname('quantita_base').asfloat);
+                quantita_omaggio_contratti := trunc(qcod.fieldbyname('quantita_omaggio').asfloat);
               end
               else
               begin
-                if tabella.fieldbyname('nostro_riferimento').asstring <> '' then
+                qcod.close;
+                qcod.parambyname('art_codice').asstring := '';
+                qcod.parambyname('tcm_codice').asstring := '';
+                qcod.parambyname('tgm_codice').asstring := '';
+                qcod.parambyname('tsa_codice').asstring := '';
+                qcod.parambyname('ts3_codice').asstring := art.fieldbyname('ts3_codice').asstring;
+                qcod.open;
+                if not qcod.isempty then
                 begin
-                  messaggio(200, 'non esistono condizioni contrattuali specifiche per l''articolo' + #13 +
-                    'verranno applicate le condizioni normali di vendita');
-                  prezzo_cot := false;
+                  tsm_codice := qcod.fieldbyname('tsm_codice').asstring;
+                  quantita_base_contratti := trunc(qcod.fieldbyname('quantita_base').asfloat);
+                  quantita_omaggio_contratti := trunc(qcod.fieldbyname('quantita_omaggio').asfloat);
+                end
+                else
+                begin
+                  if tabella.fieldbyname('nostro_riferimento').asstring <> '' then
+                  begin
+                    messaggio(200, 'non esistono condizioni contrattuali specifiche per l''articolo' + #13 +
+                      'verranno applicate le condizioni normali di vendita');
+                    prezzo_cot := false;
+                  end;
                 end;
               end;
             end;
           end;
         end;
-      end;
 
-      tabella_righe.fieldbyname('tsm_codice').asstring := tsm_codice;
+        tabella_righe.fieldbyname('tsm_codice').asstring := tsm_codice;
 
-      // verifica corsi
-      if cod.fieldbyname('corso_formazione').asstring = 'si' then
-      begin
-        corsi.close;
-        corsi.parambyname('art_codice').asstring := cod.parambyname('art_codice').asstring;
-        corsi.parambyname('tcm_codice').asstring := cod.parambyname('tcm_codice').asstring;
-        corsi.parambyname('tgm_codice').asstring := cod.parambyname('tgm_codice').asstring;
-        corsi.parambyname('tsa_codice').asstring := cod.parambyname('tsa_codice').asstring;
-        corsi.parambyname('ts3_codice').asstring := cod.parambyname('ts3_codice').asstring;
-        corsi.parambyname('anno').asinteger := cod.fieldbyname('anno').asinteger;
-        corsi.open;
-        if corsi.fieldbyname('numero_corsi').asinteger >= cod.fieldbyname('numero_corsi').asinteger then
+        // verifica corsi
+
+        if qcod.fieldbyname('corso_formazione').asstring = 'si' then
         begin
-          messaggio(000, 'già erogati ' + inttostr(corsi.fieldbyname('numero_corsi').asinteger) + ' corsi ' +
-            'a fronte dei ' + inttostr(cod.fieldbyname('numero_corsi').asinteger) + ' previsti contrattualmente');
-          v_art_codice.setfocus;
-          abort;
+          qcorsi.parambyname('art_codice').asstring := qcod.parambyname('art_codice').asstring;
+          qcorsi.parambyname('tcm_codice').asstring := qcod.parambyname('tcm_codice').asstring;
+          qcorsi.parambyname('tgm_codice').asstring := qcod.parambyname('tgm_codice').asstring;
+          qcorsi.parambyname('tsa_codice').asstring := qcod.parambyname('tsa_codice').asstring;
+          qcorsi.parambyname('ts3_codice').asstring := qcod.parambyname('ts3_codice').asstring;
+          qcorsi.parambyname('anno').asinteger := qcod.fieldbyname('anno').asinteger;
+          qcorsi.open;
+
+          if qcorsi.fieldbyname('numero_corsi').asinteger >= qcod.fieldbyname('numero_corsi').asinteger then
+          begin
+            messaggio(000, 'già erogati ' + inttostr(qcorsi.fieldbyname('numero_corsi').asinteger) + ' corsi ' +
+              'a fronte dei ' + inttostr(qcod.fieldbyname('numero_corsi').asinteger) + ' previsti contrattualmente');
+            v_art_codice.setfocus;
+            abort;
+          end;
         end;
+      finally
+        qcod.free;
+        qcorsi.free;
       end;
     end
     else
@@ -11837,6 +11927,12 @@ begin
       try
         if tabella_edit(tabella_righe) then
         begin
+          // se l'aggiornamento azzera il prezzo allora azzero anche l'ipmorto
+          if (tabella_righe.fieldbyname('prezzo').asfloat <> 0) and (prezzo = 0) then
+          begin
+            tabella_righe.fieldbyname('importo').asfloat := 0;
+          end;
+
           tabella_righe.fieldbyname('prezzo').asfloat := prezzo;
           tabella_righe.fieldbyname('tsm_codice').asstring := tsm_codice;
           tabella_righe.fieldbyname('tsm_codice_art').asstring := tsm_codice_art;
@@ -11958,8 +12054,8 @@ procedure tgesven.esegui_controllo_esistenza;
 var
   prosegui, mancante: boolean;
   tma_codice: string;
-
   pr: tanaequ;
+  qequ: tmyquery_go;
 begin
   if tabella_righe.fieldbyname('tma_codice').asstring <> '' then
   begin
@@ -12051,29 +12147,38 @@ begin
 
         if (mancante) and (controllo_equivalenti = 'si') then
         begin
-          equ.close;
-          equ.parambyname('art_codice').asstring := v_art_codice.text;
-          equ.open;
-          if not equ.isempty then
-          begin
-            pr := tanaequ.create(nil);
-            if pr.esegui_form then
+          qequ := tmyquery_go.create(nil);
+          qequ.connection := arc.arcdit;
+          qequ.sql.add('select art_codice from equ');
+          qequ.sql.add('where art_codice = :art_codice or art_codice_equivalente = :art_codice');
+
+          try
+            qequ.parambyname('art_codice').asstring := v_art_codice.text;
+            qequ.open;
+
+            if not qequ.isempty then
             begin
-              pr.art_codice := v_art_codice.text;
-              pr.tma_codice := tabella_righe.fieldbyname('tma_codice').asstring;
-              pr.showmodal;
-              if pr.art_codice_assegnato <> '' then
+              pr := tanaequ.create(nil);
+              if pr.esegui_form then
               begin
-                if tabella_edit(tabella_righe) then
+                pr.art_codice := v_art_codice.text;
+                pr.tma_codice := tabella_righe.fieldbyname('tma_codice').asstring;
+                pr.showmodal;
+                if pr.art_codice_assegnato <> '' then
                 begin
-                  tabella_righe.fieldbyname('art_codice').asstring := pr.art_codice_assegnato;
-                  art_codice_controllo(false);
+                  if tabella_edit(tabella_righe) then
+                  begin
+                    tabella_righe.fieldbyname('art_codice').asstring := pr.art_codice_assegnato;
+                    art_codice_controllo(false);
+                  end;
+                  esegui_esistenza(tma_codice);
+                  variato_articolo;
                 end;
-                esegui_esistenza(tma_codice);
-                variato_articolo;
               end;
+              pr.free;
             end;
-            pr.free;
+          finally
+            qequ.free;
           end;
         end;
       end;
@@ -12154,7 +12259,6 @@ begin
 
     if tabella_righe.fieldbyname('quantita').asfloat <> variato_qta then
     begin
-      controllo_quantita_evasa;
       cerca_prezzo;
       assegna_valore_prezzo;
       calcola_importo;
@@ -12304,7 +12408,6 @@ begin
             end;
             tabella_righe.fieldbyname('tum_quantita_base').asfloat := pr.quantita;
           end;
-          controllo_quantita_evasa;
           assegna_valore_prezzo;
           calcola_importo;
           saldo_acconto_controllo;
@@ -12359,7 +12462,6 @@ begin
 
   assegna_tum_quantita_base;
 
-  controllo_quantita_evasa;
   assegna_valore_prezzo;
   calcola_importo;
   saldo_acconto_controllo;
@@ -12378,68 +12480,39 @@ begin
       controllo_numero_confezioni_evase;
     end;
 
-    (*
-      if (art.fieldbyname('quantita_collo').asfloat <> 0) then
-      begin
-      if tabella_edit(tabella_righe) then
-      begin
-      numero1 := v_quantita.value / art.fieldbyname('quantita_collo').asfloat;
-      numero2 := arrotonda(v_quantita.value / art.fieldbyname('quantita_collo').asfloat, 0, 2);
-      tabella_righe.fieldbyname('numero_colli').asinteger := trunc(numero2);
-      end;
-      if numero1 <> numero2 then
-      begin
-      messaggio(100, 'il numero colli non contiene la quantità intera');
-      end;
-      end;
-      if (art.fieldbyname('pezzi_confezione').asfloat <> 0) then
-      begin
-      if tabella_edit(tabella_righe) then
-      begin
-      numero1 := v_quantita.value / art.fieldbyname('pezzi_confezione').asfloat;
-      numero2 := arrotonda(v_quantita.value / art.fieldbyname('pezzi_confezione').asfloat, 0, 2);
-      tabella_righe.fieldbyname('numero_confezioni').asinteger := trunc(numero2);
-      end;
-      if numero1 <> numero2 then
-      begin
-      messaggio(100, 'il numero confezioni non contiene la quantità intera');
-      end;
-      controllo_numero_confezioni_evase;
-      end;
-    *)
   end;
-end;
-
-procedure tgesven.controllo_quantita_evasa;
-begin
 end;
 
 procedure TGESVEN.controllo_quantita_taglie;
 var
   tot_qtatgl: tmyquery_go;
 begin
-  if arc.dit.fieldbyname('gestione_taglie').asstring = 'si' then
+  if (arc.dit.fieldbyname('gestione_taglie').asstring = 'si')
+    and (not art.isempty) then
   begin
-    tot_qtatgl := tmyquery_go.create(nil);
-    tot_qtatgl.connection := arc.arcdit;
-    tot_qtatgl.sql.add('select (qta_01 + qta_02 + qta_03 +  qta_04 + qta_05 + qta_06 + qta_07 + qta_08 + qta_09 + qta_10 +');
-    tot_qtatgl.sql.add('qta_11 + qta_12 + qta_13 +  qta_14 + qta_15 + qta_16 + qta_17 + qta_18 + qta_19 + qta_20) qta_totale');
-    tot_qtatgl.sql.add('from qtatgl');
-    tot_qtatgl.sql.add('where modulo = ''vendite'' and tipo_documento = :tipo_documento');
-    tot_qtatgl.sql.add('and progressivo = :progressivo and riga = :riga');
+    if (art.fieldbyname('tgl_codice').asstring <> '') then
+    begin
+      tot_qtatgl := tmyquery_go.create(nil);
+      tot_qtatgl.connection := arc.arcdit;
+      tot_qtatgl.sql.add('select (qta_01 + qta_02 + qta_03 +  qta_04 + qta_05 + qta_06 + qta_07 + qta_08 + qta_09 + qta_10 +');
+      tot_qtatgl.sql.add('qta_11 + qta_12 + qta_13 +  qta_14 + qta_15 + qta_16 + qta_17 + qta_18 + qta_19 + qta_20) qta_totale');
+      tot_qtatgl.sql.add('from qtatgl');
+      tot_qtatgl.sql.add('where modulo = ''vendite'' and tipo_documento = :tipo_documento');
+      tot_qtatgl.sql.add('and progressivo = :progressivo and riga = :riga');
 
-    tot_qtatgl.parambyname('tipo_documento').asstring := tipo_documento;
-    tot_qtatgl.parambyname('progressivo').asinteger := tabella_righe.fieldbyname('progressivo').asinteger;
-    tot_qtatgl.parambyname('riga').asinteger := tabella_righe.fieldbyname('riga').asinteger;
+      tot_qtatgl.parambyname('tipo_documento').asstring := tipo_documento;
+      tot_qtatgl.parambyname('progressivo').asinteger := tabella_righe.fieldbyname('progressivo').asinteger;
+      tot_qtatgl.parambyname('riga').asinteger := tabella_righe.fieldbyname('riga').asinteger;
 
-    try
-      tot_qtatgl.open;
-      if tot_qtatgl.fieldbyname('qta_totale').asfloat <> tabella_righe.fieldbyname('quantita').asfloat then
-      begin
-        messaggio(m_warning, 'La quantità della riga non corrisponde alla quantità totale delle taglie assegnate');
+      try
+        tot_qtatgl.open;
+        if tot_qtatgl.fieldbyname('qta_totale').asfloat <> tabella_righe.fieldbyname('quantita').asfloat then
+        begin
+          messaggio(m_warning, 'La quantità della riga non corrisponde alla quantità totale delle taglie assegnate');
+        end;
+      finally
+        tot_qtatgl.free;
       end;
-    finally
-      tot_qtatgl.free;
     end;
   end;
 end;
@@ -12451,12 +12524,6 @@ begin
     messaggio(200, 'il numero colli digitato [' + inttostr(tabella_righe.fieldbyname('numero_colli').asinteger) +
       '] è inferiore al numero_colli già evaso della riga [' +
       inttostr(tabella_righe.fieldbyname('numero_colli_evasi').asinteger) + ']');
-    (*
-      if tabella_edit(tabella_righe) then
-      begin
-      tabella_righe.fieldbyname('numero_colli').asinteger := vecchio_numero_colli;
-      end;
-    *)
   end
 end;
 
@@ -12467,12 +12534,6 @@ begin
     messaggio(200, 'il numero confezioni digitato [' + inttostr(tabella_righe.fieldbyname('numero_confezioni').asinteger) +
       '] è inferiore al numero_confezioni già evaso della riga [' +
       inttostr(tabella_righe.fieldbyname('numero_confezioni_evase').asinteger) + ']');
-    (*
-      if tabella_edit(tabella_righe) then
-      begin
-      tabella_righe.fieldbyname('numero_confezioni').asinteger := vecchio_numero_confezioni;
-      end;
-    *)
   end
 end;
 
@@ -12741,12 +12802,6 @@ begin
         righe.fieldbyname('quantita').asfloat, righe.fieldbyname('prezzo').asfloat,
         righe.fieldbyname('prezzo_netto').asfloat, righe.fieldbyname('importo').asfloat,
         provvigioni, provvigioni_ca, importo_provvigioni, conteggio_su_margine, tabella.fieldbyname('data_documento').asdatetime);
-      (*
-        //solo se si passano i parametri (implementazione per Donelli)
-        righe.fieldbyname('tsm_codice').asstring, righe.fieldbyname('tsm_codice_art').asstring,
-        righe.fieldbyname('importo_sconto').asfloat);
-        //solo se si passano i parametri (implementazione per Donelli) fine
-      *)
 
       if righe.fieldbyname('conteggio_su_margine').asstring <> conteggio_su_margine then
       begin
@@ -12792,12 +12847,7 @@ begin
           righe.fieldbyname('quantita').asfloat, righe.fieldbyname('prezzo').asfloat,
           righe.fieldbyname('prezzo_netto').asfloat, righe.fieldbyname('importo').asfloat,
           provvigioni, provvigioni_ca, importo_provvigioni, conteggio_su_margine, tabella.fieldbyname('data_documento').asdatetime);
-        (*
-          //solo se si passano i parametri (implementazione per Donelli)
-          righe.fieldbyname('tsm_codice').asstring, righe.fieldbyname('tsm_codice_art').asstring,
-          righe.fieldbyname('importo_sconto').asfloat);
-          //solo se si passano i parametri (implementazione per Donelli) fine
-        *)
+
 
         if righe.fieldbyname('percentuale_provvigioni_ca').asfloat <> provvigioni then
         begin
@@ -13970,6 +14020,7 @@ end;
 procedure tgesven.formshow(sender: tobject);
 var
   errore: boolean;
+  qart_01: tmyquery_go;
 begin
   if tipo_documento = 'ordine' then
   begin
@@ -14048,13 +14099,6 @@ begin
     // v_fattura_pro_forma.visible := true;
   end;
 
-  (*
-    if not((copy(tipo_documento, 1, 10) = 'preventivo') or (tipo_documento = 'ordine') or (tipo_documento = 'ddt')) then
-    begin
-    v_l_quantita_residua.visible := false;
-    v_quantita_residua.visible := false;
-    end;
-  *)
 
   if (tipo_documento = 'fattura accompagnatoria') or (tipo_documento = 'fattura immediata') or
     (tipo_documento = 'fattura differita') or (tipo_documento = 'nota credito') or (tipo_documento = 'ddt fornitori') then
@@ -14066,8 +14110,10 @@ begin
     (tipo_documento = 'fattura differita') or (tipo_documento = 'nota credito')) then
   begin
     v_descrizione_primanota.enabled := false;
-
     v_descrizione_primanota.color := clbtnface;
+
+    //nascondo il pannello con codice esito sdi e situazione sdi
+    rzpanel14.visible := false;
   end;
 
   abilita_tipo_documento;
@@ -14182,38 +14228,47 @@ begin
   end
   else
   begin
-    if read_tabella(art_01, art_codice_spese_extra) then
-    begin
-      tiv_codice_spese_extra := art_01.fieldbyname('tiv_codice_vendite').asstring;
-      tca_codice_spese_extra := art_01.fieldbyname('tca_codice').asstring;
-    end;
-    if read_tabella(art_01, art_codice_spese_trasporto) then
-    begin
-      tca_codice_trasporto := art_01.fieldbyname('tca_codice').asstring;
-    end;
-    if read_tabella(art_01, art_codice_spese_bollo) then
-    begin
-      tiv_codice_spese_bollo := art_01.fieldbyname('tiv_codice_vendite').asstring;
-      tca_codice_bollo := art_01.fieldbyname('tca_codice').asstring;
-    end;
+    qart_01 := tmyquery_go.create(nil);
+    qart_01.connection := arc.arcdit;
+    qart_01.sql.add('select tiv_codice_vendite, tca_codice');
+    qart_01.sql.add('from art where codice = :codice');
 
-    if read_tabella(art_01, art_codice_spese_incasso) then
-    begin
-      tiv_codice_spese_incasso := art_01.fieldbyname('tiv_codice_vendite').asstring;
-      tca_codice_incasso := art_01.fieldbyname('tca_codice').asstring;
-    end;
-    if read_tabella(art_01, art_codice_cassa_professionisti) then
-    begin
-      tiv_codice_cassa_professionisti := art_01.fieldbyname('tiv_codice_vendite').asstring;
-      tca_codice_cassa_professionisti := art_01.fieldbyname('tca_codice').asstring;
-    end;
-    if read_tabella(art_01, art_codice_sconto_cassa) then
-    begin
-      tca_codice_sconto_cassa := art_01.fieldbyname('tca_codice').asstring;
-    end;
-    if read_tabella(art_01, art_codice_sconti_fattura) then
-    begin
-      tca_codice_sconti_fattura := art_01.fieldbyname('tca_codice').asstring;
+    try
+      if read_tabella(qart_01, art_codice_spese_extra) then
+      begin
+        tiv_codice_spese_extra := qart_01.fieldbyname('tiv_codice_vendite').asstring;
+        tca_codice_spese_extra := qart_01.fieldbyname('tca_codice').asstring;
+      end;
+      if read_tabella(qart_01, art_codice_spese_trasporto) then
+      begin
+        tca_codice_trasporto := qart_01.fieldbyname('tca_codice').asstring;
+      end;
+      if read_tabella(qart_01, art_codice_spese_bollo) then
+      begin
+        tiv_codice_spese_bollo := qart_01.fieldbyname('tiv_codice_vendite').asstring;
+        tca_codice_bollo := qart_01.fieldbyname('tca_codice').asstring;
+      end;
+
+      if read_tabella(qart_01, art_codice_spese_incasso) then
+      begin
+        tiv_codice_spese_incasso := qart_01.fieldbyname('tiv_codice_vendite').asstring;
+        tca_codice_incasso := qart_01.fieldbyname('tca_codice').asstring;
+      end;
+      if read_tabella(qart_01, art_codice_cassa_professionisti) then
+      begin
+        tiv_codice_cassa_professionisti := qart_01.fieldbyname('tiv_codice_vendite').asstring;
+        tca_codice_cassa_professionisti := qart_01.fieldbyname('tca_codice').asstring;
+      end;
+      if read_tabella(qart_01, art_codice_sconto_cassa) then
+      begin
+        tca_codice_sconto_cassa := qart_01.fieldbyname('tca_codice').asstring;
+      end;
+      if read_tabella(qart_01, art_codice_sconti_fattura) then
+      begin
+        tca_codice_sconti_fattura := qart_01.fieldbyname('tca_codice').asstring;
+      end;
+    finally
+      qart_01.free;
     end;
   end;
 
@@ -14710,7 +14765,7 @@ var
   importo, importo_dare, importo_avere, importo_valuta, importo_dare_valuta, importo_avere_valuta: double;
   numero_documento: double;
   data_registrazione, data_documento: tdatetime;
-
+  qcem: tmyquery_go;
   esiste_cem: boolean;
 begin
   if analitica = 'si' then
@@ -14726,30 +14781,27 @@ begin
     else
     begin
       esiste_cem := false;
-      if analitica_documento_origine <> '' then
+
+      if analitica_documento_origine = 'ddt ven' then
       begin
-        query_cem.close;
-        query_cem.sql.clear;
-
-        if analitica_documento_origine = 'ddt ven' then
-        begin
-          query_cem.sql.add('select tdo.analitica');
-          query_cem.sql.add('from dvt');
-          query_cem.sql.add('inner join tdo on tdo.codice = dvt.tdo_codice');
-          query_cem.sql.add('where dvt.progressivo = :progressivo');
-          query_cem.parambyname('progressivo').asinteger := analitica_doc_progressivo_origine;
-        end;
-
-        if query_cem.sql.text <> '' then
-        begin
-          query_cem.open;
-          if query_cem.fieldbyname('analitica').asstring = 'si' then
+        qcem := tmyquery_go.create(nil);
+        qcem.connection := arc.arcdit;
+        qcem.sql.add('select tdo.analitica');
+        qcem.sql.add('from dvt');
+        qcem.sql.add('inner join tdo on tdo.codice = dvt.tdo_codice');
+        qcem.sql.add('where dvt.progressivo = :progressivo');
+        try
+          qcem.parambyname('progressivo').asinteger := analitica_doc_progressivo_origine;
+          qcem.open;
+          if qcem.fieldbyname('analitica').asstring = 'si' then
           begin
             messaggio(100, 'il ddt di origine della fattura' + #13 +
               'prevede già la gestione della contabilibità analitica' + #13 +
               'i collegamenti vanno gestiti nel documento di orgine');
             esiste_cem := true;
           end;
+        finally
+          qcem.free;
         end;
       end;
 
@@ -14782,13 +14834,6 @@ begin
             importo := analitica_importo_euro - analitica_importo_iva_euro;
             importo_valuta := analitica_importo_valuta - analitica_importo_iva_valuta;
           end;
-          (*
-            end
-            else
-            begin
-            importo := 0;
-            importo_valuta := 0;
-          *)
         end;
 
         importo_avere := importo;
@@ -14926,17 +14971,6 @@ begin
   read_tabella(arc.arcdit, 'art', 'codice', tabella_righe.fieldbyname('art_codice').asstring, 'tub_codice');
   if tabella_righe.fieldbyname('tum_quantita_base').asfloat <> 0 then
   begin
-    (*
-      if movmag.riga <> 0 then
-      begin
-      riga := movmag.riga;
-      end
-      else
-      begin
-      riga := movmag.riga_mmr;
-      end;
-      codice_passato := vararrayof(['movimenti magazzino', movmag.progressivo, riga]);
-    *)
     codice_passato := vararrayof(['movimenti magazzino', progressivo, riga]);
 
     esegui_carubm(codice_passato, tabella_righe.fieldbyname('art_codice').asstring, archivio.fieldbyname('tub_codice').asstring,
@@ -15001,6 +15035,8 @@ begin
 end;
 
 procedure tgesven.aggiorna_archivi_collegati_righe;
+var
+  qrmr: tmyquery_go;
 begin
   cem.close;
   cem.sql.clear;
@@ -15134,27 +15170,38 @@ begin
     end;
   end;
 
-  rmr.close;
-  rmr.parambyname('numero_documento').asfloat := tabella.fieldbyname('numero_documento').asfloat;
-  if tipo_documento = 'ddt fornitori' then
-  begin
-    rmr.parambyname('documento_origine').asstring := 'ddt a fornitore';
-  end
-  else if tipo_documento = 'ddt' then
-  begin
-    rmr.parambyname('documento_origine').asstring := 'ddt a cliente';
-  end
-  else if copy(tipo_documento, 1, 7) = 'fattura' then
-  begin
-    rmr.parambyname('documento_origine').asstring := 'fattura a cliente';
-  end
-  else if tipo_documento = 'nota credito' then
-  begin
-    rmr.parambyname('documento_origine').asstring := 'n.credito cliente';
+  qrmr := tmyquery_go.create(nil);
+  qrmr.connection := arc.arcdit;
+  qrmr.sql.add('update rmr');
+  qrmr.sql.add('set numero_documento = :numero_documento');
+  qrmr.sql.add('where documento_origine = :documento_origine');
+  qrmr.sql.add('and doc_progressivo_origine = :doc_progressivo_origine');
+  qrmr.sql.add('and doc_riga_origine = :doc_riga_origine');
+
+  try
+    qrmr.parambyname('numero_documento').asfloat := tabella.fieldbyname('numero_documento').asfloat;
+    if tipo_documento = 'ddt fornitori' then
+    begin
+      qrmr.parambyname('documento_origine').asstring := 'ddt a fornitore';
+    end
+    else if tipo_documento = 'ddt' then
+    begin
+      qrmr.parambyname('documento_origine').asstring := 'ddt a cliente';
+    end
+    else if copy(tipo_documento, 1, 7) = 'fattura' then
+    begin
+      qrmr.parambyname('documento_origine').asstring := 'fattura a cliente';
+    end
+    else if tipo_documento = 'nota credito' then
+    begin
+      qrmr.parambyname('documento_origine').asstring := 'n.credito cliente';
+    end;
+    qrmr.parambyname('doc_progressivo_origine').asinteger := tabella_righe.fieldbyname('progressivo').asinteger;
+    qrmr.parambyname('doc_riga_origine').asinteger := tabella_righe.fieldbyname('riga').asinteger;
+    qrmr.execsql;
+  finally
+    qrmr.free;
   end;
-  rmr.parambyname('doc_progressivo_origine').asinteger := tabella_righe.fieldbyname('progressivo').asinteger;
-  rmr.parambyname('doc_riga_origine').asinteger := tabella_righe.fieldbyname('riga').asinteger;
-  rmr.execsql;
 end;
 
 procedure tgesven.esegui_gesven02;
@@ -15342,14 +15389,6 @@ begin
             'eseguire l''operazione di storno e variare il documento di origine');
           controllo_cancella_edit := false;
           exit;
-          (*
-            end
-            else if (tipo_documento = 'nota credito') and (copy(tabella_righe.fieldbyname('documento_origine').asstring, 1, 7) = 'fattura') then
-            begin
-            messaggio(000, 'non è consentita la cancellazione delle note credito emesse a fronte di fatture clienti');
-            controllo_cancella_edit := false;
-            exit;
-          *)
         end
         else if (tipo_documento = 'nota credito') and (tabella_righe.fieldbyname('documento_origine').asstring = 'ddt clienti acq') then
         begin
@@ -17227,16 +17266,6 @@ begin
   freeandnil(fvr);
 end;
 
-procedure TGESVEN.FormClose(Sender: TObject; var Action: TCloseAction);
-begin
-  inherited;
-
-  (*
-    numero_scontrino_reso := '';
-    data_scontrino_reso := 0;
-  *)
-end;
-
 procedure tgesven.evasione_documento(tipo_documento_evasione: string; call_off_stock: boolean = false);
 var
   pr: tevadocv;
@@ -17692,6 +17721,7 @@ procedure tgesven.v_storno_consolidamentoclick(sender: tobject);
 var
   pr: timpalf;
   esegui: boolean;
+  qcor: tmyquery_go;
 begin
   if not esercizio_diverso then
   begin
@@ -17715,13 +17745,23 @@ begin
 
     if tipo_documento = 'corrispettivo' then
     begin
-      cor.close;
-      cor.parambyname('doc_progressivo_origine').asinteger := tabella.fieldbyname('progressivo').asinteger;
-      cor.open;
-      if not cor.isempty then
-      begin
-        messaggio(000, 'per il documento è stata generata una fattura' + #13 + 'stornare la fattura collegata');
-        esegui := false;
+
+      qcor := tmyquery_go.create(nil);
+      qcor.connection := arc.arcdit;
+      qcor.sql.add('select id from fvr');
+      qcor.sql.add('where documento_origine = ''corrispettivo ven'' and doc_progressivo_origine = :doc_progressivo_origine');
+      qcor.sql.add('limit 1');
+
+      try
+        qcor.parambyname('doc_progressivo_origine').asinteger := tabella.fieldbyname('progressivo').asinteger;
+        qcor.open;
+        if not qcor.isempty then
+        begin
+          messaggio(000, 'per il documento è stata generata una fattura' + #13 + 'stornare la fattura collegata');
+          esegui := false;
+        end;
+      finally
+        qcor.free;
       end;
     end;
 
@@ -17837,7 +17877,6 @@ begin
 
     if tabella_righe.fieldbyname('quantita').asfloat <> variato_qta then
     begin
-      controllo_quantita_evasa;
       cerca_prezzo;
       assegna_valore_prezzo;
       calcola_importo;
@@ -17854,6 +17893,7 @@ var
   ovr_progressivo, ovr_riga: integer;
 
   margine_kit, righe_cnf, margine_cnf, omaggi_sconti, da_evadere: tmyquery_go;
+  qtotalizza_margine, qtotalizza_quantita: tmyquery_go;
 
   pr: tvistotdoc;
 begin
@@ -17868,6 +17908,12 @@ begin
   da_evadere := tmyquery_go.create(nil);
   da_evadere.connection := arc.arcdit;
 
+  qtotalizza_margine := tmyquery_go.create(nil);
+  qtotalizza_margine.connection := arc.arcdit;
+
+  qtotalizza_quantita := tmyquery_go.create(nil);
+  qtotalizza_quantita.connection := arc.arcdit;
+
   try
     if tabella.state <> dsbrowse then
     begin
@@ -17875,40 +17921,33 @@ begin
     end
     else
     begin
-      da_evadere.close;
-      da_evadere.sql.clear;
       da_evadere.sql.add('select sum(x2x2.importo - x2x2.importo_evaso) importo_da_evadere from x2x2');
       da_evadere.sql.add('inner join x1x1 on x1x1.progressivo = x2x2.progressivo');
       da_evadere.sql.add('where x2x2.progressivo = :progressivo and (x1x1.tipo_documento = ''preventivo'' or x1x1.tipo_documento = ''ordine'')');
       da_evadere.sql.add('and x2x2.situazione <> ''evaso''');
 
-      omaggi_sconti.close;
-      omaggi_sconti.sql.clear;
       omaggi_sconti.sql.add('select coalesce((select sum(importo_imponibile) from x3x3 where x3x3.progressivo = x1x1.progressivo');
       omaggi_sconti.sql.add('and x3x3.tipo_movimento <> ''normale''), 0) importo_imponibile,');
       omaggi_sconti.sql.add('coalesce((select sum(importo_iva) from x3x3 where x3x3.progressivo = x1x1.progressivo');
       omaggi_sconti.sql.add('and x3x3.tipo_movimento = ''omaggio no rivalsa''), 0) importo_iva');
       omaggi_sconti.sql.add('from x1x1 where x1x1.progressivo = :progressivo');
 
-      totalizza_quantita.close;
-      totalizza_quantita.sql.clear;
-
-      totalizza_quantita.sql.add('select sum(numero_colli) totale_colli, sum(numero_confezioni) totale_confezioni,');
-      totalizza_quantita.sql.add('sum(volume) volume, sum(peso_lordo) peso_lordo, sum(peso_netto) peso_netto,');
-      totalizza_quantita.sql.add('sum(quantita) quantita, sum(tum_quantita_base) tum_quantita_base');
-      totalizza_quantita.sql.add('from ');
-      totalizza_quantita.sql.add('(select numero_colli, numero_confezioni, quantita, tum_quantita_base,');
-      totalizza_quantita.sql.add('round(tum_quantita_base * volume, 4) volume, round(tum_quantita_base * peso_lordo, 4) peso_lordo,');
-      totalizza_quantita.sql.add('case');
-      totalizza_quantita.sql.add('when peso_netto_riga <> 0 then peso_netto_riga');
-      totalizza_quantita.sql.add('when tum.quantita_peso = ''si'' then quantita');
-      totalizza_quantita.sql.add('when tum_art.quantita_peso = ''si'' then tum_quantita_base');
-      totalizza_quantita.sql.add('else round(tum_quantita_base * peso_netto, 4)');
-      totalizza_quantita.sql.add('end peso_netto');
+      qtotalizza_quantita.sql.add('select sum(numero_colli) totale_colli, sum(numero_confezioni) totale_confezioni,');
+      qtotalizza_quantita.sql.add('sum(volume) volume, sum(peso_lordo) peso_lordo, sum(peso_netto) peso_netto,');
+      qtotalizza_quantita.sql.add('sum(quantita) quantita, sum(tum_quantita_base) tum_quantita_base');
+      qtotalizza_quantita.sql.add('from ');
+      qtotalizza_quantita.sql.add('(select numero_colli, numero_confezioni, quantita, tum_quantita_base,');
+      qtotalizza_quantita.sql.add('round(tum_quantita_base * volume, 4) volume, round(tum_quantita_base * peso_lordo, 4) peso_lordo,');
+      qtotalizza_quantita.sql.add('case');
+      qtotalizza_quantita.sql.add('when peso_netto_riga <> 0 then peso_netto_riga');
+      qtotalizza_quantita.sql.add('when tum.quantita_peso = ''si'' then quantita');
+      qtotalizza_quantita.sql.add('when tum_art.quantita_peso = ''si'' then tum_quantita_base');
+      qtotalizza_quantita.sql.add('else round(tum_quantita_base * peso_netto, 4)');
+      qtotalizza_quantita.sql.add('end peso_netto');
 
       if copy(tipo_documento, 1, 10) = 'preventivo' then
       begin
-        totalizza_quantita.sql.add('from pvr');
+        qtotalizza_quantita.sql.add('from pvr');
         omaggi_sconti.sql.text := stringreplace(omaggi_sconti.sql.text, 'x1x1', 'pvt', [rfreplaceall]);
         omaggi_sconti.sql.text := stringreplace(omaggi_sconti.sql.text, 'x3x3', 'pvi', [rfreplaceall]);
         da_evadere.sql.text := stringreplace(da_evadere.sql.text, 'x1x1', 'pvt', [rfreplaceall]);
@@ -17916,7 +17955,7 @@ begin
       end
       else if tipo_documento = 'ordine' then
       begin
-        totalizza_quantita.sql.add('from ovr');
+        qtotalizza_quantita.sql.add('from ovr');
         omaggi_sconti.sql.text := stringreplace(omaggi_sconti.sql.text, 'x1x1', 'ovt', [rfreplaceall]);
         omaggi_sconti.sql.text := stringreplace(omaggi_sconti.sql.text, 'x3x3', 'ovi', [rfreplaceall]);
         da_evadere.sql.text := stringreplace(da_evadere.sql.text, 'x1x1', 'ovt', [rfreplaceall]);
@@ -17924,7 +17963,7 @@ begin
       end
       else if tipo_documento = 'bolla' then
       begin
-        totalizza_quantita.sql.add('from bvr');
+        qtotalizza_quantita.sql.add('from bvr');
         omaggi_sconti.sql.text := stringreplace(omaggi_sconti.sql.text, 'x1x1', 'bvt', [rfreplaceall]);
         omaggi_sconti.sql.text := stringreplace(omaggi_sconti.sql.text, 'x3x3', 'bvi', [rfreplaceall]);
         da_evadere.sql.text := stringreplace(da_evadere.sql.text, 'x1x1', 'bvt', [rfreplaceall]);
@@ -17932,7 +17971,7 @@ begin
       end
       else if tipo_documento = 'corrispettivo' then
       begin
-        totalizza_quantita.sql.add('from cvr');
+        qtotalizza_quantita.sql.add('from cvr');
         omaggi_sconti.sql.text := stringreplace(omaggi_sconti.sql.text, 'x1x1', 'cvt', [rfreplaceall]);
         omaggi_sconti.sql.text := stringreplace(omaggi_sconti.sql.text, 'x3x3', 'cvi', [rfreplaceall]);
         da_evadere.sql.text := stringreplace(da_evadere.sql.text, 'x1x1', 'cvt', [rfreplaceall]);
@@ -17940,7 +17979,7 @@ begin
       end
       else if (tipo_documento = 'ddt') or (tipo_documento = 'ddt fornitori') then
       begin
-        totalizza_quantita.sql.add('from dvr');
+        qtotalizza_quantita.sql.add('from dvr');
         omaggi_sconti.sql.text := stringreplace(omaggi_sconti.sql.text, 'x1x1', 'dvt', [rfreplaceall]);
         omaggi_sconti.sql.text := stringreplace(omaggi_sconti.sql.text, 'x3x3', 'dvi', [rfreplaceall]);
         da_evadere.sql.text := stringreplace(da_evadere.sql.text, 'x1x1', 'dvt', [rfreplaceall]);
@@ -17948,76 +17987,76 @@ begin
       end
       else
       begin
-        totalizza_quantita.sql.add('from fvr');
+        qtotalizza_quantita.sql.add('from fvr');
         omaggi_sconti.sql.text := stringreplace(omaggi_sconti.sql.text, 'x1x1', 'fvt', [rfreplaceall]);
         omaggi_sconti.sql.text := stringreplace(omaggi_sconti.sql.text, 'x3x3', 'fvi', [rfreplaceall]);
         da_evadere.sql.text := stringreplace(da_evadere.sql.text, 'x1x1', 'fvt', [rfreplaceall]);
         da_evadere.sql.text := stringreplace(da_evadere.sql.text, 'x2x2', 'fvr', [rfreplaceall]);
       end;
 
-      totalizza_quantita.sql.add('inner join art on art.codice = art_codice');
+      qtotalizza_quantita.sql.add('inner join art on art.codice = art_codice');
 
       if copy(tipo_documento, 1, 10) = 'preventivo' then
       begin
-        totalizza_quantita.sql.add('inner join tum on tum.codice = pvr.tum_codice');
-        totalizza_quantita.sql.add('inner join tum tum_art on tum_art.codice = art.tum_codice');
+        qtotalizza_quantita.sql.add('inner join tum on tum.codice = pvr.tum_codice');
+        qtotalizza_quantita.sql.add('inner join tum tum_art on tum_art.codice = art.tum_codice');
       end
       else if tipo_documento = 'ordine' then
       begin
-        totalizza_quantita.sql.add('inner join tum on tum.codice = ovr.tum_codice');
-        totalizza_quantita.sql.add('inner join tum tum_art on tum_art.codice = art.tum_codice');
+        qtotalizza_quantita.sql.add('inner join tum on tum.codice = ovr.tum_codice');
+        qtotalizza_quantita.sql.add('inner join tum tum_art on tum_art.codice = art.tum_codice');
       end
       else if tipo_documento = 'bolla' then
       begin
-        totalizza_quantita.sql.add('inner join tum on tum.codice = bvr.tum_codice');
-        totalizza_quantita.sql.add('inner join tum tum_art on tum_art.codice = art.tum_codice');
+        qtotalizza_quantita.sql.add('inner join tum on tum.codice = bvr.tum_codice');
+        qtotalizza_quantita.sql.add('inner join tum tum_art on tum_art.codice = art.tum_codice');
       end
       else if tipo_documento = 'corrispettivo' then
       begin
-        totalizza_quantita.sql.add('inner join tum on tum.codice = cvr.tum_codice');
-        totalizza_quantita.sql.add('inner join tum tum_art on tum_art.codice = art.tum_codice');
+        qtotalizza_quantita.sql.add('inner join tum on tum.codice = cvr.tum_codice');
+        qtotalizza_quantita.sql.add('inner join tum tum_art on tum_art.codice = art.tum_codice');
       end
       else if (tipo_documento = 'ddt') or (tipo_documento = 'ddt fornitori') then
       begin
-        totalizza_quantita.sql.add('inner join tum on tum.codice = dvr.tum_codice');
-        totalizza_quantita.sql.add('inner join tum tum_art on tum_art.codice = art.tum_codice');
+        qtotalizza_quantita.sql.add('inner join tum on tum.codice = dvr.tum_codice');
+        qtotalizza_quantita.sql.add('inner join tum tum_art on tum_art.codice = art.tum_codice');
       end
       else
       begin
-        totalizza_quantita.sql.add('inner join tum on tum.codice = fvr.tum_codice');
-        totalizza_quantita.sql.add('inner join tum tum_art on tum_art.codice = art.tum_codice');
+        qtotalizza_quantita.sql.add('inner join tum on tum.codice = fvr.tum_codice');
+        qtotalizza_quantita.sql.add('inner join tum tum_art on tum_art.codice = art.tum_codice');
       end;
 
-      totalizza_quantita.sql.add('where progressivo = :progressivo and situazione <> ''annullato''');
+      qtotalizza_quantita.sql.add('where progressivo = :progressivo and situazione <> ''annullato''');
 
       if copy(tipo_documento, 1, 10) = 'preventivo' then
       begin
-        totalizza_quantita.sql.add('and pvr.kit <> ''pf''');
+        qtotalizza_quantita.sql.add('and pvr.kit <> ''pf''');
       end
       else if tipo_documento = 'ordine' then
       begin
-        totalizza_quantita.sql.add('and ovr.kit <> ''pf''');
+        qtotalizza_quantita.sql.add('and ovr.kit <> ''pf''');
       end
       else if tipo_documento = 'bolla' then
       begin
-        totalizza_quantita.sql.add('and bvr.kit <> ''pf''');
+        qtotalizza_quantita.sql.add('and bvr.kit <> ''pf''');
       end
       else if tipo_documento = 'corrispettivo' then
       begin
-        totalizza_quantita.sql.add('and cvr.kit <> ''pf''');
+        qtotalizza_quantita.sql.add('and cvr.kit <> ''pf''');
       end
       else if (tipo_documento = 'ddt') or (tipo_documento = 'ddt fornitori') then
       begin
-        totalizza_quantita.sql.add('and dvr.kit <> ''pf''');
+        qtotalizza_quantita.sql.add('and dvr.kit <> ''pf''');
       end
       else
       begin
-        totalizza_quantita.sql.add('and fvr.kit <> ''pf''');
+        qtotalizza_quantita.sql.add('and fvr.kit <> ''pf''');
       end;
-      totalizza_quantita.sql.add(') as q');
+      qtotalizza_quantita.sql.add(') as q');
 
-      totalizza_quantita.params[0].asfloat := v_progressivo.value;
-      totalizza_quantita.open;
+      qtotalizza_quantita.params[0].asfloat := v_progressivo.value;
+      qtotalizza_quantita.open;
 
       omaggi_sconti.parambyname('progressivo').asinteger := tabella.fieldbyname('progressivo').asinteger;
       omaggi_sconti.open;
@@ -18087,11 +18126,11 @@ begin
       end;
 
       stringa := stringa +
-        'totale quantità: ' + formatfloat(formato_display_quantita, totalizza_quantita.fieldbyname('quantita').asfloat) + #13 +
-        'totale quantità base: ' + formatfloat(formato_display_quantita, totalizza_quantita.fieldbyname('tum_quantita_base').asfloat) + #13 + #13 +
-        'totale peso lordo: ' + formatfloat(',0.000000', totalizza_quantita.fieldbyname('peso_lordo').asfloat) + #13 +
-        'totale peso netto: ' + formatfloat(',0.000000', totalizza_quantita.fieldbyname('peso_netto').asfloat) + #13 +
-        'totale volume: ' + formatfloat(',0.000000', totalizza_quantita.fieldbyname('volume').asfloat) + #13 + #13 +
+        'totale quantità: ' + formatfloat(formato_display_quantita, qtotalizza_quantita.fieldbyname('quantita').asfloat) + #13 +
+        'totale quantità base: ' + formatfloat(formato_display_quantita, qtotalizza_quantita.fieldbyname('tum_quantita_base').asfloat) + #13 + #13 +
+        'totale peso lordo: ' + formatfloat(',0.000000', qtotalizza_quantita.fieldbyname('peso_lordo').asfloat) + #13 +
+        'totale peso netto: ' + formatfloat(',0.000000', qtotalizza_quantita.fieldbyname('peso_netto').asfloat) + #13 +
+        'totale volume: ' + formatfloat(',0.000000', qtotalizza_quantita.fieldbyname('volume').asfloat) + #13 + #13 +
         'totale peso lordo testata: ' + formatfloat(',0.000000', tabella.fieldbyname('peso_lordo').asfloat) + #13 +
         'totale peso netto testata: ' + formatfloat(',0.000000', tabella.fieldbyname('peso_netto').asfloat) + #13 +
         'totale volume testata: ' + formatfloat(',0.000000', tabella.fieldbyname('volume').asfloat);
@@ -18114,72 +18153,70 @@ begin
         totale_costo := 0;
         totale_importo := 0;
 
-        totalizza_margine.close;
-        totalizza_margine.sql.clear;
-        totalizza_margine.sql.add('select progressivo, riga, documento_origine, doc_progressivo_origine,');
-        totalizza_margine.sql.add('doc_riga_origine, art_codice, tma_codice, quantita, costo_unitario, kit,');
-        totalizza_margine.sql.add('case');
-        totalizza_margine.sql.add('when tipo_movimento = ''normale'' then');
+        qtotalizza_margine.sql.add('select progressivo, riga, documento_origine, doc_progressivo_origine,');
+        qtotalizza_margine.sql.add('doc_riga_origine, art_codice, tma_codice, quantita, costo_unitario, kit,');
+        qtotalizza_margine.sql.add('case');
+        qtotalizza_margine.sql.add('when tipo_movimento = ''normale'' then');
         if tabella.fieldbyname('listino_con_iva').asstring = 'si' then
         begin
-          totalizza_margine.sql.add('(importo_euro - importo_iva_euro)');
+          qtotalizza_margine.sql.add('(importo_euro - importo_iva_euro)');
         end
         else
         begin
-          totalizza_margine.sql.add('importo_euro');
+          qtotalizza_margine.sql.add('importo_euro');
         end;
-        totalizza_margine.sql.add('else 0');
-        totalizza_margine.sql.add('end importo_euro');
+        qtotalizza_margine.sql.add('else 0');
+        qtotalizza_margine.sql.add('end importo_euro');
         if copy(tipo_documento, 1, 10) = 'preventivo' then
         begin
-          totalizza_margine.sql.add('from pvr');
+          qtotalizza_margine.sql.add('from pvr');
         end
         else if tipo_documento = 'ordine' then
         begin
-          totalizza_margine.sql.add('from ovr');
+          qtotalizza_margine.sql.add('from ovr');
         end
         else if tipo_documento = 'bolla' then
         begin
-          totalizza_margine.sql.add('from bvr');
+          qtotalizza_margine.sql.add('from bvr');
         end
         else if tipo_documento = 'corrispettivo' then
         begin
-          totalizza_margine.sql.add('from cvr');
+          qtotalizza_margine.sql.add('from cvr');
         end
         else if tipo_documento = 'ddt' then
         begin
-          totalizza_margine.sql.add('from dvr');
+          qtotalizza_margine.sql.add('from dvr');
         end
         else
         begin
-          totalizza_margine.sql.add('from fvr');
+          qtotalizza_margine.sql.add('from fvr');
         end;
-        totalizza_margine.sql.add('where progressivo = :progressivo');
-        totalizza_margine.sql.add('and art_codice <> ''''');
-        totalizza_margine.sql.add('and situazione <> ''annullato''');
-        totalizza_margine.sql.add('and situazione <> ''revisionato''');
+        qtotalizza_margine.sql.add('where progressivo = :progressivo');
+        qtotalizza_margine.sql.add('and art_codice <> ''''');
+        qtotalizza_margine.sql.add('and situazione <> ''annullato''');
+        qtotalizza_margine.sql.add('and situazione <> ''revisionato''');
         if arc.dit.fieldbyname('modalita_kit').asstring = 'kit' then
         begin
-          totalizza_margine.sql.add('and kit <> ''mp''');
+          qtotalizza_margine.sql.add('and kit <> ''mp''');
         end;
-        totalizza_margine.params[0].asinteger := tabella.fieldbyname('progressivo').asinteger;
-        totalizza_margine.open;
-        while not totalizza_margine.eof do
+        qtotalizza_margine.params[0].asinteger := tabella.fieldbyname('progressivo').asinteger;
+        qtotalizza_margine.open;
+        while not qtotalizza_margine.eof do
         begin
           prezzo_inventario := 0;
           ovr_progressivo := 0;
           ovr_riga := 0;
           if tipo_documento = 'ordine' then
           begin
-            ovr_progressivo := totalizza_margine.fieldbyname('progressivo').asinteger;
-            ovr_riga := totalizza_margine.fieldbyname('riga').asinteger;
+            ovr_progressivo := qtotalizza_margine.fieldbyname('progressivo').asinteger;
+            ovr_riga := qtotalizza_margine.fieldbyname('riga').asinteger;
           end
           else
           begin
-            if totalizza_margine.fieldbyname('documento_origine').asstring = 'ordine ven' then
+            if qtotalizza_margine.fieldbyname('documento_origine').asstring = 'ordine ven' then
             begin
-              read_tabella(arc.arcdit, 'ovr', 'progressivo;riga', vararrayof([totalizza_margine.fieldbyname('doc_progressivo_origine').asinteger,
-                totalizza_margine.fieldbyname('doc_riga_origine').asinteger]), 'progressivo, riga');
+              read_tabella(arc.arcdit, 'ovr', 'progressivo;riga', vararrayof([qtotalizza_margine.fieldbyname('doc_progressivo_origine').asinteger,
+                qtotalizza_margine.fieldbyname('doc_riga_origine').asinteger]), 'progressivo, riga');
               if not archivio.eof then
               begin
                 ovr_progressivo := archivio.fieldbyname('progressivo').asinteger;
@@ -18206,14 +18243,14 @@ begin
 
           if prezzo_inventario = 0 then
           begin
-            if totalizza_margine.fieldbyname('costo_unitario').asfloat <> 0 then
+            if qtotalizza_margine.fieldbyname('costo_unitario').asfloat <> 0 then
             begin
-              prezzo_inventario := totalizza_margine.fieldbyname('costo_unitario').asfloat;
+              prezzo_inventario := qtotalizza_margine.fieldbyname('costo_unitario').asfloat;
             end
             else
             begin
               if (arc.dit.fieldbyname('modalita_kit').asstring = 'kit') and
-                (totalizza_margine.fieldbyname('kit').asstring = 'pf') then
+                (qtotalizza_margine.fieldbyname('kit').asstring = 'pf') then
               begin
                 margine_kit.close;
                 margine_kit.sql.clear;
@@ -18248,7 +18285,7 @@ begin
                 margine_kit.sql.add('and situazione <> ''annullato''');
                 margine_kit.sql.add('and situazione <> ''revisionato''');
                 margine_kit.parambyname('progressivo').asinteger := tabella.fieldbyname('progressivo').asinteger;
-                margine_kit.parambyname('riga').asinteger := totalizza_margine.fieldbyname('riga').asinteger;
+                margine_kit.parambyname('riga').asinteger := qtotalizza_margine.fieldbyname('riga').asinteger;
                 margine_kit.open;
                 while not margine_kit.eof do
                 begin
@@ -18272,17 +18309,17 @@ begin
               else
               begin
                 valorizzazione := valorizzazione_gestionale;
-                przinv.przinv(totalizza_margine.fieldbyname('art_codice').asstring, totalizza_margine.fieldbyname('tma_codice').asstring,
-                  valorizzazione, esercizio, v_data_documento.date, totalizza_margine.fieldbyname('quantita').asfloat, prezzo_inventario,
+                przinv.przinv(qtotalizza_margine.fieldbyname('art_codice').asstring, qtotalizza_margine.fieldbyname('tma_codice').asstring,
+                  valorizzazione, esercizio, v_data_documento.date, qtotalizza_margine.fieldbyname('quantita').asfloat, prezzo_inventario,
                   'no', arc.dit.fieldbyname('inventario_raggruppato').asstring = 'si');
               end;
             end;
           end;
 
-          totale_costo := arrotonda(totale_costo + prezzo_inventario * totalizza_margine.fieldbyname('quantita').asfloat);
-          totale_importo := arrotonda(totale_importo + totalizza_margine.fieldbyname('importo_euro').asfloat);
+          totale_costo := arrotonda(totale_costo + prezzo_inventario * qtotalizza_margine.fieldbyname('quantita').asfloat);
+          totale_importo := arrotonda(totale_importo + qtotalizza_margine.fieldbyname('importo_euro').asfloat);
 
-          totalizza_margine.next;
+          qtotalizza_margine.next;
         end;
 
         stringa := 'totale imponibile venduto ' + #9 + ': ' + formatfloat(formato_display_importo, totale_importo) + #13 +
@@ -18341,13 +18378,6 @@ begin
 
               margine_cnf.sql.add('(select round(sum(quantita * costo_unitario), 2)');
               margine_cnf.sql.add('from');
-              (*
-                margine_cnf.sql.add('inner join fas on fas.codice = cnl.fas_codice');
-                margine_cnf.sql.add('left join frn on cnl.frn_codice = frn.codice');
-                margine_cnf.sql.add('left join lsa on lsa.tla_codice = frn.tla_codice and lsa.art_codice = fas.art_codice');
-                margine_cnf.sql.add('and current_date between lsa.data_inizio and lsa.data_fine');
-                margine_cnf.sql.add('where cnl.configurazione = :configurazione) importo_costo_manodopera,');
-              *)
               margine_cnf.sql.add('(select cnl.importo, cnl.quantita,');
               margine_cnf.sql.add('case when cnl.costo_unitario <> 0 then cnl.costo_unitario else lsa.prezzo end costo_unitario');
               margine_cnf.sql.add('from cnl');
@@ -18451,6 +18481,8 @@ begin
     margine_kit.free;
     omaggi_sconti.free;
     da_evadere.free;
+    qtotalizza_margine.free;
+    qtotalizza_quantita.free;
   end;
 
   if arc.utn.fieldbyname('importi_vendite').asstring <> 'nascondi' then
@@ -19006,33 +19038,8 @@ begin
 end;
 
 procedure TGESVEN.v_artpClick(Sender: TObject);
-(*
-  var
-  codice_visarc: variant;
-*)
 begin
   inherited;
-
-  (*
-    codice_visarc := '';
-    esegui_visarc(arc.arcdit, 'ARTP', 'ARTP', codice_visarc, '', '', '', '', '', '');
-    if codice_visarc <> '' then
-    begin
-    parametri_extra_programma_chiamato[29] := codice_visarc;
-    esegui_programma('GESARTP', parametri_extra_programma_chiamato[29], true);
-    if parametri_extra_programma_chiamato[29] <> null then
-    begin
-    codice_visarc := parametri_extra_programma_chiamato[29];
-    if tabella_edit(tabella_righe) then
-    begin
-    tabella_righe.fieldbyname('art_codice').asstring := parametri_extra_programma_chiamato[29];
-    art_codice_controllo(false);
-    fuoco(v_art_codice);
-    end;
-    parametri_extra_programma_chiamato[29] := null;
-    end;
-    end;
-  *)
 
   assegna_articolo_potenziale;
 end;
@@ -19087,6 +19094,7 @@ var
   salva_tipo_documento: string;
   salva_riga: integer;
   prosegui: boolean;
+  qduplica_testata: tmyquery_go;
 begin
   prosegui := true;
   if (date < data_inizio) or (date > data_fine) then
@@ -19353,25 +19361,16 @@ begin
 
             if tdo_codice_duplica <> '' then
             begin
-              duplica_testata.close;
-              duplica_testata.sql.clear;
-              duplica_testata.sql.add('select * from ' + tabella_tablename + ' where progressivo = :progressivo');
-              duplica_testata.params[0].asfloat := tabella.fieldbyname('progressivo').asfloat;
-              duplica_testata.open;
+              qduplica_testata := tmyquery_go.create(nil);
+              qduplica_testata.connection := arc.arcdit;
+              qduplica_testata.sql.add('select * from ' + tabella_tablename + ' where progressivo = :progressivo');
+              qduplica_testata.params[0].asfloat := tabella.fieldbyname('progressivo').asfloat;
 
               duplica_righe.close;
               duplica_righe.sql.clear;
               duplica_righe.sql.add('select * from ' + tabella_righe_tablename + ' where progressivo = :progressivo');
               duplica_righe.params[0].asfloat := tabella.fieldbyname('progressivo').asfloat;
               duplica_righe.open;
-
-              (*
-                setlength(tabella_copia, tabella.fields.count);
-                for i := 0 to tabella.fields.count - 1 do
-                begin
-                tabella_copia[i] := tabella.fields[i].value;
-                end;
-              *)
 
               esiste := false;
               esiste_documento := false;
@@ -19398,23 +19397,27 @@ begin
               tabella.open;
               tabella_righe.open;
 
-              (*
-                apri_transazione;
-                try
-                try
-              *)
-
               tabella.append;
-              for i := 0 to duplica_testata.fields.count - 1 do
-              begin
-                if lowercase(duplica_testata.fields[i].fieldname) <> 'id' then
+
+              try
+
+                qduplica_testata.open;
+
+                for i := 0 to qduplica_testata.fields.count - 1 do
                 begin
-                  try
-                    //tabella.fields[i].value := tabella_copia[i];
-                    tabella.fields[i].value := duplica_testata.fieldbyname(duplica_testata.fields[i].fieldname).value;
-                  except
+                  if lowercase(qduplica_testata.fields[i].fieldname) <> 'id' then
+                  begin
+                    try
+                      //tabella.fields[i].value := tabella_copia[i];
+                      tabella.fields[i].value := qduplica_testata.fieldbyname(qduplica_testata.fields[i].fieldname).value;
+                    except
+                    end;
                   end;
                 end;
+
+                tabella.fieldbyname('iva_bloccata').asstring := qduplica_testata.fieldbyname('iva_bloccata').asstring;
+              finally
+                qduplica_testata.free;
               end;
 
               tabella.fieldbyname('situazione_sdi').asstring := 'in attesa invio';
@@ -19431,18 +19434,10 @@ begin
                 tabella.fieldbyname('ese_codice').asstring := esercizio;
               end;
 
-              (*
-                tmo_codice_origine := tabella.fieldbyname('tmo_codice').asstring;
-                tmo_codice_collegato_origine := tabella.fieldbyname('tmo_codice_collegato').asstring;
-                tma_codice_origine := tabella.fieldbyname('tma_codice').asstring;
-                tma_codice_collegato_origine := tabella.fieldbyname('tma_codice_collegato').asstring;
-              *)
-
               tabella.fieldbyname('tdo_codice').asstring := tdo_codice_duplica;
               read_tabella(tdo, tabella.fieldbyname('tdo_codice').asstring);
               tdo_codice_controllo(false);
               assegna_tdo_codice;
-              tabella.fieldbyname('iva_bloccata').asstring := duplica_testata.fieldbyname('iva_bloccata').asstring;
               if tabella.fieldbyname('tco_codice').asstring <> '' then
               begin
                 tabella.fieldbyname('gen_codice_ritenuta').asstring := gen_codice_ritenuta;
@@ -19454,25 +19449,6 @@ begin
                 tabella.fieldbyname('cms_codice').asstring := '';
                 tabella.fieldbyname('tipologia').asstring := '';
               end;
-
-              (*
-                if (tmo_codice_origine <> '') and (tabella.fieldbyname('tmo_codice').asstring = '') then
-                begin
-                tabella.fieldbyname('tmo_codice').asstring := tmo_codice_origine;
-                end;
-                if (tmo_codice_collegato_origine <> '') and (tabella.fieldbyname('tmo_codice_collegato').asstring = '') then
-                begin
-                tabella.fieldbyname('tmo_codice_collegato').asstring := tmo_codice_collegato_origine;
-                end;
-                if (tma_codice_origine <> '') and (tabella.fieldbyname('tma_codice').asstring = '') then
-                begin
-                tabella.fieldbyname('tma_codice').asstring := tma_codice_origine;
-                end;
-                if (tma_codice_collegato_origine <> '') and (tabella.fieldbyname('tma_codice_collegato').asstring = '') then
-                begin
-                tabella.fieldbyname('tma_codice_collegato').asstring := tma_codice_collegato_origine;
-                end;
-              *)
 
               tabella.fieldbyname('progressivo').asinteger := arc.setta_valore_generatore(tmyconnection_go(tabella.connection), generatore + '_progressivo');
               nuovo_progressivo := tabella.fieldbyname('progressivo').asinteger;
@@ -19754,19 +19730,6 @@ begin
 
               totven.movven_testata(tmyconnection_go(tabella.connection), tipo_documento, nuovo_progressivo);
 
-              (*
-                commit_transazione;
-                except
-                on e: exception do
-                begin
-                rollback_transazione(e.message);
-                end;
-                end;
-                finally
-                chiudi_transazione;
-                end;
-              *)
-
               //se è un preventivo copia l'eventuale file rtf
               if (copy(tipo_documento, 1, 10) = 'preventivo') and (copy(salva_tipo_documento, 1, 10) = 'preventivo') then
               begin
@@ -19879,8 +19842,8 @@ end;
 procedure tgesven.duplica_configurazione;
 var
   i: word;
-  cnf, cnf_originale: tmyquery_go;
-  cnl, cnl_originale: tmyquery_go;
+  l_cnf, cnf_originale: tmyquery_go;
+  l_cnl, cnl_originale: tmyquery_go;
 begin
   if (duplica_righe.fieldbyname('configurazione').asinteger <> 0) and
     (tdo.fieldbyname('gestione_configurazione').asstring = 'si') then
@@ -19911,61 +19874,61 @@ begin
 
       tabella_righe.fieldbyname('configurazione').asinteger := trunc(cnt.fieldbyname('progressivo').asfloat);
 
-      cnf := tmyquery_go.create(nil);
+      l_cnf := tmyquery_go.create(nil);
       cnf_originale := tmyquery_go.create(nil);
-      cnf.connection := arc.arcdit;
+      l_cnf.connection := arc.arcdit;
       cnf_originale.connection := arc.arcdit;
-      cnf.sql.text := 'select * from cnf where configurazione = :configurazione';
+      l_cnf.sql.text := 'select * from cnf where configurazione = :configurazione';
       cnf_originale.sql.text := 'select * from cnf where configurazione = :configurazione order by sequenza';
 
       cnf_originale.parambyname('configurazione').asinteger := duplica_righe.fieldbyname('configurazione').asinteger;
       cnf_originale.open;
-      cnf.open;
+      l_cnf.open;
 
       while not cnf_originale.eof do
       begin
-        cnf.append;
+        l_cnf.append;
         for i := 0 to cnf_originale.fields.count - 1 do
         begin
-          cnf.fields[i].value := cnf_originale.fields[i].value;
+          l_cnf.fields[i].value := cnf_originale.fields[i].value;
         end;
-        cnf.fieldbyname('id').asinteger := 0;
-        cnf.fieldbyname('configurazione').asinteger := tabella_righe.fieldbyname('configurazione').asinteger;
-        cnf.post;
+        l_cnf.fieldbyname('id').asinteger := 0;
+        l_cnf.fieldbyname('configurazione').asinteger := tabella_righe.fieldbyname('configurazione').asinteger;
+        l_cnf.post;
 
         cnf_originale.next;
       end;
 
-      cnf.free;
+      l_cnf.free;
       cnf_originale.free;
 
-      //  cnl
-      cnl := tmyquery_go.create(nil);
+      //  l_cnl
+      l_cnl := tmyquery_go.create(nil);
       cnl_originale := tmyquery_go.create(nil);
-      cnl.connection := arc.arcdit;
+      l_cnl.connection := arc.arcdit;
       cnl_originale.connection := arc.arcdit;
-      cnl.sql.text := 'select * from cnl where configurazione = :configurazione';
+      l_cnl.sql.text := 'select * from cnl where configurazione = :configurazione';
       cnl_originale.sql.text := 'select * from cnl where configurazione = :configurazione order by sequenza';
 
       cnl_originale.parambyname('configurazione').asinteger := duplica_righe.fieldbyname('configurazione').asinteger;
       cnl_originale.open;
-      cnl.open;
+      l_cnl.open;
 
       while not cnl_originale.eof do
       begin
-        cnl.append;
+        l_cnl.append;
         for i := 0 to cnl_originale.fields.count - 1 do
         begin
-          cnl.fields[i].value := cnl_originale.fields[i].value;
+          l_cnl.fields[i].value := cnl_originale.fields[i].value;
         end;
-        cnl.fieldbyname('id').asinteger := 0;
-        cnl.fieldbyname('configurazione').asinteger := tabella_righe.fieldbyname('configurazione').asinteger;
-        cnl.post;
+        l_cnl.fieldbyname('id').asinteger := 0;
+        l_cnl.fieldbyname('configurazione').asinteger := tabella_righe.fieldbyname('configurazione').asinteger;
+        l_cnl.post;
 
         cnl_originale.next;
       end;
 
-      cnl.free;
+      l_cnl.free;
       cnl_originale.free;
     end;
   end;
@@ -20067,28 +20030,7 @@ begin
 
           tabella.post;
 
-          if read_tabella(pvd, vecchio_progressivo) then
-          begin
-            if messaggio(300, 'duplica allegati dell''originale') = 1 then
-            begin
-              pvd_revisione.open;
-              while not pvd.eof do
-              begin
-                pvd_revisione.append;
-
-                for i := 0 to pvd.fields.count - 1 do
-                begin
-                  //pvd_revisione.fields[i].value := pvd.fields[i].value;
-                  pvd_revisione.fieldbyname(pvd.fields[i].fieldname).value := pvd.fields[i].value;
-                end;
-                pvd_revisione.fieldbyname('progressivo').asinteger := tabella.fieldbyname('progressivo').asinteger;
-
-                pvd_revisione.post;
-
-                pvd.next;
-              end;
-            end;
-          end;
+          duplica_allegati_revisione(vecchio_progressivo);
 
           //se è un preventivo copia l'eventuale file rtf
           if copy(tabella.fieldbyname('tipo_documento').asstring, 1, 10) = 'preventivo' then
@@ -20148,13 +20090,6 @@ begin
             'where progressivo = :progressivo';
           aggiorna_revisione.parambyname('progressivo').asinteger := vecchio_progressivo;
           aggiorna_revisione.execsql;
-
-          (*
-            aggiorna_revisione_testata.sql.text := 'update ' + tabella_tablename + ' set data_revisione = current_date ' +
-            'where progressivo = :progressivo';
-            aggiorna_revisione_testata.parambyname('progressivo').asinteger := vecchio_progressivo;
-            aggiorna_revisione_testata.execsql;
-          *)
 
           commit_transazione('transazione non eseguita');
         except
@@ -20623,9 +20558,9 @@ var
   pr: tultprz;
   pr1: tvislsa;
   pr2: tvislsv;
-
   scorpora: boolean;
   prezzo, prezzo_netto, prezzo_netto_iva: double;
+  qaddebito: tmyquery_go;
 begin
   inherited;
   if (key = vk_f11) and (shift = []) then
@@ -20715,41 +20650,46 @@ begin
 
   if (key = vk_f7) and (shift = [ssctrl]) and not esiste_righe then
   begin
-    query_addebito.close;
-    query_addebito.sql.clear;
-    query_addebito.sql.add('select sum(importo) importo');
-    if copy(tipo_documento, 1, 10) = 'preventivo' then
-    begin
-      query_addebito.sql.add('from pvr');
-    end
-    else if tipo_documento = 'ordine' then
-    begin
-      query_addebito.sql.add('from ovr');
-    end
-    else if tipo_documento = 'bolla' then
-    begin
-      query_addebito.sql.add('from bvr');
-    end
-    else if tipo_documento = 'corrispettivo' then
-    begin
-      query_addebito.sql.add('from cvr');
-    end
-    else if tipo_documento = 'ddt' then
-    begin
-      query_addebito.sql.add('from dvr');
-    end
-    else
-    begin
-      query_addebito.sql.add('from fvr');
+    qaddebito := tmyquery_go.create(nil);
+    qaddebito.connection := arc.arcdit;
+
+    try
+      qaddebito.sql.add('select sum(importo) importo');
+      if copy(tipo_documento, 1, 10) = 'preventivo' then
+      begin
+        qaddebito.sql.add('from pvr');
+      end
+      else if tipo_documento = 'ordine' then
+      begin
+        qaddebito.sql.add('from ovr');
+      end
+      else if tipo_documento = 'bolla' then
+      begin
+        qaddebito.sql.add('from bvr');
+      end
+      else if tipo_documento = 'corrispettivo' then
+      begin
+        qaddebito.sql.add('from cvr');
+      end
+      else if tipo_documento = 'ddt' then
+      begin
+        qaddebito.sql.add('from dvr');
+      end
+      else
+      begin
+        qaddebito.sql.add('from fvr');
+      end;
+      qaddebito.sql.add('where progressivo = :progressivo and riga < :riga');
+
+      qaddebito.parambyname('progressivo').asinteger := tabella_righe.fieldbyname('progressivo').asinteger;
+      qaddebito.parambyname('riga').asinteger := tabella_righe.fieldbyname('riga').asinteger;
+      qaddebito.open;
+
+      tabella_righe.fieldbyname('importo').asfloat := arrotonda
+        (qaddebito.fieldbyname('importo').asfloat * v_prezzo.value / 100, cifre_decimali_importo);
+    finally
+      qaddebito.free;
     end;
-    query_addebito.sql.add('where progressivo = :progressivo and riga < :riga');
-
-    query_addebito.parambyname('progressivo').asinteger := tabella_righe.fieldbyname('progressivo').asinteger;
-    query_addebito.parambyname('riga').asinteger := tabella_righe.fieldbyname('riga').asinteger;
-    query_addebito.open;
-
-    tabella_righe.fieldbyname('importo').asfloat := arrotonda
-      (query_addebito.fieldbyname('importo').asfloat * v_prezzo.value / 100, cifre_decimali_importo);
 
     tabella_righe.fieldbyname('numero_colli').asfloat := 0;
     tabella_righe.fieldbyname('numero_confezioni').asfloat := 0;
@@ -20930,19 +20870,36 @@ begin
 end;
 
 procedure tgesven.v_importo_spese_trasportoexit(sender: tobject);
+var
+  qspese_trasporto_giornaliere: tmyquery_go;
 begin
   inherited;
-  if controllo and (cli.fieldbyname('spese_trasporto_giornaliere').asstring = 'si') then
-  begin
-    spese_trasporto_giornaliere.close;
-    spese_trasporto_giornaliere.parambyname('cli_codice').asstring := v_cli_codice.text;
-    spese_trasporto_giornaliere.parambyname('data_documento').asdate := v_data_documento.date;
-    spese_trasporto_giornaliere.parambyname('progressivo').asinteger := trunc(v_progressivo.value);
-    spese_trasporto_giornaliere.open;
-    if not spese_trasporto_giornaliere.isempty then
+  qspese_trasporto_giornaliere := tmyquery_go.create(nil);
+  qspese_trasporto_giornaliere.connection := arc.arcdit;
+
+  qspese_trasporto_giornaliere.sql.add('select id from bvt where cli_codice = :cli_codice and data_documento = :data_documento');
+  qspese_trasporto_giornaliere.sql.add('and progressivo <> :progressivo and importo_spese_trasporto <> 0');
+  qspese_trasporto_giornaliere.sql.add('union all');
+  qspese_trasporto_giornaliere.sql.add('select id from dvt where cli_codice = :cli_codice and data_documento = :data_documento');
+  qspese_trasporto_giornaliere.sql.add('and progressivo <> :progressivo and importo_spese_trasporto <> 0');
+  qspese_trasporto_giornaliere.sql.add('union all');
+  qspese_trasporto_giornaliere.sql.add('select id from fvt where cli_codice = :cli_codice and data_documento = :data_documento');
+  qspese_trasporto_giornaliere.sql.add('and progressivo <> :progressivo and importo_spese_trasporto <> 0');
+
+  try
+    if controllo and (cli.fieldbyname('spese_trasporto_giornaliere').asstring = 'si') then
     begin
-      messaggio(200, 'per il cliente sono già state addebitate spese di trasporto nella giornata');
+      qspese_trasporto_giornaliere.parambyname('cli_codice').asstring := v_cli_codice.text;
+      qspese_trasporto_giornaliere.parambyname('data_documento').asdate := v_data_documento.date;
+      qspese_trasporto_giornaliere.parambyname('progressivo').asinteger := trunc(v_progressivo.value);
+      qspese_trasporto_giornaliere.open;
+      if not qspese_trasporto_giornaliere.isempty then
+      begin
+        messaggio(200, 'per il cliente sono già state addebitate spese di trasporto nella giornata');
+      end;
     end;
+  finally
+    qspese_trasporto_giornaliere.free;
   end;
 end;
 
@@ -20995,28 +20952,6 @@ begin
     begin
       assegna_pvv := true;
 
-      (*
-        codice_archivio := '';
-        esegui_visarc(arc.arcdit, 'PVV', 'PVVVEN', codice_archivio, v_cli_codice.text, v_indirizzo.text, '', '', '', '');
-        read_tabella(arc.arcdit, 'pvvr', 'punto_vendita', codice_archivio);
-        if tabella.fieldbyname('punto_vendita').asstring <> archivio.fieldbyname('punto_vendita').asstring then
-        begin
-        if tabella_edit(tabella) then
-        begin
-        tabella.fieldbyname('punto_vendita').asstring := archivio.fieldbyname('punto_vendita').asstring;
-        end;
-        end;
-        if tabella.fieldbyname('indirizzo').asstring <> archivio.fieldbyname('ind_codice').asstring then
-        begin
-        ind_codice := archivio.fieldbyname('ind_codice').asstring;
-        //selectnext(v_cli_codice, true, true);
-        if tabella_edit(tabella) then
-        begin
-        tabella.fieldbyname('indirizzo').asstring := ind_codice;
-        //assegna_ind;
-        end;
-        end;
-      *)
       selectnext(v_cli_codice, true, true);
     end;
   end;
@@ -21034,38 +20969,6 @@ begin
 
   cli_codice_fatturazione_controllo(true);
 
-  (*
-    if variato_stringa <> v_cli_codice_fatturazione.text then
-    begin
-    if cli_fatturazione.fieldbyname('tiv_codice').asstring <> '' then
-    begin
-    if tabella.fieldbyname('data_documento').asdatetime <= cli_fatturazione.fieldbyname('data_esenzione_iva').asdatetime then
-    begin
-    if tabella.fieldbyname('tiv_codice').asstring <> cli_fatturazione.fieldbyname('tiv_codice').asstring then
-    begin
-    if tabella_edit(tabella) then
-    begin
-    tabella.fieldbyname('tiv_codice').asstring := cli_fatturazione.fieldbyname('tiv_codice').asstring;
-    assegna_valore_tiv_codice;
-    tiv_codice_controllo(false);
-    end;
-    end;
-    end;
-    end
-    else
-    begin
-    if tabella.fieldbyname('tiv_codice').asstring <> cli_fatturazione.fieldbyname('tiv_codice').asstring then
-    begin
-    if tabella_edit(tabella) then
-    begin
-    tabella.fieldbyname('tiv_codice').asstring := cli_fatturazione.fieldbyname('tiv_codice').asstring;
-    assegna_valore_tiv_codice;
-    tiv_codice_controllo(false);
-    end;
-    end;
-    end;
-    end;
-  *)
 end;
 
 procedure TGESVEN.cli_codice_fatturazione_controllo(blocco: boolean);
@@ -21078,6 +20981,7 @@ var
   pr: tvisdocev;
 
   stringa, campo: string;
+  qcamdoc: tmyquery_go;
 begin
   if copy(tipo_documento, 1, 10) <> 'preventivo' then
   begin
@@ -21293,20 +21197,30 @@ begin
           variato_stringa := v_cli_codice.text;
 
           //  campi personalizzati da passare
-          if read_tabella(camdoc, vararrayof(['vendite', pr.tipo_documento_evasione,
-            'vendite', tipo_documento])) then
-          begin
-            stringa := trim(camdoc.fieldbyname('campi_testata').asstring);
-            while pos(';', stringa) > 0 do
+          qcamdoc := tmyquery_go.create(nil);
+          qcamdoc.connection := arc.arcdit;
+          qcamdoc.sql.add('select * from camdoc');
+          qcamdoc.sql.add('where modulo_origine = :modulo_origine and tipo_documento_origine = :tipo_documento_origine');
+          qcamdoc.sql.add('and modulo_derivato = :modulo_derivato and tipo_documento_derivato = :tipo_documento_derivato');
+
+          try
+            if read_tabella(qcamdoc, vararrayof(['vendite', pr.tipo_documento_evasione,
+              'vendite', tipo_documento])) then
             begin
-              campo := copy(stringa, 1, pos(';', stringa) - 1);
-              tabella.fieldbyname(campo).value := testata_documento_evaso.fieldbyname(campo).value;
-              stringa := trim(copy(stringa, pos(';', stringa) + 1, length(stringa)));
+              stringa := trim(qcamdoc.fieldbyname('campi_testata').asstring);
+              while pos(';', stringa) > 0 do
+              begin
+                campo := copy(stringa, 1, pos(';', stringa) - 1);
+                tabella.fieldbyname(campo).value := testata_documento_evaso.fieldbyname(campo).value;
+                stringa := trim(copy(stringa, pos(';', stringa) + 1, length(stringa)));
+              end;
+              if stringa <> '' then
+              begin
+                tabella.fieldbyname(stringa).value := testata_documento_evaso.fieldbyname(stringa).value;
+              end;
             end;
-            if stringa <> '' then
-            begin
-              tabella.fieldbyname(stringa).value := testata_documento_evaso.fieldbyname(stringa).value;
-            end;
+          finally
+            qcamdoc.free;
           end;
           //
         end;
@@ -21328,87 +21242,89 @@ begin
     dav_nuovo := tmyquery_go.create(nil);
     dav_nuovo.connection := arc.arcdit;
 
-    if copy(tipo_documento_origine, 1, 10) = 'preventivo' then
-    begin
-      dav.sql.text := 'select * from pvd where progressivo = ' + inttostr(progressivo_origine);
-    end
-    else if tipo_documento_origine = 'ordine' then
-    begin
-      dav.sql.text := 'select * from ovd where progressivo = ' + inttostr(progressivo_origine);
-    end;
-
-    if tipo_documento_collegato = 'bolla' then
-    begin
-      dav_nuovo.sql.text := 'select * from bvd where progressivo = ' + inttostr(progressivo_collegato);
-    end
-    else if tipo_documento_collegato = 'corrispettivo' then
-    begin
-      dav_nuovo.sql.text := 'select * from cvd where progressivo = ' + inttostr(progressivo_collegato);
-    end
-    else if tipo_documento_collegato = 'ddt' then
-    begin
-      dav_nuovo.sql.text := 'select * from dvd where progressivo = ' + inttostr(progressivo_collegato);
-    end
-    else if tipo_documento_collegato = 'ordine' then
-    begin
-      dav_nuovo.sql.text := 'select * from ovd where progressivo = ' + inttostr(progressivo_collegato);
-    end
-    else if tipo_documento_collegato = 'ordine produzione' then
-    begin
-      dav_nuovo.sql.text := 'select * from opd where progressivo = ' + inttostr(progressivo_collegato);
-    end
-    else
-    begin
-      dav_nuovo.sql.text := 'select * from fvd where progressivo = ' + inttostr(progressivo_collegato);
-    end;
-
-    dav.open;
-    dav_nuovo.open;
-
-    while not dav.eof do
-    begin
-      if tipo_documento_collegato = 'ordine produzione' then
+    try
+      if copy(tipo_documento_origine, 1, 10) = 'preventivo' then
       begin
-        if dav.fieldbyname('documento_produzione').asstring = 'si' then
-        begin
-          dav_nuovo.append;
+        dav.sql.text := 'select * from pvd where progressivo = ' + inttostr(progressivo_origine);
+      end
+      else if tipo_documento_origine = 'ordine' then
+      begin
+        dav.sql.text := 'select * from ovd where progressivo = ' + inttostr(progressivo_origine);
+      end;
 
-          dav_nuovo.fieldbyname('progressivo').asinteger := progressivo_collegato;
-          dav_nuovo.fieldbyname('riga').asinteger := dav.fieldbyname('riga').asinteger;
-          dav_nuovo.fieldbyname('descrizione').asstring := dav.fieldbyname('descrizione').asstring;
-          dav_nuovo.fieldbyname('pathname').asstring := dav.fieldbyname('pathname').asstring;
-
-          dav_nuovo.post;
-        end;
-
-        dav.next;
+      if tipo_documento_collegato = 'bolla' then
+      begin
+        dav_nuovo.sql.text := 'select * from bvd where progressivo = ' + inttostr(progressivo_collegato);
+      end
+      else if tipo_documento_collegato = 'corrispettivo' then
+      begin
+        dav_nuovo.sql.text := 'select * from cvd where progressivo = ' + inttostr(progressivo_collegato);
+      end
+      else if tipo_documento_collegato = 'ddt' then
+      begin
+        dav_nuovo.sql.text := 'select * from dvd where progressivo = ' + inttostr(progressivo_collegato);
+      end
+      else if tipo_documento_collegato = 'ordine' then
+      begin
+        dav_nuovo.sql.text := 'select * from ovd where progressivo = ' + inttostr(progressivo_collegato);
+      end
+      else if tipo_documento_collegato = 'ordine produzione' then
+      begin
+        dav_nuovo.sql.text := 'select * from opd where progressivo = ' + inttostr(progressivo_collegato);
       end
       else
       begin
-        if dav.fieldbyname('documento_derivato').asstring = 'si' then
+        dav_nuovo.sql.text := 'select * from fvd where progressivo = ' + inttostr(progressivo_collegato);
+      end;
+
+      dav.open;
+      dav_nuovo.open;
+
+      while not dav.eof do
+      begin
+        if tipo_documento_collegato = 'ordine produzione' then
         begin
-          dav_nuovo.append;
-
-          dav_nuovo.fieldbyname('progressivo').asinteger := progressivo_collegato;
-          dav_nuovo.fieldbyname('riga').asinteger := dav.fieldbyname('riga').asinteger;
-          dav_nuovo.fieldbyname('descrizione').asstring := dav.fieldbyname('descrizione').asstring;
-          dav_nuovo.fieldbyname('pathname').asstring := dav.fieldbyname('pathname').asstring;
-
-          if tipo_documento = 'ordine' then
+          if dav.fieldbyname('documento_produzione').asstring = 'si' then
           begin
-            dav_nuovo.fieldbyname('documento_derivato').asstring := 'si';
-            dav_nuovo.fieldbyname('documento_produzione').asstring := dav.fieldbyname('documento_produzione').asstring;
+            dav_nuovo.append;
+
+            dav_nuovo.fieldbyname('progressivo').asinteger := progressivo_collegato;
+            dav_nuovo.fieldbyname('riga').asinteger := dav.fieldbyname('riga').asinteger;
+            dav_nuovo.fieldbyname('descrizione').asstring := dav.fieldbyname('descrizione').asstring;
+            dav_nuovo.fieldbyname('pathname').asstring := dav.fieldbyname('pathname').asstring;
+
+            dav_nuovo.post;
           end;
 
-          dav_nuovo.post;
+          dav.next;
+        end
+        else
+        begin
+          if dav.fieldbyname('documento_derivato').asstring = 'si' then
+          begin
+            dav_nuovo.append;
+
+            dav_nuovo.fieldbyname('progressivo').asinteger := progressivo_collegato;
+            dav_nuovo.fieldbyname('riga').asinteger := dav.fieldbyname('riga').asinteger;
+            dav_nuovo.fieldbyname('descrizione').asstring := dav.fieldbyname('descrizione').asstring;
+            dav_nuovo.fieldbyname('pathname').asstring := dav.fieldbyname('pathname').asstring;
+
+            if tipo_documento = 'ordine' then
+            begin
+              dav_nuovo.fieldbyname('documento_derivato').asstring := 'si';
+              dav_nuovo.fieldbyname('documento_produzione').asstring := dav.fieldbyname('documento_produzione').asstring;
+            end;
+
+            dav_nuovo.post;
+          end;
+
+          dav.next;
         end;
-
-        dav.next;
       end;
+    finally
+      freeandnil(dav_nuovo);
+      freeandnil(dav);
     end;
-
-    freeandnil(dav_nuovo);
-    freeandnil(dav);
   end;
 end;
 
@@ -21424,49 +21340,7 @@ begin
   begin
     //  creata procedura che utilizza anche il lettore
     assegna_campi_righe;
-    (*
-      tabella_righe.fieldbyname('data_consegna').asstring := tabella.fieldbyname('data_consegna').asstring;
-      tabella_righe.fieldbyname('tma_codice').asstring := tabella.fieldbyname('tma_codice').asstring;
-      tabella_righe.fieldbyname('tma_codice_collegato').asstring := tabella.fieldbyname('tma_codice_collegato').asstring;
 
-      tabella_righe.fieldbyname('prezzo_bloccato').asstring := tdo.fieldbyname('prezzo_bloccato').asstring;
-      tabella_righe.fieldbyname('evadere_note').asstring := tdo.fieldbyname('evadere_note').asstring;
-
-      tabella_righe.fieldbyname('stampa_configurazioni').asstring := stampa_configurazioni;
-      tabella_righe.fieldbyname('prezzi_configurazione').asstring := prezzi_configurazione;
-
-      tabella_righe.fieldbyname('data_inizio_competenza').asstring := tabella.fieldbyname('data_inizio_competenza').asstring;
-      tabella_righe.fieldbyname('data_fine_competenza').asstring := tabella.fieldbyname('data_fine_competenza').asstring;
-
-      tabella_righe.fieldbyname('cms_codice').asstring := tabella.fieldbyname('cms_codice').asstring;
-      tabella_righe.fieldbyname('tipologia').asstring := tabella.fieldbyname('tipologia').asstring;
-      if ultimo_cms_codice <> '' then
-      begin
-      tabella_righe.fieldbyname('cms_codice').asstring := ultimo_cms_codice;
-      tabella_righe.fieldbyname('tipologia').asstring := ultimo_tipologia;
-      end;
-
-      tabella_righe.fieldbyname('note_art').asstring := tdo.fieldbyname('note_come_descrizioni').asstring;
-
-      tabella_righe.fieldbyname('cen_codice').asstring := tabella.fieldbyname('cen_codice').asstring;
-      tabella_righe.fieldbyname('tvc_codice').asstring := tabella.fieldbyname('tvc_codice').asstring;
-
-      if tdo.fieldbyname('rma').asstring = 'si' then
-      begin
-      tabella_righe.fieldbyname('quantita').asfloat := 1;
-      tabella_righe.fieldbyname('tum_quantita_base').asfloat := 1;
-      end;
-
-      tabella_righe.fieldbyname('iva_bloccata').asstring := tabella.fieldbyname('iva_bloccata').asstring;
-      tabella_righe.fieldbyname('soggetto_addebito_enasarco').asstring := tabella.fieldbyname('soggetto_addebito_enasarco').asstring;
-      if tabella.fieldbyname('soggetto_addebito_enasarco').asstring = 'si' then
-      begin
-      decodedate(tabella.fieldbyname('data_documento').asdatetime, anno, mese, giorno);
-      tabella_righe.fieldbyname('tea_codice').asstring := inttostr(anno);
-      end;
-      tabella_righe.fieldbyname('punto_vendita').asstring := tabella.fieldbyname('punto_vendita').asstring;
-      tabella_righe.fieldbyname('tipo_imballaggio').asstring := tabella.fieldbyname('tipo_imballaggio').asstring;
-    *)
   end;
 
   if (controllo) and (not esiste_documento) and ((screen.activecontrol = v_progressivo) or (screen.activecontrol = v_bottone_nuovo)) then
@@ -21643,14 +21517,6 @@ begin
 
     tabella_righe.fieldbyname('cen_codice').asstring := tabella.fieldbyname('cen_codice').asstring;
     tabella_righe.fieldbyname('tvc_codice').asstring := tabella.fieldbyname('tvc_codice').asstring;
-
-    (*
-      if tdo.fieldbyname('rma').asstring = 'si' then
-      begin
-      tabella_righe.fieldbyname('quantita').asfloat := 1;
-      tabella_righe.fieldbyname('tum_quantita_base').asfloat := 1;
-      end;
-    *)
 
     tabella_righe.fieldbyname('iva_bloccata').asstring := tabella.fieldbyname('iva_bloccata').asstring;
     tabella_righe.fieldbyname('soggetto_addebito_enasarco').asstring := tabella.fieldbyname('soggetto_addebito_enasarco').asstring;
@@ -22916,7 +22782,48 @@ begin
 
   inherited;
 end;
+
 // fine fattura differita
+
+procedure TGESVEN.duplica_allegati_revisione(avecchio_progressivo: Integer);
+var
+  i: Word;
+  qpvd, qpvd_revisione: tmyquery_go;
+begin
+  qpvd := tmyquery_go.create(nil);
+  qpvd.connection := arc.arcdit;
+  qpvd.sql.add('select * from pvd');
+  qpvd.sql.add('where progressivo = :progressivo');
+
+  qpvd_revisione := tmyquery_go.create(nil);
+  qpvd_revisione.connection := arc.arcdit;
+  qpvd_revisione.sql.add('select * from pvd');
+  qpvd_revisione.sql.add('where progressivo = :progressivo');
+
+  try
+    if read_tabella(qpvd, avecchio_progressivo) then
+    begin
+      if messaggio(300, 'duplica allegati dell''originale') = 1 then
+      begin
+        qpvd_revisione.open;
+        while not qpvd.eof do
+        begin
+          qpvd_revisione.append;
+          for i := 0 to qpvd.fields.count - 1 do
+          begin
+            qpvd_revisione.fieldbyname(qpvd.fields[i].fieldname).value := qpvd.fields[i].value;
+          end;
+          qpvd_revisione.fieldbyname('progressivo').asinteger := tabella.fieldbyname('progressivo').asinteger;
+          qpvd_revisione.post;
+          qpvd.next;
+        end;
+      end;
+    end;
+  finally
+    qpvd.free;
+    qpvd_revisione.free;
+  end;
+end;
 
 procedure tgesven.v_distinta_baseclick(sender: tobject);
 var
@@ -24538,154 +24445,160 @@ begin
 end;
 
 procedure tgesven.totalizza_colli(modalita: string);
+var
+  qtotale_colli: tmyquery_go;
 begin
-  totale_colli.close;
-  totale_colli.sql.clear;
+  qtotale_colli := tmyquery_go.create(nil);
+  qtotale_colli.connection := arc.arcdit;
 
-  totale_colli.sql.add('select sum(numero_colli) totale_colli, sum(numero_confezioni) totale_confezioni,');
-  totale_colli.sql.add('sum(volume) volume, sum(peso_lordo) peso_lordo, sum(peso_netto) peso_netto ');
-  totale_colli.sql.add('from ');
-  totale_colli.sql.add('(select numero_colli, numero_confezioni,');
-  totale_colli.sql.add('round(tum_quantita_base * volume, 4) volume, round(tum_quantita_base * peso_lordo, 4) peso_lordo,');
-  totale_colli.sql.add('case');
-  totale_colli.sql.add('when peso_netto_riga <> 0 then peso_netto_riga');
-  totale_colli.sql.add('when tum.quantita_peso = ''si'' then quantita');
-  totale_colli.sql.add('when tum_art.quantita_peso = ''si'' then tum_quantita_base');
-  totale_colli.sql.add('else round(tum_quantita_base * peso_netto, 4)');
-  totale_colli.sql.add('end peso_netto');
-  if copy(tipo_documento, 1, 10) = 'preventivo' then
-  begin
-    totale_colli.sql.add('from pvr');
-  end
-  else if tipo_documento = 'ordine' then
-  begin
-    totale_colli.sql.add('from ovr');
-  end
-  else if tipo_documento = 'bolla' then
-  begin
-    totale_colli.sql.add('from bvr');
-  end
-  else if tipo_documento = 'corrispettivo' then
-  begin
-    totale_colli.sql.add('from cvr');
-  end
-  else if (tipo_documento = 'ddt') or (tipo_documento = 'ddt fornitori') then
-  begin
-    totale_colli.sql.add('from dvr');
-  end
-  else
-  begin
-    totale_colli.sql.add('from fvr');
-  end;
-  totale_colli.sql.add('inner join art on art.codice = art_codice');
-
-  if copy(tipo_documento, 1, 10) = 'preventivo' then
-  begin
-    totale_colli.sql.add('inner join tum on tum.codice = pvr.tum_codice');
-    totale_colli.sql.add('inner join tum tum_art on tum_art.codice = art.tum_codice');
-  end
-  else if tipo_documento = 'ordine' then
-  begin
-    totale_colli.sql.add('inner join tum on tum.codice = ovr.tum_codice');
-    totale_colli.sql.add('inner join tum tum_art on tum_art.codice = art.tum_codice');
-  end
-  else if tipo_documento = 'bolla' then
-  begin
-    totale_colli.sql.add('inner join tum on tum.codice = bvr.tum_codice');
-    totale_colli.sql.add('inner join tum tum_art on tum_art.codice = art.tum_codice');
-  end
-  else if tipo_documento = 'corrispettivo' then
-  begin
-    totale_colli.sql.add('inner join tum on tum.codice = cvr.tum_codice');
-    totale_colli.sql.add('inner join tum tum_art on tum_art.codice = art.tum_codice');
-  end
-  else if (tipo_documento = 'ddt') or (tipo_documento = 'ddt fornitori') then
-  begin
-    totale_colli.sql.add('inner join tum on tum.codice = dvr.tum_codice');
-    totale_colli.sql.add('inner join tum tum_art on tum_art.codice = art.tum_codice');
-  end
-  else
-  begin
-    totale_colli.sql.add('inner join tum on tum.codice = fvr.tum_codice');
-    totale_colli.sql.add('inner join tum tum_art on tum_art.codice = art.tum_codice');
-  end;
-
-  totale_colli.sql.add('where progressivo = :progressivo and situazione <> ''annullato''');
-
-  if copy(tipo_documento, 1, 10) = 'preventivo' then
-  begin
-    totale_colli.sql.add('and pvr.kit <> ''pf''');
-  end
-  else if tipo_documento = 'ordine' then
-  begin
-    totale_colli.sql.add('and ovr.kit <> ''pf''');
-  end
-  else if tipo_documento = 'bolla' then
-  begin
-    totale_colli.sql.add('and bvr.kit <> ''pf''');
-  end
-  else if tipo_documento = 'corrispettivo' then
-  begin
-    totale_colli.sql.add('and cvr.kit <> ''pf''');
-  end
-  else if (tipo_documento = 'ddt') or (tipo_documento = 'ddt fornitori') then
-  begin
-    totale_colli.sql.add('and dvr.kit <> ''pf''');
-  end
-  else
-  begin
-    totale_colli.sql.add('and fvr.kit <> ''pf''');
-  end;
-  totale_colli.sql.add(') as q');
-
-  totale_colli.parambyname('progressivo').asinteger := trunc(v_progressivo.value);
-
-  totale_colli.open;
-  if ((totalizzazione_colli = 'si') or (modalita = 'manuale'))
-    and (totale_colli.fieldbyname('totale_colli').asinteger <> 0) then
-  begin
-    if tabella_edit(tabella) then
+  try
+    qtotale_colli.sql.add('select sum(numero_colli) totale_colli, sum(numero_confezioni) totale_confezioni,');
+    qtotale_colli.sql.add('sum(volume) volume, sum(peso_lordo) peso_lordo, sum(peso_netto) peso_netto ');
+    qtotale_colli.sql.add('from ');
+    qtotale_colli.sql.add('(select numero_colli, numero_confezioni,');
+    qtotale_colli.sql.add('round(tum_quantita_base * volume, 4) volume, round(tum_quantita_base * peso_lordo, 4) peso_lordo,');
+    qtotale_colli.sql.add('case');
+    qtotale_colli.sql.add('when peso_netto_riga <> 0 then peso_netto_riga');
+    qtotale_colli.sql.add('when tum.quantita_peso = ''si'' then quantita');
+    qtotale_colli.sql.add('when tum_art.quantita_peso = ''si'' then tum_quantita_base');
+    qtotale_colli.sql.add('else round(tum_quantita_base * peso_netto, 4)');
+    qtotale_colli.sql.add('end peso_netto');
+    if copy(tipo_documento, 1, 10) = 'preventivo' then
     begin
-      tabella.fieldbyname('numero_colli').asinteger := totale_colli.fieldbyname('totale_colli').asinteger;
-    end;
-  end;
-  if ((totalizzazione_colli = 'si') or (modalita = 'manuale'))
-    and (totale_colli.fieldbyname('totale_confezioni').asinteger <> 0) then
-  begin
-    if tabella_edit(tabella) then
+      qtotale_colli.sql.add('from pvr');
+    end
+    else if tipo_documento = 'ordine' then
     begin
-      tabella.fieldbyname('numero_confezioni').asinteger := totale_colli.fieldbyname('totale_confezioni').asinteger;
+      qtotale_colli.sql.add('from ovr');
+    end
+    else if tipo_documento = 'bolla' then
+    begin
+      qtotale_colli.sql.add('from bvr');
+    end
+    else if tipo_documento = 'corrispettivo' then
+    begin
+      qtotale_colli.sql.add('from cvr');
+    end
+    else if (tipo_documento = 'ddt') or (tipo_documento = 'ddt fornitori') then
+    begin
+      qtotale_colli.sql.add('from dvr');
+    end
+    else
+    begin
+      qtotale_colli.sql.add('from fvr');
     end;
-  end;
+    qtotale_colli.sql.add('inner join art on art.codice = art_codice');
 
-  if ((totalizzazione_quantita = 'si') or (modalita = 'manuale'))
-    and (totale_colli.fieldbyname('volume').asfloat <> 0) then
-  begin
-    if tabella_edit(tabella) then
+    if copy(tipo_documento, 1, 10) = 'preventivo' then
     begin
-      tabella.fieldbyname('volume').asfloat := totale_colli.fieldbyname('volume').asfloat;
-    end;
-  end;
-  if ((totalizzazione_quantita = 'si') or (modalita = 'manuale'))
-    and (totale_colli.fieldbyname('peso_lordo').asfloat <> 0) then
-  begin
-    if tabella_edit(tabella) then
+      qtotale_colli.sql.add('inner join tum on tum.codice = pvr.tum_codice');
+      qtotale_colli.sql.add('inner join tum tum_art on tum_art.codice = art.tum_codice');
+    end
+    else if tipo_documento = 'ordine' then
     begin
-      tabella.fieldbyname('peso_lordo').asfloat := totale_colli.fieldbyname('peso_lordo').asfloat;
-    end;
-  end;
-  if ((totalizzazione_quantita = 'si') or (modalita = 'manuale'))
-    and (totale_colli.fieldbyname('peso_netto').asfloat <> 0) then
-  begin
-    if tabella_edit(tabella) then
+      qtotale_colli.sql.add('inner join tum on tum.codice = ovr.tum_codice');
+      qtotale_colli.sql.add('inner join tum tum_art on tum_art.codice = art.tum_codice');
+    end
+    else if tipo_documento = 'bolla' then
     begin
-      tabella.fieldbyname('peso_netto').asfloat := totale_colli.fieldbyname('peso_netto').asfloat;
+      qtotale_colli.sql.add('inner join tum on tum.codice = bvr.tum_codice');
+      qtotale_colli.sql.add('inner join tum tum_art on tum_art.codice = art.tum_codice');
+    end
+    else if tipo_documento = 'corrispettivo' then
+    begin
+      qtotale_colli.sql.add('inner join tum on tum.codice = cvr.tum_codice');
+      qtotale_colli.sql.add('inner join tum tum_art on tum_art.codice = art.tum_codice');
+    end
+    else if (tipo_documento = 'ddt') or (tipo_documento = 'ddt fornitori') then
+    begin
+      qtotale_colli.sql.add('inner join tum on tum.codice = dvr.tum_codice');
+      qtotale_colli.sql.add('inner join tum tum_art on tum_art.codice = art.tum_codice');
+    end
+    else
+    begin
+      qtotale_colli.sql.add('inner join tum on tum.codice = fvr.tum_codice');
+      qtotale_colli.sql.add('inner join tum tum_art on tum_art.codice = art.tum_codice');
     end;
-  end;
 
-  if (totalizzazione_quantita = 'si') or (modalita = 'manuale') then
-  begin
-    arc.calcola_peso_lordo(tabella);
+    qtotale_colli.sql.add('where progressivo = :progressivo and situazione <> ''annullato''');
+
+    if copy(tipo_documento, 1, 10) = 'preventivo' then
+    begin
+      qtotale_colli.sql.add('and pvr.kit <> ''pf''');
+    end
+    else if tipo_documento = 'ordine' then
+    begin
+      qtotale_colli.sql.add('and ovr.kit <> ''pf''');
+    end
+    else if tipo_documento = 'bolla' then
+    begin
+      qtotale_colli.sql.add('and bvr.kit <> ''pf''');
+    end
+    else if tipo_documento = 'corrispettivo' then
+    begin
+      qtotale_colli.sql.add('and cvr.kit <> ''pf''');
+    end
+    else if (tipo_documento = 'ddt') or (tipo_documento = 'ddt fornitori') then
+    begin
+      qtotale_colli.sql.add('and dvr.kit <> ''pf''');
+    end
+    else
+    begin
+      qtotale_colli.sql.add('and fvr.kit <> ''pf''');
+    end;
+    qtotale_colli.sql.add(') as q');
+
+    qtotale_colli.parambyname('progressivo').asinteger := trunc(v_progressivo.value);
+
+    qtotale_colli.open;
+    if ((totalizzazione_colli = 'si') or (modalita = 'manuale'))
+      and (qtotale_colli.fieldbyname('totale_colli').asinteger <> 0) then
+    begin
+      if tabella_edit(tabella) then
+      begin
+        tabella.fieldbyname('numero_colli').asinteger := qtotale_colli.fieldbyname('totale_colli').asinteger;
+      end;
+    end;
+    if ((totalizzazione_colli = 'si') or (modalita = 'manuale'))
+      and (qtotale_colli.fieldbyname('totale_confezioni').asinteger <> 0) then
+    begin
+      if tabella_edit(tabella) then
+      begin
+        tabella.fieldbyname('numero_confezioni').asinteger := qtotale_colli.fieldbyname('totale_confezioni').asinteger;
+      end;
+    end;
+
+    if ((totalizzazione_quantita = 'si') or (modalita = 'manuale'))
+      and (qtotale_colli.fieldbyname('volume').asfloat <> 0) then
+    begin
+      if tabella_edit(tabella) then
+      begin
+        tabella.fieldbyname('volume').asfloat := qtotale_colli.fieldbyname('volume').asfloat;
+      end;
+    end;
+    if ((totalizzazione_quantita = 'si') or (modalita = 'manuale'))
+      and (qtotale_colli.fieldbyname('peso_lordo').asfloat <> 0) then
+    begin
+      if tabella_edit(tabella) then
+      begin
+        tabella.fieldbyname('peso_lordo').asfloat := qtotale_colli.fieldbyname('peso_lordo').asfloat;
+      end;
+    end;
+    if ((totalizzazione_quantita = 'si') or (modalita = 'manuale'))
+      and (qtotale_colli.fieldbyname('peso_netto').asfloat <> 0) then
+    begin
+      if tabella_edit(tabella) then
+      begin
+        tabella.fieldbyname('peso_netto').asfloat := qtotale_colli.fieldbyname('peso_netto').asfloat;
+      end;
+    end;
+
+    if (totalizzazione_quantita = 'si') or (modalita = 'manuale') then
+    begin
+      arc.calcola_peso_lordo(tabella);
+    end;
+  finally
+    qtotale_colli.free;
   end;
 end;
 
@@ -25165,6 +25078,7 @@ end;
 procedure tgesven.controllo_rda_oar_opt(operazione: string);
 var
   stringa: string;
+  qopt: tmyquery_go;
 begin
   if tipo_documento = 'ordine' then
   begin
@@ -25235,12 +25149,6 @@ begin
             end;
           end;
 
-          (*
-            oar.fieldbyname('ovr_tipo').asstring := '';
-            oar.fieldbyname('ovr_progressivo').asinteger := 0;
-            oar.fieldbyname('ovr_riga').asinteger := 0;
-          *)
-
           oar.post;
 
           riga_ordine_modificata(operazione, 'oar', oar.fieldbyname('utente').asstring);
@@ -25251,111 +25159,132 @@ begin
     end;
     query_rda.close;
 
-    query_opt.close;
-    query_opt.params[0].asfloat := tabella_righe.fieldbyname('progressivo').asfloat;
-    query_opt.params[1].asinteger := tabella_righe.fieldbyname('riga').asinteger;
-    query_opt.open;
-    while not query_opt.eof do
-    begin
-      stringa := 'per la riga ' + operazione + ' è stato emesso un ordine di produzione ' + slinebreak +
-        'con il progressivo: ' + inttostr(query_opt.fieldbyname('progressivo').asinteger) + slinebreak +
-        'in situazione [' + query_opt.fieldbyname('situazione').asstring + ']' + slinebreak + slinebreak;
-      if operazione = 'modificata' then
-      begin
-        stringa := stringa + 'verra eseguito il programma di gestione dell''ordine di produzione' + slinebreak +
-          'per allineare le modifiche eseguite sul documento';
-      end
-      else
-      begin
-        stringa := stringa + 'il riferimento verrà cancellato';
-      end;
-      messaggio(100, stringa);
+    qopt := tmyquery_go.create(nil);
+    qopt.connection := arc.arcdit;
+    qopt.sql.add('select ''opt'' archivio, art_codice, opt.progressivo, opt.situazione from opt');
+    qopt.sql.add('where documento_origine = ''ordine ven'' and doc_progressivo_origine = :ovr_progressivo_03 and');
+    qopt.sql.add('doc_riga_origine = :riga_03');
 
-      opt.close;
-      opt.parambyname('progressivo').asinteger := query_opt.fieldbyname('progressivo').asinteger;
-      opt.open;
-      if not opt.isempty then
+    try
+      qopt.params[0].asfloat := tabella_righe.fieldbyname('progressivo').asfloat;
+      qopt.params[1].asinteger := tabella_righe.fieldbyname('riga').asinteger;
+      qopt.open;
+
+      while not qopt.eof do
       begin
+        stringa := 'per la riga ' + operazione + ' è stato emesso un ordine di produzione ' + slinebreak +
+          'con il progressivo: ' + inttostr(qopt.fieldbyname('progressivo').asinteger) + slinebreak +
+          'in situazione [' + qopt.fieldbyname('situazione').asstring + ']' + slinebreak + slinebreak;
         if operazione = 'modificata' then
         begin
-          esegui_programma('GESORDP', opt.fieldbyname('progressivo').asinteger, true);
+          stringa := stringa + 'verra eseguito il programma di gestione dell''ordine di produzione' + slinebreak +
+            'per allineare le modifiche eseguite sul documento';
         end
         else
         begin
-          opt.edit;
+          stringa := stringa + 'il riferimento verrà cancellato';
+        end;
+        messaggio(100, stringa);
 
-          if opt.fieldbyname('descrizione').asstring <> '' then
-          begin
-            opt.fieldbyname('descrizione').asstring := opt.fieldbyname('descrizione').asstring + #13;
-          end;
-          opt.fieldbyname('descrizione').asstring := opt.fieldbyname('descrizione').asstring +
-            'l''ordine è stato emesso a fronte dell''ordine cliente' + #13 +
-            'progressivo: ' + opt.fieldbyname('doc_progressivo_origine').asstring + #13 +
-            'riga: ' + opt.fieldbyname('doc_riga_origine').asstring + #13 +
-            'che è stata ' + operazione;
+        opt.close;
+        opt.parambyname('progressivo').asinteger := qopt.fieldbyname('progressivo').asinteger;
+        opt.open;
+        if not opt.isempty then
+        begin
           if operazione = 'modificata' then
           begin
-            if vecchio_art_codice <> v_art_codice.text then
+            esegui_programma('GESORDP', opt.fieldbyname('progressivo').asinteger, true);
+          end
+          else
+          begin
+            opt.edit;
+
+            if opt.fieldbyname('descrizione').asstring <> '' then
             begin
-              opt.fieldbyname('descrizione').asstring := opt.fieldbyname('descrizione').asstring + #13 +
-                'vecchio codice articolo: ' + vecchio_art_codice + #13 +
-                'nuovo codice articolo: ' + v_art_codice.text;
+              opt.fieldbyname('descrizione').asstring := opt.fieldbyname('descrizione').asstring + #13;
             end;
-            if arrotonda(vecchio_quantita, 4) <> arrotonda(v_quantita.value, 4) then
+            opt.fieldbyname('descrizione').asstring := opt.fieldbyname('descrizione').asstring +
+              'l''ordine è stato emesso a fronte dell''ordine cliente' + #13 +
+              'progressivo: ' + opt.fieldbyname('doc_progressivo_origine').asstring + #13 +
+              'riga: ' + opt.fieldbyname('doc_riga_origine').asstring + #13 +
+              'che è stata ' + operazione;
+            if operazione = 'modificata' then
             begin
-              opt.fieldbyname('descrizione').asstring := opt.fieldbyname('descrizione').asstring + #13 +
-                'vecchia quantità: ' + formatfloat(formato_display_quantita, vecchio_quantita) + #13 +
-                'nuova quantità: ' + formatfloat(formato_display_quantita, v_quantita.value);
+              if vecchio_art_codice <> v_art_codice.text then
+              begin
+                opt.fieldbyname('descrizione').asstring := opt.fieldbyname('descrizione').asstring + #13 +
+                  'vecchio codice articolo: ' + vecchio_art_codice + #13 +
+                  'nuovo codice articolo: ' + v_art_codice.text;
+              end;
+              if arrotonda(vecchio_quantita, 4) <> arrotonda(v_quantita.value, 4) then
+              begin
+                opt.fieldbyname('descrizione').asstring := opt.fieldbyname('descrizione').asstring + #13 +
+                  'vecchia quantità: ' + formatfloat(formato_display_quantita, vecchio_quantita) + #13 +
+                  'nuova quantità: ' + formatfloat(formato_display_quantita, v_quantita.value);
+              end;
             end;
+
+            opt.fieldbyname('documento_origine').asstring := '';
+            opt.fieldbyname('doc_progressivo_origine').asinteger := 0;
+            opt.fieldbyname('doc_riga_origine').asinteger := 0;
+            opt.fieldbyname('ovr_progressivo').asinteger := 0;
+            opt.fieldbyname('ovr_riga').asinteger := 0;
+
+            riga_ordine_modificata(operazione, 'opt', opt.fieldbyname('utente').asstring);
+
+            opt.post;
           end;
-
-          opt.fieldbyname('documento_origine').asstring := '';
-          opt.fieldbyname('doc_progressivo_origine').asinteger := 0;
-          opt.fieldbyname('doc_riga_origine').asinteger := 0;
-          opt.fieldbyname('ovr_progressivo').asinteger := 0;
-          opt.fieldbyname('ovr_riga').asinteger := 0;
-
-          riga_ordine_modificata(operazione, 'opt', opt.fieldbyname('utente').asstring);
-
-          opt.post;
         end;
+
+        qopt.next;
       end;
 
-      query_opt.next;
+      qopt.close;
+    finally
+      qopt.free;
     end;
-
-    query_opt.close;
   end;
 end;
 
 procedure tgesven.riga_ordine_modificata(operazione, tipo_file, utente_origine: string);
+var
+  qmsg: tmyquery_go;
 begin
-  msg.open;
-  msg.append;
+  qmsg := tmyquery_go.create(nil);
+  qmsg.connection := arc.arcdit;
+  qmsg.sql.add('select * from msg');
+  qmsg.sql.add('where progressivo = :progressivo');
 
-  msg.fieldbyname('progressivo').asinteger := arc.setta_valore_generatore(tmyconnection_go(msg.connection), 'MSG_PROGRESSIVO');
-  msg.parambyname('progressivo').asinteger := msg.fieldbyname('progressivo').asinteger;
-  msg.fieldbyname('utn_codice_destinatario').asstring := utente_origine;
-  msg.fieldbyname('data_invio').asdatetime := now;
-  if tipo_file = 'oar' then
-  begin
-    msg.fieldbyname('descrizione').asstring := operazione + ' riga ordine: ' + tabella_righe.fieldbyname('progressivo').asstring +
-      '/' + tabella_righe.fieldbyname('riga').asstring + ' ordinata in: ' +
-      oar.fieldbyname('progressivo').asstring + '/' + oar.fieldbyname('riga').asstring;
-  end
-  else if tipo_file = 'opt' then
-  begin
-    msg.fieldbyname('descrizione').asstring := operazione + ' riga ordine: ' + tabella_righe.fieldbyname('progressivo').asstring +
-      '/' + tabella_righe.fieldbyname('riga').asstring + ' in produzione in: ' +
-      opt.fieldbyname('progressivo').asstring;
+  try
+    qmsg.open;
+    qmsg.append;
+
+    qmsg.fieldbyname('progressivo').asinteger := arc.setta_valore_generatore(tmyconnection_go(qmsg.connection), 'MSG_PROGRESSIVO');
+    qmsg.parambyname('progressivo').asinteger := qmsg.fieldbyname('progressivo').asinteger;
+    qmsg.fieldbyname('utn_codice_destinatario').asstring := utente_origine;
+    qmsg.fieldbyname('data_invio').asdatetime := now;
+    if tipo_file = 'oar' then
+    begin
+      qmsg.fieldbyname('descrizione').asstring := operazione + ' riga ordine: ' + tabella_righe.fieldbyname('progressivo').asstring +
+        '/' + tabella_righe.fieldbyname('riga').asstring + ' ordinata in: ' +
+        oar.fieldbyname('progressivo').asstring + '/' + oar.fieldbyname('riga').asstring;
+    end
+    else if tipo_file = 'opt' then
+    begin
+      qmsg.fieldbyname('descrizione').asstring := operazione + ' riga ordine: ' + tabella_righe.fieldbyname('progressivo').asstring +
+        '/' + tabella_righe.fieldbyname('riga').asstring + ' in produzione in: ' +
+        opt.fieldbyname('progressivo').asstring;
+    end;
+    qmsg.fieldbyname('letto').asstring := 'no';
+    qmsg.fieldbyname('mittente').asstring := utente;
+    qmsg.post;
+    qmsg.refresh;
+
+    // msg risp
+    invio_msg_risp(qmsg, qmsg.fieldbyname('descrizione').asstring, true);
+  finally
+    qmsg.free;
   end;
-  msg.fieldbyname('letto').asstring := 'no';
-  msg.fieldbyname('mittente').asstring := utente;
-  msg.post;
-  msg.refresh;
-
-  //  msg risp
-  invio_msg_risp(msg, msg.fieldbyname('descrizione').asstring, true);
 end;
 
 procedure TGESVEN.RzRapidFireButton1Click(Sender: TObject);
@@ -25441,215 +25370,223 @@ procedure tgesven.esegui_configurazione(click: boolean = false);
 var
   prezzo, importo_iniziale, importo_finale, costo: double;
   esiste_cnf, forzatura_prezzo, prosegui, sola_lettura: boolean;
+  qcnf_totale: tmyquery_go;
 begin
   importo_iniziale := 0;
 
-  if tabella_righe.fieldbyname('configurazione').asinteger = 0 then
-  begin
-    cnt.close;
-    cnt.open;
-    if cnt.eof then
+  qcnf_totale := tmyquery_go.create(nil);
+  qcnf_totale.connection := arc.arcdit;
+  qcnf_totale.sql.add('select');
+  qcnf_totale.sql.add('coalesce((select sum(importo) from cnf where configurazione = :configurazione), 0) +');
+  qcnf_totale.sql.add('coalesce((select sum(importo) from cnl where configurazione = :configurazione), 0)');
+  qcnf_totale.sql.add('importo');
+
+  try
+    if tabella_righe.fieldbyname('configurazione').asinteger = 0 then
     begin
-      cnt.append;
-      cnt.fieldbyname('anno').asstring := '';
-      cnt.fieldbyname('tipo').asstring := 'CONFIGURAZIONE';
-      cnt.fieldbyname('sottotipo').asstring := '';
-      cnt.post;
       cnt.close;
       cnt.open;
-    end;
-    cnt.edit;
+      if cnt.eof then
+      begin
+        cnt.append;
+        cnt.fieldbyname('anno').asstring := '';
+        cnt.fieldbyname('tipo').asstring := 'CONFIGURAZIONE';
+        cnt.fieldbyname('sottotipo').asstring := '';
+        cnt.post;
+        cnt.close;
+        cnt.open;
+      end;
+      cnt.edit;
 
-    cnt.fieldbyname('progressivo').asfloat := arrotonda
-      (cnt.fieldbyname('progressivo').asfloat + 1, 0);
-    cnt.fieldbyname('data_aggiornamento').asdatetime := now;
+      cnt.fieldbyname('progressivo').asfloat := arrotonda
+        (cnt.fieldbyname('progressivo').asfloat + 1, 0);
+      cnt.fieldbyname('data_aggiornamento').asdatetime := now;
 
-    cnt.post;
+      cnt.post;
 
-    tabella_righe.edit;
-    tabella_righe.fieldbyname('configurazione').asinteger := trunc(cnt.fieldbyname('progressivo').asfloat);
-    if click then
+      tabella_righe.edit;
+      tabella_righe.fieldbyname('configurazione').asinteger := trunc(cnt.fieldbyname('progressivo').asfloat);
+      if click then
+      begin
+        tabella_righe.post;
+      end;
+
+      esiste_cnf := false;
+    end
+    else
     begin
-      tabella_righe.post;
+      esiste_cnf := true;
     end;
 
-    esiste_cnf := false;
-  end
-  else
-  begin
-    esiste_cnf := true;
-  end;
-
-  if arc.dit.fieldbyname('configurazione_come_note').asstring = 'si' then
-  begin
-    cnf_totale.close;
-    cnf_totale.params[0].asinteger := tabella_righe.fieldbyname('configurazione').asinteger;
-    cnf_totale.open;
-    importo_iniziale := cnf_totale.fieldbyname('importo').asfloat;
-  end;
-
-  prezzo := 0;
-  costo := 0;
-  forzatura_prezzo := false;
-  codice_passato := vararrayof([tabella_righe.fieldbyname('configurazione').asinteger, 0]);
-  sola_lettura := ((tabella_righe.fieldbyname('situazione').asstring = 'evaso') or
-    (tabella_righe.fieldbyname('situazione').asstring = 'evaso parziale')) and
-    (cancella_documenti_vendita_evasi = 'no');
-
-  esegui_carcnf(codice_passato, esiste_cnf, v_cli_codice.text, v_indirizzo.text, v_tlv_codice.text,
-    v_tva_codice.text, v_art_codice.text, tabella_righe.fieldbyname('tma_codice').asstring,
-    v_data_documento.date, v_cambio.value, tabella_righe.fieldbyname('tum_quantita_base').asfloat,
-    prezzo, costo, tipo_prezzo, forzatura_prezzo,
-    tabella_righe, tag.fieldbyname('prezzo_netto_sconti').asstring, v_tdo_codice.text,
-    tabella.fieldbyname('listino_con_iva').asstring,
-    tabella_righe.fieldbyname('progressivo').asinteger, tabella_righe.fieldbyname('riga').asinteger,
-    sola_lettura);
-
-  if sola_lettura then
-  begin
-    exit;
-  end;
-
-  cnf.close;
-  cnf.params[0].asinteger := tabella_righe.fieldbyname('configurazione').asinteger;
-  cnf.open;
-
-  cnl.close;
-  cnl.params[0].asinteger := tabella_righe.fieldbyname('configurazione').asinteger;
-  cnl.open;
-
-  if cnf.eof and cnl.eof then
-  begin
-    tabella_righe.edit;
-    tabella_righe.fieldbyname('configurazione').asinteger := 0;
-    v_configurazione.font.color := clwindowtext;
-    if click then
-    begin
-      tabella_righe.post;
-    end;
-  end
-  else
-  begin
     if arc.dit.fieldbyname('configurazione_come_note').asstring = 'si' then
     begin
-      cnf_totale.close;
-      cnf_totale.params[0].asinteger := tabella_righe.fieldbyname('configurazione').asinteger;
-      cnf_totale.open;
-      importo_finale := cnf_totale.fieldbyname('importo').asfloat;
+      qcnf_totale.close;
+      qcnf_totale.params[0].asinteger := tabella_righe.fieldbyname('configurazione').asinteger;
+      qcnf_totale.open;
+      importo_iniziale := qcnf_totale.fieldbyname('importo').asfloat;
+    end;
 
-      if tabella_edit(tabella_righe) then
+    prezzo := 0;
+    costo := 0;
+    forzatura_prezzo := false;
+    codice_passato := vararrayof([tabella_righe.fieldbyname('configurazione').asinteger, 0]);
+    sola_lettura := ((tabella_righe.fieldbyname('situazione').asstring = 'evaso') or
+      (tabella_righe.fieldbyname('situazione').asstring = 'evaso parziale')) and
+      (cancella_documenti_vendita_evasi = 'no');
+
+    esegui_carcnf(codice_passato, esiste_cnf, v_cli_codice.text, v_indirizzo.text, v_tlv_codice.text,
+      v_tva_codice.text, v_art_codice.text, tabella_righe.fieldbyname('tma_codice').asstring,
+      v_data_documento.date, v_cambio.value, tabella_righe.fieldbyname('tum_quantita_base').asfloat,
+      prezzo, costo, tipo_prezzo, forzatura_prezzo,
+      tabella_righe, tag.fieldbyname('prezzo_netto_sconti').asstring, v_tdo_codice.text,
+      tabella.fieldbyname('listino_con_iva').asstring,
+      tabella_righe.fieldbyname('progressivo').asinteger, tabella_righe.fieldbyname('riga').asinteger,
+      sola_lettura);
+
+    if sola_lettura then
+    begin
+      exit;
+    end;
+
+    cnf.close;
+    cnf.params[0].asinteger := tabella_righe.fieldbyname('configurazione').asinteger;
+    cnf.open;
+
+    cnl.close;
+    cnl.params[0].asinteger := tabella_righe.fieldbyname('configurazione').asinteger;
+    cnl.open;
+
+    if cnf.eof and cnl.eof then
+    begin
+      tabella_righe.edit;
+      tabella_righe.fieldbyname('configurazione').asinteger := 0;
+      v_configurazione.font.color := clwindowtext;
+      if click then
       begin
-        //tabella_righe.fieldbyname('prezzo').asfloat := 0;
-
-        tabella_righe.fieldbyname('prezzo').asfloat := importo_finale;
-
-        tabella_righe.fieldbyname('tsm_codice').asstring := '';
-        tabella_righe.fieldbyname('tsm_codice_art').asstring := '';
-        tabella_righe.fieldbyname('importo_sconto').asfloat := 0;
-        (*
-          tabella_righe.fieldbyname('importo').asfloat := tabella_righe.fieldbyname('importo').asfloat +
-          arrotonda(tabella_righe.fieldbyname('quantita').asfloat * (importo_finale - importo_iniziale));
-        *)
-
-        prosegui := true;
-        if trim(tabella_righe.fieldbyname('note').asstring) <> '' then
-        begin
-          if messaggio(304, 'sono già presenti le seguenti note' + #13 + #13 +
-            tabella_righe.fieldbyname('note').asstring + #13 + #13 +
-            'conferma per aggiungere configurazione') <> 1 then
-          begin
-            prosegui := false;
-          end;
-        end;
-
-        if prosegui then
-        begin
-          while not cnf.eof do
-          begin
-            read_tabella(arc.arcdit, 'art', 'codice', cnf.fieldbyname('art_codice').asstring, 'descrizione1, descrizione2');
-            tabella_righe.fieldbyname('note').asstring := tabella_righe.fieldbyname('note').asstring + #13 +
-              trim(archivio.fieldbyname('descrizione1').asstring) + ' ' + archivio.fieldbyname('descrizione2').asstring;
-
-            cnf.next;
-          end;
-        end;
-
-        calcola_importo;
-
-        if tabella_righe.fieldbyname('quantita').asfloat = 0 then
-        begin
-          tabella_righe.fieldbyname('costo_unitario').asfloat := costo;
-        end
-        else
-        begin
-          tabella_righe.fieldbyname('costo_unitario').asfloat := costo / tabella_righe.fieldbyname('quantita').asfloat;
-        end;
-
-        if click then
-        begin
-          tabella_righe.post;
-        end;
+        tabella_righe.post;
       end;
     end
     else
     begin
-      if tabella_edit(tabella_righe) then
+      if arc.dit.fieldbyname('configurazione_come_note').asstring = 'si' then
       begin
-        if tabella_righe.fieldbyname('quantita').asfloat = 0 then
-        begin
-          tabella_righe.fieldbyname('costo_unitario').asfloat := costo;
-        end
-        else
-        begin
-          tabella_righe.fieldbyname('costo_unitario').asfloat := costo / tabella_righe.fieldbyname('quantita').asfloat;
-        end;
+        qcnf_totale.close;
+        qcnf_totale.params[0].asinteger := tabella_righe.fieldbyname('configurazione').asinteger;
+        qcnf_totale.open;
+        importo_finale := qcnf_totale.fieldbyname('importo').asfloat;
 
-        if click then
+        if tabella_edit(tabella_righe) then
         begin
-          tabella_righe.post;
-        end;
-      end;
+          //tabella_righe.fieldbyname('prezzo').asfloat := 0;
 
-      v_configurazione.font.color := clred;
-      if (tabella_righe.fieldbyname('importo').asfloat = 0) or (forzatura_prezzo) then
-      begin
-        if tabella_righe.fieldbyname('quantita').asfloat = 0 then
-        begin
-          aggiorna_totali_testata := true;
-          aggiorna_totali_colli := true;
+          tabella_righe.fieldbyname('prezzo').asfloat := importo_finale;
 
-          tabella_righe.edit;
-          tabella_righe.fieldbyname('prezzo').asfloat := 0;
           tabella_righe.fieldbyname('tsm_codice').asstring := '';
           tabella_righe.fieldbyname('tsm_codice_art').asstring := '';
           tabella_righe.fieldbyname('importo_sconto').asfloat := 0;
-          tabella_righe.fieldbyname('importo').asfloat := prezzo;
+
+          prosegui := true;
+          if trim(tabella_righe.fieldbyname('note').asstring) <> '' then
+          begin
+            if messaggio(304, 'sono già presenti le seguenti note' + #13 + #13 +
+              tabella_righe.fieldbyname('note').asstring + #13 + #13 +
+              'conferma per aggiungere configurazione') <> 1 then
+            begin
+              prosegui := false;
+            end;
+          end;
+
+          if prosegui then
+          begin
+            while not cnf.eof do
+            begin
+              read_tabella(arc.arcdit, 'art', 'codice', cnf.fieldbyname('art_codice').asstring, 'descrizione1, descrizione2');
+              tabella_righe.fieldbyname('note').asstring := tabella_righe.fieldbyname('note').asstring + #13 +
+                trim(archivio.fieldbyname('descrizione1').asstring) + ' ' + archivio.fieldbyname('descrizione2').asstring;
+
+              cnf.next;
+            end;
+          end;
+
           calcola_importo;
-          //assegna_provvigioni;
+
+          if tabella_righe.fieldbyname('quantita').asfloat = 0 then
+          begin
+            tabella_righe.fieldbyname('costo_unitario').asfloat := costo;
+          end
+          else
+          begin
+            tabella_righe.fieldbyname('costo_unitario').asfloat := costo / tabella_righe.fieldbyname('quantita').asfloat;
+          end;
+
           if click then
           begin
             tabella_righe.post;
           end;
-        end
-        else
+        end;
+      end
+      else
+      begin
+        if tabella_edit(tabella_righe) then
         begin
-          if (prezzo <> 0) and (arrotonda(prezzo, cifre_decimali_prezzo) <> arrotonda(tabella_righe.fieldbyname('prezzo').asfloat, cifre_decimali_prezzo)) then
+          if tabella_righe.fieldbyname('quantita').asfloat = 0 then
+          begin
+            tabella_righe.fieldbyname('costo_unitario').asfloat := costo;
+          end
+          else
+          begin
+            tabella_righe.fieldbyname('costo_unitario').asfloat := costo / tabella_righe.fieldbyname('quantita').asfloat;
+          end;
+
+          if click then
+          begin
+            tabella_righe.post;
+          end;
+        end;
+
+        v_configurazione.font.color := clred;
+        if (tabella_righe.fieldbyname('importo').asfloat = 0) or (forzatura_prezzo) then
+        begin
+          if tabella_righe.fieldbyname('quantita').asfloat = 0 then
           begin
             aggiorna_totali_testata := true;
             aggiorna_totali_colli := true;
 
             tabella_righe.edit;
-            tabella_righe.fieldbyname('prezzo').asfloat := prezzo;
+            tabella_righe.fieldbyname('prezzo').asfloat := 0;
+            tabella_righe.fieldbyname('tsm_codice').asstring := '';
+            tabella_righe.fieldbyname('tsm_codice_art').asstring := '';
+            tabella_righe.fieldbyname('importo_sconto').asfloat := 0;
+            tabella_righe.fieldbyname('importo').asfloat := prezzo;
             calcola_importo;
             //assegna_provvigioni;
             if click then
             begin
               tabella_righe.post;
             end;
+          end
+          else
+          begin
+            if (prezzo <> 0) and (arrotonda(prezzo, cifre_decimali_prezzo) <> arrotonda(tabella_righe.fieldbyname('prezzo').asfloat, cifre_decimali_prezzo)) then
+            begin
+              aggiorna_totali_testata := true;
+              aggiorna_totali_colli := true;
+
+              tabella_righe.edit;
+              tabella_righe.fieldbyname('prezzo').asfloat := prezzo;
+              calcola_importo;
+              //assegna_provvigioni;
+              if click then
+              begin
+                tabella_righe.post;
+              end;
+            end;
           end;
         end;
       end;
     end;
+  finally
+    qcnf_totale.free;
   end;
 end;
 
@@ -25879,100 +25816,6 @@ begin
   end;
 end;
 
-(*
-  procedure TGESVEN.assegna_giorno;
-  var
-  i, giorno: word;
-  stringa: string;
-  begin
-  inherited;
-
-  stringa := '';
-  if v_consegna_domenica.checked then
-  begin
-  stringa := stringa + '1';
-  end
-  else
-  begin
-  stringa := stringa + '0';
-  end;
-
-  if v_consegna_lunedi.checked then
-  begin
-  stringa := stringa + '1';
-  end
-  else
-  begin
-  stringa := stringa + '0';
-  end;
-
-  if v_consegna_martedi.checked then
-  begin
-  stringa := stringa + '1';
-  end
-  else
-  begin
-  stringa := stringa + '0';
-  end;
-
-  if v_consegna_mercoledi.checked then
-  begin
-  stringa := stringa + '1';
-  end
-  else
-  begin
-  stringa := stringa + '0';
-  end;
-
-  if v_consegna_giovedi.checked then
-  begin
-  stringa := stringa + '1';
-  end
-  else
-  begin
-  stringa := stringa + '0';
-  end;
-
-  if v_consegna_venerdi.checked then
-  begin
-  stringa := stringa + '1';
-  end
-  else
-  begin
-  stringa := stringa + '0';
-  end;
-
-  if v_consegna_sabato.checked then
-  begin
-  stringa := stringa + '1';
-  end
-  else
-  begin
-  stringa := stringa + '0';
-  end;
-
-  if stringa <> '0000000' then
-  begin
-  giorno := dayofweek(tabella.fieldbyname('data_documento').asdatetime);
-
-  i := 0;
-  while giorno <> 0 do
-  begin
-  inc(i);
-  inc(giorno);
-  if giorno > 7 then
-  begin
-  giorno := 1;
-  end;
-  if stringa[giorno] = '1' then
-  begin
-  tabella.fieldbyname('data_inizio_trasporto').asdatetime := tabella.fieldbyname('data_documento').asdatetime + i;
-  giorno := 0;
-  end;
-  end;
-  end;
-  end;
-*)
 
 procedure tgesven.v_consolidaclick(sender: tobject);
 begin
@@ -28184,32 +28027,36 @@ begin
   end;
 end;
 
-procedure tgesven.aggiornalotto(aarticolo: string;
-  alotto:
-  string;
-  adatascad:
-  tdate);
+procedure tgesven.aggiornalotto(aarticolo: string; alotto: string; adatascad: tdate);
+var
+  qlot: tmyquery_go;
 begin
-  lot.sql.clear;
-  lot.sql.add('select * from lot where  art_codice=''' + aarticolo + ''' and lotto=''' + alotto + '''');
-  lot.open;
-  if lot.recordcount = 0 then
-  begin
-    lot.sql.clear;
-    lot.sql.add('select * from lot');
-    lot.open;
-    lot.append;
-    lot.fieldbyname('art_codice').asstring := aarticolo;
-    lot.fieldbyname('lotto').asstring := alotto;
-    lot.fieldbyname('descrizione').asstring := alotto;
-    lot.fieldbyname('data_scadenza').asdatetime := adatascad;
-    lot.fieldbyname('chiuso').asstring := 'no';
-    lot.fieldbyname('utente').asstring := '';
-    lot.fieldbyname('data_ora').asdatetime := now;
-    lot.fieldbyname('esistenza').asinteger := 0;
-    lot.fieldbyname('utente_creazione').asstring := '';
-    lot.post;
+  qlot := tmyquery_go.create(nil);
+  qlot.connection := arc.arcdit;
+  qlot.sql.add('select * from lot where  art_codice=''' + aarticolo + ''' and lotto=''' + alotto + '''');
+  try
+    qlot.open;
+    if qlot.recordcount = 0 then
+    begin
+      qlot.sql.clear;
+      qlot.sql.add('select * from lot');
+      qlot.open;
+      qlot.append;
+      qlot.fieldbyname('art_codice').asstring := aarticolo;
+      qlot.fieldbyname('lotto').asstring := alotto;
+      qlot.fieldbyname('descrizione').asstring := alotto;
+      qlot.fieldbyname('data_scadenza').asdatetime := adatascad;
+      qlot.fieldbyname('chiuso').asstring := 'no';
+      qlot.fieldbyname('utente').asstring := '';
+      qlot.fieldbyname('data_ora').asdatetime := now;
+      qlot.fieldbyname('esistenza').asinteger := 0;
+      qlot.fieldbyname('utente_creazione').asstring := '';
+      qlot.post;
+    end;
+  finally
+    qlot.free;
   end;
+
   ltm.close;
   ltm.sql.clear;
   ltm.sql.add('select * from ltm');
@@ -28406,8 +28253,19 @@ begin
 end;
 
 procedure tgesven.tum_codice_controllo(blocco: boolean);
+var
+  qtum: tmyquery_go;
 begin
-  tabella_controllo(false, tum, v_tum_codice, blocco, nil, nil, tabella_righe);
+  qtum := tmyquery_go.create(nil);
+  qtum.connection := arc.arcdit;
+  qtum.sql.add('select descrizione, quantita_peso');
+  qtum.sql.add('from tum');
+  qtum.sql.add('where codice = :codice');
+  try
+    tabella_controllo(false, qtum, v_tum_codice, blocco, nil, nil, tabella_righe);
+  finally
+    qtum.free;
+  end;
 end;
 
 procedure tgesven.v_righe_valideClick(sender: tobject);
@@ -28600,6 +28458,7 @@ end;
 
 procedure tgesven.crea_kit;
 var
+  qkit: tmyquery_go;
   quantita: double;
   riga_origine, riga: integer;
   tipo_movimento, tca_codice, tcc_codice, tsm_codice, tsm_codice_art: string;
@@ -28609,171 +28468,184 @@ var
   prezzo_kit, importo_sconto_kit: double;
   tsm_codice_kit, tsm_codice_art_kit: string;
 begin
-  kit.close;
-  kit.parambyname('art_codice').asstring := tabella_righe.fieldbyname('art_codice').asstring;
-  kit.open;
 
-  riga_origine := tabella_righe.fieldbyname('riga').asinteger;
-  riga := tabella_righe.fieldbyname('riga').asinteger;
-  quantita := tabella_righe.fieldbyname('quantita').asfloat;
-  tipo_movimento := tabella_righe.fieldbyname('tipo_movimento').asstring;
-  tsm_codice := tabella_righe.fieldbyname('tsm_codice').asstring;
-  tsm_codice_art := tabella_righe.fieldbyname('tsm_codice_art').asstring;
-  data_consegna := tabella_righe.fieldbyname('data_consegna').value;
+  qkit := tmyquery_go.create(nil);
+  qkit.connection := arc.arcdit;
+  qkit.sql.add('select kit.*, art.descrizione1 art_descrizione1, art.descrizione2 art_descrizione2, art.tum_codice,');
+  qkit.sql.add('art.tiv_codice_vendite tiv_codice');
+  qkit.sql.add('from kit');
+  qkit.sql.add('inner join art on art.codice = kit.art_codice_componente');
+  qkit.sql.add('where kit.art_codice = :art_codice');
+  qkit.sql.add('order by sequenza');
+  qkit.parambyname('art_codice').asstring := tabella_righe.fieldbyname('art_codice').asstring;
 
-  // aggiorna riga kit prodotto finito
-  tabella_righe.locate('progressivo;riga', vararrayof([tabella.fieldbyname('progressivo').asinteger, riga_origine]), []);
-  tabella_righe.edit;
+  try
+    qkit.open;
 
-  kit_duplicato := false;
-  if arc.dit.fieldbyname('modalita_kit').asstring <> 'kit' then
-  begin
-    if art.fieldbyname('prezzo_kit_duplicato').asstring = 'si' then
-    begin
-      kit_duplicato := true;
-      prezzo_kit := tabella_righe.fieldbyname('prezzo').asfloat;
-      importo_sconto_kit := tabella_righe.fieldbyname('importo_sconto').asfloat;
-      tsm_codice_kit := tabella_righe.fieldbyname('tsm_codice').asstring;
-      tsm_codice_art_kit := tabella_righe.fieldbyname('tsm_codice_art').asstring;
-    end;
+    riga_origine := tabella_righe.fieldbyname('riga').asinteger;
+    riga := tabella_righe.fieldbyname('riga').asinteger;
+    quantita := tabella_righe.fieldbyname('quantita').asfloat;
+    tipo_movimento := tabella_righe.fieldbyname('tipo_movimento').asstring;
+    tsm_codice := tabella_righe.fieldbyname('tsm_codice').asstring;
+    tsm_codice_art := tabella_righe.fieldbyname('tsm_codice_art').asstring;
+    data_consegna := tabella_righe.fieldbyname('data_consegna').value;
 
-    tabella_righe.fieldbyname('descrizione2').asstring := 'qtà: ' + formatfloat(formato_display_quantita, quantita);
-    tabella_righe.fieldbyname('tsm_codice').asstring := '';
-    tabella_righe.fieldbyname('tsm_codice_art').asstring := '';
-    tabella_righe.fieldbyname('quantita_kit').asfloat := quantita;
-    tabella_righe.fieldbyname('quantita').asfloat := 0;
-    tabella_righe.fieldbyname('tum_quantita_base').asfloat := 0;
-    tabella_righe.fieldbyname('prezzo').asfloat := 0;
-    tabella_righe.fieldbyname('importo_sconto').asfloat := 0;
-    tabella_righe.fieldbyname('importo').asfloat := 0;
-    tabella_righe.fieldbyname('importo_euro').asfloat := 0;
-    tabella_righe.fieldbyname('importo_iva').asfloat := 0;
-    tabella_righe.fieldbyname('importo_iva_euro').asfloat := 0;
-  end;
+    // aggiorna riga qkit prodotto finito
+    tabella_righe.locate('progressivo;riga', vararrayof([tabella.fieldbyname('progressivo').asinteger, riga_origine]), []);
+    tabella_righe.edit;
 
-  tabella_righe.fieldbyname('kit').asstring := 'pf';
-  scrivi_record_righe;
-
-  // articoli
-  while not kit.eof do
-  begin
-    tabella_righe.append;
-
-    riga := riga + incremento_righe;
-    tabella_righe.parambyname('progressivo').asinteger := tabella.fieldbyname('progressivo').asinteger;
-    tabella_righe.fieldbyname('progressivo').asinteger := tabella.fieldbyname('progressivo').asinteger;
-    tabella_righe.fieldbyname('riga').asinteger := riga;
-    // usato variabile già presente che non era mai referenziata
-    tabella_righe.fieldbyname('riga_origine_kit').asfloat := riga_origine;
-
-    tabella_righe.fieldbyname('art_codice').asstring := kit.fieldbyname('art_codice_componente').asstring;
-    tabella_righe.fieldbyname('descrizione1').asstring := kit.fieldbyname('art_descrizione1').asstring;
-    tabella_righe.fieldbyname('descrizione2').asstring := kit.fieldbyname('art_descrizione2').asstring;
-    tabella_righe.fieldbyname('tiv_codice').asstring := kit.fieldbyname('tiv_codice').asstring;
-    if tabella.fieldbyname('tiv_codice').asstring <> '' then
-    begin
-      tabella_righe.fieldbyname('tiv_codice').asstring := tabella.fieldbyname('tiv_codice').asstring;
-    end;
-    tabella_righe.fieldbyname('quantita').asfloat := arrotonda
-      (kit.fieldbyname('quantita').asfloat * quantita, decimali_quantita(kit.fieldbyname('tum_codice').asstring));
-    // tabella_righe.fieldbyname('prezzo').asfloat := kit.fieldbyname('prezzo').asfloat;
-
-    tabella_righe.fieldbyname('tma_codice').asstring := tabella.fieldbyname('tma_codice').asstring;
-    tabella_righe.fieldbyname('cms_codice').asstring := tabella.fieldbyname('cms_codice').asstring;
-    tabella_righe.fieldbyname('tipologia').asstring := tabella.fieldbyname('tipologia').asstring;
-
-    tabella_righe.fieldbyname('kit').asstring := 'mp';
-    tabella_righe.fieldbyname('tipo_movimento').asstring := tipo_movimento;
-    tabella_righe.fieldbyname('data_consegna').value := data_consegna;
-
-    art.params[0].asstring := tabella_righe.fieldbyname('art_codice').asstring;
-    art.close;
-    art.open;
-    if art.fieldbyname('tum_codice_vendite').asstring <> '' then
-    begin
-      tabella_righe.fieldbyname('tum_codice').asstring := art.fieldbyname('tum_codice_vendite').asstring;
-    end
-    else
-    begin
-      tabella_righe.fieldbyname('tum_codice').asstring := art.fieldbyname('tum_codice').asstring;
-    end;
-
-    if tabella.fieldbyname('tco_codice').asstring <> '' then
-    begin
-      tca_codice := '';
-      tcc_codice := '';
-      tcc_codice := cli.fieldbyname('tcc_codice').asstring;
-      if tabella.fieldbyname('tcc_codice').asstring <> '' then
-      begin
-        tcc_codice := tabella.fieldbyname('tcc_codice').asstring;
-      end;
-
-      tca_codice := art.fieldbyname('tca_codice').asstring;
-      if read_tabella(cpv, vararrayof([tabella.fieldbyname('tdo_codice').asstring, tcc_codice, tca_codice])) then
-      begin
-        tabella_righe.fieldbyname('gen_codice').asstring := cpv.fieldbyname('gen_codice').asstring;
-        if copy(tabella_righe.fieldbyname('tipo_movimento').asstring, 1, 7) = 'omaggio' then
-        begin
-          tabella_righe.fieldbyname('gen_codice_storno').asstring := cpv.fieldbyname('gen_codice_omaggi').asstring;
-        end
-        else
-        begin
-          tabella_righe.fieldbyname('gen_codice_storno').asstring := cpv.fieldbyname('gen_codice_sconti').asstring;
-        end;
-      end;
-    end;
-
+    kit_duplicato := false;
     if arc.dit.fieldbyname('modalita_kit').asstring <> 'kit' then
     begin
-      if kit_duplicato then
+      if art.fieldbyname('prezzo_kit_duplicato').asstring = 'si' then
       begin
-        tabella_righe.fieldbyname('prezzo').asfloat := prezzo_kit;
-        tabella_righe.fieldbyname('importo_sconto').asfloat := importo_sconto_kit;
-        tabella_righe.fieldbyname('tsm_codice').asstring := tsm_codice_kit;
-        tabella_righe.fieldbyname('tsm_codice_art').asstring := tsm_codice_art_kit;
+        kit_duplicato := true;
+        prezzo_kit := tabella_righe.fieldbyname('prezzo').asfloat;
+        importo_sconto_kit := tabella_righe.fieldbyname('importo_sconto').asfloat;
+        tsm_codice_kit := tabella_righe.fieldbyname('tsm_codice').asstring;
+        tsm_codice_art_kit := tabella_righe.fieldbyname('tsm_codice_art').asstring;
+      end;
+
+      tabella_righe.fieldbyname('descrizione2').asstring := 'qtà: ' + formatfloat(formato_display_quantita, quantita);
+      tabella_righe.fieldbyname('tsm_codice').asstring := '';
+      tabella_righe.fieldbyname('tsm_codice_art').asstring := '';
+      tabella_righe.fieldbyname('quantita_kit').asfloat := quantita;
+      tabella_righe.fieldbyname('quantita').asfloat := 0;
+      tabella_righe.fieldbyname('tum_quantita_base').asfloat := 0;
+      tabella_righe.fieldbyname('prezzo').asfloat := 0;
+      tabella_righe.fieldbyname('importo_sconto').asfloat := 0;
+      tabella_righe.fieldbyname('importo').asfloat := 0;
+      tabella_righe.fieldbyname('importo_euro').asfloat := 0;
+      tabella_righe.fieldbyname('importo_iva').asfloat := 0;
+      tabella_righe.fieldbyname('importo_iva_euro').asfloat := 0;
+    end;
+
+    tabella_righe.fieldbyname('kit').asstring := 'pf';
+    scrivi_record_righe;
+
+    // articoli
+    while not qkit.eof do
+    begin
+      tabella_righe.append;
+
+      riga := riga + incremento_righe;
+      tabella_righe.parambyname('progressivo').asinteger := tabella.fieldbyname('progressivo').asinteger;
+      tabella_righe.fieldbyname('progressivo').asinteger := tabella.fieldbyname('progressivo').asinteger;
+      tabella_righe.fieldbyname('riga').asinteger := riga;
+      // usato variabile già presente che non era mai referenziata
+      tabella_righe.fieldbyname('riga_origine_kit').asfloat := riga_origine;
+
+      tabella_righe.fieldbyname('art_codice').asstring := qkit.fieldbyname('art_codice_componente').asstring;
+      tabella_righe.fieldbyname('descrizione1').asstring := qkit.fieldbyname('art_descrizione1').asstring;
+      tabella_righe.fieldbyname('descrizione2').asstring := qkit.fieldbyname('art_descrizione2').asstring;
+      tabella_righe.fieldbyname('tiv_codice').asstring := qkit.fieldbyname('tiv_codice').asstring;
+      if tabella.fieldbyname('tiv_codice').asstring <> '' then
+      begin
+        tabella_righe.fieldbyname('tiv_codice').asstring := tabella.fieldbyname('tiv_codice').asstring;
+      end;
+      tabella_righe.fieldbyname('quantita').asfloat := arrotonda
+        (qkit.fieldbyname('quantita').asfloat * quantita, decimali_quantita(qkit.fieldbyname('tum_codice').asstring));
+      // tabella_righe.fieldbyname('prezzo').asfloat := qkit.fieldbyname('prezzo').asfloat;
+
+      tabella_righe.fieldbyname('tma_codice').asstring := tabella.fieldbyname('tma_codice').asstring;
+      tabella_righe.fieldbyname('cms_codice').asstring := tabella.fieldbyname('cms_codice').asstring;
+      tabella_righe.fieldbyname('tipologia').asstring := tabella.fieldbyname('tipologia').asstring;
+
+      tabella_righe.fieldbyname('kit').asstring := 'mp';
+      tabella_righe.fieldbyname('tipo_movimento').asstring := tipo_movimento;
+      tabella_righe.fieldbyname('data_consegna').value := data_consegna;
+
+      art.params[0].asstring := tabella_righe.fieldbyname('art_codice').asstring;
+      art.close;
+      art.open;
+      if art.fieldbyname('tum_codice_vendite').asstring <> '' then
+      begin
+        tabella_righe.fieldbyname('tum_codice').asstring := art.fieldbyname('tum_codice_vendite').asstring;
       end
       else
       begin
-        cerca_prezzo;
-        if kit.fieldbyname('prezzo').asfloat <> 0 then
+        tabella_righe.fieldbyname('tum_codice').asstring := art.fieldbyname('tum_codice').asstring;
+      end;
+
+      if tabella.fieldbyname('tco_codice').asstring <> '' then
+      begin
+        tca_codice := '';
+        tcc_codice := '';
+        tcc_codice := cli.fieldbyname('tcc_codice').asstring;
+        if tabella.fieldbyname('tcc_codice').asstring <> '' then
         begin
-          tabella_righe.fieldbyname('prezzo').asfloat := kit.fieldbyname('prezzo').asfloat;
-        end;
-        if kit.fieldbyname('tsm_codice').asstring <> '' then
-        begin
-          tabella_righe.fieldbyname('tsm_codice_art').asstring := kit.fieldbyname('tsm_codice').asstring;
+          tcc_codice := tabella.fieldbyname('tcc_codice').asstring;
         end;
 
-        if tsm_codice <> '' then
+        tca_codice := art.fieldbyname('tca_codice').asstring;
+        if read_tabella(cpv, vararrayof([tabella.fieldbyname('tdo_codice').asstring, tcc_codice, tca_codice])) then
         begin
-          tabella_righe.fieldbyname('tsm_codice').asstring := tsm_codice;
-        end;
-        if tsm_codice_art <> '' then
-        begin
-          tabella_righe.fieldbyname('tsm_codice_art').asstring := tsm_codice_art;
+          tabella_righe.fieldbyname('gen_codice').asstring := cpv.fieldbyname('gen_codice').asstring;
+          if copy(tabella_righe.fieldbyname('tipo_movimento').asstring, 1, 7) = 'omaggio' then
+          begin
+            tabella_righe.fieldbyname('gen_codice_storno').asstring := cpv.fieldbyname('gen_codice_omaggi').asstring;
+          end
+          else
+          begin
+            tabella_righe.fieldbyname('gen_codice_storno').asstring := cpv.fieldbyname('gen_codice_sconti').asstring;
+          end;
         end;
       end;
 
-      calcola_importo;
-      //assegna_provvigioni;
+      if arc.dit.fieldbyname('modalita_kit').asstring <> 'kit' then
+      begin
+        if kit_duplicato then
+        begin
+          tabella_righe.fieldbyname('prezzo').asfloat := prezzo_kit;
+          tabella_righe.fieldbyname('importo_sconto').asfloat := importo_sconto_kit;
+          tabella_righe.fieldbyname('tsm_codice').asstring := tsm_codice_kit;
+          tabella_righe.fieldbyname('tsm_codice_art').asstring := tsm_codice_art_kit;
+        end
+        else
+        begin
+          cerca_prezzo;
+          if qkit.fieldbyname('prezzo').asfloat <> 0 then
+          begin
+            tabella_righe.fieldbyname('prezzo').asfloat := qkit.fieldbyname('prezzo').asfloat;
+          end;
+          if qkit.fieldbyname('tsm_codice').asstring <> '' then
+          begin
+            tabella_righe.fieldbyname('tsm_codice_art').asstring := qkit.fieldbyname('tsm_codice').asstring;
+          end;
+
+          if tsm_codice <> '' then
+          begin
+            tabella_righe.fieldbyname('tsm_codice').asstring := tsm_codice;
+          end;
+          if tsm_codice_art <> '' then
+          begin
+            tabella_righe.fieldbyname('tsm_codice_art').asstring := tsm_codice_art;
+          end;
+        end;
+
+        calcola_importo;
+        //assegna_provvigioni;
+      end;
+
+      esegui_controllo_esistenza;
+      scrivi_record_righe;
+
+      qkit.next;
     end;
+    // riga ---------------
+    tabella_righe.append;
 
-    esegui_controllo_esistenza;
+    riga := riga + incremento_righe;
+    tabella_righe.fieldbyname('progressivo').asinteger := tabella.fieldbyname('progressivo').asinteger;
+    tabella_righe.fieldbyname('riga').asinteger := riga;
+
+    tabella_righe.fieldbyname('art_codice').asstring := '';
+    tabella_righe.fieldbyname('descrizione1').asstring := '----------------------------------------';
+
     scrivi_record_righe;
-
-    kit.next;
+  finally
+    qkit.free;
   end;
-  // riga ---------------
-  tabella_righe.append;
-
-  riga := riga + incremento_righe;
-  tabella_righe.fieldbyname('progressivo').asinteger := tabella.fieldbyname('progressivo').asinteger;
-  tabella_righe.fieldbyname('riga').asinteger := riga;
-
-  tabella_righe.fieldbyname('art_codice').asstring := '';
-  tabella_righe.fieldbyname('descrizione1').asstring := '----------------------------------------';
-
-  scrivi_record_righe;
 end;
 
 procedure tgesven.aggiorna_condizioni_cliente;
@@ -28916,9 +28788,7 @@ begin
   end;
 end;
 
-procedure tgesven.cerca_prezzo_documento(tipo: string;
-  righe:
-  tmyquery_go);
+procedure tgesven.cerca_prezzo_documento(tipo: string; righe: tmyquery_go);
 begin
   if (righe.fieldbyname('kit').asstring = 'mp') and (arc.dit.fieldbyname('modalita_kit').asstring = 'kit') then
   begin
@@ -28939,16 +28809,6 @@ begin
         1, righe.fieldbyname('tum_codice').asstring, tabella.fieldbyname('tdo_codice').asstring, importo_sconto, true,
         righe.fieldbyname('numero_colli').asinteger, righe.fieldbyname('numero_confezioni').asinteger,
         true, righe.fieldbyname('dettaglio').asstring);
-    end
-    else if tipo = 'evasione' then
-    begin
-      cerca_prezzi.cerca_prezzo('C', testata.fieldbyname('cli_codice').asstring, testata.fieldbyname('indirizzo').asstring,
-        tipo_prezzo, righe.fieldbyname('art_codice').asstring, righe.fieldbyname('tma_codice').asstring,
-        righe.fieldbyname('quantita').asfloat, prezzo, tsm_codice, tsm_codice_art,
-        testata.fieldbyname('data_documento').asdatetime, testata.fieldbyname('tva_codice').asstring,
-        testata.fieldbyname('cambio').asfloat, cifre_decimali_prezzo, testata.fieldbyname('tlv_codice').asstring,
-        1, righe.fieldbyname('tum_codice').asstring, testata.fieldbyname('tdo_codice').asstring, importo_sconto, true,
-        righe.fieldbyname('numero_colli').asinteger, righe.fieldbyname('numero_confezioni').asinteger);
     end
     else if tipo = 'fornitore' then
     begin
@@ -28985,45 +28845,61 @@ end;
 
 procedure tgesven.cancella;
 var
-  approntato: tmyquery_go;
+  approntato, qngt, qneg: tmyquery_go;
 begin
-  // controllo se la fattura deriva da vendita negozio
-  if tipo_documento = 'fattura immediata' then
-  begin
-    neg.close;
-    neg.parambyname('progressivo').asinteger := tabella.fieldbyname('progressivo').asinteger;
-    neg.open;
-  end
-  else
-  begin
-    neg.close;
-  end;
+  qneg := tmyquery_go.create(nil);
+  qneg.connection := arc.arcdit;
+  qneg.sql.add('select doc_progressivo_origine from fvr');
+  qneg.sql.add('where progressivo = :progressivo and documento_origine = ''vendita negozio''');
+  qneg.sql.add('limit 1');
 
-  if not approntato_totale then
-  begin
-    approntato := tmyquery_go.create(nil);
-    approntato.connection := arc.arcdit;
-    approntato.sql.text := 'select id from ' + tabella_righe_tablename +
-      ' where progressivo = ' + tabella.fieldbyname('progressivo').asstring +
-      ' and doc_quantita_approntata <> 0';
-    approntato.open;
-    if approntato.recordcount > 0 then
+  qngt := tmyquery_go.create(nil);
+  qngt.connection := arc.arcdit;
+  qngt.sql.add('update ngt');
+  qngt.sql.add('set fattura = ''no'', numero_documento = 0');
+  qngt.sql.add('where progressivo = :progressivo');
+
+  try
+    // controllo se la fattura deriva da vendita negozio
+    if tipo_documento = 'fattura immediata' then
     begin
-      if messaggio(300, 'ripristina la quantità approntata di tutte le righe dell''ordine al valore antecedente alla creazione del documento in gestione') = 1 then
-      begin
-        approntato_totale := true;
-      end;
+      qneg.close;
+      qneg.parambyname('progressivo').asinteger := tabella.fieldbyname('progressivo').asinteger;
+      qneg.open;
+    end
+    else
+    begin
+      qneg.close;
     end;
-    approntato.free;
-  end;
 
-  inherited;
+    if not approntato_totale then
+    begin
+      approntato := tmyquery_go.create(nil);
+      approntato.connection := arc.arcdit;
+      approntato.sql.text := 'select id from ' + tabella_righe_tablename +
+        ' where progressivo = ' + tabella.fieldbyname('progressivo').asstring +
+        ' and doc_quantita_approntata <> 0';
+      approntato.open;
+      if approntato.recordcount > 0 then
+      begin
+        if messaggio(300, 'ripristina la quantità approntata di tutte le righe dell''ordine al valore antecedente alla creazione del documento in gestione') = 1 then
+        begin
+          approntato_totale := true;
+        end;
+      end;
+      approntato.free;
+    end;
 
-  if not neg.isempty then
-  begin
-    ngt.close;
-    ngt.parambyname('progressivo').asinteger := neg.fieldbyname('doc_progressivo_origine').asinteger;
-    ngt.execsql;
+    inherited;
+
+    if not qneg.isempty then
+    begin
+      qngt.parambyname('progressivo').asinteger := qneg.fieldbyname('doc_progressivo_origine').asinteger;
+      qngt.execsql;
+    end;
+  finally
+    qneg.free;
+    qngt.free;
   end;
 end;
 

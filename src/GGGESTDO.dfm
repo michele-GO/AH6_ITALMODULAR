@@ -1416,10 +1416,6 @@ inherited GESTDO: TGESTDO
         Color = clWindow
         ImageIndex = 1
         Caption = 'dati extra'
-        ExplicitLeft = 0
-        ExplicitTop = 0
-        ExplicitWidth = 0
-        ExplicitHeight = 0
         object Label46: TRzLabel
           Left = 420
           Top = 445
@@ -3963,10 +3959,6 @@ inherited GESTDO: TGESTDO
         Color = clWindow
         ImageIndex = 3
         Caption = 'mail'
-        ExplicitLeft = 0
-        ExplicitTop = 0
-        ExplicitWidth = 0
-        ExplicitHeight = 0
         object v_traduzione_testo_mail: TRzRapidFireButton
           Left = 725
           Top = 370
@@ -4955,10 +4947,6 @@ inherited GESTDO: TGESTDO
       object tab_marchio_documenti: TRzTabSheet
         Color = clWindow
         Caption = 'marchio documenti e allegati'
-        ExplicitLeft = 0
-        ExplicitTop = 0
-        ExplicitWidth = 0
-        ExplicitHeight = 0
         object RzLabel2: TRzLabel
           Left = 5
           Top = 156
@@ -5579,10 +5567,6 @@ inherited GESTDO: TGESTDO
       object tab_collegamenti: TRzTabSheet
         Color = clWindow
         Caption = 'collegamenti'
-        ExplicitLeft = 0
-        ExplicitTop = 0
-        ExplicitWidth = 0
-        ExplicitHeight = 0
         object RzLabel15: TRzLabel
           Left = 5
           Top = 5
@@ -5813,7 +5797,7 @@ inherited GESTDO: TGESTDO
     end
     object v_usare_come_modello: TRzDBCheckBox
       Left = 755
-      Top = 23
+      Top = 13
       Width = 55
       Height = 15
       Hint = 
@@ -5825,6 +5809,21 @@ inherited GESTDO: TGESTDO
       ValueUnchecked = 'no'
       Caption = 'modello'
       TabOrder = 2
+    end
+    object v_obsoleto: TRzDBCheckBox
+      Left = 755
+      Top = 33
+      Width = 59
+      Height = 15
+      Hint = 
+        'spunta se la causale non pu'#242' essere utilizzato nella gestione co' +
+        'rrente'
+      DataField = 'obsoleto'
+      DataSource = tabella_ds
+      ValueChecked = 'si'
+      ValueUnchecked = 'no'
+      Caption = 'obsoleto'
+      TabOrder = 4
     end
   end
   inherited pannello_codice: TRzPanel

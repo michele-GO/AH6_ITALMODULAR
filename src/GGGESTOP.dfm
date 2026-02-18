@@ -588,6 +588,8 @@ inherited GESTOP: TGESTOP
             ValueChecked = 'si'
             ValueUnchecked = 'no'
             Caption = 'avvisa superamento'
+            Color = clWhite
+            ParentColor = False
             TabOrder = 0
           end
           object v_percentuale_avviso_soft: trzdbnumericedit_go

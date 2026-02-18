@@ -2,7 +2,6 @@
 //aggiunta nuova tab_ah6_preventivi_clienti + contenuto
 //aggiunta nuovo tmyquery_go ah6_preventivi_clienti + ah6_preventivi_clienti_ds
 //
-
 unit GGVISCMSOV;
 
 interface
@@ -492,6 +491,22 @@ begin
 end;
 
 //modifica
+procedure TVISCMSOV.v_ah6_griglia_preventivi_clientiDblClick(Sender: TObject);
+begin
+  inherited;
+  ah6_gestione_preventivi_clienti;
+end;
+
+procedure TVISCMSOV.v_ah6_griglia_preventivi_clientiKeyDown(Sender: TObject;
+  var Key: Word; Shift: TShiftState);
+begin
+  inherited;
+  if (key = vk_return) and (shift = []) then
+  begin
+    ah6_gestione_preventivi_clienti;
+  end;
+end;
+
 procedure TVISCMSOV.ah6_esegui_preventivi_clienti;
 begin
   ah6_preventivi_clienti.close;
@@ -527,27 +542,12 @@ begin
   end;
 end;
 
-procedure TVISCMSOV.v_ah6_griglia_preventivi_clientiDblClick(Sender: TObject);
-begin
-  inherited;
-  ah6_gestione_preventivi_clienti;
-end;
-
-procedure TVISCMSOV.v_ah6_griglia_preventivi_clientiKeyDown(Sender: TObject;
-  var Key: Word; Shift: TShiftState);
-begin
-  inherited;
-  if (key = vk_return) and (shift = []) then
-  begin
-    ah6_gestione_preventivi_clienti;
-  end;
-end;
-
 procedure TVISCMSOV.ah6_gestione_preventivi_clienti;
 begin
   parametri_extra_programma_chiamato[29] := ah6_preventivi_clienti.fieldbyname('riga').asinteger;
   esegui_programma('GESPREV', ah6_preventivi_clienti.fieldbyname('progressivo').asinteger, true);
 end;
+
 //modifica fine
 
 initialization

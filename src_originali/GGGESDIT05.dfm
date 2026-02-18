@@ -1340,7 +1340,7 @@ inherited GESDIT05: TGESDIT05
           CalendarElements = [ceYear, ceMonth, ceArrows, ceDaysOfWeek, ceFillDays, ceTodayButton]
           CaptionTodayBtn = 'oggi'
           CaptionClearBtn = 'annulla'
-          Date = 46070.000000000000000000
+          Date = 45873.000000000000000000
           EditType = etDate
           DropButtonVisible = False
         end

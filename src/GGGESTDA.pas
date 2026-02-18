@@ -331,6 +331,7 @@ type
     v_approntamento_automatico_interattivo: TRzDBCheckBox;
     v_traduzione: TRzRapidFireButton;
     v_esporre_scadenziari: TRzDBCheckBox;
+    v_obsoleto: TRzDBCheckBox;
     //modifica
     ah6_tab_personalizzati: TRzTabSheet;
     v_ah6_commessa_obbligatoria: TRzDBCheckBox;
@@ -696,6 +697,8 @@ begin
   tab_pagina4_excel.caption := arc.lin.fieldbyname('lingua_03').asstring;
   tab_pagina5_excel.caption := arc.lin.fieldbyname('lingua_04').asstring;
   tab_pagina6_excel.caption := arc.lin.fieldbyname('lingua_05').asstring;
+
+  v_obsoleto.enabled := supervisore_utente or (arc.utn.fieldbyname('manutentore').asstring = 'si');
 end;
 
 procedure TGESTDA.FormDestroy(Sender: TObject);
@@ -2274,11 +2277,8 @@ begin
     begin
       if not fileexists(trim(v_documento_allegato.text)) then
       begin
-        messaggio(000, 'il documento non esiste');
-        if v_documento_allegato.canfocus then
-        begin
-          v_documento_allegato.setfocus;
-        end;
+        messaggio(000, 'il documento allegato non esiste');
+        fuoco(v_documento_allegato);
         abort;
       end;
     end;
