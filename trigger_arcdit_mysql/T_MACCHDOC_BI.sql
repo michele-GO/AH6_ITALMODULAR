@@ -1,0 +1,19 @@
+CREATE TRIGGER T_MACCHDOC_BI_0
+  BEFORE INSERT
+  ON macchdoc
+  FOR EACH ROW
+BEGIN 
+
+
+IF NEW.MACCH_CODICE = '' THEN
+  CALL P_CAMPO_VUOTO('macchdoc', 'macch_codice');
+END IF;
+IF NEW.CODICE = '' THEN
+  CALL P_CAMPO_VUOTO('macchdoc', 'codice');
+END IF;
+
+IF NEW.ID IS NOT NULL THEN
+  SET NEW.ID = null;
+END IF;
+
+END

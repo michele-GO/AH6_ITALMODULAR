@@ -1,0 +1,20 @@
+CREATE TRIGGER T_CFG_BI_0
+  BEFORE INSERT
+  ON `cfg`
+  FOR EACH ROW
+BEGIN 
+
+
+IF NEW.CFG_TIPO = '' THEN
+  CALL P_CAMPO_VUOTO('cfg', 'cfg_tipo');
+END IF;
+
+IF NEW.CFG_CODICE = '' THEN
+  CALL P_CAMPO_VUOTO('cfg', 'cfg_codice');
+END IF;
+
+IF NEW.ID IS NOT NULL THEN
+  SET NEW.ID = null;
+END IF;
+
+END

@@ -1,0 +1,16 @@
+CREATE TRIGGER T_VARDSB_BI_0
+  BEFORE INSERT
+  ON `vardsb`
+  FOR EACH ROW
+BEGIN 
+
+
+IF NEW.ART_CODICE_FINITO = '' THEN
+  CALL P_CAMPO_VUOTO('vardsb', 'art_codice_finito');
+END IF;
+
+IF NEW.ID IS NOT NULL THEN
+  SET NEW.ID = null;
+END IF;
+
+END

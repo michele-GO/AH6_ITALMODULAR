@@ -1,0 +1,19 @@
+CREATE TRIGGER T_TOCMS_BI_0
+  BEFORE INSERT
+  ON `tocms`
+  FOR EACH ROW
+BEGIN 
+
+
+IF NEW.TCMS_CODICE = '' THEN
+  CALL P_CAMPO_VUOTO('tocms', 'tcms_codice');
+END IF;
+IF NEW.OCMS_CODICE = '' THEN
+  CALL P_CAMPO_VUOTO('tocms', 'ocms_codice');
+END IF;
+
+IF NEW.ID IS NOT NULL THEN
+  SET NEW.ID = null;
+END IF;
+
+END

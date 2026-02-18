@@ -1,0 +1,20 @@
+CREATE TRIGGER T_TSPAUT_BI_0
+  BEFORE INSERT
+  ON `tspaut`
+  FOR EACH ROW
+BEGIN 
+
+
+IF NEW.TSP_CODICE = '' THEN
+  CALL P_CAMPO_VUOTO('tspaut', 'tsp_codice');
+END IF;
+
+IF NEW.AUTOMEZZO = '' THEN
+  CALL P_CAMPO_VUOTO('tspaut', 'automezzo');
+END IF;
+
+IF NEW.ID IS NOT NULL THEN
+  SET NEW.ID = null;
+END IF;
+
+END

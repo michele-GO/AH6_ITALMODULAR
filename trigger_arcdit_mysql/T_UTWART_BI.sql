@@ -1,0 +1,19 @@
+CREATE TRIGGER T_UTWART_BI_0
+  BEFORE INSERT
+  ON `utwart`
+  FOR EACH ROW
+BEGIN 
+
+
+IF NEW.UTW_CODICE = '' THEN
+  CALL P_CAMPO_VUOTO('utwart', 'utw_codice');
+END IF;
+IF NEW.DESCRIZIONE_FILTRO = '' THEN
+  CALL P_CAMPO_VUOTO('utwart', 'descrizione_filtro');
+END IF;
+
+IF NEW.ID IS NOT NULL THEN
+  SET NEW.ID = null;
+END IF;
+
+END

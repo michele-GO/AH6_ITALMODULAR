@@ -1,0 +1,20 @@
+CREATE TRIGGER T_CMT_BI_0
+  BEFORE INSERT
+  ON `cmt`
+  FOR EACH ROW
+BEGIN 
+
+
+IF NEW.CMS_CODICE = '' THEN
+  CALL P_CAMPO_VUOTO('cmt', 'cms_codice');
+END IF;
+
+IF NEW.TIPOLOGIA = '' THEN
+  CALL P_CAMPO_VUOTO('cmt', 'tipologia');
+END IF;
+
+IF NEW.ID IS NOT NULL THEN
+  SET NEW.ID = null;
+END IF;
+
+END

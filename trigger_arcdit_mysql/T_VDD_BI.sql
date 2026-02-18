@@ -1,0 +1,22 @@
+CREATE TRIGGER T_VDD_BI_0
+  BEFORE INSERT
+  ON `vdd`
+  FOR EACH ROW
+BEGIN 
+
+
+IF NEW.VD2_CODICE = '' THEN
+  CALL P_CAMPO_VUOTO('vdd','vd2_codice');
+END IF;
+IF NEW.VDC_SEQUENZA = '' THEN
+  CALL P_CAMPO_VUOTO('vdd','vdc_sequenza');
+END IF;
+IF NEW.VD3_CODICE = '' THEN
+  CALL P_CAMPO_VUOTO('vdd','vd3_codice');
+END IF;
+
+IF NEW.ID IS NOT NULL THEN
+  SET NEW.ID = null;
+END IF;
+
+END

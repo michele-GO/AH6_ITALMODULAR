@@ -1,0 +1,18 @@
+/*
+CREATE TRIGGER T_TITOLI_BI_0
+  BEFORE INSERT
+  ON `titoli`
+  FOR EACH ROW
+BEGIN 
+
+
+IF NEW.PROGRESSIVO = 0 THEN
+  CALL P_CAMPO_VUOTO('titoli', 'progressivo');
+END IF;
+
+IF NEW.ID IS NOT NULL THEN
+  SET NEW.ID = null;
+END IF;
+
+END
+*/

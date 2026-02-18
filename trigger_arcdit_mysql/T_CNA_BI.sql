@@ -1,0 +1,20 @@
+CREATE TRIGGER T_CNA_BI_0
+  BEFORE INSERT
+  ON `cna`
+  FOR EACH ROW
+BEGIN 
+
+
+IF NEW.TCN_CODICE = '' THEN
+  CALL P_CAMPO_VUOTO('cna', 'tcn_codice');
+END IF;
+
+IF NEW.TAA_CODICE = '' THEN
+  CALL P_CAMPO_VUOTO('cna', 'taa_codice');
+END IF;
+
+IF NEW.ID IS NOT NULL THEN
+  SET NEW.ID = null;
+END IF;
+
+END

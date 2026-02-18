@@ -1,0 +1,24 @@
+CREATE TRIGGER T_CSPANAD_BI_0
+  BEFORE INSERT
+  ON `cspanad`
+  FOR EACH ROW
+BEGIN 
+
+
+IF NEW.PROGRESSIVO = 0 THEN
+  CALL P_CAMPO_VUOTO('cspanad', 'progressivo');
+END IF;
+
+IF NEW.RIGA = 0 THEN
+  CALL P_CAMPO_VUOTO('cspanad', 'riga');
+END IF;
+
+IF NEW.RIGA_DETTAGLIO = 0 THEN
+  CALL P_CAMPO_VUOTO('cspanad', 'riga_dettaglio');
+END IF;
+
+IF NEW.ID IS NOT NULL THEN
+  SET NEW.ID = null;
+END IF;
+
+END

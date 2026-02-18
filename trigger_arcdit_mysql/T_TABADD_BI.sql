@@ -1,0 +1,22 @@
+CREATE TRIGGER T_TABADD_BI_0
+  BEFORE INSERT
+  ON tabadd
+  FOR EACH ROW
+BEGIN 
+
+
+IF NEW.TAB_CODICE = '' THEN
+  CALL P_CAMPO_VUOTO('tabadd','tab_codice');
+END IF;
+IF NEW.TVA_CODICE = '' THEN
+  CALL P_CAMPO_VUOTO('tabadd','tva_codice');
+END IF;
+IF NEW.DATA_INIZIO IS NULL THEN
+  CALL P_CAMPO_VUOTO('tabadd','data_inizio');
+END IF;
+
+IF NEW.ID IS NOT NULL THEN
+  SET NEW.ID = null;
+END IF;
+
+END

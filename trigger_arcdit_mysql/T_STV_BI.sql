@@ -1,0 +1,28 @@
+CREATE TRIGGER T_STV_BI_0
+  BEFORE INSERT
+  ON `stv`
+  FOR EACH ROW
+BEGIN 
+
+
+IF NEW.TAG_CODICE = '' THEN
+  CALL P_CAMPO_VUOTO('stv','tag_codice');
+END IF;
+IF NEW.CLI_CODICE = '' THEN
+  CALL P_CAMPO_VUOTO('stv','cli_codice');
+END IF;
+IF NEW.ART_CODICE = '' THEN
+  CALL P_CAMPO_VUOTO('stv','art_codice');
+END IF;
+IF NEW.ANNO = 0 THEN
+  CALL P_CAMPO_VUOTO('stv','anno');
+END IF;
+IF NEW.MESE = 0 THEN
+  CALL P_CAMPO_VUOTO('stv','mese');
+END IF;
+
+IF NEW.ID IS NOT NULL THEN
+  SET NEW.ID = null;
+END IF;
+
+END

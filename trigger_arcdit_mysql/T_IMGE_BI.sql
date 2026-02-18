@@ -1,0 +1,19 @@
+CREATE TRIGGER T_IMGE_BI_0
+  BEFORE INSERT
+  ON `imge`
+  FOR EACH ROW
+BEGIN 
+
+
+IF NEW.ART_CODICE = '' THEN
+  CALL P_CAMPO_VUOTO('imge', 'art_codice');
+END IF;
+IF NEW.PATHNAME = '' THEN
+  CALL P_CAMPO_VUOTO('imge', 'pathname');
+END IF;
+
+IF NEW.ID IS NOT NULL THEN
+  SET NEW.ID = null;
+END IF;
+
+END

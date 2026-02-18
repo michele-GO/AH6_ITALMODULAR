@@ -1,0 +1,24 @@
+CREATE TRIGGER T_CFGESE_BI_0
+  BEFORE INSERT
+  ON `cfgese`
+  FOR EACH ROW
+BEGIN 
+
+
+IF NEW.CFG_TIPO = '' THEN
+  CALL P_CAMPO_VUOTO('cfgese', 'cfg_tipo');
+END IF;
+
+IF NEW.CFG_CODICE = '' THEN
+  CALL P_CAMPO_VUOTO('cfgese', 'cfg_codice');
+END IF;
+
+IF NEW.ESE_CODICE = '' THEN
+  CALL P_CAMPO_VUOTO('cfgese', 'ese_codice');
+END IF;
+
+IF NEW.ID IS NOT NULL THEN
+  SET NEW.ID = null;
+END IF;
+
+END

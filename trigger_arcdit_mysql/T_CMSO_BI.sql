@@ -1,0 +1,20 @@
+CREATE TRIGGER T_CMSO_BI_0
+  BEFORE INSERT
+  ON `cmso`
+  FOR EACH ROW
+BEGIN 
+
+
+IF NEW.CMS_CODICE = '' THEN
+  CALL P_CAMPO_VUOTO('cmso', 'cms_codice');
+END IF;
+
+IF NEW.OCMS_CODICE = '' THEN
+  CALL P_CAMPO_VUOTO('cmso', 'ocms_codice');
+END IF;
+
+IF NEW.ID IS NOT NULL THEN
+  SET NEW.ID = null;
+END IF;
+
+END

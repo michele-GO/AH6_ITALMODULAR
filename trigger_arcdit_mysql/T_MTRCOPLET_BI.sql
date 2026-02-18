@@ -1,0 +1,20 @@
+CREATE TRIGGER T_MTRCOPLET_BI_0
+  BEFORE INSERT
+  ON `mtrcoplet`
+  FOR EACH ROW
+BEGIN 
+
+
+IF NEW.ID_MTRCOP = 0 THEN
+  CALL P_CAMPO_VUOTO('mtrcoplet', 'id_mtrcop');
+END IF;
+
+IF NEW.DATA IS NULL THEN
+  CALL P_CAMPO_VUOTO('mtrcoplet', 'data');
+END IF;
+
+IF NEW.ID IS NOT NULL THEN
+  SET NEW.ID = null;
+END IF;
+
+END

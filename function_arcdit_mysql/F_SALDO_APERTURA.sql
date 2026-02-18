@@ -1,0 +1,20 @@
+CREATE FUNCTION F_SALDO_APERTURA(i_cfg_tipo varchar(01), i_cfg_codice varchar(08), i_ese_codice varchar(04)) 
+	RETURNS decimal(18,6)
+    DETERMINISTIC
+    COMMENT 'calcola saldo apertura da PNR'
+BEGIN
+
+DECLARE d_valore decimal(18,6);
+
+select coalesce(sum(pnr.importo_dare_euro - pnr.importo_avere_euro), 0)
+  from pnr
+  inner join pnt on pnt.progressivo = pnr.progressivo
+  where pnr.cfg_tipo = i_cfg_tipo
+	and pnr.cfg_codice = i_cfg_codice
+    and pnt.ese_codice = i_ese_codice 
+	and pnt.tipo_movimento = 'apertura bilancio'
+into d_valore;
+
+RETURN d_valore;
+
+END

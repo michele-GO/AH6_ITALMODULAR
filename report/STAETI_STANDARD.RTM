@@ -1,0 +1,327 @@
+object ppReport_etichette: TppReport
+  AutoStop = False
+  DataPipeline = ppDBTabella
+  PrinterSetup.BinName = 'Default'
+  PrinterSetup.DocumentName = 'Report'
+  PrinterSetup.PaperName = 'A4'
+  PrinterSetup.PrinterName = 'Default'
+  PrinterSetup.mmMarginBottom = 254
+  PrinterSetup.mmMarginLeft = 20574
+  PrinterSetup.mmMarginRight = 254
+  PrinterSetup.mmMarginTop = 12700
+  PrinterSetup.mmPaperHeight = 297127
+  PrinterSetup.mmPaperWidth = 210079
+  PrinterSetup.PaperSize = 9
+  Template.FileName = '..\report\STAETI_STANDARD.RTM'
+  Template.Format = ftASCII
+  BeforePrint = ppReport_etichetteBeforePrint
+  DeviceType = 'Screen'
+  OnPreviewFormClose = ppReport_etichettePreviewFormClose
+  OnPreviewFormCreate = ppReport_etichettePreviewFormCreate
+  ShowPrintDialog = False
+  Left = 345
+  Top = 65526
+  Version = '6.03'
+  mmColumnWidth = 66802
+  DataPipelineName = 'ppDBTabella'
+  object ppHeaderBand2: TppHeaderBand
+    mmBottomOffset = 0
+    mmHeight = 4763
+    mmPrintPosition = 0
+    object pp_Label53: TppLabel
+      UserName = 'Label53'
+      Caption = 'margine superiore'
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clBlack
+      Font.Name ='Microsoft Sans Serif'
+      Font.Size = 10
+      Font.Style = []
+      Transparent = True
+      mmHeight = 3969
+      mmLeft = 80433
+      mmTop = 265
+      mmWidth = 28310
+      BandType = 0
+    end
+  end
+  object ppDetailBand_eti: TppDetailBand
+    mmBottomOffset = 0
+    mmHeight = 24342
+    mmPrintPosition = 0
+    object pp_DBText66: TppDBText
+      UserName = 'DBText66'
+      DataField = 'descrizione1_01'
+      DataPipeline = ppDBTabella
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clBlack
+      Font.Name ='Microsoft Sans Serif'
+      Font.Size = 10
+      Font.Style = []
+      Transparent = True
+      DataPipelineName = 'ppDBTabella'
+      mmHeight = 3969
+      mmLeft = 0
+      mmTop = 1852
+      mmWidth = 62992
+      BandType = 4
+    end
+    object pp_DBText67: TppDBText
+      UserName = 'DBText67'
+      DataField = 'descrizione2_01'
+      DataPipeline = ppDBTabella
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clBlack
+      Font.Name ='Microsoft Sans Serif'
+      Font.Size = 10
+      Font.Style = []
+      Transparent = True
+      DataPipelineName = 'ppDBTabella'
+      mmHeight = 3969
+      mmLeft = 0
+      mmTop = 6085
+      mmWidth = 62992
+      BandType = 4
+    end
+    object pp_DBText68: TppDBText
+      UserName = 'DBText68'
+      DataField = 'via_01'
+      DataPipeline = ppDBTabella
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clBlack
+      Font.Name ='Microsoft Sans Serif'
+      Font.Size = 10
+      Font.Style = []
+      Transparent = True
+      DataPipelineName = 'ppDBTabella'
+      mmHeight = 3969
+      mmLeft = 0
+      mmTop = 10583
+      mmWidth = 62992
+      BandType = 4
+    end
+    object pp_DBText69: TppDBText
+      UserName = 'DBText69'
+      DataField = 'cap_citta_provincia_01'
+      DataPipeline = ppDBTabella
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clBlack
+      Font.Name ='Microsoft Sans Serif'
+      Font.Size = 10
+      Font.Style = []
+      Transparent = True
+      DataPipelineName = 'ppDBTabella'
+      mmHeight = 3969
+      mmLeft = 0
+      mmTop = 15081
+      mmWidth = 62992
+      BandType = 4
+    end
+    object pp_DBText70: TppDBText
+      UserName = 'DBText70'
+      DataField = 'nazione_01'
+      DataPipeline = ppDBTabella
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clBlack
+      Font.Name ='Microsoft Sans Serif'
+      Font.Size = 10
+      Font.Style = []
+      Transparent = True
+      DataPipelineName = 'ppDBTabella'
+      mmHeight = 3969
+      mmLeft = 0
+      mmTop = 19579
+      mmWidth = 62992
+      BandType = 4
+    end
+    object pp_DBText71: TppDBText
+      UserName = 'DBText71'
+      DataField = 'descrizione1_02'
+      DataPipeline = ppDBTabella
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clBlack
+      Font.Name ='Microsoft Sans Serif'
+      Font.Size = 10
+      Font.Style = []
+      Transparent = True
+      DataPipelineName = 'ppDBTabella'
+      mmHeight = 3969
+      mmLeft = 63236
+      mmTop = 1852
+      mmWidth = 62971
+      BandType = 4
+    end
+    object pp_DBText72: TppDBText
+      UserName = 'DBText72'
+      DataField = 'descrizione2_02'
+      DataPipeline = ppDBTabella
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clBlack
+      Font.Name ='Microsoft Sans Serif'
+      Font.Size = 10
+      Font.Style = []
+      Transparent = True
+      DataPipelineName = 'ppDBTabella'
+      mmHeight = 3969
+      mmLeft = 63236
+      mmTop = 6085
+      mmWidth = 62971
+      BandType = 4
+    end
+    object pp_DBText73: TppDBText
+      UserName = 'DBText104'
+      DataField = 'via_02'
+      DataPipeline = ppDBTabella
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clBlack
+      Font.Name ='Microsoft Sans Serif'
+      Font.Size = 10
+      Font.Style = []
+      Transparent = True
+      DataPipelineName = 'ppDBTabella'
+      mmHeight = 3969
+      mmLeft = 63236
+      mmTop = 10583
+      mmWidth = 62971
+      BandType = 4
+    end
+    object pp_DBText74: TppDBText
+      UserName = 'DBText74'
+      DataField = 'cap_citta_provincia_02'
+      DataPipeline = ppDBTabella
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clBlack
+      Font.Name ='Microsoft Sans Serif'
+      Font.Size = 10
+      Font.Style = []
+      Transparent = True
+      DataPipelineName = 'ppDBTabella'
+      mmHeight = 3969
+      mmLeft = 63236
+      mmTop = 15081
+      mmWidth = 62971
+      BandType = 4
+    end
+    object pp_DBText75: TppDBText
+      UserName = 'DBText75'
+      DataField = 'nazione_02'
+      DataPipeline = ppDBTabella
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clBlack
+      Font.Name ='Microsoft Sans Serif'
+      Font.Size = 10
+      Font.Style = []
+      Transparent = True
+      DataPipelineName = 'ppDBTabella'
+      mmHeight = 3969
+      mmLeft = 63236
+      mmTop = 19579
+      mmWidth = 62971
+      BandType = 4
+    end
+    object pp_DBText76: TppDBText
+      UserName = 'DBText76'
+      DataField = 'descrizione1_03'
+      DataPipeline = ppDBTabella
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clBlack
+      Font.Name ='Microsoft Sans Serif'
+      Font.Size = 10
+      Font.Style = []
+      Transparent = True
+      DataPipelineName = 'ppDBTabella'
+      mmHeight = 3969
+      mmLeft = 126471
+      mmTop = 1852
+      mmWidth = 62971
+      BandType = 4
+    end
+    object pp_DBText77: TppDBText
+      UserName = 'DBText77'
+      DataField = 'descrizione2_03'
+      DataPipeline = ppDBTabella
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clBlack
+      Font.Name ='Microsoft Sans Serif'
+      Font.Size = 10
+      Font.Style = []
+      Transparent = True
+      DataPipelineName = 'ppDBTabella'
+      mmHeight = 3969
+      mmLeft = 126471
+      mmTop = 6085
+      mmWidth = 62971
+      BandType = 4
+    end
+    object pp_DBText78: TppDBText
+      UserName = 'DBText78'
+      DataField = 'via_03'
+      DataPipeline = ppDBTabella
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clBlack
+      Font.Name ='Microsoft Sans Serif'
+      Font.Size = 10
+      Font.Style = []
+      Transparent = True
+      DataPipelineName = 'ppDBTabella'
+      mmHeight = 3969
+      mmLeft = 126471
+      mmTop = 10583
+      mmWidth = 62971
+      BandType = 4
+    end
+    object pp_DBText79: TppDBText
+      UserName = 'DBText79'
+      DataField = 'cap_citta_provincia_03'
+      DataPipeline = ppDBTabella
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clBlack
+      Font.Name ='Microsoft Sans Serif'
+      Font.Size = 10
+      Font.Style = []
+      Transparent = True
+      DataPipelineName = 'ppDBTabella'
+      mmHeight = 3969
+      mmLeft = 126471
+      mmTop = 15081
+      mmWidth = 62971
+      BandType = 4
+    end
+    object pp_DBText80: TppDBText
+      UserName = 'DBText80'
+      DataField = 'nazione_03'
+      DataPipeline = ppDBTabella
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clBlack
+      Font.Name ='Microsoft Sans Serif'
+      Font.Size = 10
+      Font.Style = []
+      Transparent = True
+      DataPipelineName = 'ppDBTabella'
+      mmHeight = 3969
+      mmLeft = 126471
+      mmTop = 19579
+      mmWidth = 62971
+      BandType = 4
+    end
+  end
+  object ppFooterBand2: TppFooterBand
+    mmBottomOffset = 0
+    mmHeight = 4763
+    mmPrintPosition = 0
+    object pp_Label55: TppLabel
+      UserName = 'Label55'
+      Caption = 'margine inferiore'
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clBlack
+      Font.Name ='Microsoft Sans Serif'
+      Font.Size = 10
+      Font.Style = []
+      Transparent = True
+      mmHeight = 3969
+      mmLeft = 81227
+      mmTop = 265
+      mmWidth = 26458
+      BandType = 8
+    end
+  end
+end

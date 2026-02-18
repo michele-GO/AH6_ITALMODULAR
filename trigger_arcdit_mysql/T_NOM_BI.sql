@@ -1,0 +1,56 @@
+CREATE TRIGGER T_NOM_BI_0
+  BEFORE INSERT
+  ON `nom`
+  FOR EACH ROW
+BEGIN 
+
+DECLARE CFPIVA_OBBLIGATORI   CHAR(02);
+
+
+SELECT CF_PIVA_OBBLIGATORI FROM ARC.DIT01 WHERE CODICE = @DIT_CODICE INTO CFPIVA_OBBLIGATORI;
+IF CFPIVA_OBBLIGATORI = 'si' AND NEW.PARTITA_IVA = '' AND NEW.CODICE_FISCALE = '' THEN
+  CALL P_CAMPO_VUOTO('nom', 'partita_iva  codice_fiscale');
+END IF;
+
+IF NEW.LINGUA = 'italiano' THEN
+  SET NEW.CODICE_LINGUA = '00';
+ELSEIF NEW.LINGUA = (SELECT LINGUA_01 FROM ARC.LIN WHERE CODICE = 'LIN') THEN
+  SET NEW.CODICE_LINGUA = '01';
+ELSEIF NEW.LINGUA = (SELECT LINGUA_02 FROM ARC.LIN WHERE CODICE = 'LIN') THEN
+  SET NEW.CODICE_LINGUA = '02';
+ELSEIF NEW.LINGUA = (SELECT LINGUA_03 FROM ARC.LIN WHERE CODICE = 'LIN') THEN
+  SET NEW.CODICE_LINGUA = '03';
+ELSEIF NEW.LINGUA = (SELECT LINGUA_04 FROM ARC.LIN WHERE CODICE = 'LIN') THEN
+  SET NEW.CODICE_LINGUA = '04';
+ELSEIF NEW.LINGUA = (SELECT LINGUA_05 FROM ARC.LIN WHERE CODICE = 'LIN') THEN
+  SET NEW.CODICE_LINGUA = '05';
+END IF;
+
+if new.sincronizza_indirizzi = 'si' then
+  set new.via_legale = new.via;
+  set new.via_01_legale = new.via_01;
+  set new.cap_legale = new.cap;
+  set new.citta_legale = new.citta;
+  set new.frazione_legale = new.frazione;
+  set new.provincia_legale = new.provincia;
+  set new.tna_codice_legale = new.tna_codice;
+end if;
+
+IF NEW.CODICE = '' THEN
+  CALL P_CAMPO_VUOTO('nom', 'codice');
+END IF;
+IF NEW.TVA_CODICE = '' THEN
+  CALL P_CAMPO_VUOTO('nom', 'tva_codice');
+END IF;
+IF NEW.TNA_CODICE = '' THEN
+  CALL P_CAMPO_VUOTO('nom', 'tna_codice');
+END IF;
+IF NEW.TNA_CODICE_LEGALE = '' THEN
+  CALL P_CAMPO_VUOTO('nom', 'tna_codice_legale');
+END IF;
+
+IF NEW.ID IS NOT NULL THEN
+  SET NEW.ID = null;
+END IF;
+
+END

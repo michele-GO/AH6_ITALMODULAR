@@ -1,0 +1,19 @@
+CREATE TRIGGER T_SAE_BI_0
+  BEFORE INSERT
+  ON `sae`
+  FOR EACH ROW
+BEGIN 
+
+
+IF NEW.CAE_CODICE_PADRE = '' THEN
+  CALL P_CAMPO_VUOTO('sae', 'cae_codice_padre');
+END IF;
+IF NEW.CAE_CODICE_FIGLIO = '' THEN
+  CALL P_CAMPO_VUOTO('sae', 'cae_codice_figlio');
+END IF;
+
+IF NEW.ID IS NOT NULL THEN
+  SET NEW.ID = null;
+END IF;
+
+END

@@ -1,0 +1,20 @@
+CREATE TRIGGER T_DSVL_BI_0
+  BEFORE INSERT
+  ON `dsvl`
+  FOR EACH ROW
+BEGIN 
+
+
+IF NEW.DSV_CODICE = '' THEN
+  CALL P_CAMPO_VUOTO('dsvl', 'dsv_codice');
+END IF;
+
+IF NEW.linea = 0 THEN
+  CALL P_CAMPO_VUOTO('dsvl', 'linea');
+END IF;
+
+IF NEW.ID IS NOT NULL THEN
+  SET NEW.ID = null;
+END IF;
+
+END

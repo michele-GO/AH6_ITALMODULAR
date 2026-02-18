@@ -1,0 +1,20 @@
+CREATE TRIGGER T_AUS_BI_0
+  BEFORE INSERT
+  ON `aus`
+  FOR EACH ROW
+BEGIN 
+
+
+IF NEW.AUT_CODICE = '' THEN
+  CALL P_CAMPO_VUOTO('aus', 'aut_codice');
+END IF;
+
+IF NEW.CODICE = '' THEN
+  CALL P_CAMPO_VUOTO('aus', 'codice');
+END IF;
+
+IF NEW.ID IS NOT NULL THEN
+  SET NEW.ID = null;
+END IF;
+
+END

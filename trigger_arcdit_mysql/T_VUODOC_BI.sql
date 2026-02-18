@@ -1,0 +1,38 @@
+CREATE TRIGGER T_VUODOC_BI_0
+  BEFORE INSERT
+  ON `vuodoc`
+  FOR EACH ROW
+BEGIN 
+
+
+IF NEW.RESO = 'no' THEN
+  SET NEW.SEGNO = 1;
+ELSE
+  SET NEW.SEGNO = -1;
+END IF;
+
+IF NEW.PROGRESSIVO = 0 THEN
+  CALL P_CAMPO_VUOTO('vuodoc', 'PROGRESSIVO');
+END IF;
+
+IF NEW.CFG_TIPO = '' THEN
+  CALL P_CAMPO_VUOTO('vuodoc', 'cfg_tipo');
+END IF;
+
+IF NEW.CFG_CODICE = '' THEN
+  CALL P_CAMPO_VUOTO('vuodoc', 'cfg_codice');
+END IF;
+
+IF NEW.DATA_REGISTRAZIONE IS NULL THEN
+  CALL P_CAMPO_VUOTO('vuodoc', 'data_registrazione');
+END IF;
+
+IF NEW.VUO_CODICE = '' THEN
+  CALL P_CAMPO_VUOTO('vuodoc', 'vuo_codice');
+END IF;
+
+IF NEW.ID IS NOT NULL THEN
+  SET NEW.ID = null;
+END IF;
+
+END

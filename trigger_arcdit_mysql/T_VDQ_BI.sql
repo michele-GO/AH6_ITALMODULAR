@@ -1,0 +1,25 @@
+CREATE TRIGGER T_VDQ_BI_0
+  BEFORE INSERT
+  ON `vdq`
+  FOR EACH ROW
+BEGIN 
+
+
+IF NEW.ARCHIVIO = '' THEN
+  CALL P_CAMPO_VUOTO('vdq','archivio');
+END IF;
+IF NEW.ID_ARCHIVIO = 0 THEN
+  CALL P_CAMPO_VUOTO('vdq','id_archivio');
+END IF;
+IF NEW.VD1_CODICE = '' THEN
+  CALL P_CAMPO_VUOTO('vdq','vd1_codice');
+END IF;
+IF NEW.VDC_SEQUENZA = '' THEN
+  CALL P_CAMPO_VUOTO('vdq','vdc_sequenza');
+END IF;
+
+IF NEW.ID IS NOT NULL THEN
+  SET NEW.ID = null;
+END IF;
+
+END

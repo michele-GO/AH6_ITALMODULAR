@@ -1,0 +1,20 @@
+CREATE TRIGGER T_CFD_BI_0
+  BEFORE INSERT
+  ON `cfd`
+  FOR EACH ROW
+BEGIN 
+
+
+IF NEW.TTA_CODICE = '' THEN
+  CALL P_CAMPO_VUOTO('cfd', 'tta_codice');
+END IF;
+
+IF NEW.TCI_CODICE = '' THEN
+  CALL P_CAMPO_VUOTO('cfd', 'tci_codice');
+END IF;
+
+IF NEW.ID IS NOT NULL THEN
+  SET NEW.ID = null;
+END IF;
+
+END

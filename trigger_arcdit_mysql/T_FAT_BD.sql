@@ -1,0 +1,9 @@
+CREATE TRIGGER T_FAT_BD
+  BEFORE DELETE
+  ON `fat`
+  FOR EACH ROW
+BEGIN 
+
+CALL P_SCHTRS('fat', old.progressivo);
+
+END

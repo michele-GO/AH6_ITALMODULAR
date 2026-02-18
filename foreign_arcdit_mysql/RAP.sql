@@ -1,0 +1,13 @@
+/*
+cancella record pendenti che causerebbero la non creazioen della foreign
+*/
+delete from rap where not exists 
+(select id from rat where progressivo = rap.progressivo);
+
+/*
+tenere il nome del constraint in minuscolo
+*/
+alter table rap add constraint rap_foreign_key foreign key (progressivo)
+references rat (progressivo)
+on delete restrict
+on update cascade

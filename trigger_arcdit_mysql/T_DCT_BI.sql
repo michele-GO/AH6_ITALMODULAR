@@ -1,0 +1,24 @@
+CREATE TRIGGER T_DCT_BI_0
+  BEFORE INSERT
+  ON `dct`
+  FOR EACH ROW
+BEGIN 
+
+
+IF NEW.TABELLA = '' THEN
+  CALL P_CAMPO_VUOTO('dct', 'tabella');
+END IF;
+
+IF NEW.ID_TABELLA = 0 THEN
+  CALL P_CAMPO_VUOTO('dct', 'id_tabella');
+END IF;
+
+IF NEW.RIGA = 0 THEN
+  CALL P_CAMPO_VUOTO('dct', 'riga');
+END IF;
+
+IF NEW.ID IS NOT NULL THEN
+  SET NEW.ID = null;
+END IF;
+
+END

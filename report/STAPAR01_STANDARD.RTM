@@ -1,0 +1,2061 @@
+object ppReport_documenti: TppReport
+  AutoStop = False
+  DataPipeline = ppDBTabella
+  PassSetting = psTwoPass
+  PrinterSetup.BinName = 'Default'
+  PrinterSetup.DocumentName = 'Report'
+  PrinterSetup.Duplex = dpNone
+  PrinterSetup.PaperName = 'A4'
+  PrinterSetup.PrinterName = 'Default'
+  PrinterSetup.SaveDeviceSettings = False
+  PrinterSetup.mmMarginBottom = 0
+  PrinterSetup.mmMarginLeft = 0
+  PrinterSetup.mmMarginRight = 0
+  PrinterSetup.mmMarginTop = 0
+  PrinterSetup.mmPaperHeight = 297127
+  PrinterSetup.mmPaperWidth = 210079
+  PrinterSetup.PaperSize = 9
+  Template.FileName = 'C:\GestionaleOpen\go_1005\report\STAPAR01_STANDARD.RTM'
+  Template.Format = ftASCII
+  ArchiveFileName = '($MyDocuments)\ReportArchive.raf'
+  BeforePrint = ppReport_documentiBeforePrint
+  DeviceType = 'Screen'
+  DefaultFileDeviceType = 'PDF'
+  EmailSettings.ReportFormat = 'PDF'
+  LanguageID = 'Default'
+  OnPreviewFormClose = ppReport_documentiPreviewFormClose
+  OnPreviewFormCreate = ppReport_documentiPreviewFormCreate
+  OpenFile = False
+  OutlineSettings.CreateNode = True
+  OutlineSettings.CreatePageNodes = True
+  OutlineSettings.Enabled = True
+  OutlineSettings.Visible = True
+  ThumbnailSettings.Enabled = True
+  ThumbnailSettings.Visible = True
+  ThumbnailSettings.DeadSpace = 30
+  PDFSettings.EmbedFontOptions = [efAllFonts, efUseSubset]
+  PDFSettings.EncryptSettings.AllowCopy = True
+  PDFSettings.EncryptSettings.AllowInteract = True
+  PDFSettings.EncryptSettings.AllowModify = True
+  PDFSettings.EncryptSettings.AllowPrint = True
+  PDFSettings.EncryptSettings.AllowExtract = True
+  PDFSettings.EncryptSettings.AllowAssemble = True
+  PDFSettings.EncryptSettings.AllowQualityPrint = True
+  PDFSettings.EncryptSettings.Enabled = False
+  PDFSettings.EncryptSettings.KeyLength = kl40Bit
+  PDFSettings.EncryptSettings.EncryptionType = etRC4
+  PDFSettings.FontEncoding = feAnsi
+  PDFSettings.ImageCompressionLevel = 25
+  PDFSettings.PDFA = True
+  PDFSettings.ScaleImages = False
+  RTFSettings.DefaultFont.Charset = DEFAULT_CHARSET
+  RTFSettings.DefaultFont.Color = clWindowText
+  RTFSettings.DefaultFont.Height = -13
+  RTFSettings.DefaultFont.Name = 'Arial'
+  RTFSettings.DefaultFont.Style = []
+  ShowPrintDialog = False
+  TextFileName = '($MyDocuments)\Report.pdf'
+  TextSearchSettings.DefaultString = '<TestoCercato>'
+  TextSearchSettings.Enabled = True
+  TextSearchSettings.Visible = True
+  XLSSettings.AppName = 'ReportBuilder'
+  XLSSettings.Author = 'ReportBuilder'
+  XLSSettings.Subject = 'Report'
+  XLSSettings.Title = 'Report'
+  XLSSettings.WorksheetName = 'Report'
+  Left = 365
+  Top = 65526
+  Version = '17.01'
+  mmColumnWidth = 0
+  DataPipelineName = 'ppDBTabella'
+  object ppHeaderBand_documenti_01: TppHeaderBand
+    BeforePrint = ppHeaderBand_documenti_01BeforePrint
+    Background.Brush.Style = bsClear
+    mmBottomOffset = 0
+    mmHeight = 67204
+    mmPrintPosition = 0
+    object pp_Shape_documenti_02: TppShape
+      DesignLayer = pp_DesignLayer3
+      UserName = 'Shape_documenti_02'
+      mmHeight = 5027
+      mmLeft = 0
+      mmTop = 61913
+      mmWidth = 196321
+      BandType = 0
+      LayerName = pp_Foreground2
+    end
+    object pp_Shape401: TppShape
+      DesignLayer = pp_DesignLayer3
+      UserName = 'Shape401'
+      Brush.Color = clBtnFace
+      mmHeight = 7938
+      mmLeft = 0
+      mmTop = 53181
+      mmWidth = 88900
+      BandType = 0
+      LayerName = pp_Foreground2
+    end
+    object pp_Label_descrizione_documento: TppLabel
+      DesignLayer = pp_DesignLayer3
+      UserName = 'Label_descrizione_documento'
+      HyperlinkEnabled = False
+      AutoSize = False
+      Border.Weight = 1.000000000000000000
+      Caption = 'Descrizione documento'
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clBlack
+      Font.Name = 'Microsoft Sans Serif'
+      Font.Size = 8
+      Font.Style = [fsBold]
+      Transparent = True
+      mmHeight = 3217
+      mmLeft = 2646
+      mmTop = 55298
+      mmWidth = 72761
+      BandType = 0
+      LayerName = pp_Foreground2
+    end
+    object pp_Label_numero_pagina: TppLabel
+      DesignLayer = pp_DesignLayer3
+      UserName = 'Label_numero_pagina'
+      HyperlinkEnabled = False
+      AutoSize = False
+      Border.Weight = 1.000000000000000000
+      Caption = 'pag.'
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clBlack
+      Font.Name = 'Microsoft Sans Serif'
+      Font.Size = 5
+      Font.Style = [fsBold, fsItalic]
+      Transparent = True
+      mmHeight = 2032
+      mmLeft = 78317
+      mmTop = 53711
+      mmWidth = 3969
+      BandType = 0
+      LayerName = pp_Foreground2
+    end
+    object pp_Label_copia_interna: TppLabel
+      DesignLayer = pp_DesignLayer3
+      UserName = 'Label_copia_interna'
+      HyperlinkEnabled = False
+      Border.Weight = 1.000000000000000000
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clBlack
+      Font.Name = 'Microsoft Sans Serif'
+      Font.Size = 10
+      Font.Style = [fsBold]
+      Transparent = True
+      mmHeight = 4022
+      mmLeft = 60854
+      mmTop = 46831
+      mmWidth = 889
+      BandType = 0
+      LayerName = pp_Foreground2
+    end
+    object ppnumero_pagina: TppLabel
+      DesignLayer = pp_DesignLayer3
+      UserName = 'Label_numero_pagina1'
+      HyperlinkEnabled = False
+      Border.Weight = 1.000000000000000000
+      Caption = '1'
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clBlack
+      Font.Name = 'Microsoft Sans Serif'
+      Font.Size = 10
+      Font.Style = [fsBold]
+      Transparent = True
+      mmHeight = 4022
+      mmLeft = 82286
+      mmTop = 54504
+      mmWidth = 1990
+      BandType = 0
+      LayerName = pp_Foreground2
+    end
+    object pp_documenti_dit_descrizione: TppLabel
+      DesignLayer = pp_DesignLayer3
+      UserName = '_documenti_dit_via1'
+      HyperlinkEnabled = False
+      Border.Weight = 1.000000000000000000
+      Caption = 'documenti_dit_descrizione'
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clBlack
+      Font.Name = 'Microsoft Sans Serif'
+      Font.Size = 7
+      Font.Style = [fsBold]
+      Transparent = True
+      mmHeight = 2836
+      mmLeft = 2646
+      mmTop = 24606
+      mmWidth = 29972
+      BandType = 0
+      LayerName = pp_Foreground2
+    end
+    object ppShape1: TppShape
+      DesignLayer = pp_DesignLayer3
+      UserName = 'Shape1'
+      mmHeight = 32543
+      mmLeft = 92870
+      mmTop = 28311
+      mmWidth = 103188
+      BandType = 0
+      LayerName = pp_Foreground2
+    end
+    object pp_documenti_marchio: TppImage
+      DesignLayer = pp_DesignLayer3
+      UserName = '_documenti_marchio'
+      AlignHorizontal = ahLeft
+      AlignVertical = avTop
+      MaintainAspectRatio = False
+      Stretch = True
+      Transparent = True
+      Border.Weight = 1.000000000000000000
+      mmHeight = 22754
+      mmLeft = 1852
+      mmTop = 1323
+      mmWidth = 85725
+      BandType = 0
+      LayerName = pp_Foreground2
+    end
+    object pp_documenti_dit_descrizione1: TppLabel
+      DesignLayer = pp_DesignLayer3
+      UserName = '_documenti_dit_descrizione1'
+      HyperlinkEnabled = False
+      AutoSize = False
+      Border.Weight = 1.000000000000000000
+      Caption = '_documenti_dit_descrizione1'
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clBlack
+      Font.Name = 'Microsoft Sans Serif'
+      Font.Size = 12
+      Font.Style = [fsBold]
+      Transparent = True
+      mmHeight = 4784
+      mmLeft = 2381
+      mmTop = 6350
+      mmWidth = 85090
+      BandType = 0
+      LayerName = pp_Foreground2
+    end
+    object pp_documenti_dit_descrizione2: TppLabel
+      DesignLayer = pp_DesignLayer3
+      UserName = '_documenti_dit_descrizione2'
+      HyperlinkEnabled = False
+      AutoSize = False
+      Border.Weight = 1.000000000000000000
+      Caption = '_documenti_dit_descrizione2'
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clBlack
+      Font.Name = 'Microsoft Sans Serif'
+      Font.Size = 12
+      Font.Style = [fsBold]
+      Transparent = True
+      mmHeight = 4784
+      mmLeft = 2381
+      mmTop = 15240
+      mmWidth = 85090
+      BandType = 0
+      LayerName = pp_Foreground2
+    end
+    object pp_documenti_dit_via: TppLabel
+      DesignLayer = pp_DesignLayer3
+      UserName = '_documenti_dit_via'
+      HyperlinkEnabled = False
+      AutoSize = False
+      Border.Weight = 1.000000000000000000
+      Caption = '_documenti_dit_via'
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clBlack
+      Font.Name = 'Microsoft Sans Serif'
+      Font.Size = 7
+      Font.Style = [fsBold]
+      Transparent = True
+      mmHeight = 2836
+      mmLeft = 2646
+      mmTop = 27781
+      mmWidth = 79640
+      BandType = 0
+      LayerName = pp_Foreground2
+    end
+    object pp_documenti_dit_citta: TppLabel
+      DesignLayer = pp_DesignLayer3
+      UserName = '_documenti_dit_citta'
+      HyperlinkEnabled = False
+      AutoSize = False
+      Border.Weight = 1.000000000000000000
+      Caption = '_documenti_dit_citta'
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clBlack
+      Font.Name = 'Microsoft Sans Serif'
+      Font.Size = 7
+      Font.Style = [fsBold]
+      Transparent = True
+      mmHeight = 2836
+      mmLeft = 2646
+      mmTop = 31485
+      mmWidth = 79640
+      BandType = 0
+      LayerName = pp_Foreground2
+    end
+    object pp_Label_codice_fiscale: TppLabel
+      DesignLayer = pp_DesignLayer3
+      UserName = 'Label_codice_fiscale'
+      HyperlinkEnabled = False
+      AutoSize = False
+      Border.Weight = 1.000000000000000000
+      Caption = 'codice fiscale:'
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clBlack
+      Font.Name = 'Microsoft Sans Serif'
+      Font.Size = 5
+      Font.Style = []
+      Transparent = True
+      mmHeight = 2032
+      mmLeft = 2646
+      mmTop = 35454
+      mmWidth = 14023
+      BandType = 0
+      LayerName = pp_Foreground2
+    end
+    object pp_documenti_dit_codice_fiscale: TppLabel
+      DesignLayer = pp_DesignLayer3
+      UserName = '_documenti_dit_codice_fiscale'
+      HyperlinkEnabled = False
+      AutoSize = False
+      Border.Weight = 1.000000000000000000
+      Caption = '_documenti_dit_codice_fiscale'
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clBlack
+      Font.Name = 'Microsoft Sans Serif'
+      Font.Size = 7
+      Font.Style = [fsBold]
+      Transparent = True
+      mmHeight = 2836
+      mmLeft = 17463
+      mmTop = 35190
+      mmWidth = 28046
+      BandType = 0
+      LayerName = pp_Foreground2
+    end
+    object pp_Label_partita_iva: TppLabel
+      DesignLayer = pp_DesignLayer3
+      UserName = 'Label_partita_iva'
+      HyperlinkEnabled = False
+      AutoSize = False
+      Border.Weight = 1.000000000000000000
+      Caption = 'partita iva: '
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clBlack
+      Font.Name = 'Microsoft Sans Serif'
+      Font.Size = 5
+      Font.Style = []
+      Transparent = True
+      mmHeight = 2032
+      mmLeft = 49742
+      mmTop = 35454
+      mmWidth = 10583
+      BandType = 0
+      LayerName = pp_Foreground2
+    end
+    object pp_documenti_dit_partita_iva: TppLabel
+      DesignLayer = pp_DesignLayer3
+      UserName = '_documenti_dit_partita_iva'
+      HyperlinkEnabled = False
+      AutoSize = False
+      Border.Weight = 1.000000000000000000
+      Caption = '_documenti_dit_partita_iva'
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clBlack
+      Font.Name = 'Microsoft Sans Serif'
+      Font.Size = 7
+      Font.Style = [fsBold]
+      Transparent = True
+      mmHeight = 2836
+      mmLeft = 60854
+      mmTop = 35190
+      mmWidth = 21167
+      BandType = 0
+      LayerName = pp_Foreground2
+    end
+    object pp_Label_capitale_sociale: TppLabel
+      DesignLayer = pp_DesignLayer3
+      UserName = 'Label_capitale_sociale'
+      HyperlinkEnabled = False
+      AutoSize = False
+      Border.Weight = 1.000000000000000000
+      Caption = 'capitale sociale: '
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clBlack
+      Font.Name = 'Microsoft Sans Serif'
+      Font.Size = 5
+      Font.Style = []
+      Transparent = True
+      mmHeight = 2032
+      mmLeft = 2646
+      mmTop = 39158
+      mmWidth = 14023
+      BandType = 0
+      LayerName = pp_Foreground2
+    end
+    object pp_documenti_dit_capitale_sociale: TppVariable
+      DesignLayer = pp_DesignLayer3
+      UserName = '_documenti_dit_capitale_sociale'
+      HyperlinkEnabled = False
+      AutoSize = False
+      Border.Weight = 1.000000000000000000
+      BlankWhenZero = False
+      CalcOrder = 0
+      DataType = dtDouble
+      DisplayFormat = ',#.##'
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clBlack
+      Font.Name = 'Microsoft Sans Serif'
+      Font.Size = 7
+      Font.Style = [fsBold]
+      OnCalc = pp_documenti_dit_capitale_socialeCalc
+      Transparent = True
+      mmHeight = 2836
+      mmLeft = 17463
+      mmTop = 38894
+      mmWidth = 28046
+      BandType = 0
+      LayerName = pp_Foreground2
+    end
+    object pp_Label_registro_imprese: TppLabel
+      DesignLayer = pp_DesignLayer3
+      UserName = 'Label_registro_imprese'
+      HyperlinkEnabled = False
+      AutoSize = False
+      Border.Weight = 1.000000000000000000
+      Caption = 'C.C.I.A.A.:'
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clBlack
+      Font.Name = 'Microsoft Sans Serif'
+      Font.Size = 5
+      Font.Style = []
+      Transparent = True
+      mmHeight = 2032
+      mmLeft = 49742
+      mmTop = 39158
+      mmWidth = 10583
+      BandType = 0
+      LayerName = pp_Foreground2
+    end
+    object pp_documenti_dit_registro_imprese: TppLabel
+      DesignLayer = pp_DesignLayer3
+      UserName = '_documenti_dit_registro_imprese'
+      HyperlinkEnabled = False
+      AutoSize = False
+      Border.Weight = 1.000000000000000000
+      Caption = '_documenti_dit_registro_imprese'
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clBlack
+      Font.Name = 'Microsoft Sans Serif'
+      Font.Size = 7
+      Font.Style = [fsBold]
+      Transparent = True
+      mmHeight = 2836
+      mmLeft = 60854
+      mmTop = 38894
+      mmWidth = 21167
+      BandType = 0
+      LayerName = pp_Foreground2
+    end
+    object pp_Label_telefono: TppLabel
+      DesignLayer = pp_DesignLayer3
+      UserName = 'Label_telefono'
+      HyperlinkEnabled = False
+      AutoSize = False
+      Border.Weight = 1.000000000000000000
+      Caption = 'telefono: '
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clBlack
+      Font.Name = 'Microsoft Sans Serif'
+      Font.Size = 5
+      Font.Style = []
+      Transparent = True
+      mmHeight = 2032
+      mmLeft = 2646
+      mmTop = 42863
+      mmWidth = 14023
+      BandType = 0
+      LayerName = pp_Foreground2
+    end
+    object pp_documenti_dit_telefono: TppLabel
+      DesignLayer = pp_DesignLayer3
+      UserName = '_documenti_dit_telefono'
+      HyperlinkEnabled = False
+      AutoSize = False
+      Border.Weight = 1.000000000000000000
+      Caption = '_documenti_dit_telefono'
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clBlack
+      Font.Name = 'Microsoft Sans Serif'
+      Font.Size = 7
+      Font.Style = [fsBold]
+      Transparent = True
+      mmHeight = 2836
+      mmLeft = 17463
+      mmTop = 42598
+      mmWidth = 28046
+      BandType = 0
+      LayerName = pp_Foreground2
+    end
+    object pp_Label_fax: TppLabel
+      DesignLayer = pp_DesignLayer3
+      UserName = 'Label_fax'
+      HyperlinkEnabled = False
+      AutoSize = False
+      Border.Weight = 1.000000000000000000
+      Caption = 'telefax:'
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clBlack
+      Font.Name = 'Microsoft Sans Serif'
+      Font.Size = 5
+      Font.Style = []
+      Transparent = True
+      mmHeight = 2032
+      mmLeft = 49742
+      mmTop = 42863
+      mmWidth = 10583
+      BandType = 0
+      LayerName = pp_Foreground2
+    end
+    object pp_documenti_dit_fax: TppLabel
+      DesignLayer = pp_DesignLayer3
+      UserName = '_documenti_dit_fax'
+      HyperlinkEnabled = False
+      AutoSize = False
+      Border.Weight = 1.000000000000000000
+      Caption = '_documenti_dit_fax'
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clBlack
+      Font.Name = 'Microsoft Sans Serif'
+      Font.Size = 7
+      Font.Style = [fsBold]
+      Transparent = True
+      mmHeight = 2836
+      mmLeft = 60854
+      mmTop = 42598
+      mmWidth = 21167
+      BandType = 0
+      LayerName = pp_Foreground2
+    end
+    object pp_Label_web: TppLabel
+      DesignLayer = pp_DesignLayer3
+      UserName = 'Label_web'
+      HyperlinkEnabled = False
+      AutoSize = False
+      Border.Weight = 1.000000000000000000
+      Caption = 'web:'
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clBlack
+      Font.Name = 'Microsoft Sans Serif'
+      Font.Size = 5
+      Font.Style = []
+      Transparent = True
+      mmHeight = 2032
+      mmLeft = 2646
+      mmTop = 46302
+      mmWidth = 14023
+      BandType = 0
+      LayerName = pp_Foreground2
+    end
+    object pp_documenti_dit_web: TppLabel
+      DesignLayer = pp_DesignLayer3
+      UserName = '_documenti_dit_web'
+      HyperlinkEnabled = False
+      AutoSize = False
+      Border.Weight = 1.000000000000000000
+      Caption = '_documenti_dit_web'
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clBlack
+      Font.Name = 'Microsoft Sans Serif'
+      Font.Size = 7
+      Font.Style = [fsBold]
+      Transparent = True
+      mmHeight = 2836
+      mmLeft = 17463
+      mmTop = 46038
+      mmWidth = 42598
+      BandType = 0
+      LayerName = pp_Foreground2
+    end
+    object pp_Label_e_mail: TppLabel
+      DesignLayer = pp_DesignLayer3
+      UserName = 'Label_e_mail'
+      HyperlinkEnabled = False
+      AutoSize = False
+      Border.Weight = 1.000000000000000000
+      Caption = 'e-mail:'
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clBlack
+      Font.Name = 'Microsoft Sans Serif'
+      Font.Size = 5
+      Font.Style = []
+      Transparent = True
+      mmHeight = 2032
+      mmLeft = 2646
+      mmTop = 49742
+      mmWidth = 14023
+      BandType = 0
+      LayerName = pp_Foreground2
+    end
+    object pp_documenti_dit_e_mail: TppLabel
+      DesignLayer = pp_DesignLayer3
+      UserName = '_documenti_dit_e_mail'
+      HyperlinkEnabled = False
+      AutoSize = False
+      Border.Weight = 1.000000000000000000
+      Caption = '_documenti_dit_e_mail'
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clBlack
+      Font.Name = 'Microsoft Sans Serif'
+      Font.Size = 7
+      Font.Style = [fsBold]
+      Transparent = True
+      mmHeight = 2836
+      mmLeft = 17463
+      mmTop = 49477
+      mmWidth = 42598
+      BandType = 0
+      LayerName = pp_Foreground2
+    end
+    object pp_Label_spettabile: TppLabel
+      DesignLayer = pp_DesignLayer3
+      UserName = 'Label_spettabile'
+      HyperlinkEnabled = False
+      AutoSize = False
+      Border.Weight = 1.000000000000000000
+      Caption = 'SPETTABILE'
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clBlack
+      Font.Name = 'Microsoft Sans Serif'
+      Font.Size = 6
+      Font.Style = []
+      Transparent = True
+      mmHeight = 2455
+      mmLeft = 94722
+      mmTop = 31221
+      mmWidth = 22490
+      BandType = 0
+      LayerName = pp_Foreground2
+    end
+    object ppDBText11: TppDBText
+      DesignLayer = pp_DesignLayer3
+      UserName = 'DBText11'
+      DataField = 'DESCRIZIONE1'
+      DataPipeline = ppDBTabella
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clBlack
+      Font.Name = 'Microsoft Sans Serif'
+      Font.Size = 11
+      Font.Style = []
+      Transparent = True
+      DataPipelineName = 'ppDBTabella'
+      mmHeight = 4498
+      mmLeft = 94721
+      mmTop = 34660
+      mmWidth = 99219
+      BandType = 0
+      LayerName = pp_Foreground2
+    end
+    object ppDBText12: TppDBText
+      DesignLayer = pp_DesignLayer3
+      UserName = 'DBText12'
+      DataField = 'DESCRIZIONE2'
+      DataPipeline = ppDBTabella
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clBlack
+      Font.Name = 'Microsoft Sans Serif'
+      Font.Size = 11
+      Font.Style = []
+      Transparent = True
+      DataPipelineName = 'ppDBTabella'
+      mmHeight = 4498
+      mmLeft = 94721
+      mmTop = 39423
+      mmWidth = 99219
+      BandType = 0
+      LayerName = pp_Foreground2
+    end
+    object ppDBText13: TppDBText
+      DesignLayer = pp_DesignLayer3
+      UserName = 'DBText13'
+      DataField = 'VIA'
+      DataPipeline = ppDBTabella
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clBlack
+      Font.Name = 'Microsoft Sans Serif'
+      Font.Size = 11
+      Font.Style = []
+      Transparent = True
+      DataPipelineName = 'ppDBTabella'
+      mmHeight = 4498
+      mmLeft = 94721
+      mmTop = 44186
+      mmWidth = 99219
+      BandType = 0
+      LayerName = pp_Foreground2
+    end
+    object ppDBText14: TppDBText
+      DesignLayer = pp_DesignLayer3
+      UserName = 'DBText14'
+      DataField = 'CAP_CITTA_PROVINCIA'
+      DataPipeline = ppDBTabella
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clBlack
+      Font.Name = 'Microsoft Sans Serif'
+      Font.Size = 11
+      Font.Style = []
+      Transparent = True
+      DataPipelineName = 'ppDBTabella'
+      mmHeight = 4498
+      mmLeft = 94721
+      mmTop = 48948
+      mmWidth = 99219
+      BandType = 0
+      LayerName = pp_Foreground2
+    end
+    object ppDBText15: TppDBText
+      DesignLayer = pp_DesignLayer3
+      UserName = 'DBText15'
+      DataField = 'NAZIONE'
+      DataPipeline = ppDBTabella
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clBlack
+      Font.Name = 'Microsoft Sans Serif'
+      Font.Size = 11
+      Font.Style = []
+      Transparent = True
+      DataPipelineName = 'ppDBTabella'
+      mmHeight = 4498
+      mmLeft = 94721
+      mmTop = 53711
+      mmWidth = 99219
+      BandType = 0
+      LayerName = pp_Foreground2
+    end
+    object ppLabel10: TppLabel
+      DesignLayer = pp_DesignLayer3
+      UserName = 'Label1'
+      Caption = 'descrizione'
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clBlack
+      Font.Name = 'Microsoft Sans Serif'
+      Font.Size = 8
+      Font.Style = [fsBold]
+      Transparent = True
+      mmHeight = 3704
+      mmLeft = 0
+      mmTop = 62706
+      mmWidth = 17198
+      BandType = 0
+      LayerName = pp_Foreground2
+    end
+    object ppLabel11: TppLabel
+      DesignLayer = pp_DesignLayer3
+      UserName = 'Label2'
+      Caption = 'numero e data documento'
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clBlack
+      Font.Name = 'Microsoft Sans Serif'
+      Font.Size = 8
+      Font.Style = [fsBold]
+      Transparent = True
+      mmHeight = 3704
+      mmLeft = 68263
+      mmTop = 62706
+      mmWidth = 38629
+      BandType = 0
+      LayerName = pp_Foreground2
+    end
+    object ppLabel12: TppLabel
+      DesignLayer = pp_DesignLayer3
+      UserName = 'Label3'
+      Caption = 'scadenza'
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clBlack
+      Font.Name = 'Microsoft Sans Serif'
+      Font.Size = 8
+      Font.Style = [fsBold]
+      Transparent = True
+      mmHeight = 3704
+      mmLeft = 110596
+      mmTop = 62706
+      mmWidth = 13758
+      BandType = 0
+      LayerName = pp_Foreground2
+    end
+    object ppLabel13: TppLabel
+      DesignLayer = pp_DesignLayer3
+      UserName = 'Label4'
+      Caption = 'imp.dovuto'
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clBlack
+      Font.Name = 'Microsoft Sans Serif'
+      Font.Size = 8
+      Font.Style = [fsBold]
+      Transparent = True
+      mmHeight = 3217
+      mmLeft = 138907
+      mmTop = 62706
+      mmWidth = 14266
+      BandType = 0
+      LayerName = pp_Foreground2
+    end
+    object ppLabel14: TppLabel
+      DesignLayer = pp_DesignLayer3
+      UserName = 'Label5'
+      Caption = 'imp.pagato'
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clBlack
+      Font.Name = 'Microsoft Sans Serif'
+      Font.Size = 8
+      Font.Style = [fsBold]
+      Transparent = True
+      mmHeight = 3217
+      mmLeft = 160073
+      mmTop = 62706
+      mmWidth = 14393
+      BandType = 0
+      LayerName = pp_Foreground2
+    end
+    object ppLabel26: TppLabel
+      DesignLayer = pp_DesignLayer3
+      UserName = 'Label26'
+      Caption = 'data'
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clBlack
+      Font.Name = 'Microsoft Sans Serif'
+      Font.Size = 8
+      Font.Style = [fsBold]
+      Transparent = True
+      mmHeight = 3175
+      mmLeft = 55563
+      mmTop = 62706
+      mmWidth = 5556
+      BandType = 0
+      LayerName = pp_Foreground2
+    end
+    object ppLabel27: TppLabel
+      DesignLayer = pp_DesignLayer3
+      UserName = 'Label27'
+      Caption = 'val.'
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clBlack
+      Font.Name = 'Microsoft Sans Serif'
+      Font.Size = 8
+      Font.Style = [fsBold]
+      Transparent = True
+      mmHeight = 3217
+      mmLeft = 126736
+      mmTop = 62706
+      mmWidth = 4572
+      BandType = 0
+      LayerName = pp_Foreground2
+    end
+    object ppLabel28: TppLabel
+      DesignLayer = pp_DesignLayer3
+      UserName = 'Label7'
+      Caption = 'imp. euro'
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clBlack
+      Font.Name = 'Microsoft Sans Serif'
+      Font.Size = 8
+      Font.Style = [fsBold]
+      Transparent = True
+      mmHeight = 3217
+      mmLeft = 182563
+      mmTop = 62706
+      mmWidth = 12107
+      BandType = 0
+      LayerName = pp_Foreground2
+    end
+  end
+  object ppDetailBand_documenti_01: TppDetailBand
+    BeforePrint = ppDetailBand_documenti_01BeforePrint
+    Background1.Brush.Style = bsClear
+    Background2.Brush.Style = bsClear
+    PrintHeight = phDynamic
+    mmBottomOffset = 0
+    mmHeight = 8467
+    mmPrintPosition = 0
+    object pp_descrizione_01: TppDBText
+      DesignLayer = pp_DesignLayer3
+      UserName = '_descrizione_01'
+      OnDrawCommandClick = pp_descrizione_01DrawCommandClick
+      OnDrawCommandCreate = pp_descrizione_01DrawCommandCreate
+      DataField = 'DESCRIZIONE'
+      DataPipeline = ppDBTabella
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clBlack
+      Font.Name = 'Microsoft Sans Serif'
+      Font.Size = 8
+      Font.Style = []
+      Transparent = True
+      DataPipelineName = 'ppDBTabella'
+      mmHeight = 3175
+      mmLeft = 0
+      mmTop = 794
+      mmWidth = 50006
+      BandType = 4
+      LayerName = pp_Foreground2
+    end
+    object ppDBText17: TppDBText
+      DesignLayer = pp_DesignLayer3
+      UserName = 'DBText17'
+      DataField = 'numero_documento_display'
+      DataPipeline = ppDBTabella
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clBlack
+      Font.Name = 'Microsoft Sans Serif'
+      Font.Size = 8
+      Font.Style = []
+      Transparent = True
+      DataPipelineName = 'ppDBTabella'
+      mmHeight = 3704
+      mmLeft = 66675
+      mmTop = 794
+      mmWidth = 26194
+      BandType = 4
+      LayerName = pp_Foreground2
+    end
+    object pp_data_documento: TppDBText
+      DesignLayer = pp_DesignLayer3
+      UserName = 'DBText1'
+      DataField = 'DATA_DOCUMENTO'
+      DataPipeline = ppDBTabella
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clBlack
+      Font.Name = 'Microsoft Sans Serif'
+      Font.Size = 8
+      Font.Style = []
+      Transparent = True
+      DataPipelineName = 'ppDBTabella'
+      mmHeight = 3175
+      mmLeft = 93134
+      mmTop = 794
+      mmWidth = 16669
+      BandType = 4
+      LayerName = pp_Foreground2
+    end
+    object ppDBText20: TppDBText
+      DesignLayer = pp_DesignLayer3
+      UserName = 'DBText2'
+      DataField = 'DATA_SCADENZA'
+      DataPipeline = ppDBTabella
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clBlack
+      Font.Name = 'Microsoft Sans Serif'
+      Font.Size = 8
+      Font.Style = []
+      Transparent = True
+      DataPipelineName = 'ppDBTabella'
+      mmHeight = 3175
+      mmLeft = 110067
+      mmTop = 794
+      mmWidth = 15081
+      BandType = 4
+      LayerName = pp_Foreground2
+    end
+    object ppDBText21: TppDBText
+      DesignLayer = pp_DesignLayer3
+      UserName = 'DBText3'
+      DataField = 'IMPORTO_DOVUTO'
+      DataPipeline = ppDBTabella
+      DisplayFormat = ',0.00;-,0.00;#'
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clBlack
+      Font.Name = 'Microsoft Sans Serif'
+      Font.Size = 8
+      Font.Style = []
+      TextAlignment = taRightJustified
+      Transparent = True
+      DataPipelineName = 'ppDBTabella'
+      mmHeight = 3704
+      mmLeft = 132557
+      mmTop = 794
+      mmWidth = 20638
+      BandType = 4
+      LayerName = pp_Foreground2
+    end
+    object ppDBText22: TppDBText
+      DesignLayer = pp_DesignLayer3
+      UserName = 'DBText4'
+      DataField = 'IMPORTO_PAGATO'
+      DataPipeline = ppDBTabella
+      DisplayFormat = ',0.00;-,0.00;#'
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clBlack
+      Font.Name = 'Microsoft Sans Serif'
+      Font.Size = 8
+      Font.Style = []
+      TextAlignment = taRightJustified
+      Transparent = True
+      DataPipelineName = 'ppDBTabella'
+      mmHeight = 3704
+      mmLeft = 153723
+      mmTop = 794
+      mmWidth = 20638
+      BandType = 4
+      LayerName = pp_Foreground2
+    end
+    object ppDBText2: TppDBText
+      DesignLayer = pp_DesignLayer3
+      UserName = 'DBText5'
+      DataField = 'data_documento_display'
+      DataPipeline = ppDBTabella
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clBlack
+      Font.Name = 'Microsoft Sans Serif'
+      Font.Size = 8
+      Font.Style = []
+      Transparent = True
+      DataPipelineName = 'ppDBTabella'
+      mmHeight = 3175
+      mmLeft = 50800
+      mmTop = 794
+      mmWidth = 15081
+      BandType = 4
+      LayerName = pp_Foreground2
+    end
+    object ppDBText5: TppDBText
+      DesignLayer = pp_DesignLayer3
+      UserName = 'DBText6'
+      DataField = 'tva_codice'
+      DataPipeline = ppDBTabella
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clBlack
+      Font.Name = 'Microsoft Sans Serif'
+      Font.Size = 8
+      Font.Style = []
+      Transparent = True
+      DataPipelineName = 'ppDBTabella'
+      mmHeight = 3175
+      mmLeft = 125677
+      mmTop = 794
+      mmWidth = 6350
+      BandType = 4
+      LayerName = pp_Foreground2
+    end
+    object ppDBText16: TppDBText
+      DesignLayer = pp_DesignLayer3
+      UserName = 'DBText16'
+      DataField = 'importo_euro'
+      DataPipeline = ppDBTabella
+      DisplayFormat = ',0.00;-,0.00;#'
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clBlack
+      Font.Name = 'Microsoft Sans Serif'
+      Font.Size = 8
+      Font.Style = []
+      TextAlignment = taRightJustified
+      Transparent = True
+      DataPipelineName = 'ppDBTabella'
+      mmHeight = 3704
+      mmLeft = 174890
+      mmTop = 794
+      mmWidth = 20638
+      BandType = 4
+      LayerName = pp_Foreground2
+    end
+    object ppDBText23: TppDBText
+      DesignLayer = pp_DesignLayer3
+      UserName = 'DBText23'
+      DataField = 'importo_dovuto_euro'
+      DataPipeline = ppDBTabella
+      DisplayFormat = ',0.00;-,0.00;#'
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clBlack
+      Font.Name = 'Microsoft Sans Serif'
+      Font.Size = 8
+      Font.Style = []
+      TextAlignment = taRightJustified
+      Transparent = True
+      Visible = False
+      DataPipelineName = 'ppDBTabella'
+      mmHeight = 3704
+      mmLeft = 197380
+      mmTop = 794
+      mmWidth = 2910
+      BandType = 4
+      LayerName = pp_Foreground2
+    end
+    object ppDBText24: TppDBText
+      DesignLayer = pp_DesignLayer3
+      UserName = 'DBText24'
+      DataField = 'importo_pagato_euro'
+      DataPipeline = ppDBTabella
+      DisplayFormat = ',0.00;-,0.00;#'
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clBlack
+      Font.Name = 'Microsoft Sans Serif'
+      Font.Size = 8
+      Font.Style = []
+      TextAlignment = taRightJustified
+      Transparent = True
+      Visible = False
+      DataPipelineName = 'ppDBTabella'
+      mmHeight = 3704
+      mmLeft = 201348
+      mmTop = 794
+      mmWidth = 2910
+      BandType = 4
+      LayerName = pp_Foreground2
+    end
+    object pp_descrizione_primanota: TppDBText
+      DesignLayer = pp_DesignLayer3
+      UserName = 'DBText7'
+      OnDrawCommandClick = pp_descrizione_01DrawCommandClick
+      OnDrawCommandCreate = pp_descrizione_01DrawCommandCreate
+      DataField = 'pnr_descrizione'
+      DataPipeline = ppDBTabella
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clBlack
+      Font.Name = 'Microsoft Sans Serif'
+      Font.Size = 8
+      Font.Style = []
+      Transparent = True
+      DataPipelineName = 'ppDBTabella'
+      mmHeight = 3175
+      mmLeft = 6350
+      mmTop = 4498
+      mmWidth = 118004
+      BandType = 4
+      LayerName = pp_Foreground2
+    end
+  end
+  object ppFooterBand_documenti_01: TppFooterBand
+    Background.Brush.Style = bsClear
+    mmBottomOffset = 0
+    mmHeight = 2910
+    mmPrintPosition = 0
+    object pp_Shape_documenti_03: TppShape
+      DesignLayer = pp_DesignLayer3
+      UserName = 'Shape_documenti_03'
+      Pen.Width = 2
+      mmHeight = 1588
+      mmLeft = 0
+      mmTop = 529
+      mmWidth = 196321
+      BandType = 8
+      LayerName = pp_Foreground2
+    end
+  end
+  object ppGroup1: TppGroup
+    BreakName = 'CFG_CODICE'
+    DataPipeline = ppDBTabella
+    GroupFileSettings.NewFile = False
+    GroupFileSettings.EmailFile = False
+    OutlineSettings.CreateNode = True
+    NewPage = True
+    ResetPageNo = True
+    StartOnOddPage = False
+    UserName = 'Group1'
+    mmNewColumnThreshold = 0
+    mmNewPageThreshold = 0
+    DataPipelineName = 'ppDBTabella'
+    NewFile = False
+    object ppGroupHeaderBand1: TppGroupHeaderBand
+      Background.Brush.Style = bsClear
+      mmBottomOffset = 0
+      mmHeight = 0
+      mmPrintPosition = 0
+    end
+    object ppGroupFooterBand1: TppGroupFooterBand
+      Background.Brush.Style = bsClear
+      PrintHeight = phDynamic
+      HideWhenOneDetail = False
+      mmBottomOffset = 0
+      mmHeight = 7408
+      mmPrintPosition = 0
+      object pp_totale_cliente: TppSubReport
+        DesignLayer = pp_DesignLayer3
+        UserName = '_totale_cliente'
+        ExpandAll = False
+        NewPrintJob = False
+        OutlineSettings.CreateNode = True
+        TraverseAllData = False
+        DataPipelineName = 'pp_totale'
+        mmHeight = 5027
+        mmLeft = 0
+        mmTop = 794
+        mmWidth = 210079
+        BandType = 5
+        GroupNo = 0
+        LayerName = pp_Foreground2
+        mmBottomOffset = 0
+        mmOverFlowOffset = 0
+        mmStopPosition = 0
+        mmMinHeight = 0
+        object ppChildReport1: TppChildReport
+          AutoStop = False
+          DataPipeline = pp_totale
+          PrinterSetup.BinName = 'Default'
+          PrinterSetup.DocumentName = 'Report'
+          PrinterSetup.Duplex = dpNone
+          PrinterSetup.PaperName = 'A4'
+          PrinterSetup.PrinterName = 'Default'
+          PrinterSetup.SaveDeviceSettings = False
+          PrinterSetup.mmMarginBottom = 0
+          PrinterSetup.mmMarginLeft = 0
+          PrinterSetup.mmMarginRight = 0
+          PrinterSetup.mmMarginTop = 0
+          PrinterSetup.mmPaperHeight = 297127
+          PrinterSetup.mmPaperWidth = 210079
+          PrinterSetup.PaperSize = 9
+          Template.Format = ftASCII
+          Version = '17.01'
+          mmColumnWidth = 0
+          DataPipelineName = 'pp_totale'
+          object ppTitleBand1: TppTitleBand
+            Background.Brush.Style = bsClear
+            PrintHeight = phDynamic
+            mmBottomOffset = 0
+            mmHeight = 0
+            mmPrintPosition = 0
+          end
+          object ppDetailBand2: TppDetailBand
+            BeforePrint = ppDetailBand2BeforePrint
+            Background1.Brush.Style = bsClear
+            Background2.Brush.Style = bsClear
+            PrintHeight = phDynamic
+            mmBottomOffset = 0
+            mmHeight = 24871
+            mmPrintPosition = 0
+            object ppShape2: TppShape
+              DesignLayer = ppDesignLayer4
+              UserName = 'Shape1'
+              mmHeight = 22225
+              mmLeft = 0
+              mmTop = 529
+              mmWidth = 196321
+              BandType = 4
+              LayerName = Foreground3
+            end
+            object pp_scaduto_oltre: TppDBText
+              DesignLayer = ppDesignLayer4
+              UserName = 'DBText1'
+              HyperlinkEnabled = False
+              DataField = 'importo_oltre'
+              DataPipeline = pp_totale
+              DisplayFormat = ',0.00;-,0.00;#'
+              Font.Charset = DEFAULT_CHARSET
+              Font.Color = clBlack
+              Font.Name = 'Microsoft Sans Serif'
+              Font.Size = 8
+              Font.Style = [fsBold]
+              TextAlignment = taRightJustified
+              Transparent = True
+              DataPipelineName = 'pp_totale'
+              mmHeight = 3704
+              mmLeft = 3435
+              mmTop = 17727
+              mmWidth = 31485
+              BandType = 4
+              LayerName = Foreground3
+            end
+            object pp_scaduto_90: TppDBText
+              DesignLayer = ppDesignLayer4
+              UserName = '_scaduto_90'
+              HyperlinkEnabled = False
+              DataField = 'importo_90'
+              DataPipeline = pp_totale
+              DisplayFormat = ',0.00;-,0.00;#'
+              Font.Charset = DEFAULT_CHARSET
+              Font.Color = clBlack
+              Font.Name = 'Microsoft Sans Serif'
+              Font.Size = 8
+              Font.Style = [fsBold]
+              TextAlignment = taRightJustified
+              Transparent = True
+              DataPipelineName = 'pp_totale'
+              mmHeight = 3704
+              mmLeft = 36773
+              mmTop = 17727
+              mmWidth = 31485
+              BandType = 4
+              LayerName = Foreground3
+            end
+            object pp_scaduto_60: TppDBText
+              DesignLayer = ppDesignLayer4
+              UserName = '_scaduto_60'
+              HyperlinkEnabled = False
+              DataField = 'importo_60'
+              DataPipeline = pp_totale
+              DisplayFormat = ',0.00;-,0.00;#'
+              Font.Charset = DEFAULT_CHARSET
+              Font.Color = clBlack
+              Font.Name = 'Microsoft Sans Serif'
+              Font.Size = 8
+              Font.Style = [fsBold]
+              TextAlignment = taRightJustified
+              Transparent = True
+              DataPipelineName = 'pp_totale'
+              mmHeight = 3704
+              mmLeft = 69847
+              mmTop = 17727
+              mmWidth = 31485
+              BandType = 4
+              LayerName = Foreground3
+            end
+            object pp_scaduto_30: TppDBText
+              DesignLayer = ppDesignLayer4
+              UserName = '_scaduto_30'
+              HyperlinkEnabled = False
+              DataField = 'importo_30'
+              DataPipeline = pp_totale
+              DisplayFormat = ',0.00;-,0.00;#'
+              Font.Charset = DEFAULT_CHARSET
+              Font.Color = clBlack
+              Font.Name = 'Microsoft Sans Serif'
+              Font.Size = 8
+              Font.Style = [fsBold]
+              TextAlignment = taRightJustified
+              Transparent = True
+              DataPipelineName = 'pp_totale'
+              mmHeight = 3704
+              mmLeft = 102920
+              mmTop = 17727
+              mmWidth = 31485
+              BandType = 4
+              LayerName = Foreground3
+            end
+            object ppLabel17: TppLabel
+              DesignLayer = ppDesignLayer4
+              UserName = 'Label1'
+              HyperlinkEnabled = False
+              Caption = 'scaduto > 90 giorni'
+              Font.Charset = DEFAULT_CHARSET
+              Font.Color = clBlack
+              Font.Name = 'Microsoft Sans Serif'
+              Font.Size = 8
+              Font.Style = [fsBold]
+              TextAlignment = taRightJustified
+              Transparent = True
+              mmHeight = 3440
+              mmLeft = 3435
+              mmTop = 13229
+              mmWidth = 31485
+              BandType = 4
+              LayerName = Foreground3
+            end
+            object ppLabel18: TppLabel
+              DesignLayer = ppDesignLayer4
+              UserName = 'Label2'
+              HyperlinkEnabled = False
+              Caption = 'scaduto a 90 giorni'
+              Font.Charset = DEFAULT_CHARSET
+              Font.Color = clBlack
+              Font.Name = 'Microsoft Sans Serif'
+              Font.Size = 8
+              Font.Style = [fsBold]
+              TextAlignment = taRightJustified
+              Transparent = True
+              mmHeight = 3704
+              mmLeft = 36773
+              mmTop = 13229
+              mmWidth = 31485
+              BandType = 4
+              LayerName = Foreground3
+            end
+            object ppLabel19: TppLabel
+              DesignLayer = ppDesignLayer4
+              UserName = 'Label3'
+              HyperlinkEnabled = False
+              Caption = 'scaduto a 60 giorni'
+              Font.Charset = DEFAULT_CHARSET
+              Font.Color = clBlack
+              Font.Name = 'Microsoft Sans Serif'
+              Font.Size = 8
+              Font.Style = [fsBold]
+              TextAlignment = taRightJustified
+              Transparent = True
+              mmHeight = 3704
+              mmLeft = 69847
+              mmTop = 13229
+              mmWidth = 31485
+              BandType = 4
+              LayerName = Foreground3
+            end
+            object ppLabel20: TppLabel
+              DesignLayer = ppDesignLayer4
+              UserName = 'Label4'
+              HyperlinkEnabled = False
+              Caption = 'scaduto a 30 giorni'
+              Font.Charset = DEFAULT_CHARSET
+              Font.Color = clBlack
+              Font.Name = 'Microsoft Sans Serif'
+              Font.Size = 8
+              Font.Style = [fsBold]
+              TextAlignment = taRightJustified
+              Transparent = True
+              mmHeight = 3704
+              mmLeft = 103184
+              mmTop = 13229
+              mmWidth = 31221
+              BandType = 4
+              LayerName = Foreground3
+            end
+            object ppLine1: TppLine
+              DesignLayer = ppDesignLayer4
+              UserName = 'Line1'
+              Weight = 0.750000000000000000
+              mmHeight = 1323
+              mmLeft = 794
+              mmTop = 10848
+              mmWidth = 194998
+              BandType = 4
+              LayerName = Foreground3
+            end
+            object pp_totale_scaduto: TppVariable
+              DesignLayer = ppDesignLayer4
+              UserName = '_totale_scaduto'
+              HyperlinkEnabled = False
+              BlankWhenZero = False
+              CalcOrder = 0
+              DataType = dtDouble
+              DisplayFormat = ',0.00;-,0.00;#'
+              Font.Charset = DEFAULT_CHARSET
+              Font.Color = clBlack
+              Font.Name = 'Microsoft Sans Serif'
+              Font.Size = 8
+              Font.Style = [fsBold]
+              TextAlignment = taRightJustified
+              Transparent = True
+              mmHeight = 3704
+              mmLeft = 170921
+              mmTop = 17727
+              mmWidth = 23019
+              BandType = 4
+              LayerName = Foreground3
+            end
+            object ppLabel16: TppLabel
+              DesignLayer = ppDesignLayer4
+              UserName = 'Label5'
+              HyperlinkEnabled = False
+              Caption = 'totale scaduto'
+              Font.Charset = DEFAULT_CHARSET
+              Font.Color = clBlack
+              Font.Name = 'Microsoft Sans Serif'
+              Font.Size = 8
+              Font.Style = [fsBold]
+              TextAlignment = taRightJustified
+              Transparent = True
+              mmHeight = 3704
+              mmLeft = 173038
+              mmTop = 13229
+              mmWidth = 20638
+              BandType = 4
+              LayerName = Foreground3
+            end
+            object pp_partite_negative: TppDBText
+              DesignLayer = ppDesignLayer4
+              UserName = '_partite_negative'
+              HyperlinkEnabled = False
+              DataField = 'partite_negative'
+              DataPipeline = pp_totale
+              DisplayFormat = ',0.00;-,0.00;#'
+              Font.Charset = DEFAULT_CHARSET
+              Font.Color = clBlack
+              Font.Name = 'Microsoft Sans Serif'
+              Font.Size = 8
+              Font.Style = [fsBold]
+              TextAlignment = taRightJustified
+              Transparent = True
+              DataPipelineName = 'pp_totale'
+              mmHeight = 3704
+              mmLeft = 3435
+              mmTop = 6350
+              mmWidth = 31485
+              BandType = 4
+              LayerName = Foreground3
+            end
+            object pp_effetti_non_emessi: TppDBText
+              DesignLayer = ppDesignLayer4
+              UserName = '_scaduto_901'
+              HyperlinkEnabled = False
+              DataField = 'effetti_non_emessi'
+              DataPipeline = pp_totale
+              DisplayFormat = ',0.00;-,0.00;#'
+              Font.Charset = DEFAULT_CHARSET
+              Font.Color = clBlack
+              Font.Name = 'Microsoft Sans Serif'
+              Font.Size = 8
+              Font.Style = [fsBold]
+              TextAlignment = taRightJustified
+              Transparent = True
+              DataPipelineName = 'pp_totale'
+              mmHeight = 3704
+              mmLeft = 36773
+              mmTop = 6350
+              mmWidth = 31485
+              BandType = 4
+              LayerName = Foreground3
+            end
+            object pp_effetti_a_rischio: TppDBText
+              DesignLayer = ppDesignLayer4
+              UserName = '_scaduto_601'
+              HyperlinkEnabled = False
+              DataField = 'effetti_a_rischio'
+              DataPipeline = pp_totale
+              DisplayFormat = ',0.00;-,0.00;#'
+              Font.Charset = DEFAULT_CHARSET
+              Font.Color = clBlack
+              Font.Name = 'Microsoft Sans Serif'
+              Font.Size = 8
+              Font.Style = [fsBold]
+              TextAlignment = taRightJustified
+              Transparent = True
+              DataPipelineName = 'pp_totale'
+              mmHeight = 3704
+              mmLeft = 69847
+              mmTop = 6350
+              mmWidth = 31485
+              BandType = 4
+              LayerName = Foreground3
+            end
+            object pp_saldo_totale: TppDBText
+              DesignLayer = ppDesignLayer4
+              UserName = '_scaduto_301'
+              HyperlinkEnabled = False
+              DataField = 'saldo_totale'
+              DataPipeline = pp_totale
+              DisplayFormat = ',0.00;-,0.00;#'
+              Font.Charset = DEFAULT_CHARSET
+              Font.Color = clBlack
+              Font.Name = 'Microsoft Sans Serif'
+              Font.Size = 8
+              Font.Style = [fsBold]
+              TextAlignment = taRightJustified
+              Transparent = True
+              DataPipelineName = 'pp_totale'
+              mmHeight = 3704
+              mmLeft = 102920
+              mmTop = 6350
+              mmWidth = 31485
+              BandType = 4
+              LayerName = Foreground3
+            end
+            object pp_totale_rischio: TppVariable
+              DesignLayer = ppDesignLayer4
+              UserName = '_totale_rischio'
+              HyperlinkEnabled = False
+              BlankWhenZero = False
+              CalcOrder = 1
+              DataType = dtDouble
+              DisplayFormat = ',0.00;-,0.00;#'
+              Font.Charset = DEFAULT_CHARSET
+              Font.Color = clBlack
+              Font.Name = 'Microsoft Sans Serif'
+              Font.Size = 8
+              Font.Style = [fsBold]
+              TextAlignment = taRightJustified
+              Transparent = True
+              mmHeight = 3704
+              mmLeft = 172509
+              mmTop = 6350
+              mmWidth = 21431
+              BandType = 4
+              LayerName = Foreground3
+            end
+            object ppLabel21: TppLabel
+              DesignLayer = ppDesignLayer4
+              UserName = 'Label21'
+              HyperlinkEnabled = False
+              Caption = 'partite negative'
+              Font.Charset = DEFAULT_CHARSET
+              Font.Color = clBlack
+              Font.Name = 'Microsoft Sans Serif'
+              Font.Size = 8
+              Font.Style = [fsBold]
+              TextAlignment = taRightJustified
+              Transparent = True
+              mmHeight = 3704
+              mmLeft = 3435
+              mmTop = 1852
+              mmWidth = 31485
+              BandType = 4
+              LayerName = Foreground3
+            end
+            object ppLabel22: TppLabel
+              DesignLayer = ppDesignLayer4
+              UserName = 'Label22'
+              HyperlinkEnabled = False
+              Caption = 'effetti non emessi'
+              Font.Charset = DEFAULT_CHARSET
+              Font.Color = clBlack
+              Font.Name = 'Microsoft Sans Serif'
+              Font.Size = 8
+              Font.Style = [fsBold]
+              TextAlignment = taRightJustified
+              Transparent = True
+              mmHeight = 3704
+              mmLeft = 36773
+              mmTop = 1852
+              mmWidth = 31485
+              BandType = 4
+              LayerName = Foreground3
+            end
+            object ppLabel23: TppLabel
+              DesignLayer = ppDesignLayer4
+              UserName = 'Label6'
+              HyperlinkEnabled = False
+              Caption = 'effetti a rischio'
+              Font.Charset = DEFAULT_CHARSET
+              Font.Color = clBlack
+              Font.Name = 'Microsoft Sans Serif'
+              Font.Size = 8
+              Font.Style = [fsBold]
+              TextAlignment = taRightJustified
+              Transparent = True
+              mmHeight = 3704
+              mmLeft = 69847
+              mmTop = 1852
+              mmWidth = 31485
+              BandType = 4
+              LayerName = Foreground3
+            end
+            object ppLabel24: TppLabel
+              DesignLayer = ppDesignLayer4
+              UserName = 'Label24'
+              HyperlinkEnabled = False
+              Caption = 'saldo totale'
+              Font.Charset = DEFAULT_CHARSET
+              Font.Color = clBlack
+              Font.Name = 'Microsoft Sans Serif'
+              Font.Size = 8
+              Font.Style = [fsBold]
+              TextAlignment = taRightJustified
+              Transparent = True
+              mmHeight = 3704
+              mmLeft = 102920
+              mmTop = 1852
+              mmWidth = 31485
+              BandType = 4
+              LayerName = Foreground3
+            end
+            object ppLabel25: TppLabel
+              DesignLayer = ppDesignLayer4
+              UserName = 'Label25'
+              HyperlinkEnabled = False
+              Caption = 'totale rischio'
+              Font.Charset = DEFAULT_CHARSET
+              Font.Color = clBlack
+              Font.Name = 'Microsoft Sans Serif'
+              Font.Size = 8
+              Font.Style = [fsBold]
+              TextAlignment = taRightJustified
+              Transparent = True
+              mmHeight = 3175
+              mmLeft = 177536
+              mmTop = 1852
+              mmWidth = 16404
+              BandType = 4
+              LayerName = Foreground3
+            end
+          end
+          object ppSummaryBand1: TppSummaryBand
+            Background.Brush.Style = bsClear
+            mmBottomOffset = 0
+            mmHeight = 0
+            mmPrintPosition = 0
+          end
+          object ppDesignLayers4: TppDesignLayers
+            object ppDesignLayer4: TppDesignLayer
+              UserName = 'Foreground3'
+              LayerType = ltBanded
+              Index = 0
+            end
+          end
+        end
+      end
+    end
+  end
+  object ppGroup2: TppGroup
+    BreakName = 'ordinamento_documento'
+    DataPipeline = ppDBTabella
+    GroupFileSettings.NewFile = False
+    GroupFileSettings.EmailFile = False
+    OutlineSettings.CreateNode = True
+    ReprintOnSubsequentPage = False
+    StartOnOddPage = False
+    UserName = 'Group2'
+    mmNewColumnThreshold = 0
+    mmNewPageThreshold = 0
+    DataPipelineName = 'ppDBTabella'
+    NewFile = False
+    object ppGroupHeaderBand2: TppGroupHeaderBand
+      Background.Brush.Style = bsClear
+      mmBottomOffset = 0
+      mmHeight = 529
+      mmPrintPosition = 0
+    end
+    object ppGroupFooterBand2: TppGroupFooterBand
+      BeforePrint = ppGroupFooterBand2BeforePrint
+      Background.Brush.Style = bsClear
+      PrintHeight = phDynamic
+      HideWhenOneDetail = False
+      mmBottomOffset = 0
+      mmHeight = 12700
+      mmPrintPosition = 0
+      object ppSubReport2: TppSubReport
+        DesignLayer = pp_DesignLayer3
+        UserName = 'SubReport2'
+        ExpandAll = False
+        NewPrintJob = False
+        OutlineSettings.CreateNode = True
+        TraverseAllData = False
+        DataPipelineName = 'pp_scadenze'
+        mmHeight = 5027
+        mmLeft = 0
+        mmTop = 6085
+        mmWidth = 210079
+        BandType = 5
+        GroupNo = 1
+        LayerName = pp_Foreground2
+        mmBottomOffset = 0
+        mmOverFlowOffset = 0
+        mmStopPosition = 0
+        mmMinHeight = 0
+        object ppChildReport2: TppChildReport
+          AutoStop = False
+          DataPipeline = pp_scadenze
+          PrinterSetup.BinName = 'Default'
+          PrinterSetup.DocumentName = 'Report'
+          PrinterSetup.Duplex = dpNone
+          PrinterSetup.PaperName = 'A4'
+          PrinterSetup.PrinterName = 'Default'
+          PrinterSetup.SaveDeviceSettings = False
+          PrinterSetup.mmMarginBottom = 0
+          PrinterSetup.mmMarginLeft = 0
+          PrinterSetup.mmMarginRight = 0
+          PrinterSetup.mmMarginTop = 0
+          PrinterSetup.mmPaperHeight = 297127
+          PrinterSetup.mmPaperWidth = 210079
+          PrinterSetup.PaperSize = 9
+          Template.Format = ftASCII
+          Version = '17.01'
+          mmColumnWidth = 0
+          DataPipelineName = 'pp_scadenze'
+          object ppTitleBand2: TppTitleBand
+            Background.Brush.Style = bsClear
+            mmBottomOffset = 0
+            mmHeight = 0
+            mmPrintPosition = 0
+          end
+          object ppDetailBand3: TppDetailBand
+            Background1.Brush.Style = bsClear
+            Background2.Brush.Style = bsClear
+            PrintHeight = phDynamic
+            mmBottomOffset = 0
+            mmHeight = 5556
+            mmPrintPosition = 0
+            object pp_descrizione: TppDBText
+              DesignLayer = ppDesignLayer3
+              UserName = '_descrizione'
+              OnDrawCommandClick = pp_descrizioneDrawCommandClick
+              OnDrawCommandCreate = pp_descrizioneDrawCommandCreate
+              HyperlinkEnabled = False
+              DataField = 'tts_codice'
+              DataPipeline = pp_scadenze
+              Font.Charset = DEFAULT_CHARSET
+              Font.Color = clBlack
+              Font.Name = 'Microsoft Sans Serif'
+              Font.Size = 8
+              Font.Style = []
+              ParentDataPipeline = False
+              Transparent = True
+              DataPipelineName = 'pp_scadenze'
+              mmHeight = 3175
+              mmLeft = 26194
+              mmTop = 265
+              mmWidth = 64294
+              BandType = 4
+              LayerName = Foreground2
+            end
+            object ppDBText27: TppDBText
+              DesignLayer = ppDesignLayer3
+              UserName = 'DBText27'
+              HyperlinkEnabled = False
+              DataField = 'DATA_SCADENZA'
+              DataPipeline = pp_scadenze
+              Font.Charset = DEFAULT_CHARSET
+              Font.Color = clBlack
+              Font.Name = 'Microsoft Sans Serif'
+              Font.Size = 8
+              Font.Style = []
+              Transparent = True
+              DataPipelineName = 'pp_scadenze'
+              mmHeight = 3175
+              mmLeft = 118534
+              mmTop = 265
+              mmWidth = 16933
+              BandType = 4
+              LayerName = Foreground2
+            end
+            object ppDBText28: TppDBText
+              DesignLayer = ppDesignLayer3
+              UserName = 'DBText28'
+              HyperlinkEnabled = False
+              DataField = 'IMPORTO_DOVUTO'
+              DataPipeline = pp_scadenze
+              DisplayFormat = ',0.00;-,0.00;#'
+              Font.Charset = DEFAULT_CHARSET
+              Font.Color = clBlack
+              Font.Name = 'Microsoft Sans Serif'
+              Font.Size = 8
+              Font.Style = []
+              TextAlignment = taRightJustified
+              Transparent = True
+              DataPipelineName = 'pp_scadenze'
+              mmHeight = 3175
+              mmLeft = 145786
+              mmTop = 265
+              mmWidth = 21166
+              BandType = 4
+              LayerName = Foreground2
+            end
+            object ppDBText1: TppDBText
+              DesignLayer = ppDesignLayer3
+              UserName = 'DBText1'
+              HyperlinkEnabled = False
+              DataField = 'tva_codice'
+              DataPipeline = pp_scadenze
+              Font.Charset = DEFAULT_CHARSET
+              Font.Color = clBlack
+              Font.Name = 'Microsoft Sans Serif'
+              Font.Size = 8
+              Font.Style = []
+              Transparent = True
+              DataPipelineName = 'pp_scadenze'
+              mmHeight = 3175
+              mmLeft = 168275
+              mmTop = 265
+              mmWidth = 10319
+              BandType = 4
+              LayerName = Foreground2
+            end
+            object ppDBText4: TppDBText
+              DesignLayer = ppDesignLayer3
+              UserName = 'DBText2'
+              HyperlinkEnabled = False
+              DataField = 'distinta'
+              DataPipeline = pp_scadenze
+              Font.Charset = DEFAULT_CHARSET
+              Font.Color = clBlack
+              Font.Name = 'Microsoft Sans Serif'
+              Font.Size = 8
+              Font.Style = []
+              Transparent = True
+              DataPipelineName = 'pp_scadenze'
+              mmHeight = 3175
+              mmLeft = 180182
+              mmTop = 265
+              mmWidth = 13229
+              BandType = 4
+              LayerName = Foreground2
+            end
+          end
+          object ppSummaryBand2: TppSummaryBand
+            Background.Brush.Style = bsClear
+            PrintHeight = phDynamic
+            mmBottomOffset = 0
+            mmHeight = 6350
+            mmPrintPosition = 0
+            object ppLabel15: TppLabel
+              DesignLayer = ppDesignLayer3
+              UserName = 'Label1'
+              HyperlinkEnabled = False
+              AutoSize = False
+              Caption = 
+                '________________________________________________________________' +
+                '_____________'
+              Font.Charset = DEFAULT_CHARSET
+              Font.Color = clBlack
+              Font.Name = 'Microsoft Sans Serif'
+              Font.Size = 8
+              Font.Style = []
+              Transparent = True
+              mmHeight = 3217
+              mmLeft = 70115
+              mmTop = 794
+              mmWidth = 123296
+              BandType = 7
+              LayerName = Foreground2
+            end
+          end
+          object ppDesignLayers3: TppDesignLayers
+            object ppDesignLayer3: TppDesignLayer
+              UserName = 'Foreground2'
+              LayerType = ltBanded
+              Index = 0
+            end
+          end
+        end
+      end
+      object pp_importo_dovuto_documento: TppDBCalc
+        DesignLayer = pp_DesignLayer3
+        UserName = '_importo_dovuto_documento'
+        DataField = 'importo_dovuto'
+        DataPipeline = ppDBTabella
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clBlack
+        Font.Name = 'Microsoft Sans Serif'
+        Font.Size = 8
+        Font.Style = []
+        ResetGroup = ppGroup2
+        Transparent = True
+        Visible = False
+        DataPipelineName = 'ppDBTabella'
+        mmHeight = 3704
+        mmLeft = 3175
+        mmTop = 529
+        mmWidth = 8467
+        BandType = 5
+        GroupNo = 1
+        LayerName = pp_Foreground2
+      end
+      object pp_importo_pagato_documento: TppDBCalc
+        DesignLayer = pp_DesignLayer3
+        UserName = '_importo_pagato_documento'
+        DataField = 'importo_pagato'
+        DataPipeline = ppDBTabella
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clBlack
+        Font.Name = 'Microsoft Sans Serif'
+        Font.Size = 8
+        Font.Style = []
+        ResetGroup = ppGroup2
+        Transparent = True
+        Visible = False
+        DataPipelineName = 'ppDBTabella'
+        mmHeight = 3704
+        mmLeft = 12435
+        mmTop = 794
+        mmWidth = 8467
+        BandType = 5
+        GroupNo = 1
+        LayerName = pp_Foreground2
+      end
+      object pp_saldo_documento: TppVariable
+        DesignLayer = pp_DesignLayer3
+        UserName = '_saldo_documento'
+        AutoSize = False
+        BlankWhenZero = False
+        CalcOrder = 0
+        DataType = dtDouble
+        DisplayFormat = ',0.00;-,0.00;0.00'
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clBlack
+        Font.Name = 'Microsoft Sans Serif'
+        Font.Size = 8
+        Font.Style = [fsBold]
+        TextAlignment = taRightJustified
+        Transparent = True
+        mmHeight = 3704
+        mmLeft = 132557
+        mmTop = 529
+        mmWidth = 20638
+        BandType = 5
+        GroupNo = 1
+        LayerName = pp_Foreground2
+      end
+      object ppLabel3: TppLabel
+        DesignLayer = pp_DesignLayer3
+        UserName = 'Label6'
+        Caption = '____________________________________'
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clBlack
+        Font.Name = 'Microsoft Sans Serif'
+        Font.Size = 8
+        Font.Style = []
+        Transparent = True
+        mmHeight = 3217
+        mmLeft = 68263
+        mmTop = 529
+        mmWidth = 56388
+        BandType = 5
+        GroupNo = 1
+        LayerName = pp_Foreground2
+      end
+      object pp_importo_dovuto_documento_euro: TppDBCalc
+        DesignLayer = pp_DesignLayer3
+        UserName = '_importo_dovuto_documento1'
+        DataField = 'importo_dovuto_euro'
+        DataPipeline = ppDBTabella
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clBlack
+        Font.Name = 'Microsoft Sans Serif'
+        Font.Size = 8
+        Font.Style = []
+        ResetGroup = ppGroup2
+        Transparent = True
+        Visible = False
+        DataPipelineName = 'ppDBTabella'
+        mmHeight = 3704
+        mmLeft = 28840
+        mmTop = 794
+        mmWidth = 8466
+        BandType = 5
+        GroupNo = 1
+        LayerName = pp_Foreground2
+      end
+      object pp_importo_pagato_documento_euro: TppDBCalc
+        DesignLayer = pp_DesignLayer3
+        UserName = '_importo_pagato_documento1'
+        DataField = 'importo_pagato_euro'
+        DataPipeline = ppDBTabella
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clBlack
+        Font.Name = 'Microsoft Sans Serif'
+        Font.Size = 8
+        Font.Style = []
+        ResetGroup = ppGroup2
+        Transparent = True
+        Visible = False
+        DataPipelineName = 'ppDBTabella'
+        mmHeight = 3704
+        mmLeft = 41540
+        mmTop = 1058
+        mmWidth = 8467
+        BandType = 5
+        GroupNo = 1
+        LayerName = pp_Foreground2
+      end
+      object pp_saldo_documento_euro: TppVariable
+        DesignLayer = pp_DesignLayer3
+        UserName = '_saldo_documento1'
+        AutoSize = False
+        BlankWhenZero = False
+        CalcOrder = 1
+        DataType = dtDouble
+        DisplayFormat = ',0.00;-,0.00;0.00'
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clBlack
+        Font.Name = 'Microsoft Sans Serif'
+        Font.Size = 8
+        Font.Style = [fsBold]
+        TextAlignment = taRightJustified
+        Transparent = True
+        mmHeight = 3704
+        mmLeft = 174890
+        mmTop = 529
+        mmWidth = 20638
+        BandType = 5
+        GroupNo = 1
+        LayerName = pp_Foreground2
+      end
+    end
+  end
+  object pp_DesignLayers3: TppDesignLayers
+    object pp_DesignLayer3: TppDesignLayer
+      UserName = 'pp_Foreground2'
+      LayerType = ltBanded
+      Index = 0
+    end
+  end
+  object ppParameterList3: TppParameterList
+  end
+end

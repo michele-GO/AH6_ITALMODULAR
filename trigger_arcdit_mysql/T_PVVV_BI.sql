@@ -1,0 +1,24 @@
+CREATE TRIGGER T_PVVV_BI_0
+  BEFORE INSERT
+  ON `pvvv`
+  FOR EACH ROW
+BEGIN 
+
+
+IF NEW.PUNTO_VENDITA = '' THEN
+  CALL P_CAMPO_VUOTO('pvvv', 'punto_vendita');
+END IF;
+
+IF NEW.DATA is null THEN
+  CALL P_CAMPO_VUOTO('pvvv', 'data');
+END IF;
+
+IF NEW.ART_CODICE = '' THEN
+  CALL P_CAMPO_VUOTO('pvvv', 'art_codice');
+END IF;
+
+IF NEW.ID IS NOT NULL THEN
+  SET NEW.ID = null;
+END IF;
+
+END

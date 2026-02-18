@@ -1,0 +1,20 @@
+CREATE TRIGGER T_CUM_BI_0
+  BEFORE INSERT
+  ON `cum`
+  FOR EACH ROW
+BEGIN 
+
+
+IF NEW.TUM_CODICE = '' THEN
+  CALL P_CAMPO_VUOTO('cum', 'tum_codice');
+END IF;
+
+IF NEW.TUM_CODICE_COLLEGATO = '' THEN
+  CALL P_CAMPO_VUOTO('cum', 'tum_codice_collegato');
+END IF;
+
+IF NEW.ID IS NOT NULL THEN
+  SET NEW.ID = null;
+END IF;
+
+END

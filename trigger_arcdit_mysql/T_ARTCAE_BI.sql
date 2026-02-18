@@ -1,0 +1,20 @@
+CREATE TRIGGER T_ARTCAE_BI_0
+  BEFORE INSERT
+  ON `artcae`
+  FOR EACH ROW
+BEGIN 
+
+
+IF NEW.ART_CODICE = '' THEN
+  CALL P_CAMPO_VUOTO('artcae', 'art_codice');
+END IF;
+
+IF NEW.CAE_CODICE = '' THEN
+  CALL P_CAMPO_VUOTO('artcae', 'cae_codice');
+END IF;
+
+IF NEW.ID IS NOT NULL THEN
+  SET NEW.ID = null;
+END IF;
+
+END

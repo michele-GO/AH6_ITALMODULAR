@@ -1,0 +1,20 @@
+CREATE TRIGGER T_CLA_BI_0
+  BEFORE INSERT
+  ON `cla`
+  FOR EACH ROW
+BEGIN 
+
+
+IF NEW.ART_CODICE = '' THEN
+  CALL P_CAMPO_VUOTO('cla', 'art_codice');
+END IF;
+
+IF NEW.FAS_CODICE = '' THEN
+  CALL P_CAMPO_VUOTO('cla', 'fas_codice');
+END IF;
+
+IF NEW.ID IS NOT NULL THEN
+  SET NEW.ID = null;
+END IF;
+
+END

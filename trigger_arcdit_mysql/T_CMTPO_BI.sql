@@ -1,0 +1,20 @@
+CREATE TRIGGER T_CMTPO_BI_0
+  BEFORE INSERT
+  ON `cmtpo`
+  FOR EACH ROW
+BEGIN 
+
+
+IF NEW.ID_CMT = 0 THEN
+  CALL P_CAMPO_VUOTO('cmtpo', 'id_cmt');
+END IF;
+
+IF NEW.TCH_CODICE = '' THEN
+  CALL P_CAMPO_VUOTO('cmtpo', 'tch_codice');
+END IF;
+
+IF NEW.ID IS NOT NULL THEN
+  SET NEW.ID = null;
+END IF;
+
+END

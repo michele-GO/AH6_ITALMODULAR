@@ -1,0 +1,23 @@
+CREATE TRIGGER T_ASS_SOCI_TESSERE_BI_0
+  BEFORE INSERT
+  ON ASS_SOCI_TESSERE
+  FOR EACH ROW
+BEGIN
+
+IF NEW.ASS_SOCI_PROGRESSIVO = 0 THEN
+  CALL P_CAMPO_VUOTO('ass_soci_tessere', 'ass_soci_progressivo');
+END IF;
+
+IF NEW.DALLA_DATA IS NULL THEN
+  CALL P_CAMPO_VUOTO('ass_soci_tessere', 'dalla_data');
+END IF;
+
+IF NEW.ALLA_DATA IS NULL THEN
+  CALL P_CAMPO_VUOTO('ass_soci_tessere', 'alla_data');
+END IF;
+
+IF NEW.ID IS NOT NULL THEN
+  SET NEW.ID = null;
+END IF;
+
+END

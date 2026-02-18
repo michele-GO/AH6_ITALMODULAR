@@ -1,0 +1,20 @@
+CREATE TRIGGER T_DSB_BI_0
+  BEFORE INSERT
+  ON `dsb`
+  FOR EACH ROW
+BEGIN 
+
+
+IF NEW.ART_CODICE_PADRE = '' THEN
+  CALL P_CAMPO_VUOTO('dsb', 'art_codice_padre');
+END IF;
+
+IF NEW.ART_CODICE_FIGLIO = '' THEN
+  CALL P_CAMPO_VUOTO('dsb', 'art_codice_figlio');
+END IF;
+
+IF NEW.ID IS NOT NULL THEN
+  SET NEW.ID = null;
+END IF;
+
+END

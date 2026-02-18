@@ -1,0 +1,24 @@
+CREATE TRIGGER T_DAI_BI_0
+  BEFORE INSERT
+  ON `dai`
+  FOR EACH ROW
+BEGIN 
+
+
+IF NEW.PROGRESSIVO = 0 THEN
+  CALL P_CAMPO_VUOTO('dai', 'progressivo');
+END IF;
+
+IF NEW.TIV_CODICE = '' THEN
+  CALL P_CAMPO_VUOTO('dai', 'tiv_codice');
+END IF;
+
+IF NEW.TIPO_MOVIMENTO = '' THEN
+  CALL P_CAMPO_VUOTO('dai', 'tipo_movimento');
+END IF;
+
+IF NEW.ID IS NOT NULL THEN
+  SET NEW.ID = null;
+END IF;
+
+END

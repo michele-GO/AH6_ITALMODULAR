@@ -1,0 +1,20 @@
+CREATE TRIGGER T_EQU_BI_0
+  BEFORE INSERT
+  ON `equ`
+  FOR EACH ROW
+BEGIN 
+
+
+IF NEW.ART_CODICE = '' THEN
+  CALL P_CAMPO_VUOTO('equ', 'art_codice');
+END IF;
+
+IF NEW.ART_CODICE_EQUIVALENTE = '' THEN
+  CALL P_CAMPO_VUOTO('equ', 'art_codice_equivalente');
+END IF;
+
+IF NEW.ID IS NOT NULL THEN
+  SET NEW.ID = null;
+END IF;
+
+END

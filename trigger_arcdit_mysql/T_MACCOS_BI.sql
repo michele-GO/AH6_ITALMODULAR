@@ -1,0 +1,20 @@
+CREATE TRIGGER T_MACCOS_BI_0
+  BEFORE INSERT
+  ON `maccos`
+  FOR EACH ROW
+BEGIN 
+
+
+IF NEW.MAC_CODICE = '' THEN
+  CALL P_CAMPO_VUOTO('maccos', 'mac_codice');
+END IF;
+
+IF NEW.DATA_INIZIO IS NULL THEN
+  CALL P_CAMPO_VUOTO('maccos', 'data_inizio');
+END IF;
+
+IF NEW.ID IS NOT NULL THEN
+  SET NEW.ID = null;
+END IF;
+
+END

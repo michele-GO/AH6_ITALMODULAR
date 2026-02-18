@@ -1,0 +1,19 @@
+CREATE TRIGGER T_TNCAC_BI_0
+  BEFORE INSERT
+  ON `tncac`
+  FOR EACH ROW
+BEGIN 
+
+
+IF NEW.TNC_CODICE = '' THEN
+  CALL P_CAMPO_VUOTO('tncac','tnc_codice');
+END IF;
+IF NEW.TAC_CODICE = '' THEN
+  CALL P_CAMPO_VUOTO('tncac','tac_codice');
+END IF;
+
+IF NEW.ID IS NOT NULL THEN
+  SET NEW.ID = null;
+END IF;
+
+END

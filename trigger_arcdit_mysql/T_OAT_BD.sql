@@ -1,0 +1,9 @@
+CREATE TRIGGER T_OAT_BD
+  BEFORE DELETE
+  ON `oat`
+  FOR EACH ROW
+BEGIN 
+
+CALL P_SCHTRS('oat', old.progressivo);
+
+END

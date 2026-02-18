@@ -1,0 +1,20 @@
+CREATE TRIGGER T_TTSMAG_BI_0
+  BEFORE INSERT
+  ON `ttsmag`
+  FOR EACH ROW
+BEGIN 
+
+
+IF NEW.TTS_CODICE = '' THEN
+  CALL P_CAMPO_VUOTO('ttsmag', 'tts_codice');
+END IF;
+
+IF NEW.TMA_CODICE = '' THEN
+  CALL P_CAMPO_VUOTO('ttsmag', 'tma_codice');
+END IF;
+
+IF NEW.ID IS NOT NULL THEN
+  SET NEW.ID = null;
+END IF;
+
+END

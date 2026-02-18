@@ -1,0 +1,11 @@
+CREATE TRIGGER T_CAD_AD
+  AFTER DELETE
+  ON `cad`
+  FOR EACH ROW
+BEGIN 
+
+if old.documento_origine = 'ordine ven' then
+	CALL P_CAD_OVR('D', OLD.DOC_PROGRESSIVO_ORIGINE, OLD.DOC_RIGA_ORIGINE);
+end if;
+
+END

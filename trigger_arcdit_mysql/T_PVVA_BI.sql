@@ -1,0 +1,20 @@
+CREATE TRIGGER T_PVVA_BI_0
+  BEFORE INSERT
+  ON `pvva`
+  FOR EACH ROW
+BEGIN 
+
+
+IF NEW.id_pvvd = 0 THEN
+  CALL P_CAMPO_VUOTO('pvva','id_pvvd');
+END IF;
+
+IF NEW.sequenza = 0 THEN
+  CALL P_CAMPO_VUOTO('pvva','sequenza');
+END IF;
+
+IF NEW.ID IS NOT NULL THEN
+  SET NEW.ID = null;
+END IF;
+
+END

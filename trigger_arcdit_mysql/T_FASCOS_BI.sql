@@ -1,0 +1,20 @@
+CREATE TRIGGER T_FASCOS_BI_0
+  BEFORE INSERT
+  ON `fascos`
+  FOR EACH ROW
+BEGIN 
+
+
+IF NEW.FAS_CODICE = '' THEN
+  CALL P_CAMPO_VUOTO('fascos', 'fas_codice');
+END IF;
+
+IF NEW.DATA_INIZIO IS NULL THEN
+  CALL P_CAMPO_VUOTO('fascos', 'data_inizio');
+END IF;
+
+IF NEW.ID IS NOT NULL THEN
+  SET NEW.ID = null;
+END IF;
+
+END

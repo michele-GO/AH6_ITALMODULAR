@@ -1,0 +1,18 @@
+CREATE TRIGGER T_ACC_BI_0
+  BEFORE INSERT
+  ON `acc`
+  FOR EACH ROW
+BEGIN
+
+IF NEW.ART_CODICE_ACCESSORIO = '' THEN
+  CALL P_CAMPO_VUOTO('acc', 'art_codice_accessorio');
+END IF;
+IF NEW.ART_CODICE = '' THEN
+  CALL P_CAMPO_VUOTO('acc', 'art_codice');
+END IF;
+
+IF NEW.ID IS NOT NULL THEN
+  SET NEW.ID = null;
+END IF;
+
+END

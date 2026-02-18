@@ -1,0 +1,20 @@
+CREATE TRIGGER T_CMC_BI_0
+  BEFORE INSERT
+  ON `cmc`
+  FOR EACH ROW
+BEGIN 
+
+
+IF NEW.CMS_CODICE = '' THEN
+  CALL P_CAMPO_VUOTO('cmc', 'cms_codice');
+END IF;
+
+IF NEW.CEN_CODICE = '' THEN
+  CALL P_CAMPO_VUOTO('cmc', 'cen_codice');
+END IF;
+
+IF NEW.ID IS NOT NULL THEN
+  SET NEW.ID = null;
+END IF;
+
+END

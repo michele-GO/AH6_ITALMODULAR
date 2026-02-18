@@ -1,0 +1,20 @@
+CREATE TRIGGER T_BAR_BI_0
+  BEFORE INSERT
+  ON `bar`
+  FOR EACH ROW
+BEGIN 
+
+
+IF NEW.ART_CODICE = '' THEN
+  CALL P_CAMPO_VUOTO('bar', 'art_codice');
+END IF;
+
+IF NEW.CODICE_BARRE = '' THEN
+  CALL P_CAMPO_VUOTO('bar', 'codice_barre');
+END IF;
+
+IF NEW.ID IS NOT NULL THEN
+  SET NEW.ID = null;
+END IF;
+
+END

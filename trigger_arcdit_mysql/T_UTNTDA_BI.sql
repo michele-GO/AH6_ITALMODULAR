@@ -1,0 +1,19 @@
+CREATE TRIGGER T_UTNTDA_BI_0
+  BEFORE INSERT
+  ON `utntda`
+  FOR EACH ROW
+BEGIN 
+
+
+IF NEW.UTN_CODICE = '' THEN
+  CALL P_CAMPO_VUOTO('utntda','utn_codice');
+END IF;
+IF NEW.TDA_CODICE = '' THEN
+  CALL P_CAMPO_VUOTO('utntda','tda_codice');
+END IF;
+
+IF NEW.ID IS NOT NULL THEN
+  SET NEW.ID = null;
+END IF;
+
+END

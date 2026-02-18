@@ -1,0 +1,20 @@
+CREATE TRIGGER T_DIPCOS_BI_0
+  BEFORE INSERT
+  ON `dipcos`
+  FOR EACH ROW
+BEGIN 
+
+
+IF NEW.DIP_CODICE = '' THEN
+  CALL P_CAMPO_VUOTO('dipcos', 'dip_codice');
+END IF;
+
+IF NEW.DATA_INIZIO IS NULL THEN
+  CALL P_CAMPO_VUOTO('dipcos', 'data_inizio');
+END IF;
+
+IF NEW.ID IS NOT NULL THEN
+  SET NEW.ID = null;
+END IF;
+
+END

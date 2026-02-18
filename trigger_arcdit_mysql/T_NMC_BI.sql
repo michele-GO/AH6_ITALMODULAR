@@ -1,0 +1,22 @@
+CREATE TRIGGER T_NMC_BI_0
+  BEFORE INSERT
+  ON `nmc`
+  FOR EACH ROW
+BEGIN 
+
+
+IF NEW.UTN_CODICE = '' THEN
+  CALL P_CAMPO_VUOTO('nmc','utn_codice');
+END IF;
+IF NEW.PRG_CODICE = '' THEN
+  CALL P_CAMPO_VUOTO('nmc','prg_codice');
+END IF;
+IF NEW.CODICE_DOCUMENTO = '' THEN
+  CALL P_CAMPO_VUOTO('nmc','codice_documento');
+END IF;
+
+IF NEW.ID IS NOT NULL THEN
+  SET NEW.ID = null;
+END IF;
+
+END

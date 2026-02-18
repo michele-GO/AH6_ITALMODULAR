@@ -1,0 +1,20 @@
+CREATE TRIGGER T_BCF_BI_0
+  BEFORE INSERT
+  ON `bcf`
+  FOR EACH ROW
+BEGIN 
+
+
+IF NEW.NOM_CODICE = '' THEN
+  CALL P_CAMPO_VUOTO('bcf', 'nom_codice');
+END IF;
+
+IF NEW.RIFERIMENTO = '' THEN
+  CALL P_CAMPO_VUOTO('bcf', 'riferimento');
+END IF;
+
+IF NEW.ID IS NOT NULL THEN
+  SET NEW.ID = null;
+END IF;
+
+END

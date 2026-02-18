@@ -1,0 +1,11 @@
+CREATE TRIGGER T_CAD_AI
+  AFTER INSERT
+  ON `cad`
+  FOR EACH ROW
+BEGIN 
+
+if new.documento_origine = 'ordine ven' then
+	CALL P_CAD_OVR('I', NEW.DOC_PROGRESSIVO_ORIGINE, NEW.DOC_RIGA_ORIGINE);
+end if;
+
+END

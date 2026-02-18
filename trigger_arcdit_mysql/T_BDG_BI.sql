@@ -1,0 +1,20 @@
+CREATE TRIGGER T_BDG_BI_0
+  BEFORE INSERT
+  ON `bdg`
+  FOR EACH ROW
+BEGIN 
+
+
+IF NEW.ESE_CODICE = '' THEN
+  CALL P_CAMPO_VUOTO('bdg', 'ese_codice');
+END IF;
+
+IF NEW.GEN_CODICE = '' THEN
+  CALL P_CAMPO_VUOTO('bdg', 'gen_codice');
+END IF;
+
+IF NEW.ID IS NOT NULL THEN
+  SET NEW.ID = null;
+END IF;
+
+END

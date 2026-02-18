@@ -1,0 +1,14 @@
+CREATE TRIGGER T_RCR_AU
+  AFTER UPDATE
+  ON `rcr`
+  FOR EACH ROW
+BEGIN 
+
+if old.quantita <> new.quantita then
+
+  CALL P_RCR_RCT
+	(NEW.PROGRESSIVO, NEW.QUANTITA - OLD.QUANTITA);
+
+end if;
+
+END

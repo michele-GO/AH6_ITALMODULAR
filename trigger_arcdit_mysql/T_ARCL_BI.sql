@@ -1,0 +1,19 @@
+CREATE TRIGGER T_ARCL_BI_0
+  BEFORE INSERT
+  ON `arcl`
+  FOR EACH ROW
+BEGIN 
+
+
+IF NEW.CLI_CODICE = '' THEN
+  CALL P_CAMPO_VUOTO('arcl', 'cli_codice');
+END IF;
+IF NEW.ART_CODICE = '' THEN
+  CALL P_CAMPO_VUOTO('arcl', 'art_codice');
+END IF;
+
+IF NEW.ID IS NOT NULL THEN
+  SET NEW.ID = null;
+END IF;
+
+END

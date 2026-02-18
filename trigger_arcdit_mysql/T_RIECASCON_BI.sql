@@ -1,0 +1,20 @@
+CREATE TRIGGER T_RIECASCON_BI_0
+  BEFORE INSERT
+  ON `riecascon`
+  FOR EACH ROW
+BEGIN 
+
+
+IF NEW.TMA_CODICE = '' THEN
+  CALL P_CAMPO_VUOTO('riecascon', 'tma_codice');
+END IF;
+
+IF NEW.DATA is null THEN
+  CALL P_CAMPO_VUOTO('riecascon', 'data');
+END IF;
+
+IF NEW.ID IS NOT NULL THEN
+  SET NEW.ID = null;
+END IF;
+
+END

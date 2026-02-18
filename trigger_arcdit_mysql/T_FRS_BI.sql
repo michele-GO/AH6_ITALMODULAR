@@ -1,0 +1,24 @@
+CREATE TRIGGER T_FRS_BI_0
+  BEFORE INSERT
+  ON `frs`
+  FOR EACH ROW
+BEGIN 
+
+
+IF NEW.FRN_CODICE = '' THEN
+  CALL P_CAMPO_VUOTO('frs', 'frn_codice');
+END IF;
+
+IF NEW.RIFERIMENTO = '' THEN
+  CALL P_CAMPO_VUOTO('frs', 'riferimento');
+END IF;
+
+IF NEW.ANNO = 0 THEN
+  CALL P_CAMPO_VUOTO('frs', 'anno');
+END IF;
+
+IF NEW.ID IS NOT NULL THEN
+  SET NEW.ID = null;
+END IF;
+
+END

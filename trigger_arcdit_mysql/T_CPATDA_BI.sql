@@ -1,0 +1,20 @@
+CREATE TRIGGER T_CPATDA_BI_0
+  BEFORE INSERT
+  ON `cpatda`
+  FOR EACH ROW
+BEGIN 
+
+
+IF NEW.ID_CPA = 0 THEN
+  CALL P_CAMPO_VUOTO('cpatda', 'id_cpa');
+END IF;
+
+IF NEW.TDA_CODICE = '' THEN
+  CALL P_CAMPO_VUOTO('cpatda', 'tda_codice');
+END IF;
+
+IF NEW.ID IS NOT NULL THEN
+  SET NEW.ID = null;
+END IF;
+
+END

@@ -1,0 +1,1137 @@
+object ppReport_registri_fiscali: TppReport
+  AutoStop = False
+  DataPipeline = ppDBTabella
+  NoDataBehaviors = [ndMessageDialog, ndBlankPage]
+  OnEndPage = ppReport_registri_fiscaliEndPage
+  OnStartPage = ppReport_registri_fiscaliStartPage
+  PrinterSetup.BinName = 'Default'
+  PrinterSetup.DocumentName = 'Libro giornale'
+  PrinterSetup.Duplex = dpNone
+  PrinterSetup.PaperName = 'A4'
+  PrinterSetup.PrinterName = 'Microsoft Print to PDF'
+  PrinterSetup.SaveDeviceSettings = False
+  PrinterSetup.mmMarginBottom = 6350
+  PrinterSetup.mmMarginLeft = 6350
+  PrinterSetup.mmMarginRight = 6350
+  PrinterSetup.mmMarginTop = 6350
+  PrinterSetup.mmPaperHeight = 296863
+  PrinterSetup.mmPaperWidth = 210079
+  PrinterSetup.PaperSize = 9
+  Template.FileName = 'C:\GestionaleOpen\go_1101\report\REGGEN_STANDARD_RIDOTTA.RTM'
+  Template.Format = ftASCII
+  AllowPrintToFile = True
+  ArchiveFileName = '($MyDocuments)\ReportArchive.raf'
+  BeforePrint = ppReport_registri_fiscaliBeforePrint
+  DeviceType = 'Screen'
+  DefaultFileDeviceType = 'PDF'
+  EmailSettings.ReportFormat = 'PDF'
+  Icon.Data = {
+    0000010001002020100000000000E80200001600000028000000200000004000
+    0000010004000000000080020000000000000000000000000000000000000000
+    0000000080000080000000808000800000008000800080800000C0C0C0008080
+    80000000FF0000FF000000FFFF00FF000000FF00FF00FFFF0000FFFFFF000000
+    0000000000000000000000000000000000000000000004444440000000000000
+    00000000444440000004400000000000000004446CEE0E6E6E60040000000000
+    000046C6C6E06EEEEEE660400000000000046C6C640EEE4E0E0EE66400000000
+    004266E4C06EE600000EEE6040000000042C2EEE60EE606C6C400EE600000000
+    4111111EC06E6026C6C40EE6040000041000000110EE602C006C00EE60000004
+    09191910006E60206E0000EE604000101999999110EE6020EE6E6E0E66000009
+    99191919906E60C206EEEEEEEE00001991000009990EE6026006E6E6E6000099
+    10E6E6E01906E60CC6C0000000000019106E6EEE0906EE602262622224000099
+    10E600EE01906E60C2222222240000191060990000990EE60C22200024000099
+    10E09919191906E620000EE604000019101E0999999990EEE66E6E0E04000009
+    9102300191919106EEEEE6E040000001910123200000002006E6E00240000009
+    99103232EEEE32323000022240000000191013232EEEE3332322222400000000
+    099101333000EEEE32322E40000000000191100009910EE36363E40000000000
+    0099911919190E333636400000000000000199999190EEE33364400000000000
+    00000191900EEEEE444000000000000000000000044444440000000000000000
+    000000000000000000000000000000000000000000000000000000000000FFFF
+    FFFFFFFF81FFFFF0007FFF80003FFF00001FFE000A0FFC000007F8000087F000
+    0003E0000043E0000001C0000021C00000018000000180000003800000038000
+    0003800000038000000380000023C0000007C0000007C0000007E000000FF000
+    001FF000003FF800007FFC00007FFE0001FFFF800FFFFFFFFFFFFFFFFFFF}
+  LanguageID = 'Default'
+  OnPreviewFormClose = ppReport_registri_fiscaliPreviewFormClose
+  OnPreviewFormCreate = ppReport_registri_fiscaliPreviewFormCreate
+  OpenFile = False
+  OutlineSettings.CreateNode = True
+  OutlineSettings.CreatePageNodes = True
+  OutlineSettings.Enabled = False
+  OutlineSettings.Visible = False
+  ThumbnailSettings.Enabled = True
+  ThumbnailSettings.Visible = True
+  ThumbnailSettings.DeadSpace = 30
+  PDFSettings.EmbedFontOptions = [efUseSubset]
+  PDFSettings.EncryptSettings.AllowCopy = True
+  PDFSettings.EncryptSettings.AllowInteract = True
+  PDFSettings.EncryptSettings.AllowModify = True
+  PDFSettings.EncryptSettings.AllowPrint = True
+  PDFSettings.EncryptSettings.AllowExtract = True
+  PDFSettings.EncryptSettings.AllowAssemble = True
+  PDFSettings.EncryptSettings.AllowQualityPrint = True
+  PDFSettings.EncryptSettings.Enabled = False
+  PDFSettings.EncryptSettings.KeyLength = kl40Bit
+  PDFSettings.EncryptSettings.EncryptionType = etRC4
+  PDFSettings.FontEncoding = feAnsi
+  PDFSettings.ImageCompressionLevel = 25
+  RTFSettings.DefaultFont.Charset = DEFAULT_CHARSET
+  RTFSettings.DefaultFont.Color = clWindowText
+  RTFSettings.DefaultFont.Height = -13
+  RTFSettings.DefaultFont.Name = 'Arial'
+  RTFSettings.DefaultFont.Style = []
+  TextFileName = 
+    'C:\GestionaleOpen\go_1101\temp\GODEV_Libro giornale_2022 03 15-1' +
+    '8 44 51_STANDARD_RIDOTTA'
+  TextFileType = ftTab
+  TextSearchSettings.DefaultString = '<testo da cercare>'
+  TextSearchSettings.Enabled = True
+  TextSearchSettings.Visible = True
+  XLSSettings.AppName = 'ReportBuilder'
+  XLSSettings.Author = 'ReportBuilder'
+  XLSSettings.ExportComponents = [ecText, ecLine, ecImage, ecRichText, ecBarCode, ecOther]
+  XLSSettings.Subject = 'Report'
+  XLSSettings.Title = 'Report'
+  XLSSettings.WorksheetName = 'Report'
+  Left = 350
+  Top = 65526
+  Version = '17.01'
+  mmColumnWidth = 204999
+  DataPipelineName = 'ppDBTabella'
+  object ppHeaderBand2_registri_fiscali: TppHeaderBand
+    BeforePrint = ppHeaderBand2_registri_fiscaliBeforePrint
+    Background.Brush.Style = bsClear
+    mmBottomOffset = 0
+    mmHeight = 20373
+    mmPrintPosition = 0
+    object pp_Shape4_registri_fiscali: TppShape
+      DesignLayer = ppDesignLayer2
+      UserName = 'Shape1'
+      mmHeight = 14023
+      mmLeft = 794
+      mmTop = 794
+      mmWidth = 196586
+      BandType = 0
+      LayerName = Foreground1
+    end
+    object pp_dit_codice_fiscale_registri_fiscali1: TppLabel
+      DesignLayer = ppDesignLayer2
+      UserName = '_dit_codice_fiscale_registri_fiscali1'
+      HyperlinkEnabled = False
+      Border.Weight = 1.000000000000000000
+      Caption = 'codice fiscale'
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clBlack
+      Font.Name = 'Microsoft Sans Serif'
+      Font.Size = 8
+      Font.Style = []
+      Transparent = True
+      mmHeight = 3260
+      mmLeft = 2117
+      mmTop = 10054
+      mmWidth = 17103
+      BandType = 0
+      LayerName = Foreground1
+    end
+    object pp_dit_codice_fiscale_registri_fiscali2: TppLabel
+      DesignLayer = ppDesignLayer2
+      UserName = '_dit_codice_fiscale_registri_fiscali2'
+      HyperlinkEnabled = False
+      Border.Weight = 1.000000000000000000
+      Caption = 'CODICEFISCALE'
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clBlack
+      Font.Name = 'Microsoft Sans Serif'
+      Font.Size = 8
+      Font.Style = [fsBold]
+      Transparent = True
+      mmHeight = 3440
+      mmLeft = 20638
+      mmTop = 10054
+      mmWidth = 25400
+      BandType = 0
+      LayerName = Foreground1
+    end
+    object pp_dit_partita_iva_registri_fiscali1: TppLabel
+      DesignLayer = ppDesignLayer2
+      UserName = '_dit_partita_iva_registri_fiscali'
+      HyperlinkEnabled = False
+      Border.Weight = 1.000000000000000000
+      Caption = 'partita iva'
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clBlack
+      Font.Name = 'Microsoft Sans Serif'
+      Font.Size = 8
+      Font.Style = []
+      Transparent = True
+      mmHeight = 3175
+      mmLeft = 73819
+      mmTop = 10054
+      mmWidth = 12171
+      BandType = 0
+      LayerName = Foreground1
+    end
+    object pp_dit_partita_iva_registri_fiscali2: TppLabel
+      DesignLayer = ppDesignLayer2
+      UserName = '_dit_partita_iva_registri_fiscali2'
+      HyperlinkEnabled = False
+      Border.Weight = 1.000000000000000000
+      Caption = 'PARTITAIVA'
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clBlack
+      Font.Name = 'Microsoft Sans Serif'
+      Font.Size = 8
+      Font.Style = [fsBold]
+      Transparent = True
+      mmHeight = 3440
+      mmLeft = 87313
+      mmTop = 10054
+      mmWidth = 19314
+      BandType = 0
+      LayerName = Foreground1
+    end
+    object pp_dit_descrizione1_registri_fiscali: TppLabel
+      DesignLayer = ppDesignLayer2
+      UserName = 'Label5'
+      HyperlinkEnabled = False
+      Border.Weight = 1.000000000000000000
+      Caption = 'AZIENDA BASE'
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clBlack
+      Font.Name = 'Microsoft Sans Serif'
+      Font.Size = 8
+      Font.Style = [fsBold]
+      Transparent = True
+      mmHeight = 3439
+      mmLeft = 2117
+      mmTop = 1588
+      mmWidth = 23812
+      BandType = 0
+      LayerName = Foreground1
+    end
+    object pp_dit_via_registri_fiscali: TppLabel
+      DesignLayer = ppDesignLayer2
+      UserName = 'Label6'
+      HyperlinkEnabled = False
+      Border.Weight = 1.000000000000000000
+      Caption = 'VIA'
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clBlack
+      Font.Name = 'Microsoft Sans Serif'
+      Font.Size = 8
+      Font.Style = [fsBold]
+      Transparent = True
+      mmHeight = 3439
+      mmLeft = 73819
+      mmTop = 1588
+      mmWidth = 5292
+      BandType = 0
+      LayerName = Foreground1
+    end
+    object pp_dit_descrizione2_registri_fiscali: TppLabel
+      DesignLayer = ppDesignLayer2
+      UserName = '_dit_descrizione2_registri_fiscali'
+      HyperlinkEnabled = False
+      Border.Weight = 1.000000000000000000
+      Caption = 'SECONDA DESCRIZIONE'
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clBlack
+      Font.Name = 'Microsoft Sans Serif'
+      Font.Size = 8
+      Font.Style = [fsBold]
+      Transparent = True
+      mmHeight = 3439
+      mmLeft = 2117
+      mmTop = 5821
+      mmWidth = 38893
+      BandType = 0
+      LayerName = Foreground1
+    end
+    object pp_dit_citta_registri_fiscali: TppLabel
+      DesignLayer = ppDesignLayer2
+      UserName = '_dit_citta_registri_fiscali'
+      HyperlinkEnabled = False
+      Border.Weight = 1.000000000000000000
+      Caption = 'LOCALITA'
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clBlack
+      Font.Name = 'Microsoft Sans Serif'
+      Font.Size = 8
+      Font.Style = [fsBold]
+      Transparent = True
+      mmHeight = 3439
+      mmLeft = 73819
+      mmTop = 5821
+      mmWidth = 15610
+      BandType = 0
+      LayerName = Foreground1
+    end
+    object pp_registro_registri_fiscali: TppLabel
+      DesignLayer = ppDesignLayer2
+      UserName = '_registro_registri_fiscali'
+      HyperlinkEnabled = False
+      AutoSize = False
+      Border.Weight = 1.000000000000000000
+      Caption = 'REGISTRO FISCALE'
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clBlack
+      Font.Name = 'Microsoft Sans Serif'
+      Font.Size = 9
+      Font.Style = [fsBold]
+      TextAlignment = taCentered
+      Transparent = True
+      mmHeight = 3810
+      mmLeft = 145786
+      mmTop = 1588
+      mmWidth = 50536
+      BandType = 0
+      LayerName = Foreground1
+    end
+    object pp_Label8_registri_fiscali: TppLabel
+      DesignLayer = ppDesignLayer2
+      UserName = 'Label8_registri_fiscali'
+      HyperlinkEnabled = False
+      Border.Weight = 1.000000000000000000
+      Caption = 'pagina:'
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clBlack
+      Font.Name = 'Microsoft Sans Serif'
+      Font.Size = 8
+      Font.Style = []
+      Transparent = True
+      mmHeight = 3175
+      mmLeft = 168540
+      mmTop = 5821
+      mmWidth = 9260
+      BandType = 0
+      LayerName = Foreground1
+    end
+    object pp_pagina_registri_fiscali: TppLabel
+      DesignLayer = ppDesignLayer2
+      UserName = '_pagina_registri_fiscali'
+      HyperlinkEnabled = False
+      AutoSize = False
+      Border.Weight = 1.000000000000000000
+      Caption = '0'
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clBlack
+      Font.Name = 'Microsoft Sans Serif'
+      Font.Size = 8
+      Font.Style = [fsBold]
+      Transparent = True
+      mmHeight = 3440
+      mmLeft = 186532
+      mmTop = 5821
+      mmWidth = 8996
+      BandType = 0
+      LayerName = Foreground1
+    end
+    object pp_Label9_registri_fiscali: TppLabel
+      DesignLayer = ppDesignLayer2
+      UserName = 'Label9_registri_fiscali'
+      HyperlinkEnabled = False
+      Border.Weight = 1.000000000000000000
+      Caption = '/'
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clBlack
+      Font.Name = 'Microsoft Sans Serif'
+      Font.Size = 8
+      Font.Style = [fsBold]
+      Transparent = True
+      mmHeight = 3440
+      mmLeft = 185473
+      mmTop = 5821
+      mmWidth = 794
+      BandType = 0
+      LayerName = Foreground1
+    end
+    object pp_anno_registri_fiscali: TppLabel
+      DesignLayer = ppDesignLayer2
+      UserName = '_anno_registri_fiscali'
+      HyperlinkEnabled = False
+      AutoSize = False
+      Border.Weight = 1.000000000000000000
+      Caption = 'anno'
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clBlack
+      Font.Name = 'Microsoft Sans Serif'
+      Font.Size = 8
+      Font.Style = [fsBold]
+      Transparent = True
+      mmHeight = 3440
+      mmLeft = 178594
+      mmTop = 5821
+      mmWidth = 6604
+      BandType = 0
+      LayerName = Foreground1
+    end
+    object pp_Shape5_registri_fiscali: TppShape
+      DesignLayer = ppDesignLayer2
+      UserName = 'Shape3'
+      mmHeight = 4498
+      mmLeft = 794
+      mmTop = 15346
+      mmWidth = 196586
+      BandType = 0
+      LayerName = Foreground1
+    end
+    object pp_Label9: TppLabel
+      DesignLayer = ppDesignLayer2
+      UserName = 'Label9'
+      HyperlinkEnabled = False
+      Border.Weight = 1.000000000000000000
+      Caption = 'data'
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clBlack
+      Font.Name = 'Microsoft Sans Serif'
+      Font.Size = 7
+      Font.Style = []
+      Transparent = True
+      mmHeight = 2910
+      mmLeft = 16669
+      mmTop = 15875
+      mmWidth = 4498
+      BandType = 0
+      LayerName = Foreground1
+    end
+    object pp_Label12: TppLabel
+      DesignLayer = ppDesignLayer2
+      UserName = 'Label12'
+      HyperlinkEnabled = False
+      Border.Weight = 1.000000000000000000
+      Caption = 'protocollo'
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clBlack
+      Font.Name = 'Microsoft Sans Serif'
+      Font.Size = 7
+      Font.Style = []
+      Transparent = True
+      mmHeight = 2910
+      mmLeft = 57150
+      mmTop = 15875
+      mmWidth = 10583
+      BandType = 0
+      LayerName = Foreground1
+    end
+    object pp_Label13: TppLabel
+      DesignLayer = ppDesignLayer2
+      UserName = 'Label13'
+      HyperlinkEnabled = False
+      Border.Weight = 1.000000000000000000
+      Caption = 'num. data documento'
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clBlack
+      Font.Name = 'Microsoft Sans Serif'
+      Font.Size = 7
+      Font.Style = []
+      Transparent = True
+      mmHeight = 2910
+      mmLeft = 68263
+      mmTop = 15875
+      mmWidth = 23019
+      BandType = 0
+      LayerName = Foreground1
+    end
+    object pp_Label8: TppLabel
+      DesignLayer = ppDesignLayer2
+      UserName = 'Label8'
+      HyperlinkEnabled = False
+      Border.Weight = 1.000000000000000000
+      Caption = 'causale documento'
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clBlack
+      Font.Name = 'Microsoft Sans Serif'
+      Font.Size = 7
+      Font.Style = []
+      Transparent = True
+      mmHeight = 2910
+      mmLeft = 25665
+      mmTop = 15875
+      mmWidth = 20902
+      BandType = 0
+      LayerName = Foreground1
+    end
+    object ppLabel1: TppLabel
+      DesignLayer = ppDesignLayer2
+      UserName = 'Label1'
+      HyperlinkEnabled = False
+      Border.Weight = 1.000000000000000000
+      Caption = 'dare'
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clBlack
+      Font.Name = 'Microsoft Sans Serif'
+      Font.Size = 7
+      Font.Style = []
+      Transparent = True
+      mmHeight = 2910
+      mmLeft = 106892
+      mmTop = 15875
+      mmWidth = 4763
+      BandType = 0
+      LayerName = Foreground1
+    end
+    object ppLabel2: TppLabel
+      DesignLayer = ppDesignLayer2
+      UserName = 'Label2'
+      HyperlinkEnabled = False
+      Border.Weight = 1.000000000000000000
+      Caption = 'avere'
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clBlack
+      Font.Name = 'Microsoft Sans Serif'
+      Font.Size = 7
+      Font.Style = []
+      Transparent = True
+      mmHeight = 2910
+      mmLeft = 120121
+      mmTop = 16140
+      mmWidth = 6085
+      BandType = 0
+      LayerName = Foreground1
+    end
+    object ppLabel3: TppLabel
+      DesignLayer = ppDesignLayer2
+      UserName = 'Label3'
+      HyperlinkEnabled = False
+      Border.Weight = 1.000000000000000000
+      Caption = 'sottoconto'
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clBlack
+      Font.Name = 'Microsoft Sans Serif'
+      Font.Size = 7
+      Font.Style = []
+      Transparent = True
+      mmHeight = 2910
+      mmLeft = 126736
+      mmTop = 16140
+      mmWidth = 11377
+      BandType = 0
+      LayerName = Foreground1
+    end
+    object ppLabel4: TppLabel
+      DesignLayer = ppDesignLayer2
+      UserName = 'Label4'
+      HyperlinkEnabled = False
+      Border.Weight = 1.000000000000000000
+      Caption = 'progressivo'
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clBlack
+      Font.Name = 'Microsoft Sans Serif'
+      Font.Size = 7
+      Font.Style = []
+      Transparent = True
+      mmHeight = 2879
+      mmLeft = 1588
+      mmTop = 15875
+      mmWidth = 12615
+      BandType = 0
+      LayerName = Foreground1
+    end
+  end
+  object ppDetailBand2_registri_fiscali: TppDetailBand
+    BeforePrint = ppDetailBand2_registri_fiscaliBeforePrint
+    Background1.Brush.Style = bsClear
+    Background2.Brush.Style = bsClear
+    PrintHeight = phDynamic
+    mmBottomOffset = 0
+    mmHeight = 7408
+    mmPrintPosition = 0
+    object pp_DBText14: TppDBText
+      DesignLayer = ppDesignLayer2
+      UserName = 'DBText14'
+      HyperlinkEnabled = False
+      Border.Weight = 1.000000000000000000
+      DataField = 'data_registrazione'
+      DataPipeline = ppDBTabella
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clBlue
+      Font.Name = 'Microsoft Sans Serif'
+      Font.Size = 7
+      Font.Style = []
+      Transparent = True
+      DataPipelineName = 'ppDBTabella'
+      mmHeight = 2910
+      mmLeft = 12700
+      mmTop = 0
+      mmWidth = 12435
+      BandType = 4
+      LayerName = Foreground1
+    end
+    object pp_DBText25: TppDBText
+      DesignLayer = ppDesignLayer2
+      UserName = 'DBText25'
+      HyperlinkEnabled = False
+      Border.Weight = 1.000000000000000000
+      DataField = 'tco_descrizione'
+      DataPipeline = ppDBTabella
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clBlack
+      Font.Name = 'Microsoft Sans Serif'
+      Font.Size = 7
+      Font.Style = []
+      Transparent = True
+      DataPipelineName = 'ppDBTabella'
+      mmHeight = 2910
+      mmLeft = 25665
+      mmTop = 0
+      mmWidth = 40481
+      BandType = 4
+      LayerName = Foreground1
+    end
+    object pp_DBText19: TppDBText
+      DesignLayer = ppDesignLayer2
+      UserName = 'DBText19'
+      HyperlinkEnabled = False
+      Border.Weight = 1.000000000000000000
+      DataField = 'protocollo'
+      DataPipeline = ppDBTabella
+      DisplayFormat = '######'
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clBlack
+      Font.Name = 'Microsoft Sans Serif'
+      Font.Size = 7
+      Font.Style = []
+      TextAlignment = taRightJustified
+      Transparent = True
+      DataPipelineName = 'ppDBTabella'
+      mmHeight = 2910
+      mmLeft = 66675
+      mmTop = 0
+      mmWidth = 10054
+      BandType = 4
+      LayerName = Foreground1
+    end
+    object pp_DBText22: TppDBText
+      DesignLayer = ppDesignLayer2
+      UserName = 'DBText22'
+      HyperlinkEnabled = False
+      Border.Weight = 1.000000000000000000
+      DataField = 'numero_documento_alfa'
+      DataPipeline = ppDBTabella
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clBlack
+      Font.Name = 'Microsoft Sans Serif'
+      Font.Size = 7
+      Font.Style = []
+      Transparent = True
+      DataPipelineName = 'ppDBTabella'
+      mmHeight = 2910
+      mmLeft = 77258
+      mmTop = 0
+      mmWidth = 15346
+      BandType = 4
+      LayerName = Foreground1
+    end
+    object pp_DBText24: TppDBText
+      DesignLayer = ppDesignLayer2
+      UserName = 'DBText24'
+      HyperlinkEnabled = False
+      Border.Weight = 1.000000000000000000
+      DataField = 'data_documento'
+      DataPipeline = ppDBTabella
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clBlack
+      Font.Name = 'Microsoft Sans Serif'
+      Font.Size = 7
+      Font.Style = []
+      Transparent = True
+      DataPipelineName = 'ppDBTabella'
+      mmHeight = 2910
+      mmLeft = 93134
+      mmTop = 0
+      mmWidth = 12700
+      BandType = 4
+      LayerName = Foreground1
+    end
+    object pp_DBText20: TppDBText
+      DesignLayer = ppDesignLayer2
+      UserName = 'DBText20'
+      HyperlinkEnabled = False
+      Border.Weight = 1.000000000000000000
+      DataField = 'importo_dare_euro'
+      DataPipeline = ppDBTabella
+      DisplayFormat = ',0.00;-,0.00;#'
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clBlack
+      Font.Name = 'Microsoft Sans Serif'
+      Font.Size = 7
+      Font.Style = []
+      TextAlignment = taRightJustified
+      Transparent = True
+      DataPipelineName = 'ppDBTabella'
+      mmHeight = 2910
+      mmLeft = 106627
+      mmTop = 0
+      mmWidth = 14288
+      BandType = 4
+      LayerName = Foreground1
+    end
+    object pp_DBText21: TppDBText
+      DesignLayer = ppDesignLayer2
+      UserName = 'DBText21'
+      HyperlinkEnabled = False
+      Border.Weight = 1.000000000000000000
+      DataField = 'importo_avere_euro'
+      DataPipeline = ppDBTabella
+      DisplayFormat = ',0.00;-,0.00;#'
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clBlack
+      Font.Name = 'Microsoft Sans Serif'
+      Font.Size = 7
+      Font.Style = []
+      TextAlignment = taRightJustified
+      Transparent = True
+      DataPipelineName = 'ppDBTabella'
+      mmHeight = 2910
+      mmLeft = 121179
+      mmTop = 0
+      mmWidth = 14288
+      BandType = 4
+      LayerName = Foreground1
+    end
+    object pp_DBText15: TppDBText
+      DesignLayer = ppDesignLayer2
+      UserName = 'DBText15'
+      HyperlinkEnabled = False
+      Border.Weight = 1.000000000000000000
+      DataField = 'cfg_tipo'
+      DataPipeline = ppDBTabella
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clBlack
+      Font.Name = 'Microsoft Sans Serif'
+      Font.Size = 7
+      Font.Style = []
+      Transparent = True
+      DataPipelineName = 'ppDBTabella'
+      mmHeight = 2910
+      mmLeft = 135732
+      mmTop = 0
+      mmWidth = 2910
+      BandType = 4
+      LayerName = Foreground1
+    end
+    object pp_DBText17: TppDBText
+      DesignLayer = ppDesignLayer2
+      UserName = 'DBText17'
+      HyperlinkEnabled = False
+      Border.Weight = 1.000000000000000000
+      DataField = 'cfg_codice'
+      DataPipeline = ppDBTabella
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clBlack
+      Font.Name = 'Microsoft Sans Serif'
+      Font.Size = 7
+      Font.Style = []
+      Transparent = True
+      DataPipelineName = 'ppDBTabella'
+      mmHeight = 2910
+      mmLeft = 139171
+      mmTop = 0
+      mmWidth = 14817
+      BandType = 4
+      LayerName = Foreground1
+    end
+    object pp_DBText16: TppDBText
+      DesignLayer = ppDesignLayer2
+      UserName = 'DBText16'
+      HyperlinkEnabled = False
+      Border.Weight = 1.000000000000000000
+      DataField = 'cfg_descrizione1'
+      DataPipeline = ppDBTabella
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clBlack
+      Font.Name = 'Microsoft Sans Serif'
+      Font.Size = 7
+      Font.Style = []
+      Transparent = True
+      DataPipelineName = 'ppDBTabella'
+      mmHeight = 2910
+      mmLeft = 154517
+      mmTop = 0
+      mmWidth = 42333
+      BandType = 4
+      LayerName = Foreground1
+    end
+    object pp_Region1: TppRegion
+      DesignLayer = ppDesignLayer2
+      UserName = 'Region1'
+      Pen.Style = psClear
+      Stretch = True
+      StretchWithParent = True
+      mmHeight = 4233
+      mmLeft = 12700
+      mmTop = 2910
+      mmWidth = 65352
+      BandType = 4
+      LayerName = Foreground1
+      mmBottomOffset = 0
+      mmOverFlowOffset = 0
+      mmStopPosition = 0
+      mmMinHeight = 0
+      object pp_DBMemo1: TppDBMemo
+        DesignLayer = ppDesignLayer2
+        UserName = 'DBMemo1'
+        Border.Weight = 1.000000000000000000
+        CharWrap = False
+        DataField = 'pnt_descrizione'
+        DataPipeline = ppDBTabella
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clBlack
+        Font.Name = 'Microsoft Sans Serif'
+        Font.Size = 7
+        Font.Style = []
+        RemoveEmptyLines = False
+        Stretch = True
+        Transparent = True
+        DataPipelineName = 'ppDBTabella'
+        mmHeight = 3175
+        mmLeft = 15082
+        mmTop = 3439
+        mmWidth = 61648
+        BandType = 4
+        LayerName = Foreground1
+        mmBottomOffset = 0
+        mmOverFlowOffset = 0
+        mmStopPosition = 0
+        mmMinHeight = 0
+        mmLeading = 0
+      end
+    end
+    object pp_Region_descrizione: TppRegion
+      DesignLayer = ppDesignLayer2
+      UserName = 'Region3'
+      Pen.Style = psClear
+      Visible = False
+      mmHeight = 4233
+      mmLeft = 77523
+      mmTop = 2910
+      mmWidth = 63500
+      BandType = 4
+      LayerName = Foreground1
+      mmBottomOffset = 0
+      mmOverFlowOffset = 0
+      mmStopPosition = 0
+      mmMinHeight = 0
+      object ppDBText1: TppDBText
+        DesignLayer = ppDesignLayer2
+        UserName = 'DBText1'
+        HyperlinkEnabled = False
+        Border.Weight = 1.000000000000000000
+        DataField = 'pnr_descrizione'
+        DataPipeline = ppDBTabella
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clBlack
+        Font.Name = 'Microsoft Sans Serif'
+        Font.Size = 7
+        Font.Style = []
+        Transparent = True
+        DataPipelineName = 'ppDBTabella'
+        mmHeight = 3175
+        mmLeft = 78581
+        mmTop = 3440
+        mmWidth = 61383
+        BandType = 4
+        LayerName = Foreground1
+      end
+    end
+    object pp_regione_cfg_descrizione2: TppRegion
+      DesignLayer = ppDesignLayer2
+      UserName = '_regione_cfg_descrizione2'
+      Caption = '_regione_cfg_descrizione2'
+      Pen.Style = psClear
+      Visible = False
+      mmHeight = 4233
+      mmLeft = 141023
+      mmTop = 2646
+      mmWidth = 56356
+      BandType = 4
+      LayerName = Foreground1
+      mmBottomOffset = 0
+      mmOverFlowOffset = 0
+      mmStopPosition = 0
+      mmMinHeight = 0
+      object ppDBText2: TppDBText
+        DesignLayer = ppDesignLayer2
+        UserName = 'DBText2'
+        HyperlinkEnabled = False
+        Border.Weight = 1.000000000000000000
+        DataField = 'cfg_descrizione2'
+        DataPipeline = ppDBTabella
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clBlack
+        Font.Name = 'Microsoft Sans Serif'
+        Font.Size = 7
+        Font.Style = []
+        Transparent = True
+        DataPipelineName = 'ppDBTabella'
+        mmHeight = 3175
+        mmLeft = 141552
+        mmTop = 3440
+        mmWidth = 54504
+        BandType = 4
+        LayerName = Foreground1
+      end
+    end
+    object ppDBText3: TppDBText
+      DesignLayer = ppDesignLayer2
+      UserName = 'DBText3'
+      HyperlinkEnabled = False
+      Border.Weight = 1.000000000000000000
+      DataField = 'riga_registro'
+      DataPipeline = ppDBTabella
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clBlack
+      Font.Name = 'Microsoft Sans Serif'
+      Font.Size = 7
+      Font.Style = []
+      TextAlignment = taRightJustified
+      Transparent = True
+      DataPipelineName = 'ppDBTabella'
+      mmHeight = 2910
+      mmLeft = 1058
+      mmTop = 0
+      mmWidth = 11113
+      BandType = 4
+      LayerName = Foreground1
+    end
+  end
+  object ppFooterBand2_registri_fiscali: TppFooterBand
+    Background.Brush.Style = bsClear
+    mmBottomOffset = 0
+    mmHeight = 6615
+    mmPrintPosition = 0
+    object pp_Shape6_registri_fiscali: TppShape
+      DesignLayer = ppDesignLayer2
+      UserName = 'Shape2'
+      mmHeight = 6085
+      mmLeft = 794
+      mmTop = 265
+      mmWidth = 196586
+      BandType = 8
+      LayerName = Foreground1
+    end
+    object pp_Label21_registri_fiscali: TppLabel
+      DesignLayer = ppDesignLayer2
+      UserName = 'Label20'
+      HyperlinkEnabled = False
+      Border.Weight = 1.000000000000000000
+      Caption = 'Gestionale Open (11.01.32) - il gestionale per le PMI italiane'
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clBlack
+      Font.Name = 'Microsoft Sans Serif'
+      Font.Size = 8
+      Font.Style = [fsBold]
+      Transparent = True
+      mmHeight = 3440
+      mmLeft = 1852
+      mmTop = 1852
+      mmWidth = 90752
+      BandType = 8
+      LayerName = Foreground1
+    end
+    object pp_Label22_registri_fiscali: TppLabel
+      DesignLayer = ppDesignLayer2
+      UserName = 'Label7'
+      HyperlinkEnabled = False
+      Border.Weight = 1.000000000000000000
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clBlack
+      Font.Name = 'Microsoft Sans Serif'
+      Font.Size = 8
+      Font.Style = [fsBold]
+      Transparent = True
+      mmHeight = 3440
+      mmLeft = 52123
+      mmTop = 1852
+      mmWidth = 794
+      BandType = 8
+      LayerName = Foreground1
+    end
+  end
+  object ppGroup_registri_fiscali: TppGroup
+    BreakName = 'pp_registro_registri_fiscali'
+    BreakType = btCustomField
+    GroupFileSettings.NewFile = False
+    GroupFileSettings.EmailFile = False
+    OutlineSettings.CreateNode = True
+    ReprintOnSubsequentPage = False
+    StartOnOddPage = False
+    UserName = 'Group_registri_fiscali'
+    mmNewColumnThreshold = 0
+    mmNewPageThreshold = 0
+    DataPipelineName = ''
+    NewFile = False
+    object ppGroupHeaderBand1_registri_fiscali: TppGroupHeaderBand
+      Background.Brush.Style = bsClear
+      mmBottomOffset = 0
+      mmHeight = 0
+      mmPrintPosition = 0
+    end
+    object ppGroupFooterBand1_registri_fiscali: TppGroupFooterBand
+      AfterPrint = ppGroupFooterBand1_registri_fiscaliAfterPrint
+      Background.Brush.Style = bsClear
+      HideWhenOneDetail = False
+      mmBottomOffset = 0
+      mmHeight = 5027
+      mmPrintPosition = 0
+      object ppDBCalc1: TppDBCalc
+        DesignLayer = ppDesignLayer2
+        UserName = 'DBCalc1'
+        DataField = 'importo_dare_euro'
+        DataPipeline = ppDBTabella
+        DisplayFormat = ',0.00;-,0.00;0'
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clBlack
+        Font.Name = 'Microsoft Sans Serif'
+        Font.Size = 7
+        Font.Style = []
+        ResetGroup = ppGroup_registri_fiscali
+        TextAlignment = taRightJustified
+        Transparent = True
+        DataPipelineName = 'ppDBTabella'
+        mmHeight = 2911
+        mmLeft = 94456
+        mmTop = 1323
+        mmWidth = 20902
+        BandType = 5
+        GroupNo = 0
+        LayerName = Foreground1
+      end
+      object ppLine1: TppLine
+        DesignLayer = ppDesignLayer2
+        UserName = 'Line1'
+        Weight = 0.750000000000000000
+        mmHeight = 1058
+        mmLeft = 4498
+        mmTop = 3177
+        mmWidth = 88106
+        BandType = 5
+        GroupNo = 0
+        LayerName = Foreground1
+      end
+      object ppDBCalc2: TppDBCalc
+        DesignLayer = ppDesignLayer2
+        UserName = 'DBCalc2'
+        DataField = 'importo_avere_euro'
+        DataPipeline = ppDBTabella
+        DisplayFormat = ',0.00;-,0.00;0'
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clBlack
+        Font.Name = 'Microsoft Sans Serif'
+        Font.Size = 7
+        Font.Style = []
+        ResetGroup = ppGroup_registri_fiscali
+        TextAlignment = taRightJustified
+        Transparent = True
+        DataPipelineName = 'ppDBTabella'
+        mmHeight = 2910
+        mmLeft = 116152
+        mmTop = 1323
+        mmWidth = 21960
+        BandType = 5
+        GroupNo = 0
+        LayerName = Foreground1
+      end
+    end
+  end
+  object ppGroup2: TppGroup
+    BreakName = 'data_registrazione'
+    DataPipeline = ppDBTabella
+    GroupFileSettings.NewFile = False
+    GroupFileSettings.EmailFile = False
+    OutlineSettings.CreateNode = True
+    ReprintOnSubsequentPage = False
+    StartOnOddPage = False
+    UserName = 'Group2'
+    mmNewColumnThreshold = 0
+    mmNewPageThreshold = 0
+    DataPipelineName = 'ppDBTabella'
+    NewFile = False
+    object ppGroupHeaderBand2: TppGroupHeaderBand
+      BeforePrint = ppGroupHeaderBand2BeforePrint
+      Background.Brush.Style = bsClear
+      PrintHeight = phDynamic
+      mmBottomOffset = 0
+      mmHeight = 0
+      mmPrintPosition = 0
+    end
+    object ppGroupFooterBand2: TppGroupFooterBand
+      Background.Brush.Style = bsClear
+      HideWhenOneDetail = False
+      mmBottomOffset = 0
+      mmHeight = 3704
+      mmPrintPosition = 0
+      object pp_Line4: TppLine
+        DesignLayer = ppDesignLayer2
+        UserName = 'Line4'
+        Border.Weight = 1.000000000000000000
+        Weight = 0.750000000000000000
+        mmHeight = 1323
+        mmLeft = 15610
+        mmTop = 1852
+        mmWidth = 84667
+        BandType = 5
+        GroupNo = 0
+        LayerName = Foreground1
+      end
+      object pp_DBCalc3: TppDBCalc
+        DesignLayer = ppDesignLayer2
+        UserName = 'DBCalc3'
+        HyperlinkEnabled = False
+        Border.Weight = 1.000000000000000000
+        DataField = 'importo_dare_euro'
+        DataPipeline = ppDBTabella
+        DisplayFormat = ',0.00;-,0.00;0'
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clBlack
+        Font.Name = 'Microsoft Sans Serif'
+        Font.Size = 7
+        Font.Style = []
+        ResetGroup = ppGroup2
+        TextAlignment = taRightJustified
+        Transparent = True
+        DataPipelineName = 'ppDBTabella'
+        mmHeight = 2910
+        mmLeft = 101071
+        mmTop = 0
+        mmWidth = 14288
+        BandType = 5
+        GroupNo = 0
+        LayerName = Foreground1
+      end
+      object pp_DBCalc4: TppDBCalc
+        DesignLayer = ppDesignLayer2
+        UserName = 'DBCalc4'
+        HyperlinkEnabled = False
+        Border.Weight = 1.000000000000000000
+        DataField = 'importo_avere_euro'
+        DataPipeline = ppDBTabella
+        DisplayFormat = ',0.00;-,0.00;0'
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clBlack
+        Font.Name = 'Microsoft Sans Serif'
+        Font.Size = 7
+        Font.Style = []
+        ResetGroup = ppGroup2
+        TextAlignment = taRightJustified
+        Transparent = True
+        DataPipelineName = 'ppDBTabella'
+        mmHeight = 2910
+        mmLeft = 115623
+        mmTop = 0
+        mmWidth = 14288
+        BandType = 5
+        GroupNo = 0
+        LayerName = Foreground1
+      end
+    end
+  end
+  object ppDesignLayers2: TppDesignLayers
+    object ppDesignLayer2: TppDesignLayer
+      UserName = 'Foreground1'
+      LayerType = ltBanded
+      Index = 0
+    end
+  end
+  object ppParameterList2: TppParameterList
+  end
+end

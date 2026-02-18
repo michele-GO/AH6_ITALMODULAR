@@ -1,0 +1,19 @@
+CREATE TRIGGER T_TDOCOLL_BI_0
+  BEFORE INSERT
+  ON `tdocoll`
+  FOR EACH ROW
+BEGIN 
+
+
+IF NEW.TDO_CODICE = '' THEN
+  CALL P_CAMPO_VUOTO('tdocoll','tdo_codice');
+END IF;
+IF NEW.CLI_CODICE = '' THEN
+  CALL P_CAMPO_VUOTO('tdocoll','cli_codice');
+END IF;
+
+IF NEW.ID IS NOT NULL THEN
+  SET NEW.ID = null;
+END IF;
+
+END

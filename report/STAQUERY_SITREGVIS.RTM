@@ -1,0 +1,1125 @@
+object ppReport: TppReport
+  AutoStop = False
+  DataPipeline = ppDBTabella
+  NoDataBehaviors = [ndMessageDialog, ndBlankPage]
+  PassSetting = psTwoPass
+  PrinterSetup.BinName = 'Default'
+  PrinterSetup.DocumentName = 'Stampa query personalizzate'
+  PrinterSetup.Duplex = dpNone
+  PrinterSetup.PaperName = 'A4'
+  PrinterSetup.PrinterName = 'Default'
+  PrinterSetup.SaveDeviceSettings = False
+  PrinterSetup.mmMarginBottom = 6350
+  PrinterSetup.mmMarginLeft = 6350
+  PrinterSetup.mmMarginRight = 6350
+  PrinterSetup.mmMarginTop = 6350
+  PrinterSetup.mmPaperHeight = 297127
+  PrinterSetup.mmPaperWidth = 210079
+  PrinterSetup.PaperSize = 9
+  Template.FileName = 'C:\GestionaleOpen\go_1007\report\STAQUERY_SITREGVIS.RTM'
+  Template.Format = ftASCII
+  AllowPrintToFile = True
+  ArchiveFileName = '($MyDocuments)\ReportArchive.raf'
+  BeforePrint = ppReportBeforePrint
+  DeviceType = 'Screen'
+  DefaultFileDeviceType = 'PDF'
+  EmailSettings.ReportFormat = 'PDF'
+  LanguageID = 'Default'
+  OnPreviewFormClose = ppReportPreviewFormClose
+  OnPreviewFormCreate = ppReportPreviewFormCreate
+  OpenFile = False
+  OutlineSettings.CreateNode = False
+  OutlineSettings.CreatePageNodes = False
+  OutlineSettings.Enabled = False
+  OutlineSettings.Visible = False
+  ThumbnailSettings.Enabled = True
+  ThumbnailSettings.Visible = True
+  ThumbnailSettings.DeadSpace = 30
+  PDFSettings.EmbedFontOptions = [efAllFonts, efUseSubset]
+  PDFSettings.EncryptSettings.AllowCopy = True
+  PDFSettings.EncryptSettings.AllowInteract = True
+  PDFSettings.EncryptSettings.AllowModify = True
+  PDFSettings.EncryptSettings.AllowPrint = True
+  PDFSettings.EncryptSettings.AllowExtract = True
+  PDFSettings.EncryptSettings.AllowAssemble = True
+  PDFSettings.EncryptSettings.AllowQualityPrint = True
+  PDFSettings.EncryptSettings.Enabled = False
+  PDFSettings.EncryptSettings.KeyLength = kl40Bit
+  PDFSettings.EncryptSettings.EncryptionType = etRC4
+  PDFSettings.FontEncoding = feUnicode
+  PDFSettings.ImageCompressionLevel = 25
+  PDFSettings.PDFA = True
+  PDFSettings.ScaleImages = False
+  RTFSettings.DefaultFont.Charset = DEFAULT_CHARSET
+  RTFSettings.DefaultFont.Color = clWindowText
+  RTFSettings.DefaultFont.Height = -13
+  RTFSettings.DefaultFont.Name = 'Arial'
+  RTFSettings.DefaultFont.Style = []
+  TextFileName = 
+    'C:\GestionaleOpen\go_1007\stampe\GODEV_Stampa query personalizza' +
+    'te_2019 11 06-10 51 30_SITREGVIS'
+  TextFileType = ftTab
+  TextSearchSettings.DefaultString = '<TestoCercato>'
+  TextSearchSettings.Enabled = True
+  TextSearchSettings.Visible = True
+  XLSSettings.AppName = 'ReportBuilder'
+  XLSSettings.Author = 'ReportBuilder'
+  XLSSettings.ExportComponents = [ecText, ecLine, ecImage, ecRichText, ecBarCode, ecOther]
+  XLSSettings.Subject = 'Report'
+  XLSSettings.Title = 'Report'
+  XLSSettings.WorksheetName = 'Report'
+  Left = 335
+  Top = 65526
+  Version = '17.01'
+  mmColumnWidth = 197379
+  DataPipelineName = 'ppDBTabella'
+  object pp_selezioni_stampa: TppTitleBand
+    Visible = False
+    Background.Brush.Style = bsClear
+    PrintHeight = phDynamic
+    mmBottomOffset = 0
+    mmHeight = 29104
+    mmPrintPosition = 0
+    object pp_Shape4_parametri: TppShape
+      DesignLayer = ppDesignLayer1
+      UserName = 'Shape4_parametri'
+      Shape = stRoundRect
+      mmHeight = 10054
+      mmLeft = 794
+      mmTop = 1058
+      mmWidth = 196586
+      BandType = 1
+      LayerName = Foreground
+    end
+    object pp_Shape5_parametri: TppShape
+      DesignLayer = ppDesignLayer1
+      UserName = 'Shape5_parametri'
+      Shape = stRoundRect
+      mmHeight = 11377
+      mmLeft = 794
+      mmTop = 11642
+      mmWidth = 196586
+      BandType = 1
+      LayerName = Foreground
+    end
+    object pp_Label11: TppLabel
+      DesignLayer = ppDesignLayer1
+      UserName = 'Label11'
+      HyperlinkEnabled = False
+      Border.Weight = 1.000000000000000000
+      Caption = 'Parametri di selezione'
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clBlack
+      Font.Name = 'Microsoft Sans Serif'
+      Font.Size = 20
+      Font.Style = [fsBold, fsItalic]
+      Transparent = True
+      mmHeight = 8001
+      mmLeft = 66940
+      mmTop = 12965
+      mmWidth = 70739
+      BandType = 1
+      LayerName = Foreground
+    end
+    object pp_Image_parametri: TppImage
+      DesignLayer = ppDesignLayer1
+      UserName = 'Image_parametri'
+      AlignHorizontal = ahCenter
+      AlignVertical = avCenter
+      MaintainAspectRatio = False
+      Stretch = True
+      Border.Weight = 1.000000000000000000
+      Picture.Data = {
+        0C544A70656747726170686963FFD8FFE000104A464946000101010060006000
+        00FFDB00430006040506050406060506070706080A100A0A09090A140E0F0C10
+        17141818171416161A1D251F1A1B231C1616202C20232627292A29191F2D302D
+        283025282928FFDB0043010707070A080A130A0A13281A161A28282828282828
+        2828282828282828282828282828282828282828282828282828282828282828
+        2828282828282828282828FFC00011080073007303012200021101031101FFC4
+        001F0000010501010101010100000000000000000102030405060708090A0BFF
+        C400B5100002010303020403050504040000017D010203000411051221314106
+        13516107227114328191A1082342B1C11552D1F02433627282090A161718191A
+        25262728292A3435363738393A434445464748494A535455565758595A636465
+        666768696A737475767778797A838485868788898A92939495969798999AA2A3
+        A4A5A6A7A8A9AAB2B3B4B5B6B7B8B9BAC2C3C4C5C6C7C8C9CAD2D3D4D5D6D7D8
+        D9DAE1E2E3E4E5E6E7E8E9EAF1F2F3F4F5F6F7F8F9FAFFC4001F010003010101
+        0101010101010000000000000102030405060708090A0BFFC400B51100020102
+        0404030407050404000102770001020311040521310612415107617113223281
+        08144291A1B1C109233352F0156272D10A162434E125F11718191A262728292A
+        35363738393A434445464748494A535455565758595A636465666768696A7374
+        75767778797A82838485868788898A92939495969798999AA2A3A4A5A6A7A8A9
+        AAB2B3B4B5B6B7B8B9BAC2C3C4C5C6C7C8C9CAD2D3D4D5D6D7D8D9DAE2E3E4E5
+        E6E7E8E9EAF2F3F4F5F6F7F8F9FAFFDA000C03010002110311003F00FAA28A28
+        A0028A28A0028A28A0028A28A0028A28A0028A28A0028A28A0028A28A006E296
+        9A2B9DD7F5ED33C3FA6CDA9EB37D159D8C43E69643DFB00072C4F600127B5676
+        BEC23616827DABE5EF1B7ED297B712C96FE0EB14B4B71C0BCBD5DF2B7BAC60ED
+        5FF8116C8EC0D797EA9F13BC61A9CC64B9F13EACAC7A8B7B86B75FFBE63DA3F4
+        AB8606AC95DE8632A918F99F7880B484D7C1765F11BC5B6730921F14EB858720
+        4B7B24ABFF007CB920FE55E8BE0DFDA375FD3E78E2F145B41ABDA67E69A25586
+        E07B8C611B03B6173EB4E780AB15756628D68BF23EBAED4CCD723E0EF19E8BE2
+        CD285FF87EED6745C09626F965858FF0BAF507AF3D0E3824735BB773476D6F24
+        D7122450C6A5DE4760AA8A392493C00077AC9A717666F7BEA8B407B50D5F3F7C
+        41FDA3AC74D9E5B2F05DA47A94C8706FAE722007FD8418671D79CA8EE370AF1D
+        D63E2F78CF5872D71E20BD8173C259116E17DB31804FE249AAA782AB357DBD4C
+        A75231F33EE3045211EF5F03C3E3FF0015C4E1D3C53E20C8E7E6D46661F91622
+        BB2F0C7ED07E30D22541A9CF06B568080D1DD46124C7FB3220183EEC1BE95A4B
+        01512BA6992AAC5EE7DA1558F15E75F0EFE2AE87E3683CAB191AD35445DD2D85
+        C102403BB21E8EB9EE391C640C8AF4B35CF28CA2ED25666E9A6AE89E8A667DE8
+        ADC660788B57B3D1347BBD53539BECF65691996591BB01D80EE4F40072490072
+        6BE27F887E3DD4BC6BAF3DE5CB34361112B67679F9604F53D8B9EEDF80E0003D
+        73F6A2F16346BA6786ADA4650EBF6EBC038DC3256253EA321D88F5086BE73276
+        82C7A574E068251F68F77B1C588A8EFCA851D4019249C01EA6BD1341F829E38D
+        6A049A2D1DACE07E8F7D2084FF00DF07E71F8AD7B87C10F8456DE1AD360D6B5C
+        8166F115C2075591722C548E1541E9263EF3751CA8E325BDB7EED456C7B4ED4F
+        EF1D3C3AB5E47C59AC7C06F1C6990B4ABA7437F1A8CB7D8EE15980FF0075B693
+        F4009AF35BAB79ACEE65B6BB865B7B9898A4914C851D18750CA7041F635FA2E3
+        A735E6FF00153E1769DE34D2DCAA456DAEC3191697B8C1C8E4248472509FA919
+        247706696612BDAA2D073A09ABC4F1AFD99BC2F7B75E22B9F1379F3DB69B64AD
+        6DB637DA2EA465E5187755055B1FDE298E86B3BE3A7C5797C4FA94DA2E8771B7
+        C376D26D778DBFE3FA453F7891D63047CA3A12371CFCBB7DA65F05EAFA67C138
+        7C37E1348135892D5609A579762AB49CCEE1B04E4E5C0EE323D2BC507ECE9E35
+        0303FB2B1FF5F47FF89A74AA539D57566D69B7F98E6A518A8A4791E768AEC3C3
+        1F0D3C59E28892E348D1E76B36E56E662218987AAB391B87FBB9AF63F861FB3F
+        BE9FA9BDF78DA3B3BB5888FB359C6FE646CDD4BC990320740BC83CE7B57D12A0
+        018C6055D7C7A8BE5A7AF9914F0DD647C6F7BFB3D78E6DA1F322B4B0BA6FF9E7
+        0DDA86FF00C7F68FD6BCEF5BD1353D02F9ACF59B1B9B0BA033E5DC4650919C65
+        73C30CF7191EF5FA1A79AE67C6BE0FD2BC57A2CBA66B96C2781B949060490BF6
+        78DBF8587E47A104120E54F30927EFABA2E5453D8F83ED2EEE2C6F21BAB29E5B
+        7BA81C4914B13157461D0823A57D81F05BE28AF8D7407835068D3C4162156E91
+        46D12A9E92A8F43D081D0FA022BE5CF1BF83EF7C1FE29BBD1AFCF9863C4904E1
+        7689E26CED703B74208E70411938CD4DF0E3C5727843C6DA6EAC1D96DE390457
+        4067E681881202075C0F980F5515D788A51AF4F9A3BF432A5374E5CACFBFF145
+        43BD7FBD45709DE7C43F1F2F4DF7C5DD7D8B1290BC502027EE8589011FF7D6E3
+        F8D67FC21D1E2D77E277872C6E00F24DCF9EEA46430895A5DA47707663F1ABDF
+        1EECDACBE2EF8814821659229949EE1A2424FE791F8553F83DAB45A2FC50F0ED
+        DDC10223726DD89E83CD468813E801707F0AF417FBBE9DBF43CE7FC5D7B9F7A7
+        6A4A28AF3CF44C4D4EEE2B1B0B8BBB8388208DA590FA2A8C9FE55E19A8FC50F1
+        15CDC3CD6B709656E4FC90A223E076CB329C9F5E83D857B8EA96516A1A75CD9D
+        C64C1711B44F8383B581071F81AF0BD47E1C6BF6B70F0456AD77003F24F0B2E1
+        C7D09C83EDFA9EB5B65CA8372F6B6BF4B9E0674F14947EAF7B75B6FF0086A41F
+        F0B2BC49FF004176FF00C0687FF88A77FC2CAF11FF00D058FF00E03C3FFC4550
+        FF00840BC41FF408B8FCD7FC697FE102D7FF00E81173F9AFF8D7B16C37F77F03
+        E6F9B1BDE7F89A7FF0B33C4BBF9D58E3FEBDE1FF00E22BD27E1FF8BE4F106953
+        0BB554BEB460B2ECFBAE1B25580EDD08C7B7E15E5A3C03AF35C00348B8E78E59
+        40FD4D7A7FC3DF07CDA06953C97E50DFDDB2B48A8722355076AE7B9E49247AE3
+        9C64F9B982C32A5FBBB7374B7FC03D8C9DE39D7FDEF372DB5E6BFE17EA7A5D14
+        515C67D59F357ED59A3C6FA1E85ACA80268AE5EC9881CB2BA1719FA188E3FDE3
+        EB5F351E4107BD7D2DFB55EAD147E1FD0B472419E6BB6BC201E55638CA73F532
+        F1F43E95F3493819EC2BBB037F65A9E7E27E33EF8F861247A8FC38F0C5D4D189
+        66934DB7F31FFBCE23018FE60D155FE184771A7FC38F0C5B35A33BA69B6FBCE3
+        A318C123F0248FC28AE3D0ECD4F13FDA8BC2D279FA5789ADD098B67D82E88FE1
+        20968D8FD72E093FEC8EE2BE7A233EB5FA0DE26D12C75DD0EF348D4E213595DC
+        663917BFA820F6604020F6201AF89BC7DE04D4FC0FE207D3B515325BC84BDA5D
+        AAE12E631DC7A30C80CBD413DC15276C0D74E3ECDEE8E6C45369F323E8DF829F
+        15ED7C55A24161AA5C2C7E25B64D8EAED8FB5AA8FF005ABEA7032C0743938C1A
+        F6AED5F9BF13BC52A4913B472A3064742432B0390411C820F715E95A1FC7AF1A
+        E896EB035E5BEA9122ED5FED18BCC603FDF52ACC7DD893515B00EF7A7F7174EB
+        A7A48FB4F35E7BF11FE24697E0AD1649EE5D26D52543F63B10DF3CADD0123B20
+        3D5BDB032700FCF1AAFED0FE36D42DFCA865D374E2783259DA9DDF9C8CE07E02
+        BCC2FEF6EB51BD96EEFEE67BBBB94E649A790BBB9E9CB1E4F1C54D2CBE4DDEA6
+        C13AC97C27AEAFED33E31EDA7787BFF01A6FFE3D5E8BF05BE26F89FC6DAEDEA6
+        A569A443A459C21A596DA0915CC8C70880B484740C4F07A01DC1AF9BBC29E1AD
+        4BC51AD41A4E896C6E2F263D3A2C6A3ABB9FE1519E4FD00C9201FA67C47E57C1
+        EF834D6DA1C73DCEA12B7946F045C7DA641869E4EA1400005073D1179E4D5626
+        9528250847DE62A5394BDE7B234B49F8D5A64FF13359F0C6A52456B690CE2DEC
+        6F58E12495401246E4F00EFDC14F438C75C67D7C57E6EB64E7792C4F524E73F5
+        AEF3C29F173C5DE19823B6B0D4CDC59463096D7ABE72281C0009F99401D00603
+        DA9D5CBF44E9B08627F98FB8C74AE77C4FE25D33C37A44FA9EB97496D6917193
+        F79DB048441D598E0E00FE86BE5FBBFDA47C6B3C0D1C70E8B6AC7A4B0DAB965F
+        A6F9187E62BCE3C43E21D5FC477BF6BD7F51B8BFB919DA656F9501EA11061541
+        C745005654F01393F7F4454EB456C6978FFC6375E30F15DD6AF749E546C0456D
+        0673E4C2B9DAB9EE79249F5638E302A2F01785E5F1678C74BD1E35631DC4A0DC
+        30E3642BCC873DBE5040F72077AC082196E278A0B68A49A795C471C51A967762
+        701540E4927800726BEBCF81BF0A8F8434492F75758CF886FD479DB70DF668FA
+        88437739E588E0900721413DD88AB1C3D3E58EFD0C6945D495D9EB6B701142A0
+        5551C018E9455EA2B80EF2035CD7883C35A4F89B48934CD72CA3BBB39087DAD9
+        0518746561CAB0C9E410793EA6BA534EC572A6D3BA259F2678CFF66DD6AC2692
+        7F0ADDA6AB68795B6B9758AE17DB71C237D72BF4AF30D4FC07E26D36464BEF0E
+        6B316D382DF639193F075054FE06BEFEC53F35D50C7D48AB3D4C654632DB43F3
+        D6C7C1DE23BF70B67E1ED66727BC7652903EA76E07E35E91E14FD9DFC4DAB4A9
+        26BAD0E8965D4EF6134EC3AFCA8A703D3E66047A1E95F5D8152629CF30A92D22
+        AC11A515B9C77823C05A1F8474CFB26876C55A4C19EE6521A69C8E85DB03A738
+        00003270064D7437D6905F5A4B6D77045716F32949219503A3A9E08653C10476
+        357FA530735C2E4E4EEF737B24AC7CDFE3CFD9B239A592F3C157890039274FBD
+        62547B47272476C06079FE202BC7357F867E2ED26464BDF0DEA9F2F25E080DC2
+        01FEFC7B87EB5F7B0A613EF5D74F19520ACF5319C232F23F3E6DFC2DAFDC3ECB
+        7D0B5795F38DB1D94AC73E980B5DA786BE06F8CB5C951A6D3C69368DD66D41B6
+        103BE23197CFD401EE2BED2028C81D6B4966136BDD4912A8456E796FC39F83BA
+        1782944F196D475B20837F3A00501182235E420233DC939209238AF5834EC8A8
+        3AD70CA729BE693BB3A1249591728A28AEC18514514005145140051451400514
+        5140051451400514514005145140051451400514514005145140051451400514
+        5140051451400514514005145140051451401FFFD9}
+      mmHeight = 8731
+      mmLeft = 1323
+      mmTop = 1588
+      mmWidth = 8731
+      BandType = 1
+      LayerName = Foreground
+    end
+    object pp_Label8_parametri: TppLabel
+      DesignLayer = ppDesignLayer1
+      UserName = 'Label8_parametri'
+      HyperlinkEnabled = False
+      Border.Weight = 1.000000000000000000
+      Caption = 'STAQUERY'
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clBlack
+      Font.Name = 'Microsoft Sans Serif'
+      Font.Size = 8
+      Font.Style = [fsBold]
+      Transparent = True
+      mmHeight = 3440
+      mmLeft = 10848
+      mmTop = 1852
+      mmWidth = 17727
+      BandType = 1
+      LayerName = Foreground
+    end
+    object pp_Label9_parametri: TppLabel
+      DesignLayer = ppDesignLayer1
+      UserName = 'Label9_parametri'
+      HyperlinkEnabled = False
+      Border.Weight = 1.000000000000000000
+      Caption = 'ditta'
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clBlack
+      Font.Name = 'Microsoft Sans Serif'
+      Font.Size = 8
+      Font.Style = [fsBold]
+      TextAlignment = taCentered
+      Transparent = True
+      mmHeight = 3217
+      mmLeft = 10985
+      mmTop = 6350
+      mmWidth = 5546
+      BandType = 1
+      LayerName = Foreground
+    end
+    object pp_Label12_parametri: TppLabel
+      DesignLayer = ppDesignLayer1
+      UserName = 'Label12_parametri'
+      HyperlinkEnabled = False
+      Border.Weight = 1.000000000000000000
+      Caption = 'DEMO'
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clBlack
+      Font.Name = 'Microsoft Sans Serif'
+      Font.Size = 8
+      Font.Style = [fsBold]
+      Transparent = True
+      mmHeight = 3440
+      mmLeft = 17198
+      mmTop = 6350
+      mmWidth = 9525
+      BandType = 1
+      LayerName = Foreground
+    end
+    object pp_Label13_parametri: TppLabel
+      DesignLayer = ppDesignLayer1
+      UserName = 'Label13_parametri'
+      HyperlinkEnabled = False
+      Border.Weight = 1.000000000000000000
+      Caption = 'Stampa query personalizzate'
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clBlack
+      Font.Name = 'Microsoft Sans Serif'
+      Font.Size = 8
+      Font.Style = [fsBold]
+      Transparent = True
+      mmHeight = 3440
+      mmLeft = 30163
+      mmTop = 1852
+      mmWidth = 42862
+      BandType = 1
+      LayerName = Foreground
+    end
+    object pp_Label14_parametri: TppLabel
+      DesignLayer = ppDesignLayer1
+      UserName = 'Label14_parametri'
+      HyperlinkEnabled = False
+      Border.Weight = 1.000000000000000000
+      Caption = 'AZIENDA DEMO DI PROVA / DEMO'
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clBlack
+      Font.Name = 'Microsoft Sans Serif'
+      Font.Size = 8
+      Font.Style = [fsBold]
+      Transparent = True
+      mmHeight = 3440
+      mmLeft = 30163
+      mmTop = 6350
+      mmWidth = 54768
+      BandType = 1
+      LayerName = Foreground
+    end
+    object pp_Label15_parametri: TppLabel
+      DesignLayer = ppDesignLayer1
+      UserName = 'Label101'
+      HyperlinkEnabled = False
+      Border.Weight = 1.000000000000000000
+      Caption = 'modello di stampa'
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clBlack
+      Font.Name = 'Microsoft Sans Serif'
+      Font.Size = 8
+      Font.Style = []
+      Transparent = True
+      mmHeight = 3217
+      mmLeft = 114829
+      mmTop = 1852
+      mmWidth = 22818
+      BandType = 1
+      LayerName = Foreground
+    end
+    object pp_Label16_parametri: TppLabel
+      DesignLayer = ppDesignLayer1
+      UserName = 'Label16_parametri'
+      HyperlinkEnabled = False
+      Border.Weight = 1.000000000000000000
+      Caption = 'RANICA'
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clBlack
+      Font.Name = 'Microsoft Sans Serif'
+      Font.Size = 8
+      Font.Style = [fsBold]
+      Transparent = True
+      mmHeight = 3440
+      mmLeft = 114829
+      mmTop = 6350
+      mmWidth = 12171
+      BandType = 1
+      LayerName = Foreground
+    end
+    object pp_Label17_parametri: TppLabel
+      DesignLayer = ppDesignLayer1
+      UserName = 'Label17_parametri'
+      HyperlinkEnabled = False
+      Border.Weight = 1.000000000000000000
+      Caption = 'SITREGVIS'
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clBlack
+      Font.Name = 'Microsoft Sans Serif'
+      Font.Size = 8
+      Font.Style = [fsBold]
+      Transparent = True
+      mmHeight = 3440
+      mmLeft = 139436
+      mmTop = 1852
+      mmWidth = 17462
+      BandType = 1
+      LayerName = Foreground
+    end
+    object pp_SystemVariable3_parametri: TppSystemVariable
+      DesignLayer = ppDesignLayer1
+      UserName = 'SystemVariable2'
+      HyperlinkEnabled = False
+      Border.Weight = 1.000000000000000000
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clBlack
+      Font.Name = 'Microsoft Sans Serif'
+      Font.Size = 8
+      Font.Style = [fsBold]
+      Transparent = True
+      mmHeight = 3217
+      mmLeft = 170121
+      mmTop = 6350
+      mmWidth = 7408
+      BandType = 1
+      LayerName = Foreground
+    end
+    object pp_copia_schermo: TppImage
+      DesignLayer = ppDesignLayer1
+      UserName = 'Image2'
+      AlignHorizontal = ahCenter
+      AlignVertical = avCenter
+      MaintainAspectRatio = False
+      Stretch = True
+      Visible = False
+      Border.Weight = 1.000000000000000000
+      mmHeight = 3969
+      mmLeft = 1852
+      mmTop = 24077
+      mmWidth = 194998
+      BandType = 1
+      LayerName = Foreground
+    end
+  end
+  object ppHeaderBand1: TppHeaderBand
+    Background.Brush.Style = bsClear
+    mmBottomOffset = 0
+    mmHeight = 17463
+    mmPrintPosition = 0
+    object pp_Shape1: TppShape
+      DesignLayer = ppDesignLayer1
+      UserName = 'Shape1'
+      Shape = stRoundRect
+      mmHeight = 10054
+      mmLeft = 794
+      mmTop = 794
+      mmWidth = 196586
+      BandType = 0
+      LayerName = Foreground
+    end
+    object pp_Image1: TppImage
+      DesignLayer = ppDesignLayer1
+      UserName = 'Image1'
+      AlignHorizontal = ahCenter
+      AlignVertical = avCenter
+      MaintainAspectRatio = False
+      Stretch = True
+      Transparent = True
+      Border.Weight = 1.000000000000000000
+      Picture.Data = {
+        0C544A70656747726170686963FFD8FFE000104A464946000101010060006000
+        00FFDB00430006040506050406060506070706080A100A0A09090A140E0F0C10
+        17141818171416161A1D251F1A1B231C1616202C20232627292A29191F2D302D
+        283025282928FFDB0043010707070A080A130A0A13281A161A28282828282828
+        2828282828282828282828282828282828282828282828282828282828282828
+        2828282828282828282828FFC00011080073007303012200021101031101FFC4
+        001F0000010501010101010100000000000000000102030405060708090A0BFF
+        C400B5100002010303020403050504040000017D010203000411051221314106
+        13516107227114328191A1082342B1C11552D1F02433627282090A161718191A
+        25262728292A3435363738393A434445464748494A535455565758595A636465
+        666768696A737475767778797A838485868788898A92939495969798999AA2A3
+        A4A5A6A7A8A9AAB2B3B4B5B6B7B8B9BAC2C3C4C5C6C7C8C9CAD2D3D4D5D6D7D8
+        D9DAE1E2E3E4E5E6E7E8E9EAF1F2F3F4F5F6F7F8F9FAFFC4001F010003010101
+        0101010101010000000000000102030405060708090A0BFFC400B51100020102
+        0404030407050404000102770001020311040521310612415107617113223281
+        08144291A1B1C109233352F0156272D10A162434E125F11718191A262728292A
+        35363738393A434445464748494A535455565758595A636465666768696A7374
+        75767778797A82838485868788898A92939495969798999AA2A3A4A5A6A7A8A9
+        AAB2B3B4B5B6B7B8B9BAC2C3C4C5C6C7C8C9CAD2D3D4D5D6D7D8D9DAE2E3E4E5
+        E6E7E8E9EAF2F3F4F5F6F7F8F9FAFFDA000C03010002110311003F00FAA28A28
+        A0028A28A0028A28A0028A28A0028A28A0028A28A0028A28A0028A28A006E296
+        9A2B9DD7F5ED33C3FA6CDA9EB37D159D8C43E69643DFB00072C4F600127B5676
+        BEC23616827DABE5EF1B7ED297B712C96FE0EB14B4B71C0BCBD5DF2B7BAC60ED
+        5FF8116C8EC0D797EA9F13BC61A9CC64B9F13EACAC7A8B7B86B75FFBE63DA3F4
+        AB8606AC95DE8632A918F99F7880B484D7C1765F11BC5B6730921F14EB858720
+        4B7B24ABFF007CB920FE55E8BE0DFDA375FD3E78E2F145B41ABDA67E69A25586
+        E07B8C611B03B6173EB4E780AB15756628D68BF23EBAED4CCD723E0EF19E8BE2
+        CD285FF87EED6745C09626F965858FF0BAF507AF3D0E3824735BB773476D6F24
+        D7122450C6A5DE4760AA8A392493C00077AC9A717666F7BEA8B407B50D5F3F7C
+        41FDA3AC74D9E5B2F05DA47A94C8706FAE722007FD8418671D79CA8EE370AF1D
+        D63E2F78CF5872D71E20BD8173C259116E17DB31804FE249AAA782AB357DBD4C
+        A75231F33EE3045211EF5F03C3E3FF0015C4E1D3C53E20C8E7E6D46661F91622
+        BB2F0C7ED07E30D22541A9CF06B568080D1DD46124C7FB3220183EEC1BE95A4B
+        01512BA6992AAC5EE7DA1558F15E75F0EFE2AE87E3683CAB191AD35445DD2D85
+        C102403BB21E8EB9EE391C640C8AF4B35CF28CA2ED25666E9A6AE89E8A667DE8
+        ADC660788B57B3D1347BBD53539BECF65691996591BB01D80EE4F40072490072
+        6BE27F887E3DD4BC6BAF3DE5CB34361112B67679F9604F53D8B9EEDF80E0003D
+        73F6A2F16346BA6786ADA4650EBF6EBC038DC3256253EA321D88F5086BE73276
+        82C7A574E068251F68F77B1C588A8EFCA851D4019249C01EA6BD1341F829E38D
+        6A049A2D1DACE07E8F7D2084FF00DF07E71F8AD7B87C10F8456DE1AD360D6B5C
+        8166F115C2075591722C548E1541E9263EF3751CA8E325BDB7EED456C7B4ED4F
+        EF1D3C3AB5E47C59AC7C06F1C6990B4ABA7437F1A8CB7D8EE15980FF0075B693
+        F4009AF35BAB79ACEE65B6BB865B7B9898A4914C851D18750CA7041F635FA2E3
+        A735E6FF00153E1769DE34D2DCAA456DAEC3191697B8C1C8E4248472509FA919
+        247706696612BDAA2D073A09ABC4F1AFD99BC2F7B75E22B9F1379F3DB69B64AD
+        6DB637DA2EA465E5187755055B1FDE298E86B3BE3A7C5797C4FA94DA2E8771B7
+        C376D26D778DBFE3FA453F7891D63047CA3A12371CFCBB7DA65F05EAFA67C138
+        7C37E1348135892D5609A579762AB49CCEE1B04E4E5C0EE323D2BC507ECE9E35
+        0303FB2B1FF5F47FF89A74AA539D57566D69B7F98E6A518A8A4791E768AEC3C3
+        1F0D3C59E28892E348D1E76B36E56E662218987AAB391B87FBB9AF63F861FB3F
+        BE9FA9BDF78DA3B3BB5888FB359C6FE646CDD4BC990320740BC83CE7B57D12A0
+        018C6055D7C7A8BE5A7AF9914F0DD647C6F7BFB3D78E6DA1F322B4B0BA6FF9E7
+        0DDA86FF00C7F68FD6BCEF5BD1353D02F9ACF59B1B9B0BA033E5DC4650919C65
+        73C30CF7191EF5FA1A79AE67C6BE0FD2BC57A2CBA66B96C2781B949060490BF6
+        78DBF8587E47A104120E54F30927EFABA2E5453D8F83ED2EEE2C6F21BAB29E5B
+        7BA81C4914B13157461D0823A57D81F05BE28AF8D7407835068D3C4162156E91
+        46D12A9E92A8F43D081D0FA022BE5CF1BF83EF7C1FE29BBD1AFCF9863C4904E1
+        7689E26CED703B74208E70411938CD4DF0E3C5727843C6DA6EAC1D96DE390457
+        4067E681881202075C0F980F5515D788A51AF4F9A3BF432A5374E5CACFBFF145
+        43BD7FBD45709DE7C43F1F2F4DF7C5DD7D8B1290BC502027EE8589011FF7D6E3
+        F8D67FC21D1E2D77E277872C6E00F24DCF9EEA46430895A5DA47707663F1ABDF
+        1EECDACBE2EF8814821659229949EE1A2424FE791F8553F83DAB45A2FC50F0ED
+        DDC10223726DD89E83CD468813E801707F0AF417FBBE9DBF43CE7FC5D7B9F7A7
+        6A4A28AF3CF44C4D4EEE2B1B0B8BBB8388208DA590FA2A8C9FE55E19A8FC50F1
+        15CDC3CD6B709656E4FC90A223E076CB329C9F5E83D857B8EA96516A1A75CD9D
+        C64C1711B44F8383B581071F81AF0BD47E1C6BF6B70F0456AD77003F24F0B2E1
+        C7D09C83EDFA9EB5B65CA8372F6B6BF4B9E0674F14947EAF7B75B6FF0086A41F
+        F0B2BC49FF004176FF00C0687FF88A77FC2CAF11FF00D058FF00E03C3FFC4550
+        FF00840BC41FF408B8FCD7FC697FE102D7FF00E81173F9AFF8D7B16C37F77F03
+        E6F9B1BDE7F89A7FF0B33C4BBF9D58E3FEBDE1FF00E22BD27E1FF8BE4F106953
+        0BB554BEB460B2ECFBAE1B25580EDD08C7B7E15E5A3C03AF35C00348B8E78E59
+        40FD4D7A7FC3DF07CDA06953C97E50DFDDB2B48A8722355076AE7B9E49247AE3
+        9C64F9B982C32A5FBBB7374B7FC03D8C9DE39D7FDEF372DB5E6BFE17EA7A5D14
+        515C67D59F357ED59A3C6FA1E85ACA80268AE5EC9881CB2BA1719FA188E3FDE3
+        EB5F351E4107BD7D2DFB55EAD147E1FD0B472419E6BB6BC201E55638CA73F532
+        F1F43E95F3493819EC2BBB037F65A9E7E27E33EF8F861247A8FC38F0C5D4D189
+        66934DB7F31FFBCE23018FE60D155FE184771A7FC38F0C5B35A33BA69B6FBCE3
+        A318C123F0248FC28AE3D0ECD4F13FDA8BC2D279FA5789ADD098B67D82E88FE1
+        20968D8FD72E093FEC8EE2BE7A233EB5FA0DE26D12C75DD0EF348D4E213595DC
+        663917BFA820F6604020F6201AF89BC7DE04D4FC0FE207D3B515325BC84BDA5D
+        AAE12E631DC7A30C80CBD413DC15276C0D74E3ECDEE8E6C45369F323E8DF829F
+        15ED7C55A24161AA5C2C7E25B64D8EAED8FB5AA8FF005ABEA7032C0743938C1A
+        F6AED5F9BF13BC52A4913B472A3064742432B0390411C820F715E95A1FC7AF1A
+        E896EB035E5BEA9122ED5FED18BCC603FDF52ACC7DD893515B00EF7A7F7174EB
+        A7A48FB4F35E7BF11FE24697E0AD1649EE5D26D52543F63B10DF3CADD0123B20
+        3D5BDB032700FCF1AAFED0FE36D42DFCA865D374E2783259DA9DDF9C8CE07E02
+        BCC2FEF6EB51BD96EEFEE67BBBB94E649A790BBB9E9CB1E4F1C54D2CBE4DDEA6
+        C13AC97C27AEAFED33E31EDA7787BFF01A6FFE3D5E8BF05BE26F89FC6DAEDEA6
+        A569A443A459C21A596DA0915CC8C70880B484740C4F07A01DC1AF9BBC29E1AD
+        4BC51AD41A4E896C6E2F263D3A2C6A3ABB9FE1519E4FD00C9201FA67C47E57C1
+        EF834D6DA1C73DCEA12B7946F045C7DA641869E4EA1400005073D1179E4D5626
+        9528250847DE62A5394BDE7B234B49F8D5A64FF13359F0C6A52456B690CE2DEC
+        6F58E12495401246E4F00EFDC14F438C75C67D7C57E6EB64E7792C4F524E73F5
+        AEF3C29F173C5DE19823B6B0D4CDC59463096D7ABE72281C0009F99401D00603
+        DA9D5CBF44E9B08627F98FB8C74AE77C4FE25D33C37A44FA9EB97496D6917193
+        F79DB048441D598E0E00FE86BE5FBBFDA47C6B3C0D1C70E8B6AC7A4B0DAB965F
+        A6F9187E62BCE3C43E21D5FC477BF6BD7F51B8BFB919DA656F9501EA11061541
+        C745005654F01393F7F4454EB456C6978FFC6375E30F15DD6AF749E546C0456D
+        0673E4C2B9DAB9EE79249F5638E302A2F01785E5F1678C74BD1E35631DC4A0DC
+        30E3642BCC873DBE5040F72077AC082196E278A0B68A49A795C471C51A967762
+        701540E4927800726BEBCF81BF0A8F8434492F75758CF886FD479DB70DF668FA
+        88437739E588E0900721413DD88AB1C3D3E58EFD0C6945D495D9EB6B701142A0
+        5551C018E9455EA2B80EF2035CD7883C35A4F89B48934CD72CA3BBB39087DAD9
+        0518746561CAB0C9E410793EA6BA534EC572A6D3BA259F2678CFF66DD6AC2692
+        7F0ADDA6AB68795B6B9758AE17DB71C237D72BF4AF30D4FC07E26D36464BEF0E
+        6B316D382DF639193F075054FE06BEFEC53F35D50C7D48AB3D4C654632DB43F3
+        D6C7C1DE23BF70B67E1ED66727BC7652903EA76E07E35E91E14FD9DFC4DAB4A9
+        26BAD0E8965D4EF6134EC3AFCA8A703D3E66047A1E95F5D8152629CF30A92D22
+        AC11A515B9C77823C05A1F8474CFB26876C55A4C19EE6521A69C8E85DB03A738
+        00003270064D7437D6905F5A4B6D77045716F32949219503A3A9E08653C10476
+        357FA530735C2E4E4EEF737B24AC7CDFE3CFD9B239A592F3C157890039274FBD
+        62547B47272476C06079FE202BC7357F867E2ED26464BDF0DEA9F2F25E080DC2
+        01FEFC7B87EB5F7B0A613EF5D74F19520ACF5319C232F23F3E6DFC2DAFDC3ECB
+        7D0B5795F38DB1D94AC73E980B5DA786BE06F8CB5C951A6D3C69368DD66D41B6
+        103BE23197CFD401EE2BED2028C81D6B4966136BDD4912A8456E796FC39F83BA
+        1782944F196D475B20837F3A00501182235E420233DC939209238AF5834EC8A8
+        3AD70CA729BE693BB3A1249591728A28AEC18514514005145140051451400514
+        5140051451400514514005145140051451400514514005145140051451400514
+        5140051451400514514005145140051451401FFFD9}
+      mmHeight = 8731
+      mmLeft = 1323
+      mmTop = 1323
+      mmWidth = 8731
+      BandType = 0
+      LayerName = Foreground
+    end
+    object pp_Label1: TppLabel
+      DesignLayer = ppDesignLayer1
+      UserName = 'Label1'
+      HyperlinkEnabled = False
+      Border.Weight = 1.000000000000000000
+      Caption = 'STAQUERY'
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clBlack
+      Font.Name = 'Microsoft Sans Serif'
+      Font.Size = 8
+      Font.Style = [fsBold]
+      Transparent = True
+      mmHeight = 3439
+      mmLeft = 10848
+      mmTop = 1588
+      mmWidth = 17727
+      BandType = 0
+      LayerName = Foreground
+    end
+    object pp_Label19: TppLabel
+      DesignLayer = ppDesignLayer1
+      UserName = 'Label19'
+      HyperlinkEnabled = False
+      Border.Weight = 1.000000000000000000
+      Caption = 'ditta'
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clBlack
+      Font.Name = 'Microsoft Sans Serif'
+      Font.Size = 8
+      Font.Style = [fsBold]
+      TextAlignment = taCentered
+      Transparent = True
+      mmHeight = 3217
+      mmLeft = 10985
+      mmTop = 6085
+      mmWidth = 5546
+      BandType = 0
+      LayerName = Foreground
+    end
+    object pp_Label4: TppLabel
+      DesignLayer = ppDesignLayer1
+      UserName = 'Label4'
+      HyperlinkEnabled = False
+      Border.Weight = 1.000000000000000000
+      Caption = 'DEMO'
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clBlack
+      Font.Name = 'Microsoft Sans Serif'
+      Font.Size = 8
+      Font.Style = [fsBold]
+      Transparent = True
+      mmHeight = 3440
+      mmLeft = 17198
+      mmTop = 6085
+      mmWidth = 9525
+      BandType = 0
+      LayerName = Foreground
+    end
+    object pp_Label2: TppLabel
+      DesignLayer = ppDesignLayer1
+      UserName = 'Label2'
+      HyperlinkEnabled = False
+      Border.Weight = 1.000000000000000000
+      Caption = 'Stampa query personalizzate'
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clBlack
+      Font.Name = 'Microsoft Sans Serif'
+      Font.Size = 8
+      Font.Style = [fsBold]
+      Transparent = True
+      mmHeight = 3439
+      mmLeft = 30163
+      mmTop = 1588
+      mmWidth = 42862
+      BandType = 0
+      LayerName = Foreground
+    end
+    object pp_Label5: TppLabel
+      DesignLayer = ppDesignLayer1
+      UserName = 'Label5'
+      HyperlinkEnabled = False
+      Border.Weight = 1.000000000000000000
+      Caption = 'AZIENDA DEMO DI PROVA / DEMO'
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clBlack
+      Font.Name = 'Microsoft Sans Serif'
+      Font.Size = 8
+      Font.Style = [fsBold]
+      Transparent = True
+      mmHeight = 3440
+      mmLeft = 30163
+      mmTop = 6085
+      mmWidth = 54768
+      BandType = 0
+      LayerName = Foreground
+    end
+    object pp_Label10: TppLabel
+      DesignLayer = ppDesignLayer1
+      UserName = 'Label10'
+      HyperlinkEnabled = False
+      Border.Weight = 1.000000000000000000
+      Caption = 'modello di stampa'
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clBlack
+      Font.Name = 'Microsoft Sans Serif'
+      Font.Size = 8
+      Font.Style = []
+      Transparent = True
+      mmHeight = 3217
+      mmLeft = 114829
+      mmTop = 1588
+      mmWidth = 22818
+      BandType = 0
+      LayerName = Foreground
+    end
+    object pp_Label6: TppLabel
+      DesignLayer = ppDesignLayer1
+      UserName = 'Label6'
+      HyperlinkEnabled = False
+      Border.Weight = 1.000000000000000000
+      Caption = 'RANICA'
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clBlack
+      Font.Name = 'Microsoft Sans Serif'
+      Font.Size = 8
+      Font.Style = [fsBold]
+      Transparent = True
+      mmHeight = 3440
+      mmLeft = 114829
+      mmTop = 6085
+      mmWidth = 12171
+      BandType = 0
+      LayerName = Foreground
+    end
+    object pp_Label3: TppLabel
+      DesignLayer = ppDesignLayer1
+      UserName = 'Label3'
+      HyperlinkEnabled = False
+      Border.Weight = 1.000000000000000000
+      Caption = 'SITREGVIS'
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clBlack
+      Font.Name = 'Microsoft Sans Serif'
+      Font.Size = 8
+      Font.Style = [fsBold]
+      Transparent = True
+      mmHeight = 3439
+      mmLeft = 139436
+      mmTop = 1588
+      mmWidth = 17462
+      BandType = 0
+      LayerName = Foreground
+    end
+    object pp_SystemVariable1: TppSystemVariable
+      DesignLayer = ppDesignLayer1
+      UserName = 'SystemVariable1'
+      HyperlinkEnabled = False
+      Border.Weight = 1.000000000000000000
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clBlack
+      Font.Name = 'Microsoft Sans Serif'
+      Font.Size = 8
+      Font.Style = [fsBold]
+      Transparent = True
+      mmHeight = 3217
+      mmLeft = 168798
+      mmTop = 6085
+      mmWidth = 8731
+      BandType = 0
+      LayerName = Foreground
+    end
+    object pp_Shape3: TppShape
+      DesignLayer = ppDesignLayer1
+      UserName = 'Shape3'
+      Shape = stRoundRect
+      mmHeight = 6085
+      mmLeft = 794
+      mmTop = 11379
+      mmWidth = 196586
+      BandType = 0
+      LayerName = Foreground
+    end
+    object ppLabel2: TppLabel
+      DesignLayer = ppDesignLayer1
+      UserName = 'Label12'
+      Caption = 'Registro Visite'
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clBlack
+      Font.Name = 'Microsoft Sans Serif'
+      Font.Size = 10
+      Font.Style = [fsBold]
+      TextAlignment = taCentered
+      Transparent = True
+      mmHeight = 4233
+      mmLeft = 85461
+      mmTop = 12170
+      mmWidth = 26987
+      BandType = 0
+      LayerName = Foreground
+    end
+  end
+  object ppDetailBand1: TppDetailBand
+    Background1.Brush.Style = bsClear
+    Background2.Brush.Style = bsClear
+    PrintHeight = phDynamic
+    mmBottomOffset = 0
+    mmHeight = 19579
+    mmPrintPosition = 0
+    object ppDBText4: TppDBText
+      DesignLayer = ppDesignLayer1
+      UserName = 'DBText4'
+      DataField = 'log'
+      DataPipeline = ppDBTabella
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Name = 'Microsoft Sans Serif'
+      Font.Size = 8
+      Font.Style = []
+      Transparent = True
+      DataPipelineName = 'ppDBTabella'
+      mmHeight = 3703
+      mmLeft = 5558
+      mmTop = 7683
+      mmWidth = 12171
+      BandType = 4
+      LayerName = Foreground
+    end
+    object ppDBText5: TppDBText
+      DesignLayer = ppDesignLayer1
+      UserName = 'DBText5'
+      DataField = 'ora_firma'
+      DataPipeline = ppDBTabella
+      DisplayFormat = 'h:nn:ss'
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Name = 'Microsoft Sans Serif'
+      Font.Size = 8
+      Font.Style = []
+      Transparent = True
+      DataPipelineName = 'ppDBTabella'
+      mmHeight = 3704
+      mmLeft = 17993
+      mmTop = 7683
+      mmWidth = 11642
+      BandType = 4
+      LayerName = Foreground
+    end
+    object ppDBImage1: TppDBImage
+      DesignLayer = ppDesignLayer1
+      UserName = 'DBImage1'
+      AlignHorizontal = ahCenter
+      AlignVertical = avCenter
+      MaintainAspectRatio = True
+      Stretch = True
+      DataField = 'firma'
+      DataPipeline = ppDBTabella
+      GraphicType = 'AutoDetect'
+      DataPipelineName = 'ppDBTabella'
+      mmHeight = 18256
+      mmLeft = 30958
+      mmTop = 1058
+      mmWidth = 55034
+      BandType = 4
+      LayerName = Foreground
+    end
+  end
+  object ppFooterBand1: TppFooterBand
+    Background.Brush.Style = bsClear
+    mmBottomOffset = 0
+    mmHeight = 7673
+    mmPrintPosition = 0
+    object pp_Shape2: TppShape
+      DesignLayer = ppDesignLayer1
+      UserName = 'Shape2'
+      Shape = stRoundRect
+      mmHeight = 6085
+      mmLeft = 794
+      mmTop = 265
+      mmWidth = 196586
+      BandType = 8
+      LayerName = Foreground
+    end
+    object pp_SystemVariable6: TppSystemVariable
+      DesignLayer = ppDesignLayer1
+      UserName = 'SystemVariable3'
+      HyperlinkEnabled = False
+      Border.Weight = 1.000000000000000000
+      VarType = vtPageSetDesc
+      DisplayFormat = '000'
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clBlack
+      Font.Name = 'Microsoft Sans Serif'
+      Font.Size = 8
+      Font.Style = [fsBold]
+      Transparent = True
+      mmHeight = 3217
+      mmLeft = 173038
+      mmTop = 1852
+      mmWidth = 635
+      BandType = 8
+      LayerName = Foreground
+    end
+    object pp_Label20: TppLabel
+      DesignLayer = ppDesignLayer1
+      UserName = 'Label20'
+      HyperlinkEnabled = False
+      Border.Weight = 1.000000000000000000
+      Caption = 
+        'Gestionale Open (10.07.02) - il gestionale Open Source per le PM' +
+        'I italiane con licenza BSD'
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clBlack
+      Font.Name = 'Microsoft Sans Serif'
+      Font.Size = 8
+      Font.Style = [fsBold]
+      Transparent = True
+      mmHeight = 3440
+      mmLeft = 1588
+      mmTop = 1852
+      mmWidth = 137319
+      BandType = 8
+      LayerName = Foreground
+    end
+    object pp_Label7: TppLabel
+      DesignLayer = ppDesignLayer1
+      UserName = 'Label7'
+      HyperlinkEnabled = False
+      Border.Weight = 1.000000000000000000
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clBlack
+      Font.Name = 'Microsoft Sans Serif'
+      Font.Size = 8
+      Font.Style = [fsBold]
+      Transparent = True
+      mmHeight = 3440
+      mmLeft = 53181
+      mmTop = 1852
+      mmWidth = 794
+      BandType = 8
+      LayerName = Foreground
+    end
+    object pp_utente: TppLabel
+      DesignLayer = ppDesignLayer1
+      UserName = 'Label8'
+      HyperlinkEnabled = False
+      Caption = 'GODEV'
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clBlack
+      Font.Name = 'Microsoft Sans Serif'
+      Font.Size = 8
+      Font.Style = []
+      Transparent = True
+      mmHeight = 3439
+      mmLeft = 153723
+      mmTop = 1588
+      mmWidth = 10054
+      BandType = 8
+      LayerName = Foreground
+    end
+  end
+  object ppGroup1: TppGroup
+    BreakName = 'data_registro'
+    DataPipeline = ppDBTabella
+    GroupFileSettings.NewFile = False
+    GroupFileSettings.EmailFile = False
+    KeepTogether = True
+    OutlineSettings.CreateNode = True
+    StartOnOddPage = False
+    UserName = 'Group1'
+    mmNewColumnThreshold = 0
+    mmNewPageThreshold = 0
+    DataPipelineName = 'ppDBTabella'
+    NewFile = False
+    object ppGroupHeaderBand1: TppGroupHeaderBand
+      Background.Brush.Style = bsClear
+      mmBottomOffset = 0
+      mmHeight = 5556
+      mmPrintPosition = 0
+      object ppLabel3: TppLabel
+        DesignLayer = ppDesignLayer1
+        UserName = 'Label13'
+        AutoSize = False
+        Caption = 'Data registro'
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWindowText
+        Font.Name = 'Microsoft Sans Serif'
+        Font.Size = 8
+        Font.Style = [fsBold]
+        Transparent = True
+        mmHeight = 4763
+        mmLeft = 1588
+        mmTop = 529
+        mmWidth = 19848
+        BandType = 3
+        GroupNo = 0
+        LayerName = Foreground
+      end
+      object ppDBText2: TppDBText
+        DesignLayer = ppDesignLayer1
+        UserName = 'DBText2'
+        DataField = 'data_registro'
+        DataPipeline = ppDBTabella
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWindowText
+        Font.Name = 'Microsoft Sans Serif'
+        Font.Size = 8
+        Font.Style = [fsBold]
+        Transparent = True
+        DataPipelineName = 'ppDBTabella'
+        mmHeight = 4763
+        mmLeft = 21962
+        mmTop = 529
+        mmWidth = 18256
+        BandType = 3
+        GroupNo = 0
+        LayerName = Foreground
+      end
+      object ppLine2: TppLine
+        DesignLayer = ppDesignLayer1
+        UserName = 'Line2'
+        Weight = 0.750000000000000000
+        mmHeight = 2381
+        mmLeft = 41010
+        mmTop = 2910
+        mmWidth = 154782
+        BandType = 3
+        GroupNo = 0
+        LayerName = Foreground
+      end
+    end
+    object ppGroupFooterBand1: TppGroupFooterBand
+      Background.Brush.Style = bsClear
+      HideWhenOneDetail = False
+      mmBottomOffset = 0
+      mmHeight = 7144
+      mmPrintPosition = 0
+      object ppLine1: TppLine
+        DesignLayer = ppDesignLayer1
+        UserName = 'Line1'
+        Weight = 0.750000000000000000
+        mmHeight = 1852
+        mmLeft = 1852
+        mmTop = 1588
+        mmWidth = 194998
+        BandType = 5
+        GroupNo = 0
+        LayerName = Foreground
+      end
+    end
+  end
+  object ppGroup2: TppGroup
+    BreakName = 'nml_descrizione'
+    DataPipeline = ppDBTabella
+    GroupFileSettings.NewFile = False
+    GroupFileSettings.EmailFile = False
+    KeepTogether = True
+    OutlineSettings.CreateNode = True
+    StartOnOddPage = False
+    UserName = 'Group2'
+    mmNewColumnThreshold = 0
+    mmNewPageThreshold = 0
+    DataPipelineName = 'ppDBTabella'
+    NewFile = False
+    object ppGroupHeaderBand2: TppGroupHeaderBand
+      Background.Brush.Color = clMoneyGreen
+      mmBottomOffset = 0
+      mmHeight = 5027
+      mmPrintPosition = 0
+      object ppDBText1: TppDBText
+        DesignLayer = ppDesignLayer1
+        UserName = 'DBText1'
+        DataField = 'nml_descrizione'
+        DataPipeline = ppDBTabella
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWindowText
+        Font.Name = 'Microsoft Sans Serif'
+        Font.Size = 8
+        Font.Style = []
+        Transparent = True
+        DataPipelineName = 'ppDBTabella'
+        mmHeight = 3703
+        mmLeft = 1852
+        mmTop = 530
+        mmWidth = 50006
+        BandType = 3
+        GroupNo = 1
+        LayerName = Foreground
+      end
+      object ppDBText6: TppDBText
+        DesignLayer = ppDesignLayer1
+        UserName = 'DBText6'
+        DataField = 'descrizione'
+        DataPipeline = ppDBTabella
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWindowText
+        Font.Name = 'Microsoft Sans Serif'
+        Font.Size = 8
+        Font.Style = []
+        Transparent = True
+        DataPipelineName = 'ppDBTabella'
+        mmHeight = 3704
+        mmLeft = 53181
+        mmTop = 529
+        mmWidth = 142611
+        BandType = 3
+        GroupNo = 1
+        LayerName = Foreground
+      end
+    end
+    object ppGroupFooterBand2: TppGroupFooterBand
+      Background.Brush.Style = bsClear
+      HideWhenOneDetail = False
+      mmBottomOffset = 0
+      mmHeight = 794
+      mmPrintPosition = 0
+    end
+  end
+  object ppDesignLayers1: TppDesignLayers
+    object ppDesignLayer1: TppDesignLayer
+      UserName = 'Foreground'
+      LayerType = ltBanded
+      Index = 0
+    end
+  end
+  object ppParameterList1: TppParameterList
+  end
+end

@@ -1,0 +1,19 @@
+CREATE TRIGGER T_CLIVEN_BI_0
+  BEFORE INSERT
+  ON `cliven`
+  FOR EACH ROW
+BEGIN 
+
+
+IF NEW.CLI_CODICE = '' THEN
+  CALL P_CAMPO_VUOTO('cliven', 'cli_codice');
+END IF;
+IF NEW.TVEND_CODICE = '' THEN
+  CALL P_CAMPO_VUOTO('cliven', 'tvend_codice');
+END IF;
+
+IF NEW.ID IS NOT NULL THEN
+  SET NEW.ID = null;
+END IF;
+
+END

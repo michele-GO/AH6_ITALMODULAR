@@ -1,0 +1,20 @@
+CREATE TRIGGER T_ARV_BI_0
+  BEFORE INSERT
+  ON `arv`
+  FOR EACH ROW
+BEGIN 
+
+
+IF NEW.ART_CODICE = '' THEN
+  CALL P_CAMPO_VUOTO('arv', 'art_codice');
+END IF;
+
+IF NEW.VARIABILE = '' THEN
+  CALL P_CAMPO_VUOTO('arv', 'variabile');
+END IF;
+
+IF NEW.ID IS NOT NULL THEN
+  SET NEW.ID = null;
+END IF;
+
+END

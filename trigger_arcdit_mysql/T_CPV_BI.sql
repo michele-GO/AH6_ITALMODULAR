@@ -1,0 +1,20 @@
+CREATE TRIGGER T_CPV_BI_0
+  BEFORE INSERT
+  ON `cpv`
+  FOR EACH ROW
+BEGIN 
+
+
+IF NEW.TCC_CODICE = '' THEN
+  CALL P_CAMPO_VUOTO('cpv', 'tcc_codice');
+END IF;
+
+IF NEW.TCA_CODICE = '' THEN
+  CALL P_CAMPO_VUOTO('cpv', 'tca_codice');
+END IF;
+
+IF NEW.ID IS NOT NULL THEN
+  SET NEW.ID = null;
+END IF;
+
+END

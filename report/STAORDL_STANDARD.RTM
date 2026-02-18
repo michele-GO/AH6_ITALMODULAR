@@ -1,0 +1,1568 @@
+object ppReport_documenti: TppReport
+  AutoStop = False
+  DataPipeline = ppDBTabella
+  PrinterSetup.BinName = 'Default'
+  PrinterSetup.DocumentName = 'Report'
+  PrinterSetup.PaperName = 'A4'
+  PrinterSetup.PrinterName = 'Default'
+  PrinterSetup.mmMarginBottom = 0
+  PrinterSetup.mmMarginLeft = 0
+  PrinterSetup.mmMarginRight = 0
+  PrinterSetup.mmMarginTop = 0
+  PrinterSetup.mmPaperHeight = 297127
+  PrinterSetup.mmPaperWidth = 210079
+  PrinterSetup.PaperSize = 9
+  Template.FileName = '..\report\STAORDL_STANDARD.RTM'
+  Template.Format = ftASCII
+  BeforePrint = ppReport_documentiBeforePrint
+  DeviceType = 'Screen'
+  EmailSettings.ReportFormat = 'PDF'
+  OnPreviewFormClose = ppReport_documentiPreviewFormClose
+  OnPreviewFormCreate = ppReport_documentiPreviewFormCreate
+  OutlineSettings.CreateNode = True
+  OutlineSettings.CreatePageNodes = True
+  OutlineSettings.Enabled = True
+  OutlineSettings.Visible = True
+  ShowPrintDialog = False
+  TextSearchSettings.DefaultString = '<testo da cercare>'
+  TextSearchSettings.Enabled = True
+  TextSearchSettings.Visible = True
+  Left = 330
+  Top = 65526
+  Version = '10.02'
+  mmColumnWidth = 0
+  DataPipelineName = 'ppDBTabella'
+  object ppHeaderBand_documenti_01: TppHeaderBand
+    BeforePrint = ppHeaderBand_documenti_01BeforePrint
+    PrintHeight = phDynamic
+    mmBottomOffset = 0
+    mmHeight = 73025
+    mmPrintPosition = 0
+    object pp_Shape401: TppShape
+      UserName = 'Shape401'
+      Brush.Color = clBtnFace
+      mmHeight = 7938
+      mmLeft = 2381
+      mmTop = 50536
+      mmWidth = 86254
+      BandType = 0
+    end
+    object pp_documenti_dit_descrizione1: TppLabel
+      UserName = '_documenti_dit_descrizione1'
+      AutoSize = False
+      Border.BorderPositions = []
+      Border.Color = clBlack
+      Border.Style = psSolid
+      Border.Visible = False
+      Border.Weight = 1.000000000000000000
+      Caption = '_documenti_dit_descrizione1'
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Name = 'Microsoft Sans Serif'
+      Font.Size = 12
+      Font.Style = [fsBold]
+      Transparent = True
+      mmHeight = 4995
+      mmLeft = 2381
+      mmTop = 6350
+      mmWidth = 85090
+      BandType = 0
+    end
+    object pp_documenti_dit_descrizione2: TppLabel
+      UserName = '_documenti_dit_descrizione2'
+      AutoSize = False
+      Border.BorderPositions = []
+      Border.Color = clBlack
+      Border.Style = psSolid
+      Border.Visible = False
+      Border.Weight = 1.000000000000000000
+      Caption = '_documenti_dit_descrizione2'
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Name = 'Microsoft Sans Serif'
+      Font.Size = 12
+      Font.Style = [fsBold]
+      Transparent = True
+      mmHeight = 4995
+      mmLeft = 2381
+      mmTop = 15240
+      mmWidth = 85090
+      BandType = 0
+    end
+    object pp_documenti_dit_via: TppLabel
+      UserName = '_documenti_dit_via'
+      AutoSize = False
+      Border.BorderPositions = []
+      Border.Color = clBlack
+      Border.Style = psSolid
+      Border.Visible = False
+      Border.Weight = 1.000000000000000000
+      Caption = '_documenti_dit_via'
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Name = 'Microsoft Sans Serif'
+      Font.Size = 7
+      Font.Style = [fsBold]
+      Transparent = True
+      mmHeight = 2910
+      mmLeft = 2381
+      mmTop = 25135
+      mmWidth = 79640
+      BandType = 0
+    end
+    object pp_documenti_dit_citta: TppLabel
+      UserName = '_documenti_dit_citta'
+      AutoSize = False
+      Border.BorderPositions = []
+      Border.Color = clBlack
+      Border.Style = psSolid
+      Border.Visible = False
+      Border.Weight = 1.000000000000000000
+      Caption = '_documenti_dit_citta'
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Name = 'Microsoft Sans Serif'
+      Font.Size = 7
+      Font.Style = [fsBold]
+      Transparent = True
+      mmHeight = 2910
+      mmLeft = 2381
+      mmTop = 28840
+      mmWidth = 79640
+      BandType = 0
+    end
+    object pp_Label_codice_fiscale: TppLabel
+      UserName = 'Label_codice_fiscale'
+      AutoSize = False
+      Border.BorderPositions = []
+      Border.Color = clBlack
+      Border.Style = psSolid
+      Border.Visible = False
+      Border.Weight = 1.000000000000000000
+      Caption = 'codice fiscale:'
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Name = 'Microsoft Sans Serif'
+      Font.Size = 5
+      Font.Style = []
+      Transparent = True
+      mmHeight = 2117
+      mmLeft = 2381
+      mmTop = 32808
+      mmWidth = 14023
+      BandType = 0
+    end
+    object pp_documenti_dit_codice_fiscale: TppLabel
+      UserName = '_documenti_dit_codice_fiscale'
+      AutoSize = False
+      Border.BorderPositions = []
+      Border.Color = clBlack
+      Border.Style = psSolid
+      Border.Visible = False
+      Border.Weight = 1.000000000000000000
+      Caption = '_documenti_dit_codice_fiscale'
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Name = 'Microsoft Sans Serif'
+      Font.Size = 7
+      Font.Style = [fsBold]
+      Transparent = True
+      mmHeight = 2921
+      mmLeft = 17198
+      mmTop = 32544
+      mmWidth = 28046
+      BandType = 0
+    end
+    object pp_Label_partita_iva: TppLabel
+      UserName = 'Label_partita_iva'
+      AutoSize = False
+      Border.BorderPositions = []
+      Border.Color = clBlack
+      Border.Style = psSolid
+      Border.Visible = False
+      Border.Weight = 1.000000000000000000
+      Caption = 'partita iva: '
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Name = 'Microsoft Sans Serif'
+      Font.Size = 5
+      Font.Style = []
+      Transparent = True
+      mmHeight = 2117
+      mmLeft = 49477
+      mmTop = 32808
+      mmWidth = 10583
+      BandType = 0
+    end
+    object pp_documenti_dit_partita_iva: TppLabel
+      UserName = '_documenti_dit_partita_iva'
+      AutoSize = False
+      Border.BorderPositions = []
+      Border.Color = clBlack
+      Border.Style = psSolid
+      Border.Visible = False
+      Border.Weight = 1.000000000000000000
+      Caption = '_documenti_dit_partita_iva'
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Name = 'Microsoft Sans Serif'
+      Font.Size = 7
+      Font.Style = [fsBold]
+      Transparent = True
+      mmHeight = 2921
+      mmLeft = 60590
+      mmTop = 32544
+      mmWidth = 21167
+      BandType = 0
+    end
+    object pp_Label_capitale_sociale: TppLabel
+      UserName = 'Label_capitale_sociale'
+      AutoSize = False
+      Border.BorderPositions = []
+      Border.Color = clBlack
+      Border.Style = psSolid
+      Border.Visible = False
+      Border.Weight = 1.000000000000000000
+      Caption = 'capitale sociale: '
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Name = 'Microsoft Sans Serif'
+      Font.Size = 5
+      Font.Style = []
+      Transparent = True
+      mmHeight = 2117
+      mmLeft = 2381
+      mmTop = 36513
+      mmWidth = 14023
+      BandType = 0
+    end
+    object pp_documenti_dit_capitale_sociale: TppVariable
+      UserName = '_documenti_dit_capitale_sociale'
+      AutoSize = False
+      Border.BorderPositions = []
+      Border.Color = clBlack
+      Border.Style = psSolid
+      Border.Visible = False
+      Border.Weight = 1.000000000000000000
+      BlankWhenZero = False
+      CalcOrder = 0
+      DataType = dtDouble
+      DisplayFormat = ',#.##'
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Name = 'Microsoft Sans Serif'
+      Font.Size = 7
+      Font.Style = [fsBold]
+      OnCalc = pp_documenti_dit_capitale_socialeCalc
+      Transparent = True
+      mmHeight = 2921
+      mmLeft = 17198
+      mmTop = 36248
+      mmWidth = 28046
+      BandType = 0
+    end
+    object pp_Label_registro_imprese: TppLabel
+      UserName = 'Label_registro_imprese'
+      AutoSize = False
+      Border.BorderPositions = []
+      Border.Color = clBlack
+      Border.Style = psSolid
+      Border.Visible = False
+      Border.Weight = 1.000000000000000000
+      Caption = 'C.C.I.A.A.:'
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Name = 'Microsoft Sans Serif'
+      Font.Size = 5
+      Font.Style = []
+      Transparent = True
+      mmHeight = 2117
+      mmLeft = 49477
+      mmTop = 36513
+      mmWidth = 10583
+      BandType = 0
+    end
+    object pp_documenti_dit_registro_imprese: TppLabel
+      UserName = '_documenti_dit_registro_imprese'
+      AutoSize = False
+      Border.BorderPositions = []
+      Border.Color = clBlack
+      Border.Style = psSolid
+      Border.Visible = False
+      Border.Weight = 1.000000000000000000
+      Caption = '_documenti_dit_registro_imprese'
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Name = 'Microsoft Sans Serif'
+      Font.Size = 7
+      Font.Style = [fsBold]
+      Transparent = True
+      mmHeight = 2921
+      mmLeft = 60590
+      mmTop = 36248
+      mmWidth = 21167
+      BandType = 0
+    end
+    object pp_Label_telefono: TppLabel
+      UserName = 'Label_telefono'
+      AutoSize = False
+      Border.BorderPositions = []
+      Border.Color = clBlack
+      Border.Style = psSolid
+      Border.Visible = False
+      Border.Weight = 1.000000000000000000
+      Caption = 'telefono: '
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Name = 'Microsoft Sans Serif'
+      Font.Size = 5
+      Font.Style = []
+      Transparent = True
+      mmHeight = 2117
+      mmLeft = 2381
+      mmTop = 40217
+      mmWidth = 14023
+      BandType = 0
+    end
+    object pp_documenti_dit_telefono: TppLabel
+      UserName = '_documenti_dit_telefono'
+      AutoSize = False
+      Border.BorderPositions = []
+      Border.Color = clBlack
+      Border.Style = psSolid
+      Border.Visible = False
+      Border.Weight = 1.000000000000000000
+      Caption = '_documenti_dit_telefono'
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Name = 'Microsoft Sans Serif'
+      Font.Size = 7
+      Font.Style = [fsBold]
+      Transparent = True
+      mmHeight = 2921
+      mmLeft = 17198
+      mmTop = 39952
+      mmWidth = 28046
+      BandType = 0
+    end
+    object pp_Label_fax: TppLabel
+      UserName = 'Label_fax'
+      AutoSize = False
+      Border.BorderPositions = []
+      Border.Color = clBlack
+      Border.Style = psSolid
+      Border.Visible = False
+      Border.Weight = 1.000000000000000000
+      Caption = 'telefax:'
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Name = 'Microsoft Sans Serif'
+      Font.Size = 5
+      Font.Style = []
+      Transparent = True
+      mmHeight = 2117
+      mmLeft = 49477
+      mmTop = 40217
+      mmWidth = 10583
+      BandType = 0
+    end
+    object pp_documenti_dit_fax: TppLabel
+      UserName = '_documenti_dit_fax'
+      AutoSize = False
+      Border.BorderPositions = []
+      Border.Color = clBlack
+      Border.Style = psSolid
+      Border.Visible = False
+      Border.Weight = 1.000000000000000000
+      Caption = '_documenti_dit_fax'
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Name = 'Microsoft Sans Serif'
+      Font.Size = 7
+      Font.Style = [fsBold]
+      Transparent = True
+      mmHeight = 2921
+      mmLeft = 60590
+      mmTop = 39952
+      mmWidth = 21167
+      BandType = 0
+    end
+    object pp_Label_web: TppLabel
+      UserName = 'Label_web'
+      AutoSize = False
+      Border.BorderPositions = []
+      Border.Color = clBlack
+      Border.Style = psSolid
+      Border.Visible = False
+      Border.Weight = 1.000000000000000000
+      Caption = 'web:'
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Name = 'Microsoft Sans Serif'
+      Font.Size = 5
+      Font.Style = []
+      Transparent = True
+      mmHeight = 2117
+      mmLeft = 2381
+      mmTop = 43656
+      mmWidth = 14023
+      BandType = 0
+    end
+    object pp_documenti_dit_web: TppLabel
+      UserName = '_documenti_dit_web'
+      AutoSize = False
+      Border.BorderPositions = []
+      Border.Color = clBlack
+      Border.Style = psSolid
+      Border.Visible = False
+      Border.Weight = 1.000000000000000000
+      Caption = '_documenti_dit_web'
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Name = 'Microsoft Sans Serif'
+      Font.Size = 7
+      Font.Style = [fsBold]
+      Transparent = True
+      mmHeight = 2910
+      mmLeft = 17198
+      mmTop = 43392
+      mmWidth = 42598
+      BandType = 0
+    end
+    object pp_Label_e_mail: TppLabel
+      UserName = 'Label_e_mail'
+      AutoSize = False
+      Border.BorderPositions = []
+      Border.Color = clBlack
+      Border.Style = psSolid
+      Border.Visible = False
+      Border.Weight = 1.000000000000000000
+      Caption = 'e-mail:'
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Name = 'Microsoft Sans Serif'
+      Font.Size = 5
+      Font.Style = []
+      Transparent = True
+      mmHeight = 2117
+      mmLeft = 2381
+      mmTop = 47096
+      mmWidth = 14023
+      BandType = 0
+    end
+    object pp_documenti_dit_e_mail: TppLabel
+      UserName = '_documenti_dit_e_mail'
+      AutoSize = False
+      Border.BorderPositions = []
+      Border.Color = clBlack
+      Border.Style = psSolid
+      Border.Visible = False
+      Border.Weight = 1.000000000000000000
+      Caption = '_documenti_dit_e_mail'
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Name = 'Microsoft Sans Serif'
+      Font.Size = 7
+      Font.Style = [fsBold]
+      Transparent = True
+      mmHeight = 2910
+      mmLeft = 17198
+      mmTop = 46831
+      mmWidth = 42598
+      BandType = 0
+    end
+    object pp_documenti_marchio: TppImage
+      UserName = '_documenti_marchio'
+      Center = False
+      MaintainAspectRatio = False
+      Transparent = True
+      Border.BorderPositions = []
+      Border.Color = clBlack
+      Border.Style = psSolid
+      Border.Visible = False
+      Border.Weight = 1.000000000000000000
+      mmHeight = 22754
+      mmLeft = 1852
+      mmTop = 1323
+      mmWidth = 85725
+      BandType = 0
+    end
+    object pp_Label_descrizione_documento: TppLabel
+      UserName = 'Label_descrizione_documento'
+      AutoSize = False
+      Border.BorderPositions = []
+      Border.Color = clBlack
+      Border.Style = psSolid
+      Border.Visible = False
+      Border.Weight = 1.000000000000000000
+      Caption = 'ORDINE DI LAVORAZIONE'
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Name = 'Microsoft Sans Serif'
+      Font.Size = 8
+      Font.Style = [fsBold]
+      Transparent = True
+      mmHeight = 3387
+      mmLeft = 3969
+      mmTop = 52917
+      mmWidth = 72761
+      BandType = 0
+    end
+    object pp_Label_numero_pagina: TppLabel
+      UserName = 'Label_numero_pagina'
+      AutoSize = False
+      Border.BorderPositions = []
+      Border.Color = clBlack
+      Border.Style = psSolid
+      Border.Visible = False
+      Border.Weight = 1.000000000000000000
+      Caption = 'pag.'
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Name = 'Microsoft Sans Serif'
+      Font.Size = 5
+      Font.Style = [fsBold, fsItalic]
+      Transparent = True
+      mmHeight = 2117
+      mmLeft = 78052
+      mmTop = 52123
+      mmWidth = 3969
+      BandType = 0
+    end
+    object pp_Label_copia_interna: TppLabel
+      UserName = 'Label_copia_interna'
+      Border.BorderPositions = []
+      Border.Color = clBlack
+      Border.Style = psSolid
+      Border.Visible = False
+      Border.Weight = 1.000000000000000000
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Name = 'Microsoft Sans Serif'
+      Font.Size = 10
+      Font.Style = [fsBold]
+      Transparent = True
+      mmHeight = 4233
+      mmLeft = 60590
+      mmTop = 44186
+      mmWidth = 28046
+      BandType = 0
+    end
+    object ppnumero_pagina: TppLabel
+      UserName = 'Label_numero_pagina1'
+      Border.BorderPositions = []
+      Border.Color = clBlack
+      Border.Style = psSolid
+      Border.Visible = False
+      Border.Weight = 1.000000000000000000
+      Caption = '1'
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Name = 'Microsoft Sans Serif'
+      Font.Size = 10
+      Font.Style = [fsBold]
+      Transparent = True
+      mmHeight = 4191
+      mmLeft = 82021
+      mmTop = 52917
+      mmWidth = 1947
+      BandType = 0
+    end
+    object pp_Label_spettabile: TppLabel
+      UserName = 'Label_spettabile'
+      AutoSize = False
+      Border.BorderPositions = []
+      Border.Color = clBlack
+      Border.Style = psSolid
+      Border.Visible = False
+      Border.Weight = 1.000000000000000000
+      Caption = 'DEPOSITO'
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Name = 'Microsoft Sans Serif'
+      Font.Size = 6
+      Font.Style = []
+      Transparent = True
+      mmHeight = 2381
+      mmLeft = 94456
+      mmTop = 13494
+      mmWidth = 22490
+      BandType = 0
+    end
+    object pp_Shape_documenti_02: TppShape
+      UserName = 'Shape_documenti_02'
+      Visible = False
+      mmHeight = 7938
+      mmLeft = 94456
+      mmTop = 50536
+      mmWidth = 97367
+      BandType = 0
+    end
+    object pp_DBText1: TppDBText
+      UserName = 'DBText1'
+      Border.BorderPositions = []
+      Border.Color = clBlack
+      Border.Style = psSolid
+      Border.Visible = False
+      Border.Weight = 1.000000000000000000
+      DataField = 'tma_descrizione_finiti'
+      DataPipeline = ppDBTabella
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Name = 'Microsoft Sans Serif'
+      Font.Size = 10
+      Font.Style = [fsBold]
+      Transparent = True
+      DataPipelineName = 'ppDBTabella'
+      mmHeight = 4233
+      mmLeft = 119063
+      mmTop = 12435
+      mmWidth = 73819
+      BandType = 0
+    end
+    object pp_DBText7: TppDBText
+      UserName = 'DBText7'
+      Border.BorderPositions = []
+      Border.Color = clBlack
+      Border.Style = psSolid
+      Border.Visible = False
+      Border.Weight = 1.000000000000000000
+      DataField = 'art_codice_finiti'
+      DataPipeline = ppDBTabella
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Name = 'Microsoft Sans Serif'
+      Font.Size = 10
+      Font.Style = [fsBold]
+      Transparent = True
+      DataPipelineName = 'ppDBTabella'
+      mmHeight = 4233
+      mmLeft = 128059
+      mmTop = 17727
+      mmWidth = 47096
+      BandType = 0
+    end
+    object pp_DBText10: TppDBText
+      UserName = 'DBText10'
+      Border.BorderPositions = []
+      Border.Color = clBlack
+      Border.Style = psSolid
+      Border.Visible = False
+      Border.Weight = 1.000000000000000000
+      DataField = 'art_descrizione1_finiti'
+      DataPipeline = ppDBTabella
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Name = 'Microsoft Sans Serif'
+      Font.Size = 10
+      Font.Style = [fsBold]
+      Transparent = True
+      DataPipelineName = 'ppDBTabella'
+      mmHeight = 4233
+      mmLeft = 94456
+      mmTop = 22754
+      mmWidth = 98425
+      BandType = 0
+    end
+    object pp_DBText14: TppDBText
+      UserName = 'DBText14'
+      Border.BorderPositions = []
+      Border.Color = clBlack
+      Border.Style = psSolid
+      Border.Visible = False
+      Border.Weight = 1.000000000000000000
+      DataField = 'tum_codice_finiti'
+      DataPipeline = ppDBTabella
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Name = 'Microsoft Sans Serif'
+      Font.Size = 10
+      Font.Style = [fsBold]
+      Transparent = True
+      DataPipelineName = 'ppDBTabella'
+      mmHeight = 4233
+      mmLeft = 130969
+      mmTop = 32808
+      mmWidth = 10848
+      BandType = 0
+    end
+    object pp_DBText15: TppDBText
+      UserName = 'DBText15'
+      Border.BorderPositions = []
+      Border.Color = clBlack
+      Border.Style = psSolid
+      Border.Visible = False
+      Border.Weight = 1.000000000000000000
+      DataField = 'art_descrizione2_finiti'
+      DataPipeline = ppDBTabella
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Name = 'Microsoft Sans Serif'
+      Font.Size = 10
+      Font.Style = [fsBold]
+      Transparent = True
+      DataPipelineName = 'ppDBTabella'
+      mmHeight = 4233
+      mmLeft = 94456
+      mmTop = 27781
+      mmWidth = 98425
+      BandType = 0
+    end
+    object pp_Shape5: TppShape
+      UserName = 'Shape5'
+      Brush.Color = clBtnFace
+      mmHeight = 6879
+      mmLeft = 149490
+      mmTop = 51065
+      mmWidth = 21167
+      BandType = 0
+    end
+    object pp_Label15: TppLabel
+      UserName = 'Label15'
+      AutoSize = False
+      Border.BorderPositions = []
+      Border.Color = clBlack
+      Border.Style = psSolid
+      Border.Visible = False
+      Border.Weight = 1.000000000000000000
+      Caption = 'numero ordine'
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Name = 'Microsoft Sans Serif'
+      Font.Size = 5
+      Font.Style = [fsBold]
+      Transparent = True
+      mmHeight = 2117
+      mmLeft = 150284
+      mmTop = 51065
+      mmWidth = 18785
+      BandType = 0
+    end
+    object pp_Shape6: TppShape
+      UserName = 'Shape6'
+      Brush.Color = clBtnFace
+      mmHeight = 6879
+      mmLeft = 170657
+      mmTop = 51065
+      mmWidth = 21167
+      BandType = 0
+    end
+    object pp_Label16: TppLabel
+      UserName = 'Label16'
+      AutoSize = False
+      Border.BorderPositions = []
+      Border.Color = clBlack
+      Border.Style = psSolid
+      Border.Visible = False
+      Border.Weight = 1.000000000000000000
+      Caption = 'data ordine'
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Name = 'Microsoft Sans Serif'
+      Font.Size = 5
+      Font.Style = [fsBold]
+      Transparent = True
+      mmHeight = 2117
+      mmLeft = 171450
+      mmTop = 51065
+      mmWidth = 19050
+      BandType = 0
+    end
+    object pp_DBText4: TppDBText
+      UserName = 'DBText4'
+      Border.BorderPositions = []
+      Border.Color = clBlack
+      Border.Style = psSolid
+      Border.Visible = False
+      Border.Weight = 1.000000000000000000
+      DataField = 'numero_documento'
+      DataPipeline = ppDBTabella
+      DisplayFormat = '0'
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Name = 'Microsoft Sans Serif'
+      Font.Size = 10
+      Font.Style = [fsBold]
+      TextAlignment = taRightJustified
+      Transparent = True
+      DataPipelineName = 'ppDBTabella'
+      mmHeight = 4233
+      mmLeft = 150284
+      mmTop = 53446
+      mmWidth = 18521
+      BandType = 0
+    end
+    object pp_DBText6: TppDBText
+      UserName = 'DBText6'
+      Border.BorderPositions = []
+      Border.Color = clBlack
+      Border.Style = psSolid
+      Border.Visible = False
+      Border.Weight = 1.000000000000000000
+      DataField = 'data_documento'
+      DataPipeline = ppDBTabella
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Name = 'Microsoft Sans Serif'
+      Font.Size = 10
+      Font.Style = [fsBold]
+      Transparent = True
+      DataPipelineName = 'ppDBTabella'
+      mmHeight = 4233
+      mmLeft = 171715
+      mmTop = 53446
+      mmWidth = 19315
+      BandType = 0
+    end
+    object pp_Label12: TppLabel
+      UserName = 'Label_spettabile1'
+      AutoSize = False
+      Border.BorderPositions = []
+      Border.Color = clBlack
+      Border.Style = psSolid
+      Border.Visible = False
+      Border.Weight = 1.000000000000000000
+      Caption = 'ARTICOLO DA PRODURRE'
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Name = 'Microsoft Sans Serif'
+      Font.Size = 6
+      Font.Style = []
+      Transparent = True
+      mmHeight = 2381
+      mmLeft = 94456
+      mmTop = 18785
+      mmWidth = 29104
+      BandType = 0
+    end
+    object pp_Label22: TppLabel
+      UserName = 'Label22'
+      AutoSize = False
+      Border.BorderPositions = []
+      Border.Color = clBlack
+      Border.Style = psSolid
+      Border.Visible = False
+      Border.Weight = 1.000000000000000000
+      Caption = 'PRODURRE'
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Name = 'Microsoft Sans Serif'
+      Font.Size = 6
+      Font.Style = []
+      Transparent = True
+      mmHeight = 2381
+      mmLeft = 94456
+      mmTop = 33867
+      mmWidth = 13494
+      BandType = 0
+    end
+    object pp_DBText13: TppDBText
+      UserName = 'DBText13'
+      Border.BorderPositions = []
+      Border.Color = clBlack
+      Border.Style = psSolid
+      Border.Visible = False
+      Border.Weight = 1.000000000000000000
+      DataField = 'quantita_finiti'
+      DataPipeline = ppDBTabella
+      DisplayFormat = ',0.0000'
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Name = 'Microsoft Sans Serif'
+      Font.Size = 10
+      Font.Style = [fsBold]
+      TextAlignment = taRightJustified
+      Transparent = True
+      DataPipelineName = 'ppDBTabella'
+      mmHeight = 4233
+      mmLeft = 108744
+      mmTop = 32808
+      mmWidth = 21960
+      BandType = 0
+    end
+    object pp_Shape4: TppShape
+      UserName = 'Shape4'
+      Brush.Color = clBtnFace
+      mmHeight = 6879
+      mmLeft = 128323
+      mmTop = 51065
+      mmWidth = 21167
+      BandType = 0
+    end
+    object pp_Label13: TppLabel
+      UserName = 'Label13'
+      AutoSize = False
+      Border.BorderPositions = []
+      Border.Color = clBlack
+      Border.Style = psSolid
+      Border.Visible = False
+      Border.Weight = 1.000000000000000000
+      Caption = 'data consegna'
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Name = 'Microsoft Sans Serif'
+      Font.Size = 5
+      Font.Style = [fsBold]
+      Transparent = True
+      mmHeight = 2117
+      mmLeft = 129382
+      mmTop = 51065
+      mmWidth = 19050
+      BandType = 0
+    end
+    object pp_DBText2: TppDBText
+      UserName = 'DBText2'
+      Border.BorderPositions = []
+      Border.Color = clBlack
+      Border.Style = psSolid
+      Border.Visible = False
+      Border.Weight = 1.000000000000000000
+      DataField = 'data_consegna'
+      DataPipeline = ppDBTabella
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Name = 'Microsoft Sans Serif'
+      Font.Size = 10
+      Font.Style = [fsBold]
+      Transparent = True
+      DataPipelineName = 'ppDBTabella'
+      mmHeight = 4233
+      mmLeft = 129382
+      mmTop = 53446
+      mmWidth = 19315
+      BandType = 0
+    end
+    object pp_Label23: TppLabel
+      UserName = 'Label23'
+      AutoSize = False
+      Border.BorderPositions = []
+      Border.Color = clBlack
+      Border.Style = psSolid
+      Border.Visible = False
+      Border.Weight = 1.000000000000000000
+      Caption = 'RESIDUO'
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Name = 'Microsoft Sans Serif'
+      Font.Size = 6
+      Font.Style = [fsBold]
+      Transparent = True
+      mmHeight = 2646
+      mmLeft = 145521
+      mmTop = 33602
+      mmWidth = 13494
+      BandType = 0
+    end
+    object pp_DBText17: TppDBText
+      UserName = 'DBText17'
+      Border.BorderPositions = []
+      Border.Color = clBlack
+      Border.Style = psSolid
+      Border.Visible = False
+      Border.Weight = 1.000000000000000000
+      DataField = 'tum_codice_finiti'
+      DataPipeline = ppDBTabella
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Name = 'Microsoft Sans Serif'
+      Font.Size = 10
+      Font.Style = [fsBold]
+      Transparent = True
+      DataPipelineName = 'ppDBTabella'
+      mmHeight = 4233
+      mmLeft = 182034
+      mmTop = 32544
+      mmWidth = 10848
+      BandType = 0
+    end
+    object pp_DBMemo1: TppDBMemo
+      UserName = 'DBMemo1'
+      Border.BorderPositions = []
+      Border.Color = clBlack
+      Border.Style = psSolid
+      Border.Visible = False
+      Border.Weight = 1.000000000000000000
+      CharWrap = False
+      DataField = 'descrizione'
+      DataPipeline = ppDBTabella
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Name = 'Microsoft Sans Serif'
+      Font.Size = 8
+      Font.Style = [fsBold]
+      Stretch = True
+      Transparent = True
+      DataPipelineName = 'ppDBTabella'
+      mmHeight = 4498
+      mmLeft = 6085
+      mmTop = 61648
+      mmWidth = 184415
+      BandType = 0
+      mmBottomOffset = 0
+      mmOverFlowOffset = 0
+      mmStopPosition = 0
+      mmLeading = 0
+    end
+    object pp_Region4: TppRegion
+      UserName = 'Region4'
+      Pen.Style = psClear
+      ShiftRelativeTo = pp_DBMemo1
+      Stretch = True
+      mmHeight = 5027
+      mmLeft = 0
+      mmTop = 67310
+      mmWidth = 197380
+      BandType = 0
+      mmBottomOffset = 0
+      mmOverFlowOffset = 0
+      mmStopPosition = 0
+      object pp_Shape10: TppShape
+        UserName = 'Shape10'
+        Brush.Color = clBtnFace
+        mmHeight = 3969
+        mmLeft = 153723
+        mmTop = 67839
+        mmWidth = 14288
+        BandType = 0
+      end
+      object pp_Label21: TppLabel
+        UserName = 'Label21'
+        Border.BorderPositions = []
+        Border.Color = clBlack
+        Border.Style = psSolid
+        Border.Visible = False
+        Border.Weight = 1.000000000000000000
+        Caption = 'quantit'#224
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWindowText
+        Font.Name = 'Microsoft Sans Serif'
+        Font.Size = 6
+        Font.Style = []
+        Transparent = True
+        mmHeight = 2381
+        mmLeft = 159544
+        mmTop = 68368
+        mmWidth = 7673
+        BandType = 0
+      end
+      object pp_Shape9: TppShape
+        UserName = 'Shape9'
+        Brush.Color = clBtnFace
+        mmHeight = 3969
+        mmLeft = 145786
+        mmTop = 67839
+        mmWidth = 7938
+        BandType = 0
+      end
+      object pp_Label17: TppLabel
+        UserName = 'Label17'
+        Border.BorderPositions = []
+        Border.Color = clBlack
+        Border.Style = psSolid
+        Border.Visible = False
+        Border.Weight = 1.000000000000000000
+        Caption = 'u.m.'
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWindowText
+        Font.Name = 'Microsoft Sans Serif'
+        Font.Size = 6
+        Font.Style = []
+        Transparent = True
+        mmHeight = 2646
+        mmLeft = 146579
+        mmTop = 68368
+        mmWidth = 5292
+        BandType = 0
+      end
+      object pp_Shape8: TppShape
+        UserName = 'Shape8'
+        Brush.Color = clBtnFace
+        mmHeight = 3969
+        mmLeft = 529
+        mmTop = 67839
+        mmWidth = 145257
+        BandType = 0
+      end
+      object pp_Label18: TppLabel
+        UserName = 'Label18'
+        Border.BorderPositions = []
+        Border.Color = clBlack
+        Border.Style = psSolid
+        Border.Visible = False
+        Border.Weight = 1.000000000000000000
+        Caption = 'codice e descrizione articolo'
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWindowText
+        Font.Name = 'Microsoft Sans Serif'
+        Font.Size = 6
+        Font.Style = []
+        Transparent = True
+        mmHeight = 2381
+        mmLeft = 1323
+        mmTop = 68368
+        mmWidth = 26988
+        BandType = 0
+      end
+      object pp_Shape7: TppShape
+        UserName = 'Shape101'
+        Brush.Color = clBtnFace
+        mmHeight = 3969
+        mmLeft = 168011
+        mmTop = 67839
+        mmWidth = 14288
+        BandType = 0
+      end
+      object pp_Label25: TppLabel
+        UserName = 'Label25'
+        Border.BorderPositions = []
+        Border.Color = clBlack
+        Border.Style = psSolid
+        Border.Visible = False
+        Border.Weight = 1.000000000000000000
+        Caption = 'qt'#224' prelevata'
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWindowText
+        Font.Name = 'Microsoft Sans Serif'
+        Font.Size = 6
+        Font.Style = []
+        Transparent = True
+        mmHeight = 2381
+        mmLeft = 169069
+        mmTop = 68368
+        mmWidth = 12435
+        BandType = 0
+      end
+      object pp_Shape11: TppShape
+        UserName = 'Shape102'
+        Brush.Color = clBtnFace
+        mmHeight = 3969
+        mmLeft = 182298
+        mmTop = 67839
+        mmWidth = 14288
+        BandType = 0
+      end
+      object pp_Label26: TppLabel
+        UserName = 'Label26'
+        Border.BorderPositions = []
+        Border.Color = clBlack
+        Border.Style = psSolid
+        Border.Visible = False
+        Border.Weight = 1.000000000000000000
+        Caption = 'qt'#224' residua'
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWindowText
+        Font.Name = 'Microsoft Sans Serif'
+        Font.Size = 6
+        Font.Style = []
+        Transparent = True
+        mmHeight = 2381
+        mmLeft = 184944
+        mmTop = 68368
+        mmWidth = 10583
+        BandType = 0
+      end
+    end
+    object pp_Label27: TppLabel
+      UserName = 'Label27'
+      AutoSize = False
+      Border.BorderPositions = []
+      Border.Color = clBlack
+      Border.Style = psSolid
+      Border.Visible = False
+      Border.Weight = 1.000000000000000000
+      Caption = 'DOCUMENTO DI CARICO'
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Name = 'Microsoft Sans Serif'
+      Font.Size = 6
+      Font.Style = []
+      Transparent = True
+      mmHeight = 2381
+      mmLeft = 94456
+      mmTop = 38894
+      mmWidth = 29104
+      BandType = 0
+    end
+    object pp_DBText19: TppDBText
+      UserName = 'DBText19'
+      Border.BorderPositions = []
+      Border.Color = clBlack
+      Border.Style = psSolid
+      Border.Visible = False
+      Border.Weight = 1.000000000000000000
+      DataField = 'numero_documento_carico'
+      DataPipeline = ppDBTabella
+      DisplayFormat = '#'
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Name = 'Microsoft Sans Serif'
+      Font.Size = 8
+      Font.Style = [fsBold]
+      Transparent = True
+      DataPipelineName = 'ppDBTabella'
+      mmHeight = 3175
+      mmLeft = 127529
+      mmTop = 38365
+      mmWidth = 14552
+      BandType = 0
+    end
+    object ppDBText1: TppDBText
+      UserName = 'DBText3'
+      Border.BorderPositions = []
+      Border.Color = clBlack
+      Border.Style = psSolid
+      Border.Visible = False
+      Border.Weight = 1.000000000000000000
+      DataField = 'quantita_residua'
+      DataPipeline = ppDBTabella
+      DisplayFormat = ',0.0000'
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Name = 'Microsoft Sans Serif'
+      Font.Size = 10
+      Font.Style = [fsBold]
+      TextAlignment = taRightJustified
+      Transparent = True
+      DataPipelineName = 'ppDBTabella'
+      mmHeight = 4233
+      mmLeft = 159544
+      mmTop = 32544
+      mmWidth = 21960
+      BandType = 0
+    end
+    object ppLabel1: TppLabel
+      UserName = 'Label_spettabile2'
+      AutoSize = False
+      Border.BorderPositions = []
+      Border.Color = clBlack
+      Border.Style = psSolid
+      Border.Visible = False
+      Border.Weight = 1.000000000000000000
+      Caption = 'CLIENTE'
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Name = 'Microsoft Sans Serif'
+      Font.Size = 6
+      Font.Style = []
+      Transparent = True
+      mmHeight = 2381
+      mmLeft = 94456
+      mmTop = 2910
+      mmWidth = 22490
+      BandType = 0
+    end
+    object ppDBText2: TppDBText
+      UserName = 'DBText5'
+      Border.BorderPositions = []
+      Border.Color = clBlack
+      Border.Style = psSolid
+      Border.Visible = False
+      Border.Weight = 1.000000000000000000
+      DataField = 'nom_descrizione1'
+      DataPipeline = ppDBTabella
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Name = 'Microsoft Sans Serif'
+      Font.Size = 10
+      Font.Style = [fsBold]
+      Transparent = True
+      DataPipelineName = 'ppDBTabella'
+      mmHeight = 4233
+      mmLeft = 119063
+      mmTop = 1852
+      mmWidth = 73819
+      BandType = 0
+    end
+    object ppDBText3: TppDBText
+      UserName = 'DBText20'
+      Border.BorderPositions = []
+      Border.Color = clBlack
+      Border.Style = psSolid
+      Border.Visible = False
+      Border.Weight = 1.000000000000000000
+      DataField = 'nom_citta'
+      DataPipeline = ppDBTabella
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Name = 'Microsoft Sans Serif'
+      Font.Size = 10
+      Font.Style = [fsBold]
+      Transparent = True
+      DataPipelineName = 'ppDBTabella'
+      mmHeight = 4233
+      mmLeft = 119063
+      mmTop = 6615
+      mmWidth = 73819
+      BandType = 0
+    end
+    object ppDBText4: TppDBText
+      UserName = 'DBText21'
+      Border.BorderPositions = []
+      Border.Color = clBlack
+      Border.Style = psSolid
+      Border.Visible = False
+      Border.Weight = 1.000000000000000000
+      DataField = 'data_documento_carico'
+      DataPipeline = ppDBTabella
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Name = 'Microsoft Sans Serif'
+      Font.Size = 8
+      Font.Style = [fsBold]
+      Transparent = True
+      DataPipelineName = 'ppDBTabella'
+      mmHeight = 3175
+      mmLeft = 145521
+      mmTop = 38365
+      mmWidth = 15240
+      BandType = 0
+    end
+  end
+  object ppDetailBand_documenti_01: TppDetailBand
+    PrintHeight = phDynamic
+    mmBottomOffset = 0
+    mmHeight = 9260
+    mmPrintPosition = 0
+    object pp_DBText9: TppDBText
+      UserName = 'DBText9'
+      Border.BorderPositions = []
+      Border.Color = clBlack
+      Border.Style = psSolid
+      Border.Visible = False
+      Border.Weight = 1.000000000000000000
+      DataField = 'art_descrizione1_materie_prime'
+      DataPipeline = ppDBTabella
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Name = 'Microsoft Sans Serif'
+      Font.Size = 8
+      Font.Style = []
+      Transparent = True
+      DataPipelineName = 'ppDBTabella'
+      mmHeight = 3175
+      mmLeft = 31221
+      mmTop = 529
+      mmWidth = 62971
+      BandType = 4
+    end
+    object pp_DBText8: TppDBText
+      UserName = 'DBText8'
+      Border.BorderPositions = []
+      Border.Color = clBlack
+      Border.Style = psSolid
+      Border.Visible = False
+      Border.Weight = 1.000000000000000000
+      DataField = 'art_codice_materie_prime'
+      DataPipeline = ppDBTabella
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Name = 'Microsoft Sans Serif'
+      Font.Size = 8
+      Font.Style = []
+      Transparent = True
+      DataPipelineName = 'ppDBTabella'
+      mmHeight = 3175
+      mmLeft = 529
+      mmTop = 529
+      mmWidth = 30163
+      BandType = 4
+    end
+    object pp_DBText11: TppDBText
+      UserName = 'DBText11'
+      Border.BorderPositions = []
+      Border.Color = clBlack
+      Border.Style = psSolid
+      Border.Visible = False
+      Border.Weight = 1.000000000000000000
+      DataField = 'tum_codice_materie_prime'
+      DataPipeline = ppDBTabella
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Name = 'Microsoft Sans Serif'
+      Font.Size = 8
+      Font.Style = []
+      Transparent = True
+      DataPipelineName = 'ppDBTabella'
+      mmHeight = 3175
+      mmLeft = 145786
+      mmTop = 529
+      mmWidth = 7938
+      BandType = 4
+    end
+    object pp_DBText12: TppDBText
+      UserName = 'DBText12'
+      Border.BorderPositions = []
+      Border.Color = clBlack
+      Border.Style = psSolid
+      Border.Visible = False
+      Border.Weight = 1.000000000000000000
+      DataField = 'quantita_materie_prime'
+      DataPipeline = ppDBTabella
+      DisplayFormat = ',0.0000;-,0.0000;#'
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Name = 'Microsoft Sans Serif'
+      Font.Size = 8
+      Font.Style = []
+      TextAlignment = taRightJustified
+      Transparent = True
+      DataPipelineName = 'ppDBTabella'
+      mmHeight = 3175
+      mmLeft = 153459
+      mmTop = 529
+      mmWidth = 14817
+      BandType = 4
+    end
+    object pp_DBText47: TppDBText
+      UserName = 'DBText47'
+      Border.BorderPositions = []
+      Border.Color = clBlack
+      Border.Style = psSolid
+      Border.Visible = False
+      Border.Weight = 1.000000000000000000
+      DataField = 'art_descrizione2_materie_prime'
+      DataPipeline = ppDBTabella
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Name = 'Microsoft Sans Serif'
+      Font.Size = 8
+      Font.Style = []
+      Transparent = True
+      DataPipelineName = 'ppDBTabella'
+      mmHeight = 3175
+      mmLeft = 94456
+      mmTop = 529
+      mmWidth = 51065
+      BandType = 4
+    end
+    object pp_DBText16: TppDBText
+      UserName = 'DBText16'
+      Border.BorderPositions = []
+      Border.Color = clBlack
+      Border.Style = psSolid
+      Border.Visible = False
+      Border.Weight = 1.000000000000000000
+      DataField = 'quantita_evasa_materie_prime'
+      DataPipeline = ppDBTabella
+      DisplayFormat = ',0.0000;-,0.0000;#'
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Name = 'Microsoft Sans Serif'
+      Font.Size = 8
+      Font.Style = []
+      TextAlignment = taRightJustified
+      Transparent = True
+      DataPipelineName = 'ppDBTabella'
+      mmHeight = 3175
+      mmLeft = 168275
+      mmTop = 529
+      mmWidth = 14552
+      BandType = 4
+    end
+    object pp_Variable2: TppVariable
+      UserName = 'Variable2'
+      Border.BorderPositions = []
+      Border.Color = clBlack
+      Border.Style = psSolid
+      Border.Visible = False
+      Border.Weight = 1.000000000000000000
+      BlankWhenZero = False
+      CalcOrder = 0
+      DataType = dtDouble
+      DisplayFormat = ',0.0000;-,0.0000;#'
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Name = 'Microsoft Sans Serif'
+      Font.Size = 8
+      Font.Style = [fsBold]
+      OnCalc = pp_Variable2Calc
+      TextAlignment = taRightJustified
+      Transparent = True
+      mmHeight = 3440
+      mmLeft = 182827
+      mmTop = 265
+      mmWidth = 13758
+      BandType = 4
+    end
+    object ppLabel2: TppLabel
+      UserName = 'Label1'
+      AutoSize = False
+      Border.BorderPositions = []
+      Border.Color = clBlack
+      Border.Style = psSolid
+      Border.Visible = False
+      Border.Weight = 1.000000000000000000
+      Caption = 'deposito prelievo'
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Name = 'Microsoft Sans Serif'
+      Font.Size = 6
+      Font.Style = []
+      Transparent = True
+      mmHeight = 2381
+      mmLeft = 12700
+      mmTop = 4498
+      mmWidth = 17727
+      BandType = 4
+    end
+    object ppDBText5: TppDBText
+      UserName = 'DBText18'
+      Border.BorderPositions = []
+      Border.Color = clBlack
+      Border.Style = psSolid
+      Border.Visible = False
+      Border.Weight = 1.000000000000000000
+      DataField = 'tma_descrizione_materie_prime'
+      DataPipeline = ppDBTabella
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Name = 'Microsoft Sans Serif'
+      Font.Size = 8
+      Font.Style = []
+      Transparent = True
+      DataPipelineName = 'ppDBTabella'
+      mmHeight = 3175
+      mmLeft = 31221
+      mmTop = 3969
+      mmWidth = 62971
+      BandType = 4
+    end
+  end
+  object ppFooterBand_documenti_01: TppFooterBand
+    mmBottomOffset = 0
+    mmHeight = 2117
+    mmPrintPosition = 0
+    object pp_Shape_documenti_03: TppShape
+      UserName = 'Shape_documenti_03'
+      Pen.Width = 2
+      mmHeight = 1852
+      mmLeft = 0
+      mmTop = 0
+      mmWidth = 196321
+      BandType = 8
+    end
+  end
+  object ppGroup1: TppGroup
+    BreakName = 'progressivo'
+    DataPipeline = ppDBTabella
+    OutlineSettings.CreateNode = True
+    NewPage = True
+    ResetPageNo = True
+    UserName = 'Group1'
+    mmNewColumnThreshold = 0
+    mmNewPageThreshold = 0
+    DataPipelineName = 'ppDBTabella'
+    object ppGroupHeaderBand1: TppGroupHeaderBand
+      PrintHeight = phDynamic
+      mmBottomOffset = 0
+      mmHeight = 0
+      mmPrintPosition = 0
+    end
+    object ppGroupFooterBand1: TppGroupFooterBand
+      PrintHeight = phDynamic
+      mmBottomOffset = 0
+      mmHeight = 0
+      mmPrintPosition = 0
+    end
+  end
+end

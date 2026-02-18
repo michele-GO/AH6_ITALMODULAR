@@ -1,0 +1,28 @@
+CREATE TRIGGER T_PVVART_BI_0
+  BEFORE INSERT
+  ON `pvvart`
+  FOR EACH ROW
+BEGIN 
+
+
+IF NEW.PROGRESSIVO = 0 THEN
+  CALL P_CAMPO_VUOTO('pvvart', 'progressivo');
+END IF;
+
+IF NEW.PUNTO_VENDITA = '' THEN
+  CALL P_CAMPO_VUOTO('pvvart', 'punto_vendita');
+END IF;
+
+IF NEW.DATA_REGISTRAZIONE IS NULL THEN
+  CALL P_CAMPO_VUOTO('pvvart', 'data_registrazione');
+END IF;
+
+IF NEW.ART_CODICE = '' THEN
+  CALL P_CAMPO_VUOTO('pvvart', 'art_codice');
+END IF;
+
+IF NEW.ID IS NOT NULL THEN
+  SET NEW.ID = null;
+END IF;
+
+END

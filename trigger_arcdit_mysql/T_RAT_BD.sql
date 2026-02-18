@@ -1,0 +1,9 @@
+CREATE TRIGGER T_RAT_BD
+  BEFORE DELETE
+  ON `rat`
+  FOR EACH ROW
+BEGIN 
+
+CALL P_SCHTRS('rat', old.progressivo);
+
+END

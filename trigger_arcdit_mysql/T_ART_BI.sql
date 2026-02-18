@@ -1,0 +1,62 @@
+CREATE TRIGGER T_ART_BI_0
+  BEFORE INSERT
+  ON art
+  FOR EACH ROW
+BEGIN 
+
+
+IF NEW.ART_CODICE_INVENTARIO = '' THEN
+  SET NEW.ART_CODICE_INVENTARIO = NEW.CODICE;
+END IF;
+
+IF NEW.CODICE = '' THEN
+  CALL P_CAMPO_VUOTO('art', 'codice');
+END IF;
+IF NEW.TUM_CODICE = '' THEN
+  CALL P_CAMPO_VUOTO('art', 'tum_codice');
+END IF;
+IF NEW.TUB_CODICE = '' THEN
+  CALL P_CAMPO_VUOTO('art', 'tub_codice');
+END IF;
+IF NEW.TCM_CODICE = '' THEN
+  CALL P_CAMPO_VUOTO('art', 'tcm_codice');
+END IF;
+IF NEW.TGM_CODICE = '' THEN
+  CALL P_CAMPO_VUOTO('art', 'tgm_codice');
+END IF;
+IF NEW.TIV_CODICE_VENDITE = '' THEN
+  CALL P_CAMPO_VUOTO('art', 'tiv_codice_vendite');
+END IF;
+IF NEW.TIV_CODICE_ACQUISTI = '' THEN
+  CALL P_CAMPO_VUOTO('art', 'tiv_codice_acquisti');
+END IF;
+IF NEW.TCA_CODICE = '' THEN
+  CALL P_CAMPO_VUOTO('art', 'tca_codice');
+END IF;
+IF NEW.TAQ_CODICE = '' THEN
+  CALL P_CAMPO_VUOTO('art', 'taq_codice');
+END IF;
+IF NEW.TS3_CODICE = '' THEN
+  CALL P_CAMPO_VUOTO('art', 'ts3_codice');
+END IF;
+IF NEW.TP2_CODICE = '' THEN
+  CALL P_CAMPO_VUOTO('art', 'tp2_codice');
+END IF;
+IF NEW.TSA_CODICE = '' THEN
+  CALL P_CAMPO_VUOTO('art', 'tsa_codice');
+END IF;
+IF NEW.TIN_CODICE = '' THEN
+  CALL P_CAMPO_VUOTO('art', 'tin_codice');
+END IF;
+IF NEW.TNI_CODICE = '' THEN
+  CALL P_CAMPO_VUOTO('art', 'tni_codice');
+END IF;
+IF NEW.TAA_CODICE = '' THEN
+  CALL P_CAMPO_VUOTO('art', 'taa_codice');
+END IF;
+
+IF NEW.ID IS NOT NULL THEN
+  SET NEW.ID = null;
+END IF;
+
+END

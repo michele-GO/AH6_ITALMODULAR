@@ -1,0 +1,19 @@
+CREATE TRIGGER T_UBI_BI_0
+  BEFORE INSERT
+  ON `ubi`
+  FOR EACH ROW
+BEGIN 
+
+
+IF NEW.ART_CODICE = '' THEN
+  CALL P_CAMPO_VUOTO('ubi', 'art_codice');
+END IF;
+IF NEW.TUB_CODICE = '' THEN
+  CALL P_CAMPO_VUOTO('ubi', 'tub_codice');
+END IF;
+
+IF NEW.ID IS NOT NULL THEN
+  SET NEW.ID = null;
+END IF;
+
+END

@@ -1,0 +1,19 @@
+CREATE TRIGGER T_UTWTLV_BI_0
+  BEFORE INSERT
+  ON `utwtlv`
+  FOR EACH ROW
+BEGIN 
+
+
+IF NEW.UTW_CODICE = '' THEN
+  CALL P_CAMPO_VUOTO('utwtlv', 'utw_codice');
+END IF;
+IF NEW.TLV_CODICE = '' THEN
+  CALL P_CAMPO_VUOTO('utwtlv', 'tlv_codice');
+END IF;
+
+IF NEW.ID IS NOT NULL THEN
+  SET NEW.ID = null;
+END IF;
+
+END

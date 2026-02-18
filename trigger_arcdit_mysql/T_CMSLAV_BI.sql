@@ -1,0 +1,20 @@
+CREATE TRIGGER T_CMSLAV_BI_0
+  BEFORE INSERT
+  ON cmslav
+  FOR EACH ROW
+BEGIN 
+
+
+IF NEW.CMS_CODICE = '' THEN
+  CALL P_CAMPO_VUOTO('cmslav', 'cms_codice');
+END IF;
+
+IF NEW.RIGA = 0 THEN
+  CALL P_CAMPO_VUOTO('cmslav', 'riga');
+END IF;
+
+IF NEW.ID IS NOT NULL THEN
+  SET NEW.ID = null;
+END IF;
+
+END

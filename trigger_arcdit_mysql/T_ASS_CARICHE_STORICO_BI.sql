@@ -1,0 +1,27 @@
+CREATE TRIGGER T_ASS_CARICHE_STORICO_BI_0
+  BEFORE INSERT
+  ON ASS_CARICHE_STORICO
+  FOR EACH ROW
+BEGIN
+
+IF NEW.ASS_CARICHE_PROGRESSIVO = 0 THEN
+  CALL P_CAMPO_VUOTO('ass_cariche_storico', 'ass_cariche_progressivo');
+END IF;
+
+IF NEW.DALLA_DATA IS NULL THEN
+  CALL P_CAMPO_VUOTO('ass_cariche_storico', 'dalla_data');
+END IF;
+
+IF NEW.ALLA_DATA IS NULL THEN
+  CALL P_CAMPO_VUOTO('ass_cariche_storico', 'alla_data');
+END IF;
+
+IF NEW.ASS_SOCI_PROGRESSIVO = 0 THEN
+  CALL P_CAMPO_VUOTO('ass_cariche_storico', 'ass_soci_progressivo');
+END IF;
+
+IF NEW.ID IS NOT NULL THEN
+  SET NEW.ID = null;
+END IF;
+
+END

@@ -1,0 +1,9 @@
+CREATE TRIGGER T_RDA_AD
+  AFTER DELETE
+  ON `rda`
+  FOR EACH ROW
+BEGIN 
+
+CALL P_DELRDO(old.progressivo);
+
+END

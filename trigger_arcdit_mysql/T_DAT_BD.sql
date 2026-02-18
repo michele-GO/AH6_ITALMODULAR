@@ -1,0 +1,9 @@
+CREATE TRIGGER T_DAT_BD
+  BEFORE DELETE
+  ON `dat`
+  FOR EACH ROW
+BEGIN 
+
+CALL P_SCHTRS('dat', old.progressivo);
+
+END

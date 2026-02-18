@@ -1,0 +1,20 @@
+CREATE TRIGGER T_CLD_BI_0
+  BEFORE INSERT
+  ON `cld`
+  FOR EACH ROW
+BEGIN 
+
+
+IF NEW.CLI_CODICE = '' THEN
+  CALL P_CAMPO_VUOTO('cld', 'cli_codice');
+END IF;
+
+IF NEW.RIFERIMENTO = '' THEN
+  CALL P_CAMPO_VUOTO('cld', 'riferimento');
+END IF;
+
+IF NEW.ID IS NOT NULL THEN
+  SET NEW.ID = null;
+END IF;
+
+END

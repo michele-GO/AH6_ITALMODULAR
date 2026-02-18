@@ -1,0 +1,22 @@
+CREATE TRIGGER T_MAGESE_BI_0
+  BEFORE INSERT
+  ON `magese`
+  FOR EACH ROW
+BEGIN 
+
+
+IF NEW.ART_CODICE = '' THEN
+  CALL P_CAMPO_VUOTO('magese','art_codice');
+END IF;
+IF NEW.TMA_CODICE = '' THEN
+  CALL P_CAMPO_VUOTO('magese','tma_codice');
+END IF;
+IF NEW.ESE_CODICE = '' THEN
+  CALL P_CAMPO_VUOTO('magese','ese_codice');
+END IF;
+
+IF NEW.ID IS NOT NULL THEN
+  SET NEW.ID = null;
+END IF;
+
+END

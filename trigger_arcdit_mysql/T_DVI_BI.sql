@@ -1,0 +1,24 @@
+CREATE TRIGGER T_DVI_BI_0
+  BEFORE INSERT
+  ON `dvi`
+  FOR EACH ROW
+BEGIN 
+
+
+IF NEW.PROGRESSIVO = 0 THEN
+  CALL P_CAMPO_VUOTO('dvi', 'progressivo');
+END IF;
+
+IF NEW.TIV_CODICE = '' THEN
+  CALL P_CAMPO_VUOTO('dvi', 'tiv_codice');
+END IF;
+
+IF NEW.TIPO_MOVIMENTO = '' THEN
+  CALL P_CAMPO_VUOTO('dvi', 'tipo_movimento');
+END IF;
+
+IF NEW.ID IS NOT NULL THEN
+  SET NEW.ID = null;
+END IF;
+
+END

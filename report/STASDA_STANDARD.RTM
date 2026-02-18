@@ -1,0 +1,2309 @@
+object ppReport: TppReport
+  AutoStop = False
+  DataPipeline = ppDBTabella
+  NoDataBehaviors = [ndMessageDialog, ndBlankPage]
+  PassSetting = psTwoPass
+  PrinterSetup.BinName = 'Default'
+  PrinterSetup.DocumentName = 'Stampa manifest SDA'
+  PrinterSetup.PaperName = 'A4 210 x 297 mm'
+  PrinterSetup.PrinterName = 'Screen'
+  PrinterSetup.SaveDeviceSettings = False
+  PrinterSetup.mmMarginBottom = 6350
+  PrinterSetup.mmMarginLeft = 6350
+  PrinterSetup.mmMarginRight = 6350
+  PrinterSetup.mmMarginTop = 6350
+  PrinterSetup.mmPaperHeight = 297127
+  PrinterSetup.mmPaperWidth = 210079
+  PrinterSetup.PaperSize = 9
+  Template.FileName = 'C:\GestionaleOpen\go_902\report\STASDA_STANDARD.RTM'
+  Template.Format = ftASCII
+  AllowPrintToFile = True
+  ArchiveFileName = '($MyDocuments)\ReportArchive.raf'
+  BeforePrint = ppReportBeforePrint
+  DeviceType = 'Screen'
+  DefaultFileDeviceType = 'PDF'
+  EmailSettings.ReportFormat = 'PDF'
+  LanguageID = 'Default'
+  OnPreviewFormClose = ppReportPreviewFormClose
+  OnPreviewFormCreate = ppReportPreviewFormCreate
+  OpenFile = False
+  OutlineSettings.CreateNode = False
+  OutlineSettings.CreatePageNodes = False
+  OutlineSettings.Enabled = False
+  OutlineSettings.Visible = False
+  ThumbnailSettings.Enabled = True
+  ThumbnailSettings.Visible = True
+  ThumbnailSettings.DeadSpace = 30
+  PDFSettings.EmbedFontOptions = [efUseSubset]
+  PDFSettings.EncryptSettings.AllowCopy = True
+  PDFSettings.EncryptSettings.AllowInteract = True
+  PDFSettings.EncryptSettings.AllowModify = True
+  PDFSettings.EncryptSettings.AllowPrint = True
+  PDFSettings.EncryptSettings.Enabled = False
+  PDFSettings.EncryptSettings.KeyLength = kl40Bit
+  PDFSettings.FontEncoding = feAnsi
+  PDFSettings.ImageCompressionLevel = 25
+  PDFSettings.ScaleImages = False
+  RTFSettings.DefaultFont.Charset = DEFAULT_CHARSET
+  RTFSettings.DefaultFont.Color = clWindowText
+  RTFSettings.DefaultFont.Height = -13
+  RTFSettings.DefaultFont.Name = 'Arial'
+  RTFSettings.DefaultFont.Style = []
+  TextFileName = 
+    'C:\GestionaleOpen\go_902\stampe\GO_Stampa manifest SDA_2014 11 2' +
+    '4-18 42 02_STANDARD'
+  TextFileType = ftTab
+  TextSearchSettings.DefaultString = '<testo da cercare>'
+  TextSearchSettings.Enabled = True
+  TextSearchSettings.Visible = True
+  XLSSettings.AppName = 'ReportBuilder'
+  XLSSettings.Author = 'ReportBuilder'
+  XLSSettings.ExportComponents = [ecText, ecLine, ecImage, ecRichText, ecBarCode, ecOther]
+  XLSSettings.Subject = 'Report'
+  XLSSettings.Title = 'Report'
+  Left = 300
+  Top = 65526
+  Version = '16.0'
+  mmColumnWidth = 210079
+  DataPipelineName = 'ppDBTabella'
+  object pp_selezioni_stampa: TppTitleBand
+    Visible = False
+    Background.Brush.Style = bsClear
+    PrintHeight = phDynamic
+    mmBottomOffset = 0
+    mmHeight = 29104
+    mmPrintPosition = 0
+    object pp_Shape4_parametri: TppShape
+      DesignLayer = ppDesignLayer1
+      UserName = 'Shape4_parametri'
+      mmHeight = 10054
+      mmLeft = 794
+      mmTop = 1058
+      mmWidth = 196586
+      BandType = 1
+      LayerName = Foreground
+    end
+    object pp_Shape5_parametri: TppShape
+      DesignLayer = ppDesignLayer1
+      UserName = 'Shape5_parametri'
+      mmHeight = 11377
+      mmLeft = 794
+      mmTop = 11642
+      mmWidth = 196586
+      BandType = 1
+      LayerName = Foreground
+    end
+    object pp_Label11: TppLabel
+      DesignLayer = ppDesignLayer1
+      UserName = 'Label11'
+      HyperlinkEnabled = False
+      Border.Weight = 1.000000000000000000
+      Caption = 'Parametri di selezione'
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Name = 'Microsoft Sans Serif'
+      Font.Size = 20
+      Font.Style = [fsBold, fsItalic]
+      FormField = False
+      Transparent = True
+      mmHeight = 8202
+      mmLeft = 66940
+      mmTop = 12965
+      mmWidth = 74613
+      BandType = 1
+      LayerName = Foreground
+    end
+    object pp_Image_parametri: TppImage
+      DesignLayer = ppDesignLayer1
+      UserName = 'Image_parametri'
+      AlignHorizontal = ahCenter
+      AlignVertical = avCenter
+      MaintainAspectRatio = False
+      Stretch = True
+      Transparent = True
+      Border.Weight = 1.000000000000000000
+      Picture.Data = {
+        0C544A70656747726170686963FFD8FFE000104A464946000101010060006000
+        00FFDB00430006040506050406060506070706080A100A0A09090A140E0F0C10
+        17141818171416161A1D251F1A1B231C1616202C20232627292A29191F2D302D
+        283025282928FFDB0043010707070A080A130A0A13281A161A28282828282828
+        2828282828282828282828282828282828282828282828282828282828282828
+        2828282828282828282828FFC00011080073007303012200021101031101FFC4
+        001F0000010501010101010100000000000000000102030405060708090A0BFF
+        C400B5100002010303020403050504040000017D010203000411051221314106
+        13516107227114328191A1082342B1C11552D1F02433627282090A161718191A
+        25262728292A3435363738393A434445464748494A535455565758595A636465
+        666768696A737475767778797A838485868788898A92939495969798999AA2A3
+        A4A5A6A7A8A9AAB2B3B4B5B6B7B8B9BAC2C3C4C5C6C7C8C9CAD2D3D4D5D6D7D8
+        D9DAE1E2E3E4E5E6E7E8E9EAF1F2F3F4F5F6F7F8F9FAFFC4001F010003010101
+        0101010101010000000000000102030405060708090A0BFFC400B51100020102
+        0404030407050404000102770001020311040521310612415107617113223281
+        08144291A1B1C109233352F0156272D10A162434E125F11718191A262728292A
+        35363738393A434445464748494A535455565758595A636465666768696A7374
+        75767778797A82838485868788898A92939495969798999AA2A3A4A5A6A7A8A9
+        AAB2B3B4B5B6B7B8B9BAC2C3C4C5C6C7C8C9CAD2D3D4D5D6D7D8D9DAE2E3E4E5
+        E6E7E8E9EAF2F3F4F5F6F7F8F9FAFFDA000C03010002110311003F00FAA68A28
+        A0028A28A0028A28A0028A28A0028A28A0028A28A0028A28A0028A28A0028A05
+        6578935ED33C37A54DA96B7790D9D8C43E69643DFB00072C4F600127B516BEC2
+        3569335F2C78EBF697BD9E592DFC19A7C7696E381797ABBE56F758C1DABFF022
+        D91D81AF2BD53E27F8D35398C973E29D5D58F516F70D6EBFF7CC7B47E95D90C0
+        D592BBD0C65888C7CCFBF28AFCFDB2F88FE30B394490F8AB5C2C39025BD9255F
+        FBE5C907F2AF48F067ED25E20D3E58E2F145B41AC5A67E69A25586E07B8C611B
+        03B6173EB4E780AB15756628E222FC8FAE696B9AF0378D344F1B6942FF0040BC
+        59D170258986D96163FC2EBD41EBCF438E091CD6FDC4D1DB4124D7122450C6A5
+        DE4760AA8A392493C00077AE269C5D99BA77D512D15F3C7C45FDA4AC74D9E5B2
+        F0559C7A94C8706FAE722007FD8418671D79CA8EE370AF16D77E2FF8E35972D7
+        1E22BD8173C259116E17DB31804FE249AEAA782AB357DBD4CA75E31F33EF0A0E
+        7D6BF3E61F881E2E89C3A78ABC4191CFCDA8CCC3F22C4576DE14FDA13C63A34A
+        83539E0D6AD0101A3BA8C2498FF66440307DD837D2B49602A2574D3256222CFB
+        4296BCF7E17FC57F0FFC4187CAB091AD35545DD2D85C102403BB21E8EB9EE391
+        C640C8AF41AE2946517692B3374D35742D1499F7A290CCFD7F58B2D0747BBD53
+        549960B2B48CCB2C8DD80EC07727A003924803935F0B7C54F883A97C40D79EF6
+        F19A1B08895B3B3CFCB027A9EC5CF76FC070001EC3FB60F8B5E35D2BC2B6D232
+        A3AFDBAF00E370C95894FA8C87623D421AF9B49C658F4AF57034128FB47BBD8E
+        2C45477E5428EA00C924E00F535E89E1DF825E38D72049E2D15ACE07E8F7D208
+        4FFDF07E71F8AD7BDFC00F8436BE12D2EDF5CD7ED966F125C2075591722C548E
+        1541E9263EF3751CA8E325BDA7BD4D6C7B4F969FDE3A78656BC8F89759F809E3
+        AD32169574C86FE35196FB1DC2B301FEEB6D27E80135E6B776D359DCCB6D770C
+        B6F731314922990A3A30EA194E083EC6BF4900F5AF3AF8C5F0B74DF885A3BB04
+        8ADB5D82322D2F718391C84908E4A13F523248EE0CD2CC257B545A0E7864D5E2
+        7897EC91E13BDBBF115CF8984F3DB69B62AD6DB637DA2EA465E5187755055B1F
+        DE298E86B2BF684F8B1378B7519B42D0EE36F86AD64DAEF1B7FC7F48A7EF123A
+        C608F9474246E39F976FBADC782B59D13E09C3E16F09A409ACC96AB04D2BCBB1
+        55A4E6770D827272E077191E95E0DFF0CE7E37030134AC7FD7D1FF00E26AA954
+        A73AAEACDAD36FF309C6518A8C57A9E43D05763E0FF861E2DF1640973A368D3B
+        593F2B753110C4C3D559C8DC3FDDCD7B57C21FD9F1F4BD59F52F1E476774B011
+        F66B18DFCC8DDBA979320640E8179079CF6AFA3800063181555F1EA2F969EBE6
+        4D3C37591F175EFECF3E3AB787CC8ACEC2E9BFE79C376A1BFF001FDA3F5AF37D
+        7744D4F40BF6B2D66C6E6C2EC0CF97711942467195CF0C33DC647BD7E8D75AE7
+        BC6FE10D23C69A2CBA66BD6AB3C0C32920C09217ECF1B7F0B0FC8F4208241C69
+        E6134FDF5745CB0C9ECCFCFDB2BBB8B1BC86EACA796DEEA0712452C4C55D1874
+        208E95F687C04F89C9F103407835168D3C4160156E9146D1329E92A8F43D081D
+        0FA022BE4CF88DE0FBDF03F8A6EF45BF3E618F1241385DA2789B3B5C0EDD0823
+        9C10464E33537C2DF1649E0AF1AE99AC0765B78E4115D819F9A062048081D703
+        E603D54576622947114F9A3BF431A5374E5CACFD00C514039008E47AD15E21E8
+        1F0D7ED177A6FBE2EF8818B1290BC502027EE8589011FF007D6E3F8D67FC12D1
+        E2D77E287872C6E40309B9F3DD48C86112B4BB48EE0ECC7E357BF68AB36B2F8B
+        BE22520859648A6527B8689093F9E47E154FE06EAD168BF14FC3777704088DC9
+        B7627A0F351A204FA005C1FC2BDD5FEEFA7F2FE879CFF8BAF73EF4ED45145784
+        7A255D42F22B0B1B8BBB93B60823696423B2A8C9FE55E01AA7C54F11DD5E4925
+        95CA58C04FC90A448F81DB2CCA727D7A0F615EFDA9D945A969F736771930DC44
+        D1498383B581071F81AF9E757F86BE22B1BC78A2B26BC841F92785970E3E84E4
+        1F6FD4F5AF4F2E541B97B5B5FA5CF9FCF5E2D461F57BDB5BF2DEFE5B6B61BFF0
+        B33C59FF004173FF0080D0FF00F1147FC2CCF15FFD05CFFE03C3FF00C4555FF8
+        40FC4BFF00407B9FCD7FC68FF840FC4BFF00408B9FCD7FC6BD5B60FF00BBF81F
+        39CF99779FFE4C5BFF008599E2CCF3AB13FF006EF0FF00F115EB9F0BBC5F278A
+        F4A9FED68897F68C165D9C2B86C95603B74231EDF8578CAF807C4CCC00D22E32
+        78E5940FD4D7B17C29F084DE16D26E1AFCA7DBEF195A4543911AA83B573DCF24
+        923D71CE327873058654BF776E6E96B7E87AF933C7BC47EFB9B96DAF35FE56BF
+        5B9DD514515E29F587CE7FB64E8F1BE85E1FD6D4289A2B97B262072CAE85C67E
+        86238FF78FAD7CC079041EF5F50FED93AB451F877C3DA3820CF35DB5E100F2AB
+        1C6539FA9978FA1F4AF9789C0CF615EDE06FECB53CFC4FC67DF7F0BEFA4D47E1
+        C7862EA562D2C9A6DBF98C7AB308C063F9834537E16593D87C35F0B5BC8AC244
+        D36DCBA91D18C6091F8124515E2CB97999DCAF63C4FF006C3F0AC865D27C536E
+        84C453EC17447F0904B46C7EB97049FF00647715F3911F5AFD16F1368763E24D
+        0EF348D56212D95DC663917BFA820F6604020F6201AF857E26F80F53F007881F
+        4ED454C96F212F6976AB84B98C771E8C32032F504F70549F57035D38FB37BA39
+        3134DA7CC8FA7BE01FC59B5F1AE8F0695ABDC247E26B68F63AB9C7DAD547FAD5
+        F53819603A1C9C60D7B0035F9AF148F14A92C4ED1CA8C191D090CAC0E4104720
+        83DC57A7F873E3E78E344B7581AF6DB5489176AFF68C3E6301FEFA95663EEC49
+        ACEB601DEF4FEE2A9E256D23ED915C1FC5AF893A5FC3DD0DE7B9749F55950FD8
+        EC437CF2B74048EC80F56F6C0C9C03F366B1FB44F8E350B731432E9BA693C192
+        CED4EEFCE46703F015E5BA8DF5DEA77B2DE6A1733DDDE4A7324D3C85DDCF4E58
+        F278E2A6965F26EF5361CF1297C27B0FFC34CF8CBFE7C3C3BFF80D37FF001EAF
+        4DF809F13FC5DF1175DBD4D4ED3478748B28434B2DB4122B9918E11016908E81
+        89E0F403B835F2FF0084FC39A978AF5AB7D2744B63717B31E9D16351D5DCFF00
+        0A8CF27E8064900FD53E27F2BE06FC186B6D0A39EE35095BCA37822E3ED320C3
+        4F2750A00002839E88BCF26AF134A9412A705EF31529CE5EF3D917347F8D9A3C
+        DF13359F0C6A52436B690CE2DEC6F58E12495401246E4F00EFDC14F438C75C67
+        D7857E6B364E7792C4F524E73F5AEF3C1BF17FC61E14823B6B0D50DC58C63096
+        D7ABE72281C0009F99401D00603DA8AB97E89D3610C4FF0031F768AC5F16F89B
+        4BF09E8B36ABAE5D25B59C5C64FDE76C121107566383803FA1AF94AF3F692F1B
+        4F03471C3A25AB1E92C36AE597E9BE461F98AF33F13F89758F14DFFDB75FD46E
+        2FEE4676995BE5407A8441855071D14015953C04E4FDFD1153C4456C697C4EF1
+        9DD78EFC5775ACDD27951B0115B419CF930AE76AE7B9E4927D58E38C0A8BE1B7
+        85A5F1978C74BD1635631DC4A0DC30E3642BCC873DBE5040F72077AE7EDE196E
+        678A0B68A49A795C471C51A967762701540E4927800726BECBFD9F7E171F0168
+        925F6AEB19F115FA8F3B6E1BECD1F51086EE73CB11C1200E42827BB1156387A7
+        CB1DFA1CF4A0EACAECF595508A15570A06001C0028A7D15E19E88562F8B3C35A
+        578AF47934CD7ACE3BBB3721B6B641461D195872AC3279041E4FA9ADAA3BD24D
+        A7740CF92FC73FB366B3612BCFE10BB4D56D0F2B6D72EB15C2FB6E3846FAE57E
+        95E57A9F80FC53A648C97DE1BD662DA705BEC72327E0EA0A9FC0D7E84628E95D
+        D0C7D48AB3D4E7961E32F23F3C2C3C1BE23BF70B65E1ED66727BC7652903EA76
+        E07E35E93E0CFD9D7C51ABCA926BCD0E8765D4EF6134EC3AFCA8A703D3E66047
+        A1E95F6352629CF30A92D22AC11C3456FA9CA7C3DF00E85E03D31ACF41B62AD2
+        60CF73290D34E4742ED81D39C000019380326BA4BDB482F6D25B6BC822B8B699
+        4C72432A074753C10CA78208EC6A714B5C2E4E4EEF737B24AC8F9ABE227ECD51
+        CF2C979E06BC4801C93A7DEB12A3DA393923B60303CFF1015E2FAE7C32F18E8B
+        2325F786B54F9792F0406E100FF7E3DC3F5AFBF28AEBA58DA90567A98CE8465E
+        47E765BF85B5FB87D96FA16AF2BE71B63B2958E7D3016BB6F0A7C0AF1AEBD223
+        4DA70D26D1BACDA836C2077C4632F9FA803DC57DBB45692CC26D7BA922561A2B
+        73CCFE14FC1DD07E1FEDBB8CB6A5AD90435FCE8014046088D790808CF724E482
+        48E2BD328A5AE194E537CD2776742492B20A28A290C28A28A0028A28A0028A28
+        A0028A28A0028A28A0028A28A0028A28A0028A28A0028A28A0028A28A0028A28
+        A0028A28A0028A28A0028A28A0028A28A0028A28A00FFFD9}
+      mmHeight = 8731
+      mmLeft = 1323
+      mmTop = 1588
+      mmWidth = 8731
+      BandType = 1
+      LayerName = Foreground
+    end
+    object pp_Label8_parametri: TppLabel
+      DesignLayer = ppDesignLayer1
+      UserName = 'Label8_parametri'
+      HyperlinkEnabled = False
+      Border.Weight = 1.000000000000000000
+      Caption = 'STASDA'
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Name = 'Microsoft Sans Serif'
+      Font.Size = 8
+      Font.Style = [fsBold]
+      FormField = False
+      Transparent = True
+      mmHeight = 3440
+      mmLeft = 10848
+      mmTop = 1852
+      mmWidth = 12965
+      BandType = 1
+      LayerName = Foreground
+    end
+    object pp_Label9_parametri: TppLabel
+      DesignLayer = ppDesignLayer1
+      UserName = 'Label9_parametri'
+      HyperlinkEnabled = False
+      Border.Weight = 1.000000000000000000
+      Caption = 'ditta'
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Name = 'Microsoft Sans Serif'
+      Font.Size = 8
+      Font.Style = [fsBold]
+      FormField = False
+      TextAlignment = taCentered
+      Transparent = True
+      mmHeight = 3175
+      mmLeft = 10848
+      mmTop = 6350
+      mmWidth = 5821
+      BandType = 1
+      LayerName = Foreground
+    end
+    object pp_Label12_parametri: TppLabel
+      DesignLayer = ppDesignLayer1
+      UserName = 'Label12_parametri'
+      HyperlinkEnabled = False
+      Border.Weight = 1.000000000000000000
+      Caption = 'DEMO'
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Name = 'Microsoft Sans Serif'
+      Font.Size = 8
+      Font.Style = [fsBold]
+      FormField = False
+      Transparent = True
+      mmHeight = 3440
+      mmLeft = 17198
+      mmTop = 6350
+      mmWidth = 9525
+      BandType = 1
+      LayerName = Foreground
+    end
+    object pp_Label13_parametri: TppLabel
+      DesignLayer = ppDesignLayer1
+      UserName = 'Label13_parametri'
+      HyperlinkEnabled = False
+      Border.Weight = 1.000000000000000000
+      Caption = 'Stampa manifest SDA'
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Name = 'Microsoft Sans Serif'
+      Font.Size = 8
+      Font.Style = [fsBold]
+      FormField = False
+      Transparent = True
+      mmHeight = 3440
+      mmLeft = 30163
+      mmTop = 1852
+      mmWidth = 32279
+      BandType = 1
+      LayerName = Foreground
+    end
+    object pp_Label14_parametri: TppLabel
+      DesignLayer = ppDesignLayer1
+      UserName = 'Label14_parametri'
+      HyperlinkEnabled = False
+      Border.Weight = 1.000000000000000000
+      Caption = 'GESTIONALE OPEN SRL / DEMO'
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Name = 'Microsoft Sans Serif'
+      Font.Size = 8
+      Font.Style = [fsBold]
+      FormField = False
+      Transparent = True
+      mmHeight = 3440
+      mmLeft = 30163
+      mmTop = 6350
+      mmWidth = 51329
+      BandType = 1
+      LayerName = Foreground
+    end
+    object pp_Label15_parametri: TppLabel
+      DesignLayer = ppDesignLayer1
+      UserName = 'Label101'
+      HyperlinkEnabled = False
+      Border.Weight = 1.000000000000000000
+      Caption = 'modello di stampa'
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Name = 'Microsoft Sans Serif'
+      Font.Size = 8
+      Font.Style = []
+      FormField = False
+      Transparent = True
+      mmHeight = 3175
+      mmLeft = 114829
+      mmTop = 1852
+      mmWidth = 22225
+      BandType = 1
+      LayerName = Foreground
+    end
+    object pp_Label16_parametri: TppLabel
+      DesignLayer = ppDesignLayer1
+      UserName = 'Label16_parametri'
+      HyperlinkEnabled = False
+      Border.Weight = 1.000000000000000000
+      Caption = 'ALZANO LOMBARDO'
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Name = 'Microsoft Sans Serif'
+      Font.Size = 8
+      Font.Style = [fsBold]
+      FormField = False
+      Transparent = True
+      mmHeight = 3440
+      mmLeft = 114829
+      mmTop = 6350
+      mmWidth = 32280
+      BandType = 1
+      LayerName = Foreground
+    end
+    object pp_Label17_parametri: TppLabel
+      DesignLayer = ppDesignLayer1
+      UserName = 'Label17_parametri'
+      HyperlinkEnabled = False
+      Border.Weight = 1.000000000000000000
+      Caption = 'STANDARD'
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Name = 'Microsoft Sans Serif'
+      Font.Size = 8
+      Font.Style = [fsBold]
+      FormField = False
+      Transparent = True
+      mmHeight = 3440
+      mmLeft = 139436
+      mmTop = 1852
+      mmWidth = 17991
+      BandType = 1
+      LayerName = Foreground
+    end
+    object pp_SystemVariable3_parametri: TppSystemVariable
+      DesignLayer = ppDesignLayer1
+      UserName = 'SystemVariable2'
+      HyperlinkEnabled = False
+      Border.Weight = 1.000000000000000000
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Name = 'Microsoft Sans Serif'
+      Font.Size = 8
+      Font.Style = [fsBold]
+      Transparent = True
+      mmHeight = 3175
+      mmLeft = 181240
+      mmTop = 6350
+      mmWidth = 13758
+      BandType = 1
+      LayerName = Foreground
+    end
+    object pp_copia_schermo: TppImage
+      DesignLayer = ppDesignLayer1
+      UserName = 'Image2'
+      AlignHorizontal = ahCenter
+      AlignVertical = avCenter
+      MaintainAspectRatio = False
+      Stretch = True
+      Border.Weight = 1.000000000000000000
+      mmHeight = 3969
+      mmLeft = 1852
+      mmTop = 24077
+      mmWidth = 194998
+      BandType = 1
+      LayerName = Foreground
+    end
+  end
+  object ppHeaderBand1: TppHeaderBand
+    Visible = False
+    Background.Brush.Style = bsClear
+    mmBottomOffset = 0
+    mmHeight = 17992
+    mmPrintPosition = 0
+    object pp_Image1: TppImage
+      DesignLayer = ppDesignLayer1
+      UserName = 'Image1'
+      AlignHorizontal = ahCenter
+      AlignVertical = avCenter
+      MaintainAspectRatio = False
+      Stretch = True
+      Transparent = True
+      Border.Weight = 1.000000000000000000
+      Picture.Data = {
+        0C544A70656747726170686963FFD8FFE000104A464946000101010060006000
+        00FFDB00430006040506050406060506070706080A100A0A09090A140E0F0C10
+        17141818171416161A1D251F1A1B231C1616202C20232627292A29191F2D302D
+        283025282928FFDB0043010707070A080A130A0A13281A161A28282828282828
+        2828282828282828282828282828282828282828282828282828282828282828
+        2828282828282828282828FFC00011080073007303012200021101031101FFC4
+        001F0000010501010101010100000000000000000102030405060708090A0BFF
+        C400B5100002010303020403050504040000017D010203000411051221314106
+        13516107227114328191A1082342B1C11552D1F02433627282090A161718191A
+        25262728292A3435363738393A434445464748494A535455565758595A636465
+        666768696A737475767778797A838485868788898A92939495969798999AA2A3
+        A4A5A6A7A8A9AAB2B3B4B5B6B7B8B9BAC2C3C4C5C6C7C8C9CAD2D3D4D5D6D7D8
+        D9DAE1E2E3E4E5E6E7E8E9EAF1F2F3F4F5F6F7F8F9FAFFC4001F010003010101
+        0101010101010000000000000102030405060708090A0BFFC400B51100020102
+        0404030407050404000102770001020311040521310612415107617113223281
+        08144291A1B1C109233352F0156272D10A162434E125F11718191A262728292A
+        35363738393A434445464748494A535455565758595A636465666768696A7374
+        75767778797A82838485868788898A92939495969798999AA2A3A4A5A6A7A8A9
+        AAB2B3B4B5B6B7B8B9BAC2C3C4C5C6C7C8C9CAD2D3D4D5D6D7D8D9DAE2E3E4E5
+        E6E7E8E9EAF2F3F4F5F6F7F8F9FAFFDA000C03010002110311003F00FAA68A28
+        A0028A28A0028A28A0028A28A0028A28A0028A28A0028A28A0028A28A0028A05
+        6578935ED33C37A54DA96B7790D9D8C43E69643DFB00072C4F600127B516BEC2
+        3569335F2C78EBF697BD9E592DFC19A7C7696E381797ABBE56F758C1DABFF022
+        D91D81AF2BD53E27F8D35398C973E29D5D58F516F70D6EBFF7CC7B47E95D90C0
+        D592BBD0C65888C7CCFBF28AFCFDB2F88FE30B394490F8AB5C2C39025BD9255F
+        FBE5C907F2AF48F067ED25E20D3E58E2F145B41AC5A67E69A25586E07B8C611B
+        03B6173EB4E780AB15756628E222FC8FAE696B9AF0378D344F1B6942FF0040BC
+        59D170258986D96163FC2EBD41EBCF438E091CD6FDC4D1DB4124D7122450C6A5
+        DE4760AA8A392493C00077AE269C5D99BA77D512D15F3C7C45FDA4AC74D9E5B2
+        F0559C7A94C8706FAE722007FD8418671D79CA8EE370AF16D77E2FF8E35972D7
+        1E22BD8173C259116E17DB31804FE249AEAA782AB357DBD4CA75E31F33EF0A0E
+        7D6BF3E61F881E2E89C3A78ABC4191CFCDA8CCC3F22C4576DE14FDA13C63A34A
+        83539E0D6AD0101A3BA8C2498FF66440307DD837D2B49602A2574D3256222CFB
+        4296BCF7E17FC57F0FFC4187CAB091AD35545DD2D85C102403BB21E8EB9EE391
+        C640C8AF41AE2946517692B3374D35742D1499F7A290CCFD7F58B2D0747BBD53
+        549960B2B48CCB2C8DD80EC07727A003924803935F0B7C54F883A97C40D79EF6
+        F19A1B08895B3B3CFCB027A9EC5CF76FC070001EC3FB60F8B5E35D2BC2B6D232
+        A3AFDBAF00E370C95894FA8C87623D421AF9B49C658F4AF57034128FB47BBD8E
+        2C45477E5428EA00C924E00F535E89E1DF825E38D72049E2D15ACE07E8F7D208
+        4FFDF07E71F8AD7BDFC00F8436BE12D2EDF5CD7ED966F125C2075591722C548E
+        1541E9263EF3751CA8E325BDA7BD4D6C7B4F969FDE3A78656BC8F89759F809E3
+        AD32169574C86FE35196FB1DC2B301FEEB6D27E80135E6B776D359DCCB6D770C
+        B6F731314922990A3A30EA194E083EC6BF4900F5AF3AF8C5F0B74DF885A3BB04
+        8ADB5D82322D2F718391C84908E4A13F523248EE0CD2CC257B545A0E7864D5E2
+        7897EC91E13BDBBF115CF8984F3DB69B62AD6DB637DA2EA465E5187755055B1F
+        DE298E86B2BF684F8B1378B7519B42D0EE36F86AD64DAEF1B7FC7F48A7EF123A
+        C608F9474246E39F976FBADC782B59D13E09C3E16F09A409ACC96AB04D2BCBB1
+        55A4E6770D827272E077191E95E0DFF0CE7E37030134AC7FD7D1FF00E26AA954
+        A73AAEACDAD36FF309C6518A8C57A9E43D05763E0FF861E2DF1640973A368D3B
+        593F2B753110C4C3D559C8DC3FDDCD7B57C21FD9F1F4BD59F52F1E476774B011
+        F66B18DFCC8DDBA979320640E8179079CF6AFA3800063181555F1EA2F969EBE6
+        4D3C37591F175EFECF3E3AB787CC8ACEC2E9BFE79C376A1BFF001FDA3F5AF37D
+        7744D4F40BF6B2D66C6E6C2EC0CF97711942467195CF0C33DC647BD7E8D75AE7
+        BC6FE10D23C69A2CBA66BD6AB3C0C32920C09217ECF1B7F0B0FC8F4208241C69
+        E6134FDF5745CB0C9ECCFCFDB2BBB8B1BC86EACA796DEEA0712452C4C55D1874
+        208E95F687C04F89C9F103407835168D3C4160156E9146D1329E92A8F43D081D
+        0FA022BE4CF88DE0FBDF03F8A6EF45BF3E618F1241385DA2789B3B5C0EDD0823
+        9C10464E33537C2DF1649E0AF1AE99AC0765B78E4115D819F9A062048081D703
+        E603D54576622947114F9A3BF431A5374E5CACFD00C514039008E47AD15E21E8
+        1F0D7ED177A6FBE2EF8818B1290BC502027EE8589011FF007D6E3F8D67FC12D1
+        E2D77E287872C6E40309B9F3DD48C86112B4BB48EE0ECC7E357BF68AB36B2F8B
+        BE22520859648A6527B8689093F9E47E154FE06EAD168BF14FC3777704088DC9
+        B7627A0F351A204FA005C1FC2BDD5FEEFA7F2FE879CFF8BAF73EF4ED45145784
+        7A255D42F22B0B1B8BBB93B60823696423B2A8C9FE55E01AA7C54F11DD5E4925
+        95CA58C04FC90A448F81DB2CCA727D7A0F615EFDA9D945A969F736771930DC44
+        D1498383B581071F81AF9E757F86BE22B1BC78A2B26BC841F92785970E3E84E4
+        1F6FD4F5AF4F2E541B97B5B5FA5CF9FCF5E2D461F57BDB5BF2DEFE5B6B61BFF0
+        B33C59FF004173FF0080D0FF00F1147FC2CCF15FFD05CFFE03C3FF00C4555FF8
+        40FC4BFF00407B9FCD7FC68FF840FC4BFF00408B9FCD7FC6BD5B60FF00BBF81F
+        39CF99779FFE4C5BFF008599E2CCF3AB13FF006EF0FF00F115EB9F0BBC5F278A
+        F4A9FED68897F68C165D9C2B86C95603B74231EDF8578CAF807C4CCC00D22E32
+        78E5940FD4D7B17C29F084DE16D26E1AFCA7DBEF195A4543911AA83B573DCF24
+        923D71CE327873058654BF776E6E96B7E87AF933C7BC47EFB9B96DAF35FE56BF
+        5B9DD514515E29F587CE7FB64E8F1BE85E1FD6D4289A2B97B262072CAE85C67E
+        86238FF78FAD7CC079041EF5F50FED93AB451F877C3DA3820CF35DB5E100F2AB
+        1C6539FA9978FA1F4AF9789C0CF615EDE06FECB53CFC4FC67DF7F0BEFA4D47E1
+        C7862EA562D2C9A6DBF98C7AB308C063F9834537E16593D87C35F0B5BC8AC244
+        D36DCBA91D18C6091F8124515E2CB97999DCAF63C4FF006C3F0AC865D27C536E
+        84C453EC17447F0904B46C7EB97049FF00647715F3911F5AFD16F1368763E24D
+        0EF348D56212D95DC663917BFA820F6604020F6201AF857E26F80F53F007881F
+        4ED454C96F212F6976AB84B98C771E8C32032F504F70549F57035D38FB37BA39
+        3134DA7CC8FA7BE01FC59B5F1AE8F0695ABDC247E26B68F63AB9C7DAD547FAD5
+        F53819603A1C9C60D7B0035F9AF148F14A92C4ED1CA8C191D090CAC0E4104720
+        83DC57A7F873E3E78E344B7581AF6DB5489176AFF68C3E6301FEFA95663EEC49
+        ACEB601DEF4FEE2A9E256D23ED915C1FC5AF893A5FC3DD0DE7B9749F55950FD8
+        EC437CF2B74048EC80F56F6C0C9C03F366B1FB44F8E350B731432E9BA693C192
+        CED4EEFCE46703F015E5BA8DF5DEA77B2DE6A1733DDDE4A7324D3C85DDCF4E58
+        F278E2A6965F26EF5361CF1297C27B0FFC34CF8CBFE7C3C3BFF80D37FF001EAF
+        4DF809F13FC5DF1175DBD4D4ED3478748B28434B2DB4122B9918E11016908E81
+        89E0F403B835F2FF0084FC39A978AF5AB7D2744B63717B31E9D16351D5DCFF00
+        0A8CF27E8064900FD53E27F2BE06FC186B6D0A39EE35095BCA37822E3ED320C3
+        4F2750A00002839E88BCF26AF134A9412A705EF31529CE5EF3D917347F8D9A3C
+        DF13359F0C6A52436B690CE2DEC6F58E12495401246E4F00EFDC14F438C75C67
+        D7857E6B364E7792C4F524E73F5AEF3C1BF17FC61E14823B6B0D50DC58C63096
+        D7ABE72281C0009F99401D00603DA8AB97E89D3610C4FF0031F768AC5F16F89B
+        4BF09E8B36ABAE5D25B59C5C64FDE76C121107566383803FA1AF94AF3F692F1B
+        4F03471C3A25AB1E92C36AE597E9BE461F98AF33F13F89758F14DFFDB75FD46E
+        2FEE4676995BE5407A8441855071D14015953C04E4FDFD1153C4456C697C4EF1
+        9DD78EFC5775ACDD27951B0115B419CF930AE76AE7B9E4927D58E38C0A8BE1B7
+        85A5F1978C74BD1635631DC4A0DC30E3642BCC873DBE5040F72077AE7EDE196E
+        678A0B68A49A795C471C51A967762701540E4927800726BECBFD9F7E171F0168
+        925F6AEB19F115FA8F3B6E1BECD1F51086EE73CB11C1200E42827BB1156387A7
+        CB1DFA1CF4A0EACAECF595508A15570A06001C0028A7D15E19E88562F8B3C35A
+        578AF47934CD7ACE3BBB3721B6B641461D195872AC3279041E4FA9ADAA3BD24D
+        A7740CF92FC73FB366B3612BCFE10BB4D56D0F2B6D72EB15C2FB6E3846FAE57E
+        95E57A9F80FC53A648C97DE1BD662DA705BEC72327E0EA0A9FC0D7E84628E95D
+        D0C7D48AB3D4E7961E32F23F3C2C3C1BE23BF70B65E1ED66727BC7652903EA76
+        E07E35E93E0CFD9D7C51ABCA926BCD0E8765D4EF6134EC3AFCA8A703D3E66047
+        A1E95F6352629CF30A92D22AC11C3456FA9CA7C3DF00E85E03D31ACF41B62AD2
+        60CF73290D34E4742ED81D39C000019380326BA4BDB482F6D25B6BC822B8B699
+        4C72432A074753C10CA78208EC6A714B5C2E4E4EEF737B24AC8F9ABE227ECD51
+        CF2C979E06BC4801C93A7DEB12A3DA393923B60303CFF1015E2FAE7C32F18E8B
+        2325F786B54F9792F0406E100FF7E3DC3F5AFBF28AEBA58DA90567A98CE8465E
+        47E765BF85B5FB87D96FA16AF2BE71B63B2958E7D3016BB6F0A7C0AF1AEBD223
+        4DA70D26D1BACDA836C2077C4632F9FA803DC57DBB45692CC26D7BA922561A2B
+        73CCFE14FC1DD07E1FEDBB8CB6A5AD90435FCE8014046088D790808CF724E482
+        48E2BD328A5AE194E537CD2776742492B20A28A290C28A28A0028A28A0028A28
+        A0028A28A0028A28A0028A28A0028A28A0028A28A0028A28A0028A28A0028A28
+        A0028A28A0028A28A0028A28A0028A28A0028A28A00FFFD9}
+      mmHeight = 8731
+      mmLeft = 1323
+      mmTop = 1323
+      mmWidth = 8731
+      BandType = 0
+      LayerName = Foreground
+    end
+    object pp_Label1: TppLabel
+      DesignLayer = ppDesignLayer1
+      UserName = 'Label1'
+      HyperlinkEnabled = False
+      Border.Weight = 1.000000000000000000
+      Caption = 'STASDA'
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Name = 'Microsoft Sans Serif'
+      Font.Size = 8
+      Font.Style = [fsBold]
+      FormField = False
+      Transparent = True
+      mmHeight = 3439
+      mmLeft = 10848
+      mmTop = 1588
+      mmWidth = 12965
+      BandType = 0
+      LayerName = Foreground
+    end
+    object pp_Label19: TppLabel
+      DesignLayer = ppDesignLayer1
+      UserName = 'Label19'
+      HyperlinkEnabled = False
+      Border.Weight = 1.000000000000000000
+      Caption = 'ditta'
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Name = 'Microsoft Sans Serif'
+      Font.Size = 8
+      Font.Style = [fsBold]
+      FormField = False
+      TextAlignment = taCentered
+      Transparent = True
+      mmHeight = 3175
+      mmLeft = 10848
+      mmTop = 6085
+      mmWidth = 5821
+      BandType = 0
+      LayerName = Foreground
+    end
+    object pp_Label4: TppLabel
+      DesignLayer = ppDesignLayer1
+      UserName = 'Label4'
+      HyperlinkEnabled = False
+      Border.Weight = 1.000000000000000000
+      Caption = 'DEMO'
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Name = 'Microsoft Sans Serif'
+      Font.Size = 8
+      Font.Style = [fsBold]
+      FormField = False
+      Transparent = True
+      mmHeight = 3440
+      mmLeft = 17198
+      mmTop = 6085
+      mmWidth = 9525
+      BandType = 0
+      LayerName = Foreground
+    end
+    object pp_Label2: TppLabel
+      DesignLayer = ppDesignLayer1
+      UserName = 'Label2'
+      HyperlinkEnabled = False
+      Border.Weight = 1.000000000000000000
+      Caption = 'Stampa manifest SDA'
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Name = 'Microsoft Sans Serif'
+      Font.Size = 8
+      Font.Style = [fsBold]
+      FormField = False
+      Transparent = True
+      mmHeight = 3439
+      mmLeft = 30163
+      mmTop = 1588
+      mmWidth = 32279
+      BandType = 0
+      LayerName = Foreground
+    end
+    object pp_Label5: TppLabel
+      DesignLayer = ppDesignLayer1
+      UserName = 'Label5'
+      HyperlinkEnabled = False
+      Border.Weight = 1.000000000000000000
+      Caption = 'GESTIONALE OPEN SRL / DEMO'
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Name = 'Microsoft Sans Serif'
+      Font.Size = 8
+      Font.Style = [fsBold]
+      FormField = False
+      Transparent = True
+      mmHeight = 3440
+      mmLeft = 30163
+      mmTop = 6085
+      mmWidth = 51329
+      BandType = 0
+      LayerName = Foreground
+    end
+    object pp_Label10: TppLabel
+      DesignLayer = ppDesignLayer1
+      UserName = 'Label10'
+      HyperlinkEnabled = False
+      Border.Weight = 1.000000000000000000
+      Caption = 'modello di stampa'
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Name = 'Microsoft Sans Serif'
+      Font.Size = 8
+      Font.Style = []
+      FormField = False
+      Transparent = True
+      mmHeight = 3175
+      mmLeft = 114829
+      mmTop = 1588
+      mmWidth = 22225
+      BandType = 0
+      LayerName = Foreground
+    end
+    object pp_Label6: TppLabel
+      DesignLayer = ppDesignLayer1
+      UserName = 'Label6'
+      HyperlinkEnabled = False
+      Border.Weight = 1.000000000000000000
+      Caption = 'ALZANO LOMBARDO'
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Name = 'Microsoft Sans Serif'
+      Font.Size = 8
+      Font.Style = [fsBold]
+      FormField = False
+      Transparent = True
+      mmHeight = 3440
+      mmLeft = 114829
+      mmTop = 6085
+      mmWidth = 32280
+      BandType = 0
+      LayerName = Foreground
+    end
+    object pp_Label3: TppLabel
+      DesignLayer = ppDesignLayer1
+      UserName = 'Label3'
+      HyperlinkEnabled = False
+      Border.Weight = 1.000000000000000000
+      Caption = 'STANDARD'
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Name = 'Microsoft Sans Serif'
+      Font.Size = 8
+      Font.Style = [fsBold]
+      FormField = False
+      Transparent = True
+      mmHeight = 3439
+      mmLeft = 139436
+      mmTop = 1588
+      mmWidth = 17991
+      BandType = 0
+      LayerName = Foreground
+    end
+    object pp_SystemVariable1: TppSystemVariable
+      DesignLayer = ppDesignLayer1
+      UserName = 'SystemVariable1'
+      HyperlinkEnabled = False
+      Border.Weight = 1.000000000000000000
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Name = 'Microsoft Sans Serif'
+      Font.Size = 8
+      Font.Style = [fsBold]
+      Transparent = True
+      mmHeight = 3175
+      mmLeft = 181240
+      mmTop = 6085
+      mmWidth = 13758
+      BandType = 0
+      LayerName = Foreground
+    end
+    object pp_Shape3: TppShape
+      DesignLayer = ppDesignLayer1
+      UserName = 'Shape3'
+      mmHeight = 6085
+      mmLeft = 1323
+      mmTop = 11377
+      mmWidth = 196586
+      BandType = 0
+      LayerName = Foreground
+    end
+    object pp_Shape1: TppShape
+      DesignLayer = ppDesignLayer1
+      UserName = 'Shape1'
+      mmHeight = 10054
+      mmLeft = 794
+      mmTop = 794
+      mmWidth = 196586
+      BandType = 0
+      LayerName = Foreground
+    end
+  end
+  object ppColumnHeaderBand1: TppColumnHeaderBand
+    Background.Brush.Style = bsClear
+    mmBottomOffset = 0
+    mmHeight = 0
+    mmPrintPosition = 0
+  end
+  object ppDetailBand1: TppDetailBand
+    BeforePrint = ppDetailBand1BeforePrint
+    Background1.Brush.Style = bsClear
+    Background2.Brush.Style = bsClear
+    PrintHeight = phDynamic
+    mmBottomOffset = 0
+    mmHeight = 58208
+    mmPrintPosition = 0
+    object pp_mit_descrizione2: TppDBText
+      DesignLayer = ppDesignLayer1
+      UserName = '_mit_descrizione2'
+      HyperlinkEnabled = False
+      Border.Weight = 1.000000000000000000
+      DataField = 'mit_descrizione2'
+      DataPipeline = ppDBTabella
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clBlack
+      Font.Name = 'Arial'
+      Font.Size = 7
+      Font.Style = []
+      Transparent = True
+      DataPipelineName = 'ppDBTabella'
+      mmHeight = 2910
+      mmLeft = 119063
+      mmTop = 15610
+      mmWidth = 77523
+      BandType = 4
+      LayerName = Foreground
+    end
+    object ppDBBarCode3: TppDBBarCode
+      DesignLayer = ppDesignLayer1
+      UserName = 'DBBarCode3'
+      AlignBarCode = ahLeft
+      AutoEncode = True
+      AutoSizeFont = False
+      BarCodeType = bcCode128
+      BarColor = clWindowText
+      Border.Weight = 1.000000000000000000
+      DataField = 'numero_ldv2'
+      DataPipeline = ppDBTabella
+      Alignment = taCenter
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Name = 'Courier New'
+      Font.Size = 9
+      Font.Style = []
+      Transparent = True
+      DataPipelineName = 'ppDBTabella'
+      mmHeight = 11113
+      mmLeft = 101865
+      mmTop = 3175
+      mmWidth = 23813
+      BandType = 4
+      LayerName = Foreground
+      mmBarWidth = 254
+      mmWideBarRatio = 76200
+    end
+    object pp_label_01: TppLabel
+      DesignLayer = ppDesignLayer1
+      UserName = 'Label23'
+      HyperlinkEnabled = False
+      Border.Weight = 1.000000000000000000
+      Caption = 'Mittente:'
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clBlack
+      Font.Name = 'Arial'
+      Font.Size = 7
+      Font.Style = []
+      FormField = False
+      Transparent = True
+      Visible = False
+      mmHeight = 2910
+      mmLeft = 101865
+      mmTop = 15610
+      mmWidth = 9260
+      BandType = 4
+      LayerName = Foreground
+    end
+    object ppDBText14: TppDBText
+      DesignLayer = ppDesignLayer1
+      UserName = 'DBText14'
+      HyperlinkEnabled = False
+      Border.Weight = 1.000000000000000000
+      DataField = 'mit_riferimento2'
+      DataPipeline = ppDBTabella
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clBlack
+      Font.Name = 'Arial'
+      Font.Size = 7
+      Font.Style = []
+      Transparent = True
+      DataPipelineName = 'ppDBTabella'
+      mmHeight = 2910
+      mmLeft = 119063
+      mmTop = 19315
+      mmWidth = 77523
+      BandType = 4
+      LayerName = Foreground
+    end
+    object pp_label_02: TppLabel
+      DesignLayer = ppDesignLayer1
+      UserName = 'Label24'
+      HyperlinkEnabled = False
+      Border.Weight = 1.000000000000000000
+      Caption = 'Riferimento:'
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clBlack
+      Font.Name = 'Arial'
+      Font.Size = 7
+      Font.Style = []
+      FormField = False
+      Transparent = True
+      Visible = False
+      mmHeight = 2910
+      mmLeft = 101865
+      mmTop = 19315
+      mmWidth = 13229
+      BandType = 4
+      LayerName = Foreground
+    end
+    object pp_label_03: TppLabel
+      DesignLayer = ppDesignLayer1
+      UserName = 'Label25'
+      HyperlinkEnabled = False
+      Border.Weight = 1.000000000000000000
+      Caption = 'Destinatario:'
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clBlack
+      Font.Name = 'Arial'
+      Font.Size = 7
+      Font.Style = []
+      FormField = False
+      Transparent = True
+      Visible = False
+      mmHeight = 2910
+      mmLeft = 101865
+      mmTop = 23019
+      mmWidth = 13758
+      BandType = 4
+      LayerName = Foreground
+    end
+    object ppDBText15: TppDBText
+      DesignLayer = ppDesignLayer1
+      UserName = 'DBText15'
+      HyperlinkEnabled = False
+      Border.Weight = 1.000000000000000000
+      DataField = 'cli_descrizione2'
+      DataPipeline = ppDBTabella
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clBlack
+      Font.Name = 'Arial'
+      Font.Size = 7
+      Font.Style = []
+      Transparent = True
+      DataPipelineName = 'ppDBTabella'
+      mmHeight = 2910
+      mmLeft = 119063
+      mmTop = 23019
+      mmWidth = 77523
+      BandType = 4
+      LayerName = Foreground
+    end
+    object ppDBText16: TppDBText
+      DesignLayer = ppDesignLayer1
+      UserName = 'DBText16'
+      HyperlinkEnabled = False
+      Border.Weight = 1.000000000000000000
+      DataField = 'cli_riferimento2'
+      DataPipeline = ppDBTabella
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clBlack
+      Font.Name = 'Arial'
+      Font.Size = 7
+      Font.Style = []
+      Transparent = True
+      DataPipelineName = 'ppDBTabella'
+      mmHeight = 2910
+      mmLeft = 119063
+      mmTop = 26723
+      mmWidth = 77523
+      BandType = 4
+      LayerName = Foreground
+    end
+    object pp_label_04: TppLabel
+      DesignLayer = ppDesignLayer1
+      UserName = 'Label26'
+      HyperlinkEnabled = False
+      Border.Weight = 1.000000000000000000
+      Caption = 'Riferimento:'
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clBlack
+      Font.Name = 'Arial'
+      Font.Size = 7
+      Font.Style = []
+      FormField = False
+      Transparent = True
+      Visible = False
+      mmHeight = 2910
+      mmLeft = 101865
+      mmTop = 26723
+      mmWidth = 13229
+      BandType = 4
+      LayerName = Foreground
+    end
+    object pp_label_05: TppLabel
+      DesignLayer = ppDesignLayer1
+      UserName = 'Label27'
+      HyperlinkEnabled = False
+      Border.Weight = 1.000000000000000000
+      Caption = 'Indirizzo:'
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clBlack
+      Font.Name = 'Arial'
+      Font.Size = 7
+      Font.Style = []
+      FormField = False
+      Transparent = True
+      Visible = False
+      mmHeight = 2910
+      mmLeft = 101865
+      mmTop = 30427
+      mmWidth = 9525
+      BandType = 4
+      LayerName = Foreground
+    end
+    object ppDBText17: TppDBText
+      DesignLayer = ppDesignLayer1
+      UserName = 'DBText17'
+      HyperlinkEnabled = False
+      Border.Weight = 1.000000000000000000
+      DataField = 'cli_via2'
+      DataPipeline = ppDBTabella
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clBlack
+      Font.Name = 'Arial'
+      Font.Size = 7
+      Font.Style = []
+      Transparent = True
+      DataPipelineName = 'ppDBTabella'
+      mmHeight = 2910
+      mmLeft = 119063
+      mmTop = 30427
+      mmWidth = 77523
+      BandType = 4
+      LayerName = Foreground
+    end
+    object ppDBText18: TppDBText
+      DesignLayer = ppDesignLayer1
+      UserName = 'DBText18'
+      HyperlinkEnabled = False
+      Border.Weight = 1.000000000000000000
+      DataField = 'cli_cap2'
+      DataPipeline = ppDBTabella
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clBlack
+      Font.Name = 'Arial'
+      Font.Size = 7
+      Font.Style = []
+      Transparent = True
+      DataPipelineName = 'ppDBTabella'
+      mmHeight = 2910
+      mmLeft = 119063
+      mmTop = 34131
+      mmWidth = 77523
+      BandType = 4
+      LayerName = Foreground
+    end
+    object ppDBText19: TppDBText
+      DesignLayer = ppDesignLayer1
+      UserName = 'DBText19'
+      HyperlinkEnabled = False
+      Border.Weight = 1.000000000000000000
+      DataField = 'numero_documento2'
+      DataPipeline = ppDBTabella
+      DisplayFormat = '#'
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clBlack
+      Font.Name = 'Arial'
+      Font.Size = 7
+      Font.Style = []
+      Transparent = True
+      DataPipelineName = 'ppDBTabella'
+      mmHeight = 2910
+      mmLeft = 119327
+      mmTop = 37835
+      mmWidth = 10054
+      BandType = 4
+      LayerName = Foreground
+    end
+    object ppDBText20: TppDBText
+      DesignLayer = ppDesignLayer1
+      UserName = 'DBText20'
+      HyperlinkEnabled = False
+      Border.Weight = 1.000000000000000000
+      DataField = 'numero_colli2'
+      DataPipeline = ppDBTabella
+      DisplayFormat = '#'
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clBlack
+      Font.Name = 'Arial'
+      Font.Size = 7
+      Font.Style = []
+      TextAlignment = taRightJustified
+      Transparent = True
+      DataPipelineName = 'ppDBTabella'
+      mmHeight = 2921
+      mmLeft = 139436
+      mmTop = 37835
+      mmWidth = 8202
+      BandType = 4
+      LayerName = Foreground
+    end
+    object pp_label_09: TppLabel
+      DesignLayer = ppDesignLayer1
+      UserName = 'Label29'
+      HyperlinkEnabled = False
+      Border.Weight = 1.000000000000000000
+      Caption = 'N colli:'
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clBlack
+      Font.Name = 'Arial'
+      Font.Size = 7
+      Font.Style = []
+      FormField = False
+      Transparent = True
+      Visible = False
+      mmHeight = 2910
+      mmLeft = 130175
+      mmTop = 37835
+      mmWidth = 7408
+      BandType = 4
+      LayerName = Foreground
+    end
+    object ppDBText21: TppDBText
+      DesignLayer = ppDesignLayer1
+      UserName = 'DBText21'
+      HyperlinkEnabled = False
+      Border.Weight = 1.000000000000000000
+      DataField = 'numero_totale2'
+      DataPipeline = ppDBTabella
+      DisplayFormat = '#'
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clBlack
+      Font.Name = 'Arial'
+      Font.Size = 7
+      Font.Style = []
+      Transparent = True
+      DataPipelineName = 'ppDBTabella'
+      mmHeight = 2910
+      mmLeft = 152136
+      mmTop = 37835
+      mmWidth = 6350
+      BandType = 4
+      LayerName = Foreground
+    end
+    object pp_label_10: TppLabel
+      DesignLayer = ppDesignLayer1
+      UserName = 'Label30'
+      HyperlinkEnabled = False
+      Border.Weight = 1.000000000000000000
+      Caption = '/'
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clBlack
+      Font.Name = 'Arial'
+      Font.Size = 7
+      Font.Style = []
+      FormField = False
+      TextAlignment = taRightJustified
+      Transparent = True
+      Visible = False
+      mmHeight = 2910
+      mmLeft = 149225
+      mmTop = 37835
+      mmWidth = 794
+      BandType = 4
+      LayerName = Foreground
+    end
+    object pp_label_11: TppLabel
+      DesignLayer = ppDesignLayer1
+      UserName = 'Label31'
+      HyperlinkEnabled = False
+      Border.Weight = 1.000000000000000000
+      Caption = 'Peso:'
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clBlack
+      Font.Name = 'Arial'
+      Font.Size = 7
+      Font.Style = []
+      FormField = False
+      Transparent = True
+      Visible = False
+      mmHeight = 2910
+      mmLeft = 160602
+      mmTop = 37835
+      mmWidth = 6350
+      BandType = 4
+      LayerName = Foreground
+    end
+    object ppDBText22: TppDBText
+      DesignLayer = ppDesignLayer1
+      UserName = 'DBText101'
+      HyperlinkEnabled = False
+      Border.Weight = 1.000000000000000000
+      DataField = 'peso2'
+      DataPipeline = ppDBTabella
+      DisplayFormat = '#'
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clBlack
+      Font.Name = 'Arial'
+      Font.Size = 7
+      Font.Style = []
+      Transparent = True
+      DataPipelineName = 'ppDBTabella'
+      mmHeight = 2921
+      mmLeft = 168540
+      mmTop = 37835
+      mmWidth = 8202
+      BandType = 4
+      LayerName = Foreground
+    end
+    object pp_label_07: TppLabel
+      DesignLayer = ppDesignLayer1
+      UserName = 'Label32'
+      HyperlinkEnabled = False
+      Border.Weight = 1.000000000000000000
+      Caption = 'Dimensioni:'
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clBlack
+      Font.Name = 'Arial'
+      Font.Size = 7
+      Font.Style = []
+      FormField = False
+      Transparent = True
+      Visible = False
+      mmHeight = 2910
+      mmLeft = 101865
+      mmTop = 41540
+      mmWidth = 12700
+      BandType = 4
+      LayerName = Foreground
+    end
+    object pp_label_08: TppLabel
+      DesignLayer = ppDesignLayer1
+      UserName = 'Label33'
+      HyperlinkEnabled = False
+      Border.Weight = 1.000000000000000000
+      Caption = 'Contrassegno:'
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clBlack
+      Font.Name = 'Arial'
+      Font.Size = 7
+      Font.Style = []
+      FormField = False
+      Transparent = True
+      Visible = False
+      mmHeight = 2910
+      mmLeft = 101865
+      mmTop = 45244
+      mmWidth = 15875
+      BandType = 4
+      LayerName = Foreground
+    end
+    object ppDBText23: TppDBText
+      DesignLayer = ppDesignLayer1
+      UserName = 'DBText23'
+      HyperlinkEnabled = False
+      Border.Weight = 1.000000000000000000
+      DataField = 'importo2'
+      DataPipeline = ppDBTabella
+      DisplayFormat = ',0.00;-,0.00;#'
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clBlack
+      Font.Name = 'Arial'
+      Font.Size = 7
+      Font.Style = []
+      Transparent = True
+      DataPipelineName = 'ppDBTabella'
+      mmHeight = 2910
+      mmLeft = 119063
+      mmTop = 45244
+      mmWidth = 25135
+      BandType = 4
+      LayerName = Foreground
+    end
+    object ppDBText24: TppDBText
+      DesignLayer = ppDesignLayer1
+      UserName = 'DBText24'
+      HyperlinkEnabled = False
+      Border.Weight = 1.000000000000000000
+      DataField = 'dimensioni2'
+      DataPipeline = ppDBTabella
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clBlack
+      Font.Name = 'Arial'
+      Font.Size = 7
+      Font.Style = []
+      Transparent = True
+      DataPipelineName = 'ppDBTabella'
+      mmHeight = 2910
+      mmLeft = 119063
+      mmTop = 41540
+      mmWidth = 25929
+      BandType = 4
+      LayerName = Foreground
+    end
+    object pp_label_06: TppLabel
+      DesignLayer = ppDesignLayer1
+      UserName = 'Label28'
+      HyperlinkEnabled = False
+      Border.Weight = 1.000000000000000000
+      Caption = 'Numero doc.:'
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clBlack
+      Font.Name = 'Arial'
+      Font.Size = 7
+      Font.Style = []
+      FormField = False
+      Transparent = True
+      Visible = False
+      mmHeight = 2879
+      mmLeft = 101865
+      mmTop = 37835
+      mmWidth = 14690
+      BandType = 4
+      LayerName = Foreground
+    end
+    object ppDBText1: TppDBText
+      DesignLayer = ppDesignLayer1
+      UserName = 'DBText1'
+      HyperlinkEnabled = False
+      Border.Weight = 1.000000000000000000
+      DataField = 'mit_descrizione1'
+      DataPipeline = ppDBTabella
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clBlack
+      Font.Name = 'Arial'
+      Font.Size = 7
+      Font.Style = []
+      Transparent = True
+      DataPipelineName = 'ppDBTabella'
+      mmHeight = 2910
+      mmLeft = 19579
+      mmTop = 15610
+      mmWidth = 77523
+      BandType = 4
+      LayerName = Foreground
+    end
+    object ppDBBarCode1: TppDBBarCode
+      DesignLayer = ppDesignLayer1
+      UserName = 'DBBarCode1'
+      AlignBarCode = ahLeft
+      AutoEncode = True
+      AutoSizeFont = False
+      BarCodeType = bcCode128
+      BarColor = clWindowText
+      Border.Weight = 1.000000000000000000
+      DataField = 'numero_ldv1'
+      DataPipeline = ppDBTabella
+      Alignment = taCenter
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Name = 'Courier New'
+      Font.Size = 9
+      Font.Style = []
+      Transparent = True
+      DataPipelineName = 'ppDBTabella'
+      mmHeight = 11113
+      mmLeft = 2381
+      mmTop = 3175
+      mmWidth = 23813
+      BandType = 4
+      LayerName = Foreground
+      mmBarWidth = 254
+      mmWideBarRatio = 76200
+    end
+    object ppLabel1: TppLabel
+      DesignLayer = ppDesignLayer1
+      UserName = 'Label22'
+      HyperlinkEnabled = False
+      Border.Weight = 1.000000000000000000
+      Caption = 'Mittente:'
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clBlack
+      Font.Name = 'Arial'
+      Font.Size = 7
+      Font.Style = []
+      FormField = False
+      Transparent = True
+      mmHeight = 2910
+      mmLeft = 2381
+      mmTop = 15610
+      mmWidth = 9260
+      BandType = 4
+      LayerName = Foreground
+    end
+    object ppDBText2: TppDBText
+      DesignLayer = ppDesignLayer1
+      UserName = 'DBText2'
+      HyperlinkEnabled = False
+      Border.Weight = 1.000000000000000000
+      DataField = 'mit_riferimento1'
+      DataPipeline = ppDBTabella
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clBlack
+      Font.Name = 'Arial'
+      Font.Size = 7
+      Font.Style = []
+      Transparent = True
+      DataPipelineName = 'ppDBTabella'
+      mmHeight = 2910
+      mmLeft = 19579
+      mmTop = 19315
+      mmWidth = 77523
+      BandType = 4
+      LayerName = Foreground
+    end
+    object ppLabel2: TppLabel
+      DesignLayer = ppDesignLayer1
+      UserName = 'Label9'
+      HyperlinkEnabled = False
+      Border.Weight = 1.000000000000000000
+      Caption = 'Riferimento:'
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clBlack
+      Font.Name = 'Arial'
+      Font.Size = 7
+      Font.Style = []
+      FormField = False
+      Transparent = True
+      mmHeight = 2910
+      mmLeft = 2381
+      mmTop = 19315
+      mmWidth = 13229
+      BandType = 4
+      LayerName = Foreground
+    end
+    object ppLabel3: TppLabel
+      DesignLayer = ppDesignLayer1
+      UserName = 'Label12'
+      HyperlinkEnabled = False
+      Border.Weight = 1.000000000000000000
+      Caption = 'Destinatario:'
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clBlack
+      Font.Name = 'Arial'
+      Font.Size = 7
+      Font.Style = []
+      FormField = False
+      Transparent = True
+      mmHeight = 2910
+      mmLeft = 2381
+      mmTop = 23019
+      mmWidth = 13758
+      BandType = 4
+      LayerName = Foreground
+    end
+    object ppDBText3: TppDBText
+      DesignLayer = ppDesignLayer1
+      UserName = 'DBText3'
+      HyperlinkEnabled = False
+      Border.Weight = 1.000000000000000000
+      DataField = 'cli_descrizione1'
+      DataPipeline = ppDBTabella
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clBlack
+      Font.Name = 'Arial'
+      Font.Size = 7
+      Font.Style = []
+      Transparent = True
+      DataPipelineName = 'ppDBTabella'
+      mmHeight = 2910
+      mmLeft = 19579
+      mmTop = 23019
+      mmWidth = 77523
+      BandType = 4
+      LayerName = Foreground
+    end
+    object ppDBText4: TppDBText
+      DesignLayer = ppDesignLayer1
+      UserName = 'DBText4'
+      HyperlinkEnabled = False
+      Border.Weight = 1.000000000000000000
+      DataField = 'cli_riferimento1'
+      DataPipeline = ppDBTabella
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clBlack
+      Font.Name = 'Arial'
+      Font.Size = 7
+      Font.Style = []
+      Transparent = True
+      DataPipelineName = 'ppDBTabella'
+      mmHeight = 2910
+      mmLeft = 19579
+      mmTop = 26723
+      mmWidth = 77523
+      BandType = 4
+      LayerName = Foreground
+    end
+    object ppLabel4: TppLabel
+      DesignLayer = ppDesignLayer1
+      UserName = 'Label13'
+      HyperlinkEnabled = False
+      Border.Weight = 1.000000000000000000
+      Caption = 'Riferimento:'
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clBlack
+      Font.Name = 'Arial'
+      Font.Size = 7
+      Font.Style = []
+      FormField = False
+      Transparent = True
+      mmHeight = 2910
+      mmLeft = 2381
+      mmTop = 26723
+      mmWidth = 13229
+      BandType = 4
+      LayerName = Foreground
+    end
+    object ppLabel5: TppLabel
+      DesignLayer = ppDesignLayer1
+      UserName = 'Label14'
+      HyperlinkEnabled = False
+      Border.Weight = 1.000000000000000000
+      Caption = 'Indirizzo:'
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clBlack
+      Font.Name = 'Arial'
+      Font.Size = 7
+      Font.Style = []
+      FormField = False
+      Transparent = True
+      mmHeight = 2910
+      mmLeft = 2381
+      mmTop = 30427
+      mmWidth = 9525
+      BandType = 4
+      LayerName = Foreground
+    end
+    object ppDBText5: TppDBText
+      DesignLayer = ppDesignLayer1
+      UserName = 'DBText5'
+      HyperlinkEnabled = False
+      Border.Weight = 1.000000000000000000
+      DataField = 'cli_via1'
+      DataPipeline = ppDBTabella
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clBlack
+      Font.Name = 'Arial'
+      Font.Size = 7
+      Font.Style = []
+      Transparent = True
+      DataPipelineName = 'ppDBTabella'
+      mmHeight = 2910
+      mmLeft = 19579
+      mmTop = 30427
+      mmWidth = 77523
+      BandType = 4
+      LayerName = Foreground
+    end
+    object ppDBText6: TppDBText
+      DesignLayer = ppDesignLayer1
+      UserName = 'DBText6'
+      HyperlinkEnabled = False
+      Border.Weight = 1.000000000000000000
+      DataField = 'cli_cap1'
+      DataPipeline = ppDBTabella
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clBlack
+      Font.Name = 'Arial'
+      Font.Size = 7
+      Font.Style = []
+      Transparent = True
+      DataPipelineName = 'ppDBTabella'
+      mmHeight = 2910
+      mmLeft = 19579
+      mmTop = 34131
+      mmWidth = 77523
+      BandType = 4
+      LayerName = Foreground
+    end
+    object ppDBText7: TppDBText
+      DesignLayer = ppDesignLayer1
+      UserName = 'DBText7'
+      HyperlinkEnabled = False
+      Border.Weight = 1.000000000000000000
+      DataField = 'numero_documento1'
+      DataPipeline = ppDBTabella
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clBlack
+      Font.Name = 'Arial'
+      Font.Size = 7
+      Font.Style = []
+      Transparent = True
+      DataPipelineName = 'ppDBTabella'
+      mmHeight = 2910
+      mmLeft = 19844
+      mmTop = 37835
+      mmWidth = 10054
+      BandType = 4
+      LayerName = Foreground
+    end
+    object ppDBText8: TppDBText
+      DesignLayer = ppDesignLayer1
+      UserName = 'DBText201'
+      HyperlinkEnabled = False
+      Border.Weight = 1.000000000000000000
+      DataField = 'numero_colli1'
+      DataPipeline = ppDBTabella
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clBlack
+      Font.Name = 'Arial'
+      Font.Size = 7
+      Font.Style = []
+      TextAlignment = taRightJustified
+      Transparent = True
+      DataPipelineName = 'ppDBTabella'
+      mmHeight = 2910
+      mmLeft = 39952
+      mmTop = 37835
+      mmWidth = 8202
+      BandType = 4
+      LayerName = Foreground
+    end
+    object ppLabel6: TppLabel
+      DesignLayer = ppDesignLayer1
+      UserName = 'Label15'
+      HyperlinkEnabled = False
+      Border.Weight = 1.000000000000000000
+      Caption = 'N colli:'
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clBlack
+      Font.Name = 'Arial'
+      Font.Size = 7
+      Font.Style = []
+      FormField = False
+      Transparent = True
+      mmHeight = 2910
+      mmLeft = 30692
+      mmTop = 37835
+      mmWidth = 7408
+      BandType = 4
+      LayerName = Foreground
+    end
+    object ppDBText9: TppDBText
+      DesignLayer = ppDesignLayer1
+      UserName = 'DBText9'
+      HyperlinkEnabled = False
+      Border.Weight = 1.000000000000000000
+      DataField = 'numero_totale1'
+      DataPipeline = ppDBTabella
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clBlack
+      Font.Name = 'Arial'
+      Font.Size = 7
+      Font.Style = []
+      Transparent = True
+      DataPipelineName = 'ppDBTabella'
+      mmHeight = 2910
+      mmLeft = 52652
+      mmTop = 37835
+      mmWidth = 6350
+      BandType = 4
+      LayerName = Foreground
+    end
+    object ppLabel7: TppLabel
+      DesignLayer = ppDesignLayer1
+      UserName = 'Label301'
+      HyperlinkEnabled = False
+      Border.Weight = 1.000000000000000000
+      Caption = '/'
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clBlack
+      Font.Name = 'Arial'
+      Font.Size = 7
+      Font.Style = []
+      FormField = False
+      TextAlignment = taRightJustified
+      Transparent = True
+      mmHeight = 2910
+      mmLeft = 49742
+      mmTop = 37835
+      mmWidth = 794
+      BandType = 4
+      LayerName = Foreground
+    end
+    object ppLabel8: TppLabel
+      DesignLayer = ppDesignLayer1
+      UserName = 'Label16'
+      HyperlinkEnabled = False
+      Border.Weight = 1.000000000000000000
+      Caption = 'Peso:'
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clBlack
+      Font.Name = 'Arial'
+      Font.Size = 7
+      Font.Style = []
+      FormField = False
+      Transparent = True
+      mmHeight = 2910
+      mmLeft = 61119
+      mmTop = 37835
+      mmWidth = 6350
+      BandType = 4
+      LayerName = Foreground
+    end
+    object ppDBText10: TppDBText
+      DesignLayer = ppDesignLayer1
+      UserName = 'DBText10'
+      HyperlinkEnabled = False
+      Border.Weight = 1.000000000000000000
+      DataField = 'peso1'
+      DataPipeline = ppDBTabella
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clBlack
+      Font.Name = 'Arial'
+      Font.Size = 7
+      Font.Style = []
+      TextAlignment = taRightJustified
+      Transparent = True
+      DataPipelineName = 'ppDBTabella'
+      mmHeight = 2910
+      mmLeft = 69056
+      mmTop = 37835
+      mmWidth = 8202
+      BandType = 4
+      LayerName = Foreground
+    end
+    object ppLabel9: TppLabel
+      DesignLayer = ppDesignLayer1
+      UserName = 'Label17'
+      HyperlinkEnabled = False
+      Border.Weight = 1.000000000000000000
+      Caption = 'Dimensioni:'
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clBlack
+      Font.Name = 'Arial'
+      Font.Size = 7
+      Font.Style = []
+      FormField = False
+      Transparent = True
+      mmHeight = 2910
+      mmLeft = 2381
+      mmTop = 41540
+      mmWidth = 12700
+      BandType = 4
+      LayerName = Foreground
+    end
+    object ppLabel10: TppLabel
+      DesignLayer = ppDesignLayer1
+      UserName = 'Label18'
+      HyperlinkEnabled = False
+      Border.Weight = 1.000000000000000000
+      Caption = 'Contrassegno:'
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clBlack
+      Font.Name = 'Arial'
+      Font.Size = 7
+      Font.Style = []
+      FormField = False
+      Transparent = True
+      mmHeight = 2910
+      mmLeft = 2381
+      mmTop = 45244
+      mmWidth = 15875
+      BandType = 4
+      LayerName = Foreground
+    end
+    object ppDBText11: TppDBText
+      DesignLayer = ppDesignLayer1
+      UserName = 'DBText11'
+      HyperlinkEnabled = False
+      Border.Weight = 1.000000000000000000
+      DataField = 'importo1'
+      DataPipeline = ppDBTabella
+      DisplayFormat = ',0.00;-,0.00;#'
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clBlack
+      Font.Name = 'Arial'
+      Font.Size = 7
+      Font.Style = []
+      Transparent = True
+      DataPipelineName = 'ppDBTabella'
+      mmHeight = 2910
+      mmLeft = 19579
+      mmTop = 45244
+      mmWidth = 25135
+      BandType = 4
+      LayerName = Foreground
+    end
+    object ppDBText12: TppDBText
+      DesignLayer = ppDesignLayer1
+      UserName = 'DBText12'
+      HyperlinkEnabled = False
+      Border.Weight = 1.000000000000000000
+      DataField = 'dimensioni1'
+      DataPipeline = ppDBTabella
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clBlack
+      Font.Name = 'Arial'
+      Font.Size = 7
+      Font.Style = []
+      Transparent = True
+      DataPipelineName = 'ppDBTabella'
+      mmHeight = 2910
+      mmLeft = 19579
+      mmTop = 41540
+      mmWidth = 25929
+      BandType = 4
+      LayerName = Foreground
+    end
+    object ppLabel11: TppLabel
+      DesignLayer = ppDesignLayer1
+      UserName = 'Label21'
+      HyperlinkEnabled = False
+      Border.Weight = 1.000000000000000000
+      Caption = 'Numero doc:'
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clBlack
+      Font.Name = 'Arial'
+      Font.Size = 7
+      Font.Style = []
+      FormField = False
+      Transparent = True
+      mmHeight = 2879
+      mmLeft = 2381
+      mmTop = 37835
+      mmWidth = 14012
+      BandType = 4
+      LayerName = Foreground
+    end
+    object ppDBMemo1: TppDBMemo
+      DesignLayer = ppDesignLayer1
+      UserName = 'DBMemo1'
+      CharWrap = True
+      DataField = 'note2'
+      DataPipeline = ppDBTabella
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clBlack
+      Font.Name = 'Arial'
+      Font.Size = 7
+      Font.Style = []
+      RemoveEmptyLines = False
+      Transparent = True
+      DataPipelineName = 'ppDBTabella'
+      mmHeight = 8467
+      mmLeft = 119856
+      mmTop = 49213
+      mmWidth = 76729
+      BandType = 4
+      LayerName = Foreground
+      mmBottomOffset = 0
+      mmOverFlowOffset = 0
+      mmStopPosition = 0
+      mmMinHeight = 0
+      mmLeading = 0
+    end
+    object ppLabel12: TppLabel
+      DesignLayer = ppDesignLayer1
+      UserName = 'Label39'
+      HyperlinkEnabled = False
+      Border.Weight = 1.000000000000000000
+      Caption = 'Note:'
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clBlack
+      Font.Name = 'Arial'
+      Font.Size = 7
+      Font.Style = []
+      FormField = False
+      Transparent = True
+      Visible = False
+      mmHeight = 3175
+      mmLeft = 102394
+      mmTop = 49213
+      mmWidth = 6085
+      BandType = 4
+      LayerName = Foreground
+    end
+    object ppDBMemo2: TppDBMemo
+      DesignLayer = ppDesignLayer1
+      UserName = 'DBMemo2'
+      CharWrap = True
+      DataField = 'note2'
+      DataPipeline = ppDBTabella
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clBlack
+      Font.Name = 'Arial'
+      Font.Size = 7
+      Font.Style = []
+      RemoveEmptyLines = False
+      Transparent = True
+      DataPipelineName = 'ppDBTabella'
+      mmHeight = 8467
+      mmLeft = 19844
+      mmTop = 49213
+      mmWidth = 76729
+      BandType = 4
+      LayerName = Foreground
+      mmBottomOffset = 0
+      mmOverFlowOffset = 0
+      mmStopPosition = 0
+      mmMinHeight = 0
+      mmLeading = 0
+    end
+    object ppLabel13: TppLabel
+      DesignLayer = ppDesignLayer1
+      UserName = 'Label40'
+      HyperlinkEnabled = False
+      Border.Weight = 1.000000000000000000
+      Caption = 'Note:'
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clBlack
+      Font.Name = 'Arial'
+      Font.Size = 7
+      Font.Style = []
+      FormField = False
+      Transparent = True
+      Visible = False
+      mmHeight = 3175
+      mmLeft = 2381
+      mmTop = 49213
+      mmWidth = 6085
+      BandType = 4
+      LayerName = Foreground
+    end
+  end
+  object ppColumnFooterBand1: TppColumnFooterBand
+    AlignToBottom = True
+    Background.Brush.Style = bsClear
+    mmBottomOffset = 0
+    mmHeight = 0
+    mmPrintPosition = 0
+  end
+  object ppFooterBand1: TppFooterBand
+    Visible = False
+    Background.Brush.Style = bsClear
+    mmBottomOffset = 0
+    mmHeight = 6615
+    mmPrintPosition = 0
+    object pp_Shape2: TppShape
+      DesignLayer = ppDesignLayer1
+      UserName = 'Shape2'
+      mmHeight = 6085
+      mmLeft = 794
+      mmTop = 265
+      mmWidth = 196586
+      BandType = 8
+      LayerName = Foreground
+    end
+    object pp_SystemVariable6: TppSystemVariable
+      DesignLayer = ppDesignLayer1
+      UserName = 'SystemVariable3'
+      HyperlinkEnabled = False
+      Border.Weight = 1.000000000000000000
+      VarType = vtPageSetDesc
+      DisplayFormat = '000'
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Name = 'Microsoft Sans Serif'
+      Font.Size = 8
+      Font.Style = [fsBold]
+      Transparent = True
+      mmHeight = 3440
+      mmLeft = 173038
+      mmTop = 1852
+      mmWidth = 16404
+      BandType = 8
+      LayerName = Foreground
+    end
+    object pp_Label20: TppLabel
+      DesignLayer = ppDesignLayer1
+      UserName = 'Label20'
+      HyperlinkEnabled = False
+      Border.Weight = 1.000000000000000000
+      Caption = 
+        'Gestionale Open - il gestionale Open Source per le PMI italiane ' +
+        'con licenza BSD'
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Name = 'Microsoft Sans Serif'
+      Font.Size = 8
+      Font.Style = [fsBold]
+      FormField = False
+      Transparent = True
+      mmHeight = 3440
+      mmLeft = 1588
+      mmTop = 1852
+      mmWidth = 120914
+      BandType = 8
+      LayerName = Foreground
+    end
+    object pp_Label7: TppLabel
+      DesignLayer = ppDesignLayer1
+      UserName = 'Label7'
+      HyperlinkEnabled = False
+      Border.Weight = 1.000000000000000000
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Name = 'Microsoft Sans Serif'
+      Font.Size = 8
+      Font.Style = [fsBold]
+      FormField = False
+      Transparent = True
+      mmHeight = 3440
+      mmLeft = 53181
+      mmTop = 1852
+      mmWidth = 794
+      BandType = 8
+      LayerName = Foreground
+    end
+    object pp_utente: TppLabel
+      DesignLayer = ppDesignLayer1
+      UserName = 'Label8'
+      HyperlinkEnabled = False
+      Caption = 'GO'
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Name = 'Microsoft Sans Serif'
+      Font.Size = 8
+      Font.Style = []
+      FormField = False
+      Transparent = True
+      mmHeight = 3439
+      mmLeft = 153723
+      mmTop = 1588
+      mmWidth = 4234
+      BandType = 8
+      LayerName = Foreground
+    end
+  end
+  object ppGroup1: TppGroup
+    BreakName = 'tipo_stampa'
+    DataPipeline = ppDBTabella
+    GroupFileSettings.NewFile = False
+    GroupFileSettings.EmailFile = False
+    OutlineSettings.CreateNode = True
+    NewPage = True
+    ResetPageNo = True
+    StartOnOddPage = False
+    UserName = 'Group1'
+    mmNewColumnThreshold = 0
+    mmNewPageThreshold = 0
+    DataPipelineName = 'ppDBTabella'
+    NewFile = False
+    object ppGroupHeaderBand1: TppGroupHeaderBand
+      Background.Brush.Style = bsClear
+      mmBottomOffset = 0
+      mmHeight = 13229
+      mmPrintPosition = 0
+      object ppLabel23: TppLabel
+        DesignLayer = ppDesignLayer1
+        UserName = 'Label34'
+        HyperlinkEnabled = False
+        Border.Weight = 1.000000000000000000
+        Caption = 'MANIFEST DEL :'
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clBlack
+        Font.Name = 'Arial'
+        Font.Size = 12
+        Font.Style = [fsBold]
+        FormField = False
+        Transparent = True
+        mmHeight = 4995
+        mmLeft = 2381
+        mmTop = 794
+        mmWidth = 33782
+        BandType = 3
+        GroupNo = 0
+        LayerName = Foreground
+      end
+      object ppDBText26: TppDBText
+        DesignLayer = ppDesignLayer1
+        UserName = 'DBText25'
+        HyperlinkEnabled = False
+        Border.Weight = 1.000000000000000000
+        DataField = 'data_spedizione'
+        DataPipeline = ppDBTabella
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clBlack
+        Font.Name = 'Arial'
+        Font.Size = 12
+        Font.Style = [fsBold]
+        Transparent = True
+        DataPipelineName = 'ppDBTabella'
+        mmHeight = 5027
+        mmLeft = 38629
+        mmTop = 794
+        mmWidth = 28840
+        BandType = 3
+        GroupNo = 0
+        LayerName = Foreground
+      end
+      object ppSystemVariable1: TppSystemVariable
+        DesignLayer = ppDesignLayer1
+        UserName = 'SystemVariable4'
+        HyperlinkEnabled = False
+        Border.Weight = 1.000000000000000000
+        VarType = vtPageSetDesc
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clBlack
+        Font.Name = 'Arial'
+        Font.Size = 10
+        Font.Style = []
+        Transparent = True
+        mmHeight = 4022
+        mmLeft = 2381
+        mmTop = 5821
+        mmWidth = 20405
+        BandType = 3
+        GroupNo = 0
+        LayerName = Foreground
+      end
+      object ppLabel24: TppLabel
+        DesignLayer = ppDesignLayer1
+        UserName = 'Label35'
+        HyperlinkEnabled = False
+        Border.Weight = 1.000000000000000000
+        Caption = 'COPIA'
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clBlack
+        Font.Name = 'Arial'
+        Font.Size = 12
+        Font.Style = [fsBold]
+        FormField = False
+        Transparent = True
+        mmHeight = 4995
+        mmLeft = 141288
+        mmTop = 794
+        mmWidth = 13293
+        BandType = 3
+        GroupNo = 0
+        LayerName = Foreground
+      end
+      object ppDBText27: TppDBText
+        DesignLayer = ppDesignLayer1
+        UserName = 'DBText27'
+        HyperlinkEnabled = False
+        Border.Weight = 1.000000000000000000
+        DataField = 'tipo_stampa'
+        DataPipeline = ppDBTabella
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clBlack
+        Font.Name = 'Arial'
+        Font.Size = 12
+        Font.Style = [fsBold]
+        Transparent = True
+        DataPipelineName = 'ppDBTabella'
+        mmHeight = 5027
+        mmLeft = 156898
+        mmTop = 794
+        mmWidth = 37306
+        BandType = 3
+        GroupNo = 0
+        LayerName = Foreground
+      end
+    end
+    object ppGroupFooterBand1: TppGroupFooterBand
+      Background.Brush.Style = bsClear
+      HideWhenOneDetail = False
+      mmBottomOffset = 0
+      mmHeight = 10319
+      mmPrintPosition = 0
+      object ppDBText25: TppDBText
+        DesignLayer = ppDesignLayer1
+        UserName = 'DBText22'
+        HyperlinkEnabled = False
+        Border.Weight = 1.000000000000000000
+        DataField = 'tipo_stampa_piede'
+        DataPipeline = ppDBTabella
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clBlack
+        Font.Name = 'Arial'
+        Font.Size = 12
+        Font.Style = [fsBold]
+        Transparent = True
+        DataPipelineName = 'ppDBTabella'
+        mmHeight = 5027
+        mmLeft = 121709
+        mmTop = 4233
+        mmWidth = 24871
+        BandType = 5
+        GroupNo = 0
+        LayerName = Foreground
+      end
+      object ppLine1: TppLine
+        DesignLayer = ppDesignLayer1
+        UserName = 'Line1'
+        Border.Weight = 1.000000000000000000
+        Weight = 0.750000000000000000
+        mmHeight = 1852
+        mmLeft = 148167
+        mmTop = 8731
+        mmWidth = 49477
+        BandType = 5
+        GroupNo = 0
+        LayerName = Foreground
+      end
+      object ppLabel25: TppLabel
+        DesignLayer = ppDesignLayer1
+        UserName = 'Label36'
+        HyperlinkEnabled = False
+        Border.Weight = 1.000000000000000000
+        Caption = 'FIRMA'
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clBlack
+        Font.Name = 'Arial'
+        Font.Size = 12
+        Font.Style = [fsBold]
+        FormField = False
+        Transparent = True
+        mmHeight = 5027
+        mmLeft = 106627
+        mmTop = 4233
+        mmWidth = 13229
+        BandType = 5
+        GroupNo = 0
+        LayerName = Foreground
+      end
+      object ppLabel26: TppLabel
+        DesignLayer = ppDesignLayer1
+        UserName = 'Label37'
+        HyperlinkEnabled = False
+        Border.Weight = 1.000000000000000000
+        Caption = 'TOTALE SPEDIZIONI:'
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clBlack
+        Font.Name = 'Arial'
+        Font.Size = 12
+        Font.Style = [fsBold]
+        FormField = False
+        Transparent = True
+        mmHeight = 4995
+        mmLeft = 2381
+        mmTop = 4233
+        mmWidth = 43476
+        BandType = 5
+        GroupNo = 0
+        LayerName = Foreground
+      end
+      object ppLabel27: TppLabel
+        DesignLayer = ppDesignLayer1
+        UserName = 'Label38'
+        HyperlinkEnabled = False
+        Border.Weight = 1.000000000000000000
+        Caption = 'TOTALE COLLI:'
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clBlack
+        Font.Name = 'Arial'
+        Font.Size = 12
+        Font.Style = [fsBold]
+        FormField = False
+        Transparent = True
+        mmHeight = 5027
+        mmLeft = 60590
+        mmTop = 4233
+        mmWidth = 32015
+        BandType = 5
+        GroupNo = 0
+        LayerName = Foreground
+      end
+      object ppDBText13: TppDBText
+        DesignLayer = ppDesignLayer1
+        UserName = 'DBText13'
+        HyperlinkEnabled = False
+        Border.Weight = 1.000000000000000000
+        DataField = 'numero_spedizioni_sdt'
+        DataPipeline = ppDBTabella
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clBlack
+        Font.Name = 'Arial'
+        Font.Size = 12
+        Font.Style = [fsBold]
+        Transparent = True
+        DataPipelineName = 'ppDBTabella'
+        mmHeight = 5027
+        mmLeft = 47096
+        mmTop = 4233
+        mmWidth = 11113
+        BandType = 5
+        GroupNo = 0
+        LayerName = Foreground
+      end
+      object ppDBText28: TppDBText
+        DesignLayer = ppDesignLayer1
+        UserName = 'DBText28'
+        HyperlinkEnabled = False
+        Border.Weight = 1.000000000000000000
+        DataField = 'numero_colli_sdt'
+        DataPipeline = ppDBTabella
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clBlack
+        Font.Name = 'Arial'
+        Font.Size = 12
+        Font.Style = [fsBold]
+        Transparent = True
+        DataPipelineName = 'ppDBTabella'
+        mmHeight = 5027
+        mmLeft = 93663
+        mmTop = 4233
+        mmWidth = 11113
+        BandType = 5
+        GroupNo = 0
+        LayerName = Foreground
+      end
+    end
+  end
+  object ppDesignLayers1: TppDesignLayers
+    object ppDesignLayer1: TppDesignLayer
+      UserName = 'Foreground'
+      LayerType = ltBanded
+      Index = 0
+    end
+  end
+  object ppParameterList1: TppParameterList
+  end
+end

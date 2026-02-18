@@ -1,0 +1,20 @@
+CREATE TRIGGER T_TAGVEN_BI_0
+  BEFORE INSERT
+  ON `tagven`
+  FOR EACH ROW
+BEGIN 
+
+
+IF NEW.TAG_CODICE = '' THEN
+  CALL P_CAMPO_VUOTO('tagven','tag_codice');
+END IF;
+
+IF NEW.MATRICOLA = '' THEN
+  CALL P_CAMPO_VUOTO('tagven','matricola');
+END IF;
+
+IF NEW.ID IS NOT NULL THEN
+  SET NEW.ID = null;
+END IF;
+
+END

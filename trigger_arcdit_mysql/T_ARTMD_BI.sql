@@ -1,0 +1,24 @@
+CREATE TRIGGER T_ARTMD_BI_0
+  BEFORE INSERT
+  ON `artmd`
+  FOR EACH ROW
+BEGIN 
+
+
+IF NEW.PROGRESSIVO = 0 THEN
+  CALL P_CAMPO_VUOTO('artmd', 'progressivo');
+END IF;
+
+IF NEW.RIGA = 0 THEN
+  CALL P_CAMPO_VUOTO('artmd', 'riga');
+END IF;
+
+IF NEW.RIGA_DETTAGLIO = 0 THEN
+  CALL P_CAMPO_VUOTO('artmd', 'riga_dettaglio');
+END IF;
+
+IF NEW.ID IS NOT NULL THEN
+  SET NEW.ID = null;
+END IF;
+
+END
