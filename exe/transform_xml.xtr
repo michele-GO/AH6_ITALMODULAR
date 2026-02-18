@@ -1,0 +1,214 @@
+<XmlTransformation Version="1.0"><Transform Direction="ToCds"><SelectEach dest="DATAPACKET\ROWDATA\ROW" from="\ICECAT-interface\Product"><SelectEach dest="EANCode\ROWEANCode" from="\EANCode"><Select dest="@BARCODE" from="@EAN"/></SelectEach><Select dest="@ID1" from="@ID"/><Select dest="@CODICE" from="@Prod_id"/><Select dest="@NOME1" from="@Name"/><Select dest="@TITOLO" from="@Title"/><Select dest="@ReleaseDate" from="@ReleaseDate"/><Select dest="@IMG_HD" from="@HighPic"/><Select dest="@IMG_LD" from="@LowPic"/><Select dest="@IMG_SMALL" from="@ThumbPic"/><Select dest="@CARATTERISTICA" from="\Category\Name@Value"/><Select dest="@PRODOTTI_COLLEGATI" from="\ProductBundled"/><Select dest="@ManualPDFURL" from="\ProductDescription@ManualPDFURL"/><Select dest="@PDFURL" from="\ProductDescription@PDFURL"/><Select dest="@URL" from="\ProductDescription@URL"/><Select dest="@INFO_GARANZIA" from="\ProductDescription@WarrantyInfo"/><Select dest="@PRODOTTI_RELATIVI" from="\ProductRelated"/><Select dest="@ShortSummaryDescription" from="\SummaryDescription\ShortSummaryDescription"/><Select dest="@LongSummaryDescription" from="\SummaryDescription\LongSummaryDescription"/><Select dest="@ID2" from="\Supplier@ID"/><Select dest="@NOME2" from="\Supplier@Name"/><SelectEach dest="ProductFeature\ROWProductFeature" from="\ProductFeature"><Select dest="@CARATTERISTICA" from="\Feature\Name@Value"/><Select dest="@VALORE" from="@Presentation_Value"/></SelectEach></SelectEach></Transform><XmlSchema RootName="ICECAT-interface"><![CDATA[<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element name="ICECAT-interface" type="ICECAT-interfaceType"/>
+  <xs:complexType name="ICECAT-interfaceType">
+    <xs:sequence>
+      <xs:element name="Product" type="ProductType"/>
+    </xs:sequence>
+    <xs:attribute name="xmlns:xsi" type="xs:string"/>
+  </xs:complexType>
+  <xs:element name="Product" type="ProductType"/>
+  <xs:complexType name="ProductType">
+    <xs:sequence>
+      <xs:element name="Category" type="CategoryType"/>
+      <xs:element name="CategoryFeatureGroup" type="CategoryFeatureGroupType" minOccurs="0" maxOccurs="unbounded"/>
+      <xs:element name="EANCode" type="EANCodeType" minOccurs="0" maxOccurs="unbounded"/>
+      <xs:element name="ProductBundled" type="ProductBundledType" minOccurs="1" maxOccurs="unbounded"/>
+      <xs:element name="ProductDescription" type="ProductDescriptionType"/>
+      <xs:element name="ProductFamily" type="ProductFamilyType"/>
+      <xs:element name="ProductFeature" type="ProductFeatureType" minOccurs="0" maxOccurs="unbounded"/>
+      <xs:element name="ProductGallery" type="ProductGalleryType"/>
+      <xs:element name="ProductMultimediaObject" type="ProductMultimediaObjectType"/>
+      <xs:element name="ProductRelated" type="ProductRelatedType" minOccurs="1" maxOccurs="unbounded"/>
+      <xs:element name="SummaryDescription" type="SummaryDescriptionType"/>
+      <xs:element name="Supplier" type="SupplierType"/>
+    </xs:sequence>
+    <xs:attribute name="Code" type="xs:string"/>
+    <xs:attribute name="HighPic" type="xs:string"/>
+    <xs:attribute name="HighPicHeight" type="xs:string"/>
+    <xs:attribute name="HighPicSize" type="xs:string"/>
+    <xs:attribute name="HighPicWidth" type="xs:string"/>
+    <xs:attribute name="ID" type="xs:string"/>
+    <xs:attribute name="LowPic" type="xs:string"/>
+    <xs:attribute name="LowPicHeight" type="xs:string"/>
+    <xs:attribute name="LowPicSize" type="xs:string"/>
+    <xs:attribute name="LowPicWidth" type="xs:string"/>
+    <xs:attribute name="Name" type="xs:string"/>
+    <xs:attribute name="Prod_id" type="xs:string"/>
+    <xs:attribute name="Quality" type="xs:string"/>
+    <xs:attribute name="ReleaseDate" type="xs:date"/>
+    <xs:attribute name="ThumbPic" type="xs:string"/>
+    <xs:attribute name="ThumbPicSize" type="xs:string"/>
+    <xs:attribute name="Title" type="xs:string"/>
+  </xs:complexType>
+  <xs:element name="Category" type="CategoryType"/>
+  <xs:complexType name="CategoryType">
+    <xs:sequence>
+      <xs:element name="Name" type="NameType"/>
+    </xs:sequence>
+    <xs:attribute name="ID" type="xs:string"/>
+  </xs:complexType>
+  <xs:element name="Name" type="NameType"/>
+  <xs:complexType name="NameType">
+    <xs:sequence/>
+    <xs:attribute name="ID" type="xs:string"/>
+    <xs:attribute name="Value" type="xs:string"/>
+    <xs:attribute name="langid" type="xs:string"/>
+  </xs:complexType>
+  <xs:element name="CategoryFeatureGroup" type="CategoryFeatureGroupType"/>
+  <xs:complexType name="CategoryFeatureGroupType">
+    <xs:sequence>
+      <xs:element name="FeatureGroup" type="FeatureGroupType"/>
+    </xs:sequence>
+    <xs:attribute name="ID" type="xs:string"/>
+    <xs:attribute name="No" type="xs:string"/>
+  </xs:complexType>
+  <xs:element name="FeatureGroup" type="FeatureGroupType"/>
+  <xs:complexType name="FeatureGroupType">
+    <xs:sequence>
+      <xs:element name="Name" type="NameType"/>
+    </xs:sequence>
+    <xs:attribute name="ID" type="xs:string"/>
+  </xs:complexType>
+  <xs:element name="Name" type="NameType"/>
+  <xs:complexType name="NameType">
+    <xs:sequence/>
+    <xs:attribute name="ID" type="xs:string"/>
+    <xs:attribute name="Value" type="xs:string"/>
+    <xs:attribute name="langid" type="xs:string"/>
+  </xs:complexType>
+  <xs:element name="EANCode" type="EANCodeType"/>
+  <xs:complexType name="EANCodeType">
+    <xs:sequence/>
+    <xs:attribute name="EAN" type="xs:string"/>
+  </xs:complexType>
+  <xs:element name="ProductBundled" type="ProductBundledType"/>
+  <xs:simpleType name="ProductBundledType">
+    <xs:restriction base="xs:string"/>
+  </xs:simpleType>
+  <xs:element name="ProductDescription" type="ProductDescriptionType"/>
+  <xs:complexType name="ProductDescriptionType">
+    <xs:sequence/>
+    <xs:attribute name="ID" type="xs:string"/>
+    <xs:attribute name="LongDesc" type="xs:string"/>
+    <xs:attribute name="ManualPDFSize" type="xs:string"/>
+    <xs:attribute name="ManualPDFURL" type="xs:string"/>
+    <xs:attribute name="PDFSize" type="xs:string"/>
+    <xs:attribute name="PDFURL" type="xs:string"/>
+    <xs:attribute name="ShortDesc" type="xs:string"/>
+    <xs:attribute name="URL" type="xs:string"/>
+    <xs:attribute name="WarrantyInfo" type="xs:string"/>
+    <xs:attribute name="langid" type="xs:string"/>
+  </xs:complexType>
+  <xs:element name="ProductFamily" type="ProductFamilyType"/>
+  <xs:complexType name="ProductFamilyType">
+    <xs:sequence>
+      <xs:element name="Name" type="NameType"/>
+    </xs:sequence>
+    <xs:attribute name="ID" type="xs:string"/>
+  </xs:complexType>
+  <xs:element name="Name" type="NameType"/>
+  <xs:simpleType name="NameType">
+    <xs:restriction base="xs:string"/>
+  </xs:simpleType>
+  <xs:element name="ProductFeature" type="ProductFeatureType"/>
+  <xs:complexType name="ProductFeatureType">
+    <xs:sequence>
+      <xs:element name="Feature" type="FeatureType"/>
+    </xs:sequence>
+    <xs:attribute name="Localized" type="xs:string"/>
+    <xs:attribute name="ID" type="xs:string"/>
+    <xs:attribute name="Local_ID" type="xs:string"/>
+    <xs:attribute name="Value" type="xs:string"/>
+    <xs:attribute name="CategoryFeature_ID" type="xs:string"/>
+    <xs:attribute name="CategoryFeatureGroup_ID" type="xs:string"/>
+    <xs:attribute name="No" type="xs:string"/>
+    <xs:attribute name="Presentation_Value" type="xs:string"/>
+    <xs:attribute name="Translated" type="xs:string"/>
+    <xs:attribute name="Mandatory" type="xs:string"/>
+    <xs:attribute name="Searchable" type="xs:string"/>
+  </xs:complexType>
+  <xs:element name="Feature" type="FeatureType"/>
+  <xs:complexType name="FeatureType">
+    <xs:sequence>
+      <xs:element name="Measure" type="MeasureType"/>
+      <xs:element name="Name" type="NameType"/>
+    </xs:sequence>
+    <xs:attribute name="ID" type="xs:string"/>
+  </xs:complexType>
+  <xs:element name="Measure" type="MeasureType"/>
+  <xs:complexType name="MeasureType">
+    <xs:sequence>
+      <xs:element name="Signs" type="SignsType"/>
+    </xs:sequence>
+    <xs:attribute name="ID" type="xs:string"/>
+    <xs:attribute name="Sign" type="xs:string"/>
+  </xs:complexType>
+  <xs:element name="Signs" type="SignsType"/>
+  <xs:complexType name="SignsType">
+    <xs:sequence>
+      <xs:element name="Sign" type="SignType"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Sign" type="SignType"/>
+  <xs:complexType name="SignType">
+    <xs:sequence/>
+    <xs:attribute name="ID" type="xs:string"/>
+    <xs:attribute name="langid" type="xs:string"/>
+  </xs:complexType>
+  <xs:element name="Name" type="NameType"/>
+  <xs:complexType name="NameType">
+    <xs:sequence/>
+    <xs:attribute name="ID" type="xs:string"/>
+    <xs:attribute name="langid" type="xs:string"/>
+    <xs:attribute name="Value" type="xs:string"/>
+  </xs:complexType>
+  <xs:element name="ProductGallery" type="ProductGalleryType"/>
+  <xs:complexType name="ProductGalleryType">
+    <xs:sequence>
+      <xs:element name="ProductPicture" type="ProductPictureType" minOccurs="0" maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ProductPicture" type="ProductPictureType"/>
+  <xs:complexType name="ProductPictureType">
+    <xs:sequence/>
+    <xs:attribute name="Pic" type="xs:string"/>
+    <xs:attribute name="PicHeight" type="xs:string"/>
+    <xs:attribute name="PicWidth" type="xs:string"/>
+    <xs:attribute name="ProductPicture_ID" type="xs:string"/>
+    <xs:attribute name="Size" type="xs:string"/>
+    <xs:attribute name="ThumbPic" type="xs:string"/>
+    <xs:attribute name="ThumbSize" type="xs:string"/>
+  </xs:complexType>
+  <xs:element name="ProductMultimediaObject" type="ProductMultimediaObjectType"/>
+  <xs:simpleType name="ProductMultimediaObjectType">
+    <xs:restriction base="xs:string"/>
+  </xs:simpleType>
+  <xs:element name="ProductRelated" type="ProductRelatedType"/>
+  <xs:simpleType name="ProductRelatedType">
+    <xs:restriction base="xs:string"/>
+  </xs:simpleType>
+  <xs:element name="SummaryDescription" type="SummaryDescriptionType"/>
+  <xs:complexType name="SummaryDescriptionType">
+    <xs:sequence>
+      <xs:element name="ShortSummaryDescription" type="ShortSummaryDescriptionType"/>
+      <xs:element name="LongSummaryDescription" type="LongSummaryDescriptionType"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ShortSummaryDescription" type="ShortSummaryDescriptionType"/>
+  <xs:complexType name="ShortSummaryDescriptionType">
+    <xs:sequence/>
+    <xs:attribute name="langid" type="xs:string"/>
+  </xs:complexType>
+  <xs:element name="LongSummaryDescription" type="LongSummaryDescriptionType"/>
+  <xs:complexType name="LongSummaryDescriptionType">
+    <xs:sequence/>
+    <xs:attribute name="langid" type="xs:string"/>
+  </xs:complexType>
+  <xs:element name="Supplier" type="SupplierType"/>
+  <xs:complexType name="SupplierType">
+    <xs:sequence/>
+    <xs:attribute name="ID" type="xs:integer"/>
+    <xs:attribute name="Name" type="xs:string"/>
+  </xs:complexType>
+</xs:schema>]]></XmlSchema><CdsSkeleton/><XslTransform/><Skeleton><![CDATA[<?xml version="1.0"?><DATAPACKET Version="2.0"><METADATA><FIELDS><FIELD attrname="ID1" fieldtype="string" WIDTH="20"/><FIELD attrname="CODICE" fieldtype="string" WIDTH="35"/><FIELD attrname="NOME1" fieldtype="string" WIDTH="80"/><FIELD attrname="TITOLO" fieldtype="string" WIDTH="80"/><FIELD attrname="ReleaseDate" fieldtype="date"/><FIELD attrname="IMG_HD" fieldtype="string" WIDTH="80"/><FIELD attrname="IMG_LD" fieldtype="string" WIDTH="80"/><FIELD attrname="IMG_SMALL" fieldtype="string" WIDTH="80"/><FIELD attrname="CARATTERISTICA" fieldtype="string" WIDTH="80"/><FIELD attrname="PRODOTTI_COLLEGATI" fieldtype="string" WIDTH="40"/><FIELD attrname="ManualPDFURL" fieldtype="string" WIDTH="80"/><FIELD attrname="PDFURL" fieldtype="string" WIDTH="80"/><FIELD attrname="URL" fieldtype="string" WIDTH="80"/><FIELD attrname="INFO_GARANZIA" fieldtype="string" WIDTH="80"/><FIELD attrname="PRODOTTI_RELATIVI" fieldtype="string" WIDTH="60"/><FIELD attrname="ShortSummaryDescription" fieldtype="bin.hex" SUBTYPE="Text"/><FIELD attrname="LongSummaryDescription" fieldtype="bin.hex" SUBTYPE="Text"/><FIELD attrname="ID2" fieldtype="string" WIDTH="20"/><FIELD attrname="NOME2" fieldtype="string" WIDTH="80"/><FIELD attrname="EANCode" fieldtype="nested"><FIELDS><FIELD attrname="BARCODE" fieldtype="string" WIDTH="25"/></FIELDS><PARAMS/></FIELD><FIELD attrname="ProductFeature" fieldtype="nested"><FIELDS><FIELD attrname="CARATTERISTICA" fieldtype="string" WIDTH="80"/><FIELD attrname="VALORE" fieldtype="string" WIDTH="60"/></FIELDS><PARAMS/></FIELD></FIELDS><PARAMS/></METADATA><ROWDATA/><METADATA><FIELDS><FIELD attrname="ID1" fieldtype="string" WIDTH="20"/><FIELD attrname="CODICE" fieldtype="string" WIDTH="35"/><FIELD attrname="NOME1" fieldtype="string" WIDTH="80"/><FIELD attrname="TITOLO" fieldtype="string" WIDTH="80"/><FIELD attrname="ReleaseDate" fieldtype="date"/><FIELD attrname="IMG_HD" fieldtype="string" WIDTH="80"/><FIELD attrname="IMG_LD" fieldtype="string" WIDTH="80"/><FIELD attrname="IMG_SMALL" fieldtype="string" WIDTH="80"/><FIELD attrname="CARATTERISTICA" fieldtype="string" WIDTH="80"/><FIELD attrname="PRODOTTI_COLLEGATI" fieldtype="string" WIDTH="40"/><FIELD attrname="ManualPDFURL" fieldtype="string" WIDTH="80"/><FIELD attrname="PDFURL" fieldtype="string" WIDTH="80"/><FIELD attrname="URL" fieldtype="string" WIDTH="80"/><FIELD attrname="INFO_GARANZIA" fieldtype="string" WIDTH="80"/><FIELD attrname="PRODOTTI_RELATIVI" fieldtype="string" WIDTH="60"/><FIELD attrname="ShortSummaryDescription" fieldtype="bin.hex" SUBTYPE="Text"/><FIELD attrname="LongSummaryDescription" fieldtype="bin.hex" SUBTYPE="Text"/><FIELD attrname="ID2" fieldtype="string" WIDTH="20"/><FIELD attrname="NOME2" fieldtype="string" WIDTH="80"/><FIELD attrname="EANCode" fieldtype="nested"><FIELDS><FIELD attrname="BARCODE" fieldtype="string" WIDTH="25"/></FIELDS><PARAMS/></FIELD><FIELD attrname="ProductFeature" fieldtype="nested"><FIELDS><FIELD attrname="CARATTERISTICA" fieldtype="string" WIDTH="80"/><FIELD attrname="VALORE" fieldtype="string" WIDTH="60"/></FIELDS><PARAMS/></FIELD></FIELDS><PARAMS/></METADATA><ROWDATA/></DATAPACKET>
+]]></Skeleton></XmlTransformation>
