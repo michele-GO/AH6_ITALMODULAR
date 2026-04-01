@@ -1445,14 +1445,14 @@ implementation
 {$r *.dfm}
 
 
-uses GGGESVEN02, GGGESVEN01, GGULTPRZ, GGGESVEN03, GGSCELTM, GGVISDOCAV, GGVISCONT, GGEVARMA, GGVISARTCLI, GGVISARTVEN, 
-  GGSCEACC, GGSCEDSB, GGVISLSV, GGVISLSA, GGNTVENACQ, GGEVADOCV, GGMOVLCT, GGFORMULADSB, GGVISFATNC, GGARCVEN, GGIMPALF, 
-  GGGESDAV, GGLTTERLASINH, GGANAEQU, GGVISDOCEV, GGVISLCT, GGETIART, GGVISARTCTC, GGVISTOTDOC, GGDUPORDV, 
-  GGGESSCHTRS, GGETICOL, GGASSTSM, GGPAGPER, GGANAREV, GGVISRIF, GGSCEFADV, GGMAIL, ZZPARSING, ZZTMA_TAG, GGVISBCF, 
-  GGGESMTRCOPLET, GGGENTNT, GGGESVUODOC, GGGESPRVM, GGEVADOCVNCFT, ZZASSEGNA_IVA_VENDITE, GGGESCMR, GGGESDOCRD, 
-  GGGESDOCGRI, ZZASSEGNA_PREZZO_NETTO, ZZCREA_DOCUMENTI_VENDITA, ZZASSEGNA_GIORNO_VENDITE, GGCREORDPV, 
-  GGGESDOCRDNC, GGGESTAGTDT, GGGESTAGTDR, GGRIFRESO, GGVISARTFRN, GGLAVVET, GGARFACQ, GGCREAORDA, 
-  GGSTAPREVINT, GGSTAPREVCLI, GGSTAORDVINT, GGSTAORDVCLI, GGFVTDDT, ZZCALL_MODULA, GGPUNTIFAT, GGQTATGL, 
+uses GGGESVEN02, GGGESVEN01, GGULTPRZ, GGGESVEN03, GGSCELTM, GGVISDOCAV, GGVISCONT, GGEVARMA, GGVISARTCLI, GGVISARTVEN,
+  GGSCEACC, GGSCEDSB, GGVISLSV, GGVISLSA, GGNTVENACQ, GGEVADOCV, GGMOVLCT, GGFORMULADSB, GGVISFATNC, GGARCVEN, GGIMPALF,
+  GGGESDAV, GGLTTERLASINH, GGANAEQU, GGVISDOCEV, GGVISLCT, GGETIART, GGVISARTCTC, GGVISTOTDOC, GGDUPORDV,
+  GGGESSCHTRS, GGETICOL, GGASSTSM, GGPAGPER, GGANAREV, GGVISRIF, GGSCEFADV, GGMAIL, ZZPARSING, ZZTMA_TAG, GGVISBCF,
+  GGGESMTRCOPLET, GGGENTNT, GGGESVUODOC, GGGESPRVM, GGEVADOCVNCFT, ZZASSEGNA_IVA_VENDITE, GGGESCMR, GGGESDOCRD,
+  GGGESDOCGRI, ZZASSEGNA_PREZZO_NETTO, ZZCREA_DOCUMENTI_VENDITA, ZZASSEGNA_GIORNO_VENDITE, GGCREORDPV,
+  GGGESDOCRDNC, GGGESTAGTDT, GGGESTAGTDR, GGRIFRESO, GGVISARTFRN, GGLAVVET, GGARFACQ, GGCREAORDA,
+  GGSTAPREVINT, GGSTAPREVCLI, GGSTAORDVINT, GGSTAORDVCLI, GGFVTDDT, ZZCALL_MODULA, GGPUNTIFAT, GGQTATGL,
   GGASSACCCLI, ZZUTILS.VENDITE, ZZUTILS.COMMESSE, ZZUTILS.CONTABILITA, ZZUTILS.MAGAZZINO;
 
 procedure tgesven.controllo_campi;
@@ -1745,7 +1745,6 @@ begin
   end;
 end;
 
-
 procedure tgesven.before_post;
 var
   errore, prosegui: boolean;
@@ -1986,7 +1985,7 @@ begin
       begin
         tabella.fieldbyname('tiv_codice_spese_extra').asstring := tiv_codice_spese_extra;
         tabella.fieldbyname('tiv_codice_spese_incasso').asstring := tiv_codice_spese_incasso;
-//        tabella.fieldbyname('tiv_codice_cassa_professionisti').asstring := tiv_codice_cassa_professionisti;
+        //        tabella.fieldbyname('tiv_codice_cassa_professionisti').asstring := tiv_codice_cassa_professionisti;
         tabella.fieldbyname('tiv_codice_spese_bollo').asstring := tiv_codice_spese_bollo;
       end;
     end;
@@ -3242,15 +3241,15 @@ begin
 
               // se l'archivio non è vuoto
               if (not cem.isempty)
-                 or
+                or
               // oppure se sono in una differita che è stata generata senza prezzi
               // per cui sto imputando solo ora un valore
-                 (
-                 (tipo_documento = 'fattura differita') and
-                 (arrotonda(vecchio_importo_euro) = 0) and
-                 (tabella.fieldbyname('cen_codice').asstring <> '') and
-                 (cem.isempty)
-                 ) then
+                (
+                (tipo_documento = 'fattura differita') and
+                (arrotonda(vecchio_importo_euro) = 0) and
+                (tabella.fieldbyname('cen_codice').asstring <> '') and
+                (cem.isempty)
+                ) then
               begin
                 // chiede di riallineare l'analitica
 
@@ -5993,7 +5992,7 @@ begin
   // abilita importi
   if importi_vendite = 'nascondi' then
   begin
-//    v_totalizza.visible := false;
+    //    v_totalizza.visible := false;
     disabilita_campo(v_totalizza);
   end;
 
@@ -6296,8 +6295,8 @@ begin
   else if tipo_documento = 'preventivo' then
   begin
     query_righe_sql := query_righe_sql + ', ' +
-    'case when exists(select id from rar where rar.ovr_progressivo = xxx.progressivo and rar.ovr_riga = xxx.riga) then ''si'' ' +
-    'else ''no'' end rar';
+      'case when exists(select id from rar where rar.ovr_progressivo = xxx.progressivo and rar.ovr_riga = xxx.riga) then ''si'' ' +
+      'else ''no'' end rar';
   end;
   query_righe_sql := query_righe_sql + ' ' + 'from xxx left join art on art.codice = xxx.art_codice ' +
     'where xxx.progressivo = :progressivo';
@@ -7678,7 +7677,7 @@ begin
   end;
 
   if (arc.dit.fieldbyname('variazione_prezzi_fadv').asstring = 'no') and
-     (tipo_documento = 'fattura differita') then
+    (tipo_documento = 'fattura differita') then
   begin
     v_varia_tsm_codice.enabled := false;
     v_varia_tsm_codice_art.enabled := false;
@@ -8019,7 +8018,6 @@ begin
         prosegui := false;
         abort;
       end;
-
 
       qtdocli := tmyquery_go.create(nil);
       qtdocli.connection := arc.arcdit;
@@ -8806,7 +8804,6 @@ begin
   tiv_codice_controllo(false);
 end;
 
-
 procedure tgesven.assegna_intra;
 begin
   if (tipo_documento = 'ddt fornitori') or (tipo_documento = 'corrispettivo') then
@@ -8918,7 +8915,7 @@ begin
         begin
           tabella.fieldbyname('addebito_spese_fattura').asstring := 'si';
           tabella.fieldbyname('spese_manuali_trasporto').asstring := 'si';
-//          tabella.fieldbyname('spese_manuali_bollo').asstring := 'si';
+          //          tabella.fieldbyname('spese_manuali_bollo').asstring := 'si';
           tabella.fieldbyname('spese_manuali_incasso').asstring := 'si';
         end;
 
@@ -11164,7 +11161,6 @@ begin
   q_abilita_rda.sql.add('where tipo_richiesta = ''ordini clienti''');
   q_abilita_rda.sql.add('and ovr_progressivo = :ovr_progressivo and ovr_riga = :ovr_riga');
 
-
   try
     q_abilita_rda.parambyname('ovr_progressivo').asinteger := tabella_righe.fieldbyname('progressivo').asinteger;
     q_abilita_rda.parambyname('ovr_riga').asinteger := tabella_righe.fieldbyname('riga').asinteger;
@@ -11284,8 +11280,8 @@ begin
   if controllo then
   begin
     if (v_art_codice.text <> variato_stringa) and (tabella_righe.fieldbyname('art_codice').asstring <> '') and
-       (tipo_documento = 'fattura differita') and
-       (read_tabella(arc.arcdit, 'art', 'codice', tabella_righe.fieldbyname('art_codice').asstring, 'tipo_articolo')) then
+      (tipo_documento = 'fattura differita') and
+      (read_tabella(arc.arcdit, 'art', 'codice', tabella_righe.fieldbyname('art_codice').asstring, 'tipo_articolo')) then
     begin
       if archivio.fieldbyname('tipo_articolo').asstring <> 'non fiscale' then
       begin
@@ -11433,10 +11429,8 @@ begin
                 ah6_dsb.open;
                 if ah6_dsb.fieldbyname('nr').asinteger = 0 then
                 begin
-                  if messaggio(304, 'Articolo senza distinta base. Vuoi proseguire ?') <> 1 then
-                  begin
-                    fuoco(v_art_codice);
-                  end;
+                  messaggio(100, 'Articolo senza distinta base');
+                  fuoco(v_art_codice);
                 end;
               finally
                 freeandnil(ah6_dsb);
@@ -12878,7 +12872,6 @@ begin
           righe.fieldbyname('prezzo_netto').asfloat, righe.fieldbyname('importo').asfloat,
           provvigioni, provvigioni_ca, importo_provvigioni, conteggio_su_margine, tabella.fieldbyname('data_documento').asdatetime);
 
-
         if righe.fieldbyname('percentuale_provvigioni_ca').asfloat <> provvigioni then
         begin
           if tabella_edit(tabella_righe) then
@@ -14129,7 +14122,6 @@ begin
     // v_fattura_pro_forma.visible := true;
   end;
 
-
   if (tipo_documento = 'fattura accompagnatoria') or (tipo_documento = 'fattura immediata') or
     (tipo_documento = 'fattura differita') or (tipo_documento = 'nota credito') or (tipo_documento = 'ddt fornitori') then
   begin
@@ -14322,7 +14314,7 @@ begin
     disabilita_campo(tool_ordine_produzione_globale);
   end;
 
-  if tipo_documento = 'ordine'then
+  if tipo_documento = 'ordine' then
   begin
     tool_orda.caption := 'crea ordine fornitore';
     tool_orda.hint := 'generazione ordine a fornitore';
@@ -14355,7 +14347,7 @@ begin
       v_importo.enabled := false;
       v_data_consegna_righe.enabled := false;
       v_totale_progressivo.enabled := true;
-  	  v_descrizione1_riga.enabled := true;
+      v_descrizione1_riga.enabled := true;
       v_descrizione2_riga.enabled := true;
 
       v_numero_colli_riga.color := clbtnface;
@@ -14396,7 +14388,7 @@ begin
       end;
 
       if (tipo_documento = 'ddt') and
-         (tabella.fieldbyname('situazione').asstring = 'consolidato') then
+        (tabella.fieldbyname('situazione').asstring = 'consolidato') then
       begin
         v_descrizione1_riga.enabled := false;
         v_descrizione2_riga.enabled := false;
@@ -14406,9 +14398,9 @@ begin
       v_totale_progressivo.enabled := false;
       if (importi_vendite = 'visualizza') or
         ((arc.dit.fieldbyname('variazione_prezzi_fadv').asstring = 'no') and
-         (tipo_documento = 'fattura differita') and
-         ((tabella_righe.fieldbyname('documento_origine').asstring = 'ddt ven') or
-         (tabella_righe.fieldbyname('documento_origine').asstring = 'bolla ven'))) then
+        (tipo_documento = 'fattura differita') and
+        ((tabella_righe.fieldbyname('documento_origine').asstring = 'ddt ven') or
+        (tabella_righe.fieldbyname('documento_origine').asstring = 'bolla ven'))) then
       begin
         v_prezzo.enabled := false;
         v_tsm_codice_righe.enabled := false;
@@ -15527,16 +15519,16 @@ begin
             controllo_cancella_edit := false;
             exit;
           end
-//          else if (tipo_documento = 'fattura differita') and (not avviso_differite) and
-//            ((tabella_righe.fieldbyname('documento_origine').asstring = 'ddt ven') or
-//            (tabella_righe.fieldbyname('documento_origine').asstring = 'bolla ven')) then
-//          begin
-//            //avviso_differite := true;
-//            messaggio(000, 'per variare i dati delle fatture differite' + #13 +
-//              'eseguire l''operazione di storno e variare il documento di origine');
-//            controllo_cancella_edit := false;
-//            exit;
-//          end
+          //          else if (tipo_documento = 'fattura differita') and (not avviso_differite) and
+          //            ((tabella_righe.fieldbyname('documento_origine').asstring = 'ddt ven') or
+          //            (tabella_righe.fieldbyname('documento_origine').asstring = 'bolla ven')) then
+          //          begin
+          //            //avviso_differite := true;
+          //            messaggio(000, 'per variare i dati delle fatture differite' + #13 +
+          //              'eseguire l''operazione di storno e variare il documento di origine');
+          //            controllo_cancella_edit := false;
+          //            exit;
+          //          end
           else if (tipo_documento = 'nota credito') and (tabella_righe.fieldbyname('documento_origine').asstring = 'ddt clienti acq') then
           begin
             messaggio(000, 'per variare i dati delle note credito emesse a fronte di ddt da clienti' + #13 +
@@ -15753,10 +15745,10 @@ begin
       visualizzato_messaggio := true;
       if ripeti_messaggio <> 'no' then
       begin
-          messaggio(000, 'il documento deriva da: ' +
-            tabella_righe.fieldbyname('documento_origine').asstring + slinebreak +
-//          'la variazione interesserà anche il documento di origine');
-            'la variazione non aggiorna il documento di origine');
+        messaggio(000, 'il documento deriva da: ' +
+          tabella_righe.fieldbyname('documento_origine').asstring + slinebreak +
+          //          'la variazione interesserà anche il documento di origine');
+          'la variazione non aggiorna il documento di origine');
       end;
     end;
   end;
@@ -15811,7 +15803,7 @@ begin
         begin
           messaggio(000, 'il documento deriva da: ' +
             tabella_righe.fieldbyname('documento_origine').asstring + slinebreak +
-//          'la variazione interesserà anche il documento di origine');
+            //          'la variazione interesserà anche il documento di origine');
             'la variazione non aggiorna il documento di origine');
         end;
       end;
@@ -21096,8 +21088,8 @@ begin
           tabella.fieldbyname('data_inizio_conteggio').asdatetime := testata_documento_evaso.fieldbyname('data_inizio_conteggio').asdatetime;
           tabella.fieldbyname('tsm_codice').asstring := testata_documento_evaso.fieldbyname('tsm_codice').asstring;
           tabella.fieldbyname('tva_codice').asstring := testata_documento_evaso.fieldbyname('tva_codice').asstring;
-//          tabella.fieldbyname('lti_progressivo').asinteger := testata_documento_evaso.fieldbyname('lti_progressivo').asinteger;
-//          tabella.fieldbyname('tiv_codice').asstring := testata_documento_evaso.fieldbyname('tiv_codice').asstring;
+          //          tabella.fieldbyname('lti_progressivo').asinteger := testata_documento_evaso.fieldbyname('lti_progressivo').asinteger;
+          //          tabella.fieldbyname('tiv_codice').asstring := testata_documento_evaso.fieldbyname('tiv_codice').asstring;
 
           assegna_tiv_codice;
 
@@ -22623,7 +22615,7 @@ begin
 
             read_tabella(tiv_acconti,
               vararrayof([assacccli.tabella.fieldbyname('art_codice').asstring,
-                tabella_righe.fieldbyname('progressivo').asinteger]));
+              tabella_righe.fieldbyname('progressivo').asinteger]));
 
             assacccli.tabella.first;
             while not assacccli.tabella.eof do
@@ -22637,7 +22629,7 @@ begin
 
                 read_tabella(tiv_acconti,
                   vararrayof([assacccli.tabella.fieldbyname('art_codice').asstring,
-                    tabella_righe.fieldbyname('progressivo').asinteger]));
+                  tabella_righe.fieldbyname('progressivo').asinteger]));
                 if tiv_acconti.fieldbyname('listino_con_iva').asstring = 'si' then
                 begin
                   docven.importo := assacccli.tabella.fieldbyname('importo_utilizzato').asfloat * -1;
@@ -23022,7 +23014,7 @@ end;
 procedure TGESVEN.v_descrizione1_rigaEnter(Sender: TObject);
 begin
   inherited;
- //
+  //
 end;
 
 procedure TGESVEN.v_descrizione1_rigaExit(Sender: TObject);
@@ -23809,7 +23801,7 @@ var
 begin
   inherited;
   pr := tcreaorda.create(nil);
-  if tipo_documento = 'ordine'then
+  if tipo_documento = 'ordine' then
   begin
     pr.tipo_doc_creaorda := tdc_ordine;
   end
@@ -23930,8 +23922,10 @@ begin
       end
       else
       begin
-        var modalita_produzione_configurazioni: tmodalita_generazione_prodconf;
-        var taskdialog := ttaskdialog.create(nil);
+        var
+          modalita_produzione_configurazioni: tmodalita_generazione_prodconf;
+        var
+        taskdialog := ttaskdialog.create(nil);
 
         try
           taskdialog.custommainicon := application.icon;
@@ -23946,8 +23940,10 @@ begin
           if taskdialog.modalresult = mrok then
           begin
             case taskdialog.radiobutton.index of
-              0: modalita_produzione_configurazioni := mgpc_automatica;
-              1: modalita_produzione_configurazioni := mgpc_interattiva;
+              0:
+                modalita_produzione_configurazioni := mgpc_automatica;
+              1:
+                modalita_produzione_configurazioni := mgpc_interattiva;
             end;
           end
           else
@@ -23959,14 +23955,14 @@ begin
         end;
 
         //modifica
-        (*progressivo_opt := prodconf.genera_produzione_configurazioni(tabella_righe.fieldbyname('progressivo').asinteger,
+        (* progressivo_opt := prodconf.genera_produzione_configurazioni(tabella_righe.fieldbyname('progressivo').asinteger,
           tabella_righe.fieldbyname('riga').asinteger, tabella_righe.fieldbyname('configurazione').asinteger, tma_codice,
           modalita_produzione_configurazioni);
 
-        if (progressivo_opt <> 0) and (modalita_produzione_configurazioni = mgpc_automatica) then
-        begin
+          if (progressivo_opt <> 0) and (modalita_produzione_configurazioni = mgpc_automatica) then
+          begin
           esegui_programma('GESORDP', progressivo_opt, true);
-        end;*)
+          end; *)
         progressivo_opt := ah6_crea_produzione_configurazione(tma_codice);
         //modifica fine
       end;
@@ -25863,7 +25859,6 @@ begin
     messaggio(300, stringa);
   end;
 end;
-
 
 procedure tgesven.v_consolidaclick(sender: tobject);
 begin
@@ -27924,7 +27919,7 @@ begin
         if tabella_righe.fieldbyname('rar').asstring = 'si' then
         begin
           v_griglia_righe.canvas.brush.color := claqua;
-        v_griglia_righe.canvas.font.color := clblack;
+          v_griglia_righe.canvas.font.color := clblack;
         end;
       end
       else if tabella_righe.fieldbyname('oar').value = 'si' then
