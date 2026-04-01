@@ -111,7 +111,7 @@
         <DCC_MapFile>3</DCC_MapFile>
         <DCC_ExeOutput>..\exe</DCC_ExeOutput>
         <DCC_DcuOutput>..\dcu</DCC_DcuOutput>
-        <DCC_UnitSearchPath>C:\GestionaleOpen\go_1301\src_130107;C:\GestionaleOpen\go_1301\src_130107\assets;$(DCC_UnitSearchPath)</DCC_UnitSearchPath>
+        <DCC_UnitSearchPath>C:\GestionaleOpen\go_1301\src_130107;C:\GestionaleOpen\go_1301\src_130107\assets;C:\GestionaleOpen\go_1301\klib;$(DCC_UnitSearchPath)</DCC_UnitSearchPath>
         <VerInfo_IncludeVerInfo>true</VerInfo_IncludeVerInfo>
         <VerInfo_Locale>1033</VerInfo_Locale>
         <VerInfo_Keys>CompanyName=;FileDescription=$(MSBuildProjectName);FileVersion=1.0.0.0;InternalName=;LegalCopyright=;LegalTrademarks=;OriginalFilename=;ProductName=$(MSBuildProjectName);ProductVersion=1.0.0.0;Comments=;ProgramID=com.embarcadero.$(MSBuildProjectName)</VerInfo_Keys>
@@ -5222,11 +5222,11 @@
                     <Source Name="MainSource">GO.dpr</Source>
                 </Source>
                 <Excluded_Packages>
-                    <Excluded_Packages Name="C:\Program Files (x86)\Embarcadero\add-on\EnvisionImageLibrary\source\packages\En_D11.bpl">Envision Image Library</Excluded_Packages>
                     <Excluded_Packages Name="$(BDSBIN)\dclbindcompfmx280.bpl">Embarcadero LiveBindings Components FireMonkey</Excluded_Packages>
                     <Excluded_Packages Name="$(BDSBIN)\dclrtl280.bpl">Embarcadero - RTL Component Editors</Excluded_Packages>
                     <Excluded_Packages Name="$(BDSBIN)\dcltethering280.bpl">Embarcadero - Tethering Component Editors</Excluded_Packages>
                     <Excluded_Packages Name="$(BDSBIN)\dclact280.bpl">Embarcadero ActionBar Components</Excluded_Packages>
+                    <Excluded_Packages Name="C:\Program Files (x86)\Embarcadero\add-on\EnvisionImageLibrary\source\packages\En_D11.bpl">Envision Image Library</Excluded_Packages>
                     <Excluded_Packages Name="$(BDSBIN)\dcloffice2k280.bpl">Microsoft Office 2000 Sample Automation Server Wrapper Components</Excluded_Packages>
                     <Excluded_Packages Name="$(BDSBIN)\dclofficexp280.bpl">Microsoft Office XP Sample Automation Server Wrapper Components</Excluded_Packages>
                 </Excluded_Packages>
